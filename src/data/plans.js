@@ -4,7 +4,7 @@ export const plans = [
     name: "Essentials",
     price: "₹499 ($6)",
     features: [
-      "ATS Resume Optimization (₹299/$3.40)",
+      "ATS Resume Crafting (₹299/$3.40)",
       "Naukri Optimization (₹299/$3.40)",
       "LinkedIn Optimization (₹399/$4.53)",
     ],
