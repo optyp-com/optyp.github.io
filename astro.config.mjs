@@ -6,5 +6,13 @@ export default defineConfig({
   integrations: [tailwind()],
   base: '/optyp.github.io/',
   build: { assetsPrefix: './' },
-  vite: { build: { rollupOptions: { output: { assetFileNames: 'assets/[name].[hash][extname]' }}}}
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: 'assets/[name].[hash][extname]'
+        }
+      }
+    }
+  }
 });
