@@ -2,26 +2,26 @@
 export const services = [
   {
     title: "ATS Resume",
-    description: "Transform your resume with AI-powered optimization that beats applicant tracking systems and captures recruiter attention in seconds.",
+    description: "Optimize your resume to pass Applicant Tracking Systems and get noticed.",
   },
   {
     title: "LinkedIn Optimization",
-    description: "Build a magnetic LinkedIn presence that positions you as an industry leader and attracts premium opportunities from top employers.",
+    description: "Enhance your LinkedIn profile to attract recruiters and hiring managers.",
   },
   {
-    title: "Naukri Optimization",
-    description: "Supercharge your Naukri profile with strategic positioning and keyword optimization that puts you ahead of the competition.",
+    title: "Naukri Profile Enhancement",
+    description: "Boost your Naukri profile visibility and lead generation.",
   },
   {
-    title: "Indeed Optimization",
-    description: "Create an irresistible Indeed profile that draws quality employers to you and accelerates your job search success.",
+    title: "Indeed Profile Optimization",
+    description: "Optimize your Indeed profile to increase visibility among employers and attract the right job opportunities.",
   },
   {
-    title: "GitHub Optimization",
-    description: "Craft a compelling GitHub portfolio that demonstrates your technical expertise and makes you stand out to hiring managers.",
+    title: "GitHub Profile Enhancement",
+    description: "Showcase your projects and skills on GitHub to impress recruiters and technical hiring managers.",
   },
   {
-    title: "Portfolio Optimization",
-    description: "Design a stunning professional portfolio that showcases your achievements and establishes your personal brand online.",
+    title: "Professional Portfolio Creation",
+    description: "Develop a compelling online portfolio to highlight your work and professional accomplishments effectively.",
   },
 ];
