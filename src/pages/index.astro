@@ -1,5 +1,4 @@
 ---
-import Layout from '../layouts/Layout.astro';
 import Services from '../components/Services.astro';
 import Plans from '../components/Plans.astro';
 import Testimonials from '../components/Testimonials.astro';
@@ -8,39 +7,57 @@ import { services } from '../data/services.js';
 import { plans } from '../data/plans.js';
 import { testimonials } from '../data/testimonials.js';
 ---
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OptyP — Optimize Your Professionalism</title>
+    <meta name="description" content="Professional resume writing and profile optimization services." />
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./styles/global.css" />
+  </head>
+  <body class="bg-white text-gray-900">
+    <!-- Header with SVG logo -->
+    <header class="py-6 px-8 flex items-center justify-between">
+      <a href="./" aria-label="OptyP Home">
+        <img src="./images/logo.svg" alt="OptyP Logo" width="150" />
+      </a>
+      <!-- Navigation or menu here -->
+    </header>
 
-<Layout title="OptyP — Optimize Your Professionalism" description="Professional resume writing and profile optimization services.">
-  <!-- Hero Section -->
-  <section id="home" class="py-20 text-center bg-gray-50">
-    <div class="container mx-auto px-4">
+    <!-- Home / Intro Section -->
+    <section id="home" class="py-20 text-center">
       <h1 class="text-5xl font-extrabold mb-4">Optimize Your Professionalism with OptyP</h1>
       <p class="text-xl max-w-3xl mx-auto mb-12">
         Get set, get hired! Professional resume writing and profile optimization services to boost your career globally.
       </p>
-      <img src="./images/logo.svg" alt="OptyP Logo" width="150" class="mx-auto mb-6" />
-    </div>
-  </section>
+    </section>
 
-  <!-- Services Section -->
-  <Services services={services} />
+    <!-- Services Section -->
+    <Services services={services} />
 
-  <!-- Plans Section -->
-  <Plans plans={plans} />
+    <!-- Plans Section -->
+    <Plans plans={plans} />
 
-  <!-- Testimonials Section -->
-  <Testimonials testimonials={testimonials} />
+    <!-- Testimonials Section -->
+    <Testimonials testimonials={testimonials} />
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-gray-50 text-center">
-    <h2 class="text-4xl font-bold mb-8">Contact Us</h2>
-    <p class="max-w-xl mx-auto mb-12">
-      Have questions or want to get started? Reach out to us today!
-    </p>
-    <a
-      href="./contact"
-      class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3 rounded transition-colors"
-    >
-      Go to Contact Page
-    </a>
-  </section>
-</Layout>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50 text-center">
+      <h2 class="text-4xl font-bold mb-8">Contact Us</h2>
+      <p class="max-w-xl mx-auto mb-12">
+        Have questions or want to get started? Reach out to us today!
+      </p>
+      <a href="https://forms.gle/e2psZyv2BjAniPeP6" target="_blank" rel="noopener"
+        class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3 rounded transition-colors">
+        Go to Contact Page
+      </a>
+    </section>
+
+    <!-- Footer with SVG logo -->
+    <footer class="py-10 bg-gray-100 text-center">
+      <img src="./images/logo.svg" alt="OptyP Logo" width="120" class="mx-auto mb-4" />
+      <p class="text-gray-600 text-sm">&copy; 2025 OptyP. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
