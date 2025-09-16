@@ -1,24 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
-    <loc>https://optyp-com.github.io/optyp.github.io/</loc>
+    <loc>https://yourdomain.com/</loc>
     <lastmod>2025-09-15</lastmod>
     <priority>1.00</priority>
   </url>
+
+  <!-- Services section (assumed an anchor on homepage) -->
   <url>
-    <loc>https://optyp-com.github.io/optyp.github.io/#services</loc>
+    <loc>https://yourdomain.com/#services</loc>
     <priority>0.80</priority>
   </url>
+
+  <!-- Plans section -->
   <url>
-    <loc>https://optyp-com.github.io/optyp.github.io/#plans</loc>
+    <loc>https://yourdomain.com/#plans</loc>
     <priority>0.80</priority>
   </url>
+
+  <!-- Testimonials section -->
   <url>
-    <loc>https://optyp-com.github.io/optyp.github.io/#testimonials</loc>
+    <loc>https://yourdomain.com/#testimonials</loc>
     <priority>0.70</priority>
   </url>
+
+  <!-- Contact page -->
   <url>
-    <loc>https://optyp-com.github.io/optyp.github.io/contact</loc>
+    <loc>https://yourdomain.com/contact</loc>
     <priority>0.80</priority>
   </url>
 </urlset>
