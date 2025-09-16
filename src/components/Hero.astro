@@ -1,4 +1,17 @@
-<section id="main-content" class="hero-banner text-white section-padding">
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
+export default defineConfig({
+  site: 'https://optyp-com.github.io/optyp.github.io/',
+  integrations: [tailwind()],
+  base: '/',
+  build: { assetsPrefix: './' },
+  vite: { build: { rollupOptions: { output: { assetFileNames: 'assets/[name].[hash][extname]' }}}}
+});
+
+
+hero.astro
+
+<section id="main-content" class="bg-primary-500 text-white section-padding">
   <div class="container-custom">
     <div class="grid gap-8">
       <div aria-label="OptyP Hero">
@@ -15,6 +28,12 @@
         <p class="mt-4 text-sm font-medium">
           Limited Time: 50% Launch Offer • Delivered in 48 hrs
         </p>
+      </div>
+      <div aria-label="Hero Illustration">
+        <picture>
+          <source srcset="/images/hero.webp" type="image/webp" />
+          <img src="/images/hero-banner.svg" alt="Job seeker success illustration" loading="lazy" class="w-full h-auto rounded-xl" />
+        </picture>
       </div>
     </div>
   </div>
