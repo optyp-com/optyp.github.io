@@ -1,28 +1,27 @@
-
 // src/data/services.js
 export const services = [
   {
     title: "ATS Resume",
-    description: "Transform your resume with AI-driven optimization that beats applicant tracking systems and grabs recruiter attention instantly.",
+    description: "Transform your resume with AI-powered optimization that beats applicant tracking systems and captures recruiter attention in seconds.",
   },
   {
-    title: "LinkedIn Optimizer",
-    description: "Optimize your LinkedIn profile to position you as an industry leader and attract premium opportunities from top employers.",
+    title: "LinkedIn Optimization",
+    description: "Build a magnetic LinkedIn presence that positions you as an industry leader and attracts premium opportunities from top employers.",
   },
   {
-    title: "Naukri Optimizer",
-    description: "Enhance your Naukri profile with strategic keyword and layout optimization to outshine other candidates.",
+    title: "Naukri Optimization",
+    description: "Supercharge your Naukri profile with strategic positioning and keyword optimization that puts you ahead of the competition.",
   },
   {
-    title: "Indeed Optimizer",
-    description: "Fine-tune your Indeed profile for maximum visibility and faster job matches with quality employers.",
+    title: "Indeed Optimization",
+    description: "Create an irresistible Indeed profile that draws quality employers to you and accelerates your job search success.",
   },
   {
-    title: "GitHub Optimizer",
-    description: "Optimize your GitHub portfolio to showcase your technical projects and make a strong impression on hiring managers.",
+    title: "GitHub Optimization",
+    description: "Craft a compelling GitHub portfolio that demonstrates your technical expertise and makes you stand out to hiring managers.",
   },
   {
-    title: "Portfolio Optimizer",
-    description: "Design and optimize a digital portfolio that highlights your achievements and strengthens your personal brand online.",
+    title: "Portfolio Optimization",
+    description: "Design a stunning professional portfolio that showcases your achievements and establishes your personal brand online.",
   },
 ];
