@@ -14,7 +14,7 @@ export const plans = [
     name: "Professional",
     price: "₹749 ($9)",
     features: [
-      "Essentials Plan and (₹499/$6)",
+      "Essentials Plan and    (₹499/$6)",
       "Indeed Optimization (₹299/$3.40)",
       "GitHub Optimization (₹299/$3.40)",
     ],
@@ -24,7 +24,7 @@ export const plans = [
     name: "Elite",
     price: "₹999 ($14)",
     features: [
-      "Professional Plan and (₹749/$9)",
+      "Professional Plan and    (₹749/$9)",
       "Additional ATS Resume (₹749/$9)",
       "Portfolio Optimization (₹799/$9.08)",
     ],
