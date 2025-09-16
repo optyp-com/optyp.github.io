@@ -2,7 +2,5 @@
   background-image: url('./images/hero-banner.svg');
   background-size: cover;
   background-position: center;
-  height: 400px; /* adjust as needed */
+  height: 400px;
 }
-
-/* Rest of your CSS stays unchanged */

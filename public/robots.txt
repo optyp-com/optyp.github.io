@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://optyp.github.io/sitemap.xml
+Sitemap: https://optyp-com.github.io/optyp.github.io/sitemap.xml
