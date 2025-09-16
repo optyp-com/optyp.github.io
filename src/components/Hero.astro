@@ -1,36 +1,25 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-export default defineConfig({
-  site: 'https://optyp-com.github.io/optyp.github.io/',
-  integrations: [tailwind()],
-  base: '/',
-  build: { assetsPrefix: './' },
-  vite: { build: { rollupOptions: { output: { assetFileNames: 'assets/[name].[hash][extname]' }}}}
-});
-
-
-hero.astro
-
+---
+---
 <section id="main-content" class="bg-primary-500 text-white section-padding">
   <div class="container-custom">
-    <div class="grid gap-8">
+    <div class="grid gap-8 md:grid-cols-2 items-center">
       <div aria-label="OptyP Hero">
-        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-heading font-bold mb-4">
+        <h1 class="text-5xl font-heading font-bold mb-4">
           Optimize Your <span class="text-primary-100">Professionalism</span>
         </h1>
-        <p class="text-lg sm:text-xl mb-6">
+        <p class="text-lg sm:text-xl">
           ATS-friendly resumes & profile optimization — get noticed, get hired.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <button class="btn-primary-filled" aria-label="Start ₹499">Start ₹499</button>
-        <p class="mt-4 text-sm font-medium">
-          Limited Time: 50% Launch Offer • Delivered in 48 hrs
         </p>
       </div>
       <div aria-label="Hero Illustration">
         <picture>
-          <source srcset="/images/hero.webp" type="image/webp" />
-          <img src="/images/hero-banner.svg" alt="Job seeker success illustration" loading="lazy" class="w-full h-auto rounded-xl" />
+          <source srcset="/images/hero-small.webp" type="image/webp" />
+          <img
+            src="/images/hero-small.jpg"
+            alt="Job seeker success illustration"
+            loading="lazy"
+            class="w-full h-auto rounded-xl max-h-[400px] object-contain"
+          />
         </picture>
       </div>
     </div>
