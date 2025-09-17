@@ -1,16 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-
 <Layout title="Refund Policy - OptyP" description="Refund Policy for OptyP professional resume and profile optimization services.">
-  <div class="container mx-auto px-4 py-12 max-w-4xl">
-    
+  <div class="container mx-auto px-4 py-12 max-w-4xl font-body">
+
     <!-- Header -->
     <div class="text-center mb-12">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">Refund Policy</h1>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        We strive to deliver high-quality resume and profile optimization services that exceed your expectations. 
-        If you are not satisfied with our service, please review the refund terms below.
+        At OptyP, we strive to deliver exceptional resume and profile optimization that meets your expectations. 
+        If you are unsatisfied, please review the refund policy terms below.
       </p>
       <div class="mt-4 text-sm text-gray-500">
         <p>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
@@ -18,195 +17,139 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <!-- Content -->
-    <div class="prose prose-lg max-w-none space-y-8">
-      
+    <article class="prose prose-lg max-w-none text-gray-700 space-y-12">
+
       <section>
-        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Refund Eligibility</h2>
+        <h2>Refund Eligibility</h2>
         <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400">
-          <p class="text-gray-700 mb-4 font-medium">Refunds may be considered under the following conditions:</p>
-          <ul class="list-disc pl-6 space-y-3 text-gray-700">
-            <li><strong>Timeframe:</strong> Refund requests must be made within <span class="bg-yellow-200 px-2 py-1 rounded font-medium">7 days</span> of the service delivery date</li>
-            <li><strong>Service issues:</strong> Refunds are considered only if the service was not delivered as agreed upon or contains significant quality issues that cannot be resolved through revisions</li>
-            <li><strong>Non-delivery:</strong> If we fail to deliver your service within the agreed timeframe without prior notification</li>
-            <li><strong>Technical errors:</strong> If there are significant technical errors in our deliverables that materially affect their functionality</li>
-          </ul>
-          
-          <div class="mt-6 bg-red-50 p-4 rounded-lg border border-red-200">
-            <h4 class="font-medium text-red-800 mb-2">❌ Services NOT Eligible for Refunds</h4>
-            <ul class="list-disc pl-6 space-y-1 text-sm text-red-700">
-              <li>Services that have been completed and approved by the customer</li>
-              <li>Changes in personal preferences after service delivery</li>
-              <li>Dissatisfaction with job search outcomes (we optimize profiles, not guarantee employment)</li>
-              <li>Services used or downloaded after the 7-day period</li>
-              <li>Custom requests outside the scope of the original service package</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Refund Process</h2>
-        <div class="space-y-6">
-          
-          <div class="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h3 class="text-lg font-semibold text-green-800 mb-4">Step-by-Step Refund Request</h3>
-            
-            <div class="space-y-4">
-              <div class="flex items-start space-x-3">
-                <div class="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
-                <div>
-                  <h4 class="font-medium text-gray-900">Submit Request</h4>
-                  <p class="text-gray-700 text-sm">Contact us at <a href="mailto:info@optyp.com" class="text-blue-600 hover:underline">info@optyp.com</a> with your refund request</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start space-x-3">
-                <div class="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
-                <div>
-                  <h4 class="font-medium text-gray-900">Provide Details</h4>
-                  <p class="text-gray-700 text-sm">Include your order number, service details, and specific reason for the refund request</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start space-x-3">
-                <div class="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
-                <div>
-                  <h4 class="font-medium text-gray-900">Review Process</h4>
-                  <p class="text-gray-700 text-sm">Our support team will review your request within <strong>5 business days</strong></p>
-                </div>
-              </div>
-              
-              <div class="flex items-start space-x-3">
-                <div class="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold">4</div>
-                <div>
-                  <h4 class="font-medium text-gray-900">Resolution</h4>
-                  <p class="text-gray-700 text-sm">We'll notify you of our decision and process approved refunds within 7-10 business days</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-            <h3 class="text-lg font-semibold text-yellow-800 mb-3">Required Information for Refund Requests</h3>
-            <ul class="list-disc pl-6 space-y-2 text-yellow-700">
-              <li>Your full name and email address used for the service</li>
-              <li>Order number or transaction ID</li>
-              <li>Service type and package purchased</li>
-              <li>Detailed explanation of the issue or reason for refund</li>
-              <li>Supporting documentation (if applicable)</li>
-            </ul>
-          </div>
-
-        </div>
-      </section>
-
-      <section>
-        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Alternative Solutions</h2>
-        <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
-          <p class="text-purple-800 mb-4">
-            Before requesting a refund, consider these alternatives that might resolve your concerns:
-          </p>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div>
-              <h4 class="font-medium text-purple-900 mb-2">🔄 Free Revisions</h4>
-              <p class="text-purple-700 text-sm">All packages include 2 rounds of revisions. Let us fix any issues first.</p>
-            </div>
-            <div>
-              <h4 class="font-medium text-purple-900 mb-2">💬 Direct Support</h4>
-              <p class="text-purple-700 text-sm">Contact our team to discuss concerns and explore solutions.</p>
-            </div>
-            <div>
-              <h4 class="font-medium text-purple-900 mb-2">📞 Consultation Call</h4>
-              <p class="text-purple-700 text-sm">Schedule a call to review your deliverables and address questions.</p>
-            </div>
-            <div>
-              <h4 class="font-medium text-purple-900 mb-2">🎯 Service Adjustment</h4>
-              <p class="text-purple-700 text-sm">We can modify the service scope to better meet your needs.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Refund Methods & Timeline</h2>
-        <div class="space-y-4">
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h3 class="font-semibold text-gray-900 mb-3">Payment Method & Refund Timeline</h3>
-            <div class="overflow-x-auto">
-              <table class="w-full text-sm">
-                <thead>
-                  <tr class="border-b border-gray-200">
-                    <th class="text-left py-2 px-3 font-medium text-gray-900">Payment Method</th>
-                    <th class="text-left py-2 px-3 font-medium text-gray-900">Refund Timeline</th>
-                    <th class="text-left py-2 px-3 font-medium text-gray-900">Processing Fee</th>
-                  </tr>
-                </thead>
-                <tbody class="text-gray-700">
-                  <tr class="border-b border-gray-100">
-                    <td class="py-2 px-3">Credit Card</td>
-                    <td class="py-2 px-3">5-10 business days</td>
-                    <td class="py-2 px-3">None</td>
-                  </tr>
-                  <tr class="border-b border-gray-100">
-                    <td class="py-2 px-3">Debit Card</td>
-                    <td class="py-2 px-3">3-7 business days</td>
-                    <td class="py-2 px-3">None</td>
-                  </tr>
-                  <tr class="border-b border-gray-100">
-                    <td class="py-2 px-3">Digital Wallets</td>
-                    <td class="py-2 px-3">1-3 business days</td>
-                    <td class="py-2 px-3">None</td>
-                  </tr>
-                  <tr>
-                    <td class="py-2 px-3">Bank Transfer</td>
-                    <td class="py-2 px-3">3-5 business days</td>
-                    <td class="py-2 px-3">Banking fees may apply</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Partial Refunds</h2>
-        <div class="text-gray-700">
-          <p class="mb-4">
-            In certain circumstances, we may offer partial refunds for services that were partially completed or used:
-          </p>
+          <p class="font-semibold mb-4">Refunds may be considered in the following cases:</p>
           <ul class="list-disc pl-6 space-y-2">
-            <li>Services partially delivered due to client unavailability</li>
-            <li>Scope changes requested mid-project</li>
-            <li>Bundled services where only some components have issues</li>
+            <li><strong>Timeframe:</strong> Requests made within <span class="bg-yellow-200 px-2 py-1 rounded font-semibold">7 days</span> of service delivery.</li>
+            <li><strong>Service Issues:</strong> Undelivered services or unresolved quality concerns.</li>
+            <li><strong>Non-Delivery:</strong> Failure to deliver on agreed timelines without notice.</li>
+            <li><strong>Technical Errors:</strong> Critical errors impacting service functionality.</li>
           </ul>
-          <p class="mt-4 text-sm text-gray-600">
-            Partial refund amounts are determined on a case-by-case basis and communicated clearly during the review process.
-          </p>
+          <div class="mt-6 bg-red-50 p-4 rounded-lg border border-red-200">
+            <h4 class="font-semibold text-red-800 mb-3">Services Not Eligible for Refund</h4>
+            <ul class="list-disc pl-6 space-y-1 text-sm text-red-700">
+              <li>Services completed and customer approved.</li>
+              <li>Change of personal preference post delivery.</li>
+              <li>Dissatisfaction with job search results.</li>
+              <li>Services used or accessed beyond 7-day period.</li>
+              <li>Custom requests outside original package scope.</li>
+            </ul>
+          </div>
         </div>
+      </section>
+
+      <section>
+        <h2>Refund Process</h2>
+        <div class="space-y-6">
+          <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+            <h3 class="text-lg font-semibold text-green-800 mb-4">Step-by-Step Refund Procedure</h3>
+            <ol class="list-decimal pl-6 space-y-4 text-gray-700">
+              <li>
+                <strong>Submit Request:</strong> Contact us at <a href="mailto:info@optyp.com" class="text-blue-600 hover:underline">info@optyp.com</a>.
+              </li>
+              <li>
+                <strong>Provide Details:</strong> Include order number, package details, and refund reason.
+              </li>
+              <li>
+                <strong>Review:</strong> Our team reviews your request within 5 business days.
+              </li>
+              <li>
+                <strong>Resolution:</strong> We communicate our decision and process refund within 7-10 business days.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+            <h3 class="text-lg font-semibold text-yellow-800 mb-3">Information Needed for Refund Requests</h3>
+            <ul class="list-disc pl-6 space-y-2 text-yellow-700">
+              <li>Full name and email used for purchase</li>
+              <li>Order/Transaction ID</li>
+              <li>Purchased package/service type</li>
+              <li>Detailed refund reason</li>
+              <li>Supporting documents (if applicable)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Alternative Solutions</h2>
+        <div class="bg-purple-50 p-6 rounded-lg border border-purple-200 text-purple-800">
+          <p class="mb-4 font-semibold">Before requesting a refund, consider these options:</p>
+          <ul class="list-disc pl-6 space-y-3">
+            <li><strong>Free Revisions:</strong> Two rounds included in all packages to address concerns.</li>
+            <li><strong>Direct Support:</strong> Reach out to discuss and resolve your issues.</li>
+            <li><strong>Consultation Call:</strong> Schedule a call to review deliverables.</li>
+            <li><strong>Service Adjustments:</strong> Modify scope to better suit needs.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Refund Methods & Timeline</h2>
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="font-semibold mb-4">Payment Methods and Refund Timing</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm leading-relaxed text-gray-700">
+              <thead>
+                <tr class="border-b border-gray-300">
+                  <th class="py-2 px-4 text-left font-semibold">Payment Method</th>
+                  <th class="py-2 px-4 text-left font-semibold">Refund Timeline</th>
+                  <th class="py-2 px-4 text-left font-semibold">Processing Fee</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-200">
+                  <td class="py-2 px-4">Credit Card</td>
+                  <td class="py-2 px-4">5-10 business days</td>
+                  <td class="py-2 px-4">No fee</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="py-2 px-4">Debit Card</td>
+                  <td class="py-2 px-4">3-7 business days</td>
+                  <td class="py-2 px-4">No fee</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="py-2 px-4">Digital Wallets</td>
+                  <td class="py-2 px-4">1-3 business days</td>
+                  <td class="py-2 px-4">No fee</td>
+                </tr>
+                <tr>
+                  <td class="py-2 px-4">Bank Transfer</td>
+                  <td class="py-2 px-4">3-5 business days</td>
+                  <td class="py-2 px-4">May incur banking fees</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Partial Refund Policy</h2>
+        <p>Partial refunds may be issued upon review in cases such as:</p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-700">
+          <li>Partial delivery due to client unavailability</li>
+          <li>Mid-project scope changes</li>
+          <li>Issues limited to specific bundled services</li>
+        </ul>
+        <p class="mt-4 text-sm text-gray-600">
+          Partial refund amounts are determined on a case-by-case basis and communicated during the review process.
+        </p>
       </section>
 
       <!-- Contact Section -->
       <section class="bg-blue-600 text-white p-8 rounded-lg text-center">
-        <h2 class="text-2xl font-bold mb-4">Need Help with a Refund Request?</h2>
-        <p class="text-blue-100 mb-6">
-          Our support team is here to help resolve any concerns you may have about our services.
-        </p>
-        <div class="space-y-3">
-          <div>
-            <p class="text-blue-100">📧 <strong>Email:</strong></p>
-            <p><a href="mailto:info@optyp.com" class="text-blue-200 hover:text-white underline text-lg">info@optyp.com</a></p>
-          </div>
-          <div>
-            <p class="text-blue-100">💬 <strong>Contact Form:</strong></p>
-            <p><a href="/contact/" class="text-blue-200 hover:text-white underline">Visit our contact page</a></p>
-          </div>
-          <div class="mt-4 text-blue-200 text-sm">
-            <p>⏰ We typically respond within 24 hours during business days</p>
-          </div>
-        </div>
+        <h2 class="text-2xl font-bold mb-4">Need Assistance with a Refund?</h2>
+        <p class="mb-6">Our dedicated support team is here to help resolve your refund concerns promptly.</p>
+        <p><strong>Email:</strong> <a href="mailto:info@optyp.com" class="text-blue-200 hover:text-white underline">info@optyp.com</a></p>
+        <p><strong>Contact Page:</strong> <a href="/contact/" class="text-blue-200 hover:text-white underline">Visit Our Contact Page</a></p>
+        <p class="mt-4 text-blue-200 text-sm">Response times are typically within 24 hours on business days.</p>
       </section>
 
-    </div>
+    </article>
   </div>
 </Layout>
