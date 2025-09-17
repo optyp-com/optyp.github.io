@@ -8,118 +8,45 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingContactIcon from '../components/FloatingContactIcon.astro';
 ---
+
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="keywords" content="ATS resume, LinkedIn optimization, job search" />
-    <meta name="author" content="OptyP" />
-    <!-- Security Headers -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://docs.google.com"
-    />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="DENY" />
-    <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
-    <!-- Google Fonts CDN -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Manifest -->
-    <link rel="manifest" href="/manifest.json" />
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" />
-    <!-- Theme color -->
-    <meta name="theme-color" content="#2563eb" />
-    <!-- Structured Data JSON-LD -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "name": "OptyP",
-            "url": "https://optyp.github.io",
-            "logo": "https://optyp.github.io/assets/logo-white.svg",
-            "sameAs": [
-              "https://linkedin.com/company/optyp",
-              "https://wa.me/919848934274"
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+91-9848934274",
-              "contactType": "customer service"
-            }
-          },
-          {
-            "@type": "Service",
-            "name": "Essentials Plan",
-            "description": "ATS Resume, Naukri & LinkedIn at ₹499",
-            "provider": { "@type": "Organization", "name": "OptyP" },
-            "offers": { "@type": "Offer", "price": "499", "priceCurrency": "INR" }
-          },
-          {
-            "@type": "Service",
-            "name": "Professional Plan",
-            "description": "Complete profile optimization at ₹749",
-            "provider": { "@type": "Organization", "name": "OptyP" },
-            "offers": { "@type": "Offer", "price": "749", "priceCurrency": "INR" }
-          },
-          {
-            "@type": "Service",
-            "name": "Elite Plan",
-            "description": "Premium service + Portfolio at ₹999",
-            "provider": { "@type": "Organization", "name": "OptyP" },
-            "offers": { "@type": "Offer", "price": "999", "priceCurrency": "INR" }
-          }
-        ]
-      }
-    </script>
-    <link rel="stylesheet" href="/styles/global.css" />
-  </head>
-  <body class="bg-white text-gray-900">
-    <a
-      href="#main-content"
-      class="sr-only focus:not-sr-only p-2 bg-primary-500 text-white"
-    >
-      Skip to main content
-    </a>
-    <Header />
-    <main id="main-content">
-      <slot />
-    </main>
-    <Footer />
-    <!-- Floating WhatsApp (fixed right bottom) -->
-    <div class="fixed bottom-6 right-6 z-50">
-      <a
-        href="https://wa.me/919848934274"
-        target="_blank"
-        rel="noopener"
-        aria-label="WhatsApp Contact"
-        class="p-4 bg-green-500 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-transform"
-      >
-        <svg
-          class="w-6 h-6 text-white"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M16.65 13.536c-.257-.128-1.519-.749-1.754-.83-.235-.078-.406-.128-.577.127-.17.256-.657.83-.807 1-.15.17-.296.191-.553.064-.257-.128-1.085-.399-2.067-1.279-.764-.68-1.279-1.516-1.43-1.772-.15-.256-.016-.395.113-.523.116-.115.257-.3.385-.45.13-.15.172-.256.257-.427.085-.17.042-.32-.021-.448-.064-.128-.577-1.392-.79-1.905-.207-.5-.417-.43-.576-.44l-.494-.009c-.17 0-.448.064-.683.32-.235.256-.9.879-.9 2.14 0 1.262.922 2.485 1.05 2.658.128.17 1.81 2.758 4.392 3.86.614.265 1.092.423 1.46.54.613.197 1.17.17 1.613.103.492-.073 1.519-.62 1.732-1.22.213-.6.213-1.115.15-1.22-.064-.106-.236-.17-.493-.298z"
-          />
-          <path
-            d="M20.52 3.48A11.883 11.883 0 0012 0C5.383 0 0 5.383 0 12a11.66 11.66 0 002.094 6.267L0 24l5.865-2.104A11.967 11.967 0 0012 24c6.617 0 12-5.383 12-12 0-3.2-1.238-6.213-3.48-8.52zM12 22.02c-2.1 0-4.08-.618-5.716-1.676l-.41-.243-3.49 1.25 1.166-3.433-.263-.403A9.894 9.894 0 012.1 12 9.92 9.92 0 0112 2.1c5.485 0 9.9 4.403 9.9 9.9 0 5.497-4.415 9.92-9.9 9.92z"
-          />
-        </svg>
-      </a>
-    </div>
-    <!-- Floating Contact Us (fixed left bottom) -->
-    <FloatingContactIcon />
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content={description} />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <title>{title}</title>
+  
+  <!-- Meta tags for SEO -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://optyp.github.io" />
+  
+  <!-- Schema.org markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "OptyP",
+    "url": "https://optyp.github.io",
+    "description": "Professional resume & profile optimization services"
+  }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-blue-600 text-white px-4 py-2 rounded">
+    Skip to main content
+  </a>
+  
+  <Header />
+  
+  <main id="main-content" class="min-h-screen">
+    <slot />
+  </main>
+  
+  <Footer />
+  <FloatingContactIcon />
+</body>
 </html>
