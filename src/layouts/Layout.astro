@@ -3,42 +3,49 @@
 export interface Props {
   title: string;
   description?: string;
+  slug?: string;
 }
-const { title, description = 'OptyP - Optimize Your Professionalism.' } = Astro.props;
 
-import '../styles/global.css';
+const {
+  title,
+  description = 'Professional resume and profile optimization by OptyP.',
+  slug = '',
+} = Astro.props;
+
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingContactIcon from '../components/FloatingContactIcon.astro';
+import '../styles/global.css';
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <meta name="description" content={description} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://optyp.com/${slug}`} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://optyp.com" />
+    <meta property="og:image" content="https://optyp.com/og-image.png" />
 
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "OptyP",
-        url: "https://optyp.com",
-        description: "Professional resume & profile optimization services"
-      })}
-    </script>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={`https://optyp.com/${slug}`} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://optyp.com/og-image.png" />
   </head>
-  <body class="bg-gray-50 text-gray-900 antialiased">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-blue-600 text-white px-4 py-2 rounded">
+
+  <body class="bg-gray-50 text-gray-900 antialiased font-body">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-primary-600 text-white px-4 py-2 rounded">
       Skip to main content
     </a>
 
@@ -49,6 +56,7 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     </main>
 
     <Footer />
+
     <FloatingContactIcon />
   </body>
 </html>

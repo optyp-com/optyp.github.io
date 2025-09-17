@@ -9,28 +9,70 @@ import { services } from '../data/services.js';
 import { plans } from '../data/plans.js';
 import { testimonials } from '../data/testimonials.js';
 ---
-<Layout title="OPTYP - Optimize Your Professionalism">
+
+<Layout 
+  title="OPTYP - Optimize Your Professionalism"
+  description="Professional resume and profile optimization services to help you get hired faster globally."
+  slug="home"
+>
   <Hero />
   
-  <!-- Add this About section -->
-  <section id="about">
+  <!-- About Section -->
+  <section id="about" aria-label="About OPTYP" class="py-20">
     <About />
   </section>
-
-  <Services services={services} />
-
-  <Plans plans={plans} />
-
-  <Testimonials testimonials={testimonials} />
-
-  <section id="contact" class="py-20 bg-gray-50 text-center">
-    <h2 class="text-4xl font-bold mb-8">Contact Us</h2>
-    <p class="max-w-xl mx-auto mb-12">
+  
+  <!-- Services Section -->
+  <section id="services" aria-label="Services offered" class="bg-gray-50 py-20">
+    <Services services={services} />
+  </section>
+  
+  <!-- Plans Section -->
+  <section id="plans" aria-label="Our plans" class="py-20">
+    <Plans plans={plans} />
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section id="testimonials" aria-label="Customer testimonials" class="bg-gray-50 py-20">
+    <Testimonials testimonials={testimonials} />
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-primary-50 text-center">
+    <h2 class="text-4xl font-extrabold mb-8 text-primary-700">Contact Us</h2>
+    <p class="max-w-xl mx-auto mb-12 text-primary-600 text-lg">
       Have questions or want to get started? Reach out to us today!
     </p>
-    <a href="https://forms.gle/e2psZyv2BjAniPeP6" target="_blank" rel="noopener"
-      class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3 rounded transition-colors">
-      Go to Contact Page
+    <a 
+      href="https://forms.gle/e2psZyv2BjAniPeP6"
+      target="_blank" rel="noopener"
+      class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3 rounded transition-colors focus:outline-none focus:ring-4 focus:ring-primary-400 focus:ring-opacity-50"
+      aria-label="Go to Contact Page"
+    >
+      Get Started
     </a>
   </section>
+  
+  <!-- Structured data JSON-LD -->
+  <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "OPTYP",
+      "url": "https://optyp.com",
+      "logo": "https://optyp.com/images/logo.svg",
+      "sameAs": [
+        "https://www.linkedin.com/in/your-profile",
+        "https://twitter.com/yourprofile",
+        "https://facebook.com/yourprofile",
+        "https://instagram.com/yourprofile"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@optyp.com",
+        "contactType": "customer support",
+        "availableLanguage": ["English"]
+      }
+    }
+  </script>
 </Layout>
