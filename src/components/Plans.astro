@@ -1,7 +1,7 @@
 ---
 const { plans } = Astro.props;
-const signupLink = "https://forms.gle/GuKYwB1oa7ahwWjj7";
 ---
+
 <section id="plans" class="py-20 text-center">
   <div class="container mx-auto max-w-5xl px-4">
     <h2 class="text-4xl font-bold mb-8">Our Plans</h2>
@@ -49,14 +49,14 @@ const signupLink = "https://forms.gle/GuKYwB1oa7ahwWjj7";
                 <li key={feature}>{feature}</li>
               ))}
           </ul>
-          <a
-            href={signupLink}
-            target="_blank"
-            rel="noopener noreferrer"
+
+          <!-- Choose Plan button that opens contact modal -->
+          <button
+            onclick="openContactForm()"
             class="inline-block bg-primary-600 text-white px-6 py-3 rounded hover:bg-primary-700 transition-colors"
           >
             Choose Plan
-          </a>
+          </button>
         </div>
       ))}
     </div>
