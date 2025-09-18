@@ -5,19 +5,16 @@ export interface Props {
   description?: string;
   slug?: string;
 }
-
 const {
   title,
   description = 'Professional resume and profile optimization by OptyP.',
   slug = '',
 } = Astro.props;
-
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingContactIcon from '../components/FloatingContactIcon.astro';
 import '../styles/global.css';
 ---
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,24 +22,26 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={`https://optyp.com/${slug}`} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="https://optyp.com/og-image.png" />
-
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={`https://optyp.com/${slug}`} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://optyp.com/og-image.png" />
-  </head>
 
+    <!-- Google Fonts: Inter and Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
   <body class="bg-gray-50 text-gray-900 antialiased font-body">
     <!-- Skip to main content for accessibility -->
     <a
@@ -51,13 +50,10 @@ import '../styles/global.css';
     >
       Skip to main content
     </a>
-
     <Header />
-
     <main id="main-content" class="min-h-screen">
       <slot />
     </main>
-
     <Footer />
     <FloatingContactIcon />
   </body>
