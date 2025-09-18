@@ -1,20 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Services from '../components/Services.astro';
 import Plans from '../components/Plans.astro';
 import Testimonials from '../components/Testimonials.astro';
+import Contact from '../components/Contact.astro';
 import { services } from '../data/services.js';
 import { plans } from '../data/plans.js';
 import { testimonials } from '../data/testimonials.js';
 ---
-<Layout 
-  title="OPTYP - Optimize Your Professionalism"
+<Layout
+  title="OPTYP – Optimize Your Professionalism"
   description="Professional resume and profile optimization services to help you get hired faster globally."
   slug="home"
 >
-  <Hero />
+  <!-- Site Navigation -->
+  <Nav />
+
+  <!-- Hero / Home Section -->
+  <section id="hero" class="pt-24">
+    <Hero />
+  </section>
 
   <!-- About Section -->
   <section id="about" aria-label="About OPTYP" class="py-20">
@@ -37,86 +45,6 @@ import { testimonials } from '../data/testimonials.js';
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-primary-50 text-center">
-    <h2 class="text-4xl font-extrabold mb-8 text-primary-700">Contact Us</h2>
-    <p class="max-w-xl mx-auto mb-12 text-primary-600 text-lg">
-      Have questions or want to get started? Reach out to us today!
-    </p>
-    
-    <!-- Contact Button -->
-    <button 
-      id="show-contact-form"
-      class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3 rounded transition-colors focus:outline-none focus:ring-4 focus:ring-primary-400 focus:ring-opacity-50 mb-8"
-      onclick="showContactForm()"
-    >
-      Open Contact Form
-    </button>
+  <Contact />
 
-    <!-- Hidden Contact Form (Initially Hidden) -->
-    <div id="contact-form-container" class="hidden max-w-4xl mx-auto mt-8">
-      <iframe
-        src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
-        width="100%"
-        height="800"
-        frameborder="0"
-        class="rounded-lg shadow-lg"
-      >
-        Loading contact form...
-      </iframe>
-      <button 
-        onclick="hideContactForm()"
-        class="mt-4 bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded transition-colors"
-      >
-        Close Form
-      </button>
-    </div>
-
-    <p class="mt-8 text-primary-600">
-      Or email us at
-      <a href="mailto:info@optyp.com" class="font-semibold hover:underline">
-        info@optyp.com
-      </a>.
-    </p>
-  </section>
-
-  <!-- JavaScript for showing/hiding contact form -->
-  <script is:inline>
-    function showContactForm() {
-      document.getElementById('contact-form-container').classList.remove('hidden');
-      document.getElementById('show-contact-form').style.display = 'none';
-      // Scroll to form
-      document.getElementById('contact-form-container').scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
-      });
-    }
-
-    function hideContactForm() {
-      document.getElementById('contact-form-container').classList.add('hidden');
-      document.getElementById('show-contact-form').style.display = 'inline-block';
-    }
-  </script>
-
-  <!-- Structured data JSON-LD -->
-  <script type="application/ld+json" is:inline>
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "OPTYP",
-      "url": "https://optyp.com",
-      "logo": "https://optyp.com/images/logo.svg",
-      "sameAs": [
-        "https://www.linkedin.com/in/your-profile",
-        "https://twitter.com/yourprofile",
-        "https://facebook.com/yourprofile",
-        "https://instagram.com/yourprofile"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "info@optyp.com",
-        "contactType": "customer support",
-        "availableLanguage": ["English"]
-      }
-    }
-  </script>
 </Layout>
