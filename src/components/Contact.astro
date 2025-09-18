@@ -13,7 +13,7 @@
       <!-- Button to open form -->
       <button
         id="contact-icon-btn"
-        class="inline-flex items-center justify-center w-16 h-16 bg-primary-600 text-white rounded-full shadow-lg hover:bg-primary-700 transition-colors"
+        class="inline-flex items-center justify-center w-16 h-16 bg-primary-600 text-white rounded-full shadow-lg hover:bg-primary-700 transition-colors hover-underline"
         aria-label="Open Contact Form"
         onclick="openContactForm()"
       >
@@ -84,17 +84,13 @@
     requestAnimationFrame(() => {
       modal.classList.add('opacity-100');
       modal.classList.remove('opacity-0');
-
-      // Desktop fade+zoom
       content.classList.add('scale-100');
       content.classList.remove('scale-95');
-
-      // Mobile slide-up
       content.classList.remove('translate-y-full');
     });
 
     if (!frame.src) {
-      frame.src = "https://forms.gle/iiotXL2Vzjuxf1tAA";
+      frame.src = "https://docs.google.com/forms/d/e/iiotXL2Vzjuxf1tAA/viewform?embedded=true";
     }
 
     closeBtn.focus();
@@ -103,28 +99,22 @@
   function closeContactForm() {
     const modal = document.getElementById('contact-modal');
     const content = document.getElementById('contact-modal-content');
-
     document.body.classList.remove('overflow-hidden');
-
     modal.classList.remove('opacity-100');
     modal.classList.add('opacity-0');
-
     content.classList.remove('scale-100');
     content.classList.add('scale-95');
     content.classList.add('translate-y-full');
-
     setTimeout(() => {
       modal.classList.add('hidden');
       if (lastFocusedElement) lastFocusedElement.focus();
     }, 300);
   }
 
-  // Close modal when clicking outside
   document.getElementById('contact-modal').addEventListener('click', function () {
     closeContactForm();
   });
 
-  // ESC key closes modal
   document.addEventListener('keydown', function (e) {
     const modal = document.getElementById('contact-modal');
     if (e.key === "Escape" && !modal.classList.contains('hidden')) {
@@ -132,15 +122,12 @@
     }
   });
 
-  // Focus trap
   document.addEventListener('keydown', function (e) {
     const modal = document.getElementById('contact-modal');
     if (modal.classList.contains('hidden')) return;
-
     const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, iframe, [tabindex]:not([tabindex="-1"])');
     const firstEl = focusableElements[0];
     const lastEl = focusableElements[focusableElements.length - 1];
-
     if (e.key === "Tab") {
       if (e.shiftKey) {
         if (document.activeElement === firstEl) {
