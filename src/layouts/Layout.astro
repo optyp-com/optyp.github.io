@@ -7,7 +7,6 @@ const { title, description = 'OptyP - Optimize Your Professionalism.' } = Astro.
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingContactIcon from '../components/FloatingContactIcon.astro';
-import '../styles/global.css';
 ---
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
@@ -26,22 +25,19 @@ import '../styles/global.css';
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
-
     <!-- Google Fonts CDN -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
     />
-
     <!-- Manifest -->
     <link rel="manifest" href="/manifest.json" />
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" />
     <!-- Theme color -->
     <meta name="theme-color" content="#2563eb" />
-
     <!-- Structured Data JSON-LD -->
     <script type="application/ld+json">
       {
@@ -50,8 +46,8 @@ import '../styles/global.css';
           {
             "@type": "Organization",
             "name": "OptyP",
-            "url": "https://optyp.com",
-            "logo": "https://optyp.com/assets/logo-white.svg",
+            "url": "https://optyp.github.io",
+            "logo": "https://optyp.github.io/assets/logo-white.svg",
             "sameAs": [
               "https://linkedin.com/company/optyp",
               "https://wa.me/919848934274"
@@ -86,10 +82,9 @@ import '../styles/global.css';
         ]
       }
     </script>
-
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
-  <body class="bg-white text-gray-900 font-body">
+  <body class="bg-white text-gray-900">
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only p-2 bg-primary-500 text-white"
@@ -97,12 +92,11 @@ import '../styles/global.css';
       Skip to main content
     </a>
     <Header />
-    <main id="main-content" class="min-h-screen">
+    <main id="main-content">
       <slot />
     </main>
     <Footer />
-    <!-- Removed WhatsApp Floating Icon -->
-    <!-- Floating Contact Icon -->
+    <!-- Floating Contact Us (fixed left bottom) -->
     <FloatingContactIcon />
   </body>
 </html>
