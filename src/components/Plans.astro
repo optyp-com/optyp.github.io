@@ -4,14 +4,14 @@ const { plans } = Astro.props;
 
 <section id="plans" class="py-20 text-center">
   <div class="container mx-auto max-w-5xl px-4">
-    <h2 class="text-4xl font-bold mb-8 text-primary-700">Our Plans</h2>
-    <p class="max-w-xl mx-auto mb-12 text-gray-600 text-lg">
+    <h2 class="text-4xl font-bold mb-8">Our Plans</h2>
+    <p class="max-w-xl mx-auto mb-12">
       Choose the perfect plan to elevate your profile.
     </p>
     <div class="grid md:grid-cols-3 gap-8">
       {plans.map(plan => (
         <div class="p-6 border rounded shadow bg-white" key={plan.name}>
-          <h3 class="text-2xl font-bold mb-4 text-primary-700">{plan.name}</h3>
+          <h3 class="text-2xl font-bold mb-4">{plan.name}</h3>
           <p class="mb-4">
             {plan.features &&
              plan.features.length &&
@@ -42,7 +42,7 @@ const { plans } = Astro.props;
               </span>
             )}
           </p>
-          <ul class="list-disc text-left mb-4 px-4 text-gray-700">
+          <ul class="list-disc text-left mb-4 px-4">
             {plan.features
               .filter(f => !f.toLowerCase().startsWith("total"))
               .map(feature => (
@@ -50,10 +50,10 @@ const { plans } = Astro.props;
               ))}
           </ul>
 
-          <!-- Choose Plan button with underline hover -->
+          <!-- Choose Plan button that opens contact modal -->
           <button
             onclick="openContactForm()"
-            class="inline-block bg-primary-600 text-white px-6 py-3 rounded hover:bg-primary-700 transition-colors hover-underline"
+            class="inline-block bg-primary-600 text-white px-6 py-3 rounded hover:bg-primary-700 transition-colors"
           >
             Choose Plan
           </button>
