@@ -11,40 +11,32 @@ import { services } from '../data/services.js';
 import { plans } from '../data/plans.js';
 import { testimonials } from '../data/testimonials.js';
 ---
-<Layout
-  title="OPTYP – Optimize Your Professionalism"
+<Layout 
+  title="OPTYP - Optimize Your Professionalism"
   description="Professional resume and profile optimization services to help you get hired faster globally."
   slug="home"
 >
-  <!-- Site Navigation -->
   <Nav />
 
-  <!-- Hero / Home Section -->
   <section id="hero" class="pt-24">
     <Hero />
   </section>
 
-  <!-- About Section -->
   <section id="about" aria-label="About OPTYP" class="py-20">
     <About />
   </section>
 
-  <!-- Services Section -->
   <section id="services" aria-label="Services offered" class="bg-gray-50 py-20">
     <Services services={services} />
   </section>
 
-  <!-- Plans Section -->
   <section id="plans" aria-label="Our plans" class="py-20">
     <Plans plans={plans} />
   </section>
 
-  <!-- Testimonials Section -->
   <section id="testimonials" aria-label="Customer testimonials" class="bg-gray-50 py-20">
     <Testimonials testimonials={testimonials} />
   </section>
 
-  <!-- Contact Section -->
   <Contact />
-
 </Layout>
