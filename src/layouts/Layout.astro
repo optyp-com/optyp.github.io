@@ -17,14 +17,24 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     <meta name="description" content={description} />
     <meta name="keywords" content="ATS resume, LinkedIn optimization, job search" />
     <meta name="author" content="OptyP" />
-    <!-- Security Headers -->
+
+    <!-- ✅ Security Headers (fixed) -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://docs.google.com"
+      content="
+        default-src 'self';
+        img-src 'self' https://fonts.gstatic.com data:;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src https://fonts.gstatic.com;
+        script-src 'self' 'unsafe-inline';
+        frame-src https://docs.google.com
+      "
     />
+    <!-- SAMEORIGIN instead of DENY, so Google Forms iframe works -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+
     <!-- Google Fonts CDN -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,12 +42,14 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
     />
+
     <!-- Manifest -->
     <link rel="manifest" href="/manifest.json" />
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" />
     <!-- Theme color -->
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" content="#3CB592" />
+
     <!-- Structured Data JSON-LD -->
     <script type="application/ld+json">
       {
@@ -82,6 +94,8 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
         ]
       }
     </script>
+
+    <!-- Global Styles -->
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body class="bg-white text-gray-900">
