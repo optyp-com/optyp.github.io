@@ -35,12 +35,34 @@
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden md:hidden bg-white shadow-inner">
     <ul class="flex flex-col space-y-1 px-4 py-2 text-gray-700 font-medium">
-      <li><a href="#hero" class="block py-2 hover:text-primary-600" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a></li>
-      <li><a href="#about" class="block py-2 hover:text-primary-600" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a></li>
-      <li><a href="#services" class="block py-2 hover:text-primary-600" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a></li>
-      <li><a href="#plans" class="block py-2 hover:text-primary-600" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Plans</a></li>
-      <li><a href="#testimonials" class="block py-2 hover:text-primary-600" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Testimonials</a></li>
-      <li><a href="#contact" class="block py-2 hover:text-primary-600" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a></li>
+      <li><a href="#hero" class="block py-2 hover:text-primary-600">Home</a></li>
+      <li><a href="#about" class="block py-2 hover:text-primary-600">About</a></li>
+      <li><a href="#services" class="block py-2 hover:text-primary-600">Services</a></li>
+      <li><a href="#plans" class="block py-2 hover:text-primary-600">Plans</a></li>
+      <li><a href="#testimonials" class="block py-2 hover:text-primary-600">Testimonials</a></li>
+      <li><a href="#contact" class="block py-2 hover:text-primary-600">Contact</a></li>
     </ul>
   </div>
+
+  <script is:inline>
+    // Close mobile menu and smooth scroll with offset for anchors on mobile
+    document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        // Close mobile menu
+        document.getElementById('mobile-menu').classList.add('hidden');
+        // Calculate offset (navbar height)
+        const navHeight = document.querySelector('nav').offsetHeight;
+        // Smooth scroll with offset
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (!targetElement) return;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: elementPosition - navHeight,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </nav>
