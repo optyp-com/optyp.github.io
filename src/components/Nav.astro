@@ -1,15 +1,46 @@
 ---
 ---
-<nav class="fixed top-0 left-0 w-full bg-white shadow z-50">
-  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <a href="/" class="text-xl font-bold">OPTYP</a>
-    <ul class="flex space-x-6">
-      <li><a href="#hero" class="hover:text-primary-600">Home</a></li>
-      <li><a href="#about" class="hover:text-primary-600">About</a></li>
-      <li><a href="#services" class="hover:text-primary-600">Services</a></li>
-      <li><a href="#plans" class="hover:text-primary-600">Plans</a></li>
-      <li><a href="#testimonials" class="hover:text-primary-600">Testimonials</a></li>
-      <li><a href="#contact" class="hover:text-primary-600">Contact</a></li>
+<nav class="fixed inset-x-0 top-0 z-50 bg-white shadow-md">
+  <div class="container mx-auto flex items-center justify-between px-4 py-3">
+    <!-- Logo -->
+    <a href="/" class="flex items-center space-x-2">
+      <img src="/optyp-icon.jpg" alt="OPTYP Logo" class="h-8 w-8" />
+      <span class="text-xl font-bold text-primary-600">OPTYP</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+      <li><a href="#hero" class="hover:text-primary-600 transition-colors">Home</a></li>
+      <li><a href="#about" class="hover:text-primary-600 transition-colors">About</a></li>
+      <li><a href="#services" class="hover:text-primary-600 transition-colors">Services</a></li>
+      <li><a href="#plans" class="hover:text-primary-600 transition-colors">Plans</a></li>
+      <li><a href="#testimonials" class="hover:text-primary-600 transition-colors">Testimonials</a></li>
+      <li><a href="#contact" class="hover:text-primary-600 transition-colors">Contact</a></li>
+    </ul>
+
+    <!-- Mobile Hamburger -->
+    <button
+      id="nav-toggle"
+      class="md:hidden text-gray-700 focus:outline-none"
+      onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+      aria-label="Toggle navigation menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-inner">
+    <ul class="flex flex-col space-y-1 px-4 py-2 text-gray-700 font-medium">
+      <li><a href="#hero" class="block py-2 hover:text-primary-600">Home</a></li>
+      <li><a href="#about" class="block py-2 hover:text-primary-600">About</a></li>
+      <li><a href="#services" class="block py-2 hover:text-primary-600">Services</a></li>
+      <li><a href="#plans" class="block py-2 hover:text-primary-600">Plans</a></li>
+      <li><a href="#testimonials" class="block py-2 hover:text-primary-600">Testimonials</a></li>
+      <li><a href="#contact" class="block py-2 hover:text-primary-600">Contact</a></li>
     </ul>
   </div>
 </nav>

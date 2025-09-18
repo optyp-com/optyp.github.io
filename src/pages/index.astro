@@ -11,32 +11,40 @@ import { services } from '../data/services.js';
 import { plans } from '../data/plans.js';
 import { testimonials } from '../data/testimonials.js';
 ---
-<Layout 
-  title="OPTYP - Optimize Your Professionalism"
+<Layout
+  title="OPTYP – Optimize Your Professionalism"
   description="Professional resume and profile optimization services to help you get hired faster globally."
   slug="home"
 >
   <Nav />
 
-  <section id="hero" class="pt-24">
-    <Hero />
-  </section>
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section id="hero">
+      <Hero />
+    </section>
 
-  <section id="about" aria-label="About OPTYP" class="py-20">
-    <About />
-  </section>
+    <!-- About Section -->
+    <section id="about" class="py-20">
+      <About />
+    </section>
 
-  <section id="services" aria-label="Services offered" class="bg-gray-50 py-20">
-    <Services services={services} />
-  </section>
+    <!-- Services Section -->
+    <section id="services" class="bg-gray-50 py-20">
+      <Services services={services} />
+    </section>
 
-  <section id="plans" aria-label="Our plans" class="py-20">
-    <Plans plans={plans} />
-  </section>
+    <!-- Plans Section -->
+    <section id="plans" class="py-20">
+      <Plans plans={plans} />
+    </section>
 
-  <section id="testimonials" aria-label="Customer testimonials" class="bg-gray-50 py-20">
-    <Testimonials testimonials={testimonials} />
-  </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="bg-gray-50 py-20">
+      <Testimonials testimonials={testimonials} />
+    </section>
 
-  <Contact />
+    <!-- Contact Section -->
+    <Contact />
+  </main>
 </Layout>
