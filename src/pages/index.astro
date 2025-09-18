@@ -42,17 +42,35 @@ import { testimonials } from '../data/testimonials.js';
     <p class="max-w-xl mx-auto mb-12 text-primary-600 text-lg">
       Have questions or want to get started? Reach out to us today!
     </p>
-    <div class="max-w-xl mx-auto">
+    
+    <!-- Contact Button -->
+    <button 
+      id="show-contact-form"
+      class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3 rounded transition-colors focus:outline-none focus:ring-4 focus:ring-primary-400 focus:ring-opacity-50 mb-8"
+      onclick="showContactForm()"
+    >
+      Open Contact Form
+    </button>
+
+    <!-- Hidden Contact Form (Initially Hidden) -->
+    <div id="contact-form-container" class="hidden max-w-4xl mx-auto mt-8">
       <iframe
-        src="https://forms.gle/iiotXL2Vzjuxf1tAA"
+        src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
         width="100%"
-        height="600"
+        height="800"
         frameborder="0"
-        class="rounded-lg shadow-md"
+        class="rounded-lg shadow-lg"
       >
-        Loading…
+        Loading contact form...
       </iframe>
+      <button 
+        onclick="hideContactForm()"
+        class="mt-4 bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded transition-colors"
+      >
+        Close Form
+      </button>
     </div>
+
     <p class="mt-8 text-primary-600">
       Or email us at
       <a href="mailto:info@optyp.com" class="font-semibold hover:underline">
@@ -60,6 +78,24 @@ import { testimonials } from '../data/testimonials.js';
       </a>.
     </p>
   </section>
+
+  <!-- JavaScript for showing/hiding contact form -->
+  <script is:inline>
+    function showContactForm() {
+      document.getElementById('contact-form-container').classList.remove('hidden');
+      document.getElementById('show-contact-form').style.display = 'none';
+      // Scroll to form
+      document.getElementById('contact-form-container').scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }
+
+    function hideContactForm() {
+      document.getElementById('contact-form-container').classList.add('hidden');
+      document.getElementById('show-contact-form').style.display = 'inline-block';
+    }
+  </script>
 
   <!-- Structured data JSON-LD -->
   <script type="application/ld+json" is:inline>
