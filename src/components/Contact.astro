@@ -3,41 +3,150 @@
 <section id="contact" class="py-20 bg-primary-50 text-center">
   <h2 class="text-4xl font-extrabold mb-6 text-primary-700">Contact Us</h2>
   <p class="max-w-xl mx-auto mb-12 text-primary-600 text-lg">
-    Have questions or want to get started? Click the icon below.
+    Have questions or want to get started? Click below to open the form.
   </p>
+
+  <!-- Button to open form -->
   <button
     id="contact-icon-btn"
     class="inline-flex items-center justify-center w-16 h-16 bg-primary-600 text-white rounded-full shadow-lg hover:bg-primary-700 transition-colors"
     aria-label="Open Contact Form"
-    onclick="toggleContactForm()"
+    onclick="openContactForm()"
   >
     <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         d="M16 12v6m4-3h-8m0 0l-4 4m4-4l-4-4" />
     </svg>
   </button>
-  <div id="contact-form-wrapper" class="hidden mt-12 max-w-3xl mx-auto px-4">
-    <iframe
-      src="https://docs.google.com/forms/d/e/iiotXL2Vzjuxf1tAA/viewform?embedded=true"
-      width="100%" height="700" frameborder="0"
-      class="rounded-lg shadow-lg"
-    >
-      Loading form…
-    </iframe>
-    <button
-      onclick="toggleContactForm()"
-      class="mt-4 bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded transition-colors"
-    >
-      Close Form
-    </button>
+
+  <!-- Modal Overlay -->
+  <div id="contact-modal"
+       class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60
+              hidden opacity-0 transition-opacity duration-300"
+       aria-modal="true" role="dialog">
+    <div class="relative bg-white shadow-lg
+                w-full h-full sm:w-[95%] sm:h-[90%] md:w-[70%] md:h-[85%]
+                flex flex-col transform transition-transform duration-300
+                sm:rounded-lg md:rounded-lg
+                translate-y-full sm:translate-y-0 scale-95"
+         id="contact-modal-content"
+         onclick="event.stopPropagation()">
+      
+      <!-- Sticky Header with Close Button -->
+      <div class="sticky top-0 z-10 flex justify-end p-3 bg-white border-b sm:rounded-t-lg">
+        <button
+          id="close-contact-btn"
+          onclick="closeContactForm()"
+          class="w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center
+                 bg-gray-600 hover:bg-gray-700 text-white rounded-full shadow-md"
+          aria-label="Close Form"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Embedded Google Form -->
+      <iframe
+        id="contact-form-frame"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        class="flex-1 rounded-b-lg"
+        title="Contact Form"
+      >
+      </iframe>
+    </div>
   </div>
+
   <script is:inline>
-    function toggleContactForm() {
-      const wrapper = document.getElementById('contact-form-wrapper');
-      wrapper.classList.toggle('hidden');
-      if (!wrapper.classList.contains('hidden')) {
-        wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    let lastFocusedElement = null;
+
+    function openContactForm() {
+      const modal = document.getElementById('contact-modal');
+      const content = document.getElementById('contact-modal-content');
+      const frame = document.getElementById('contact-form-frame');
+      const closeBtn = document.getElementById('close-contact-btn');
+
+      lastFocusedElement = document.activeElement;
+      document.body.classList.add('overflow-hidden');
+
+      modal.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        modal.classList.add('opacity-100');
+        modal.classList.remove('opacity-0');
+
+        // Desktop animation (fade+zoom)
+        content.classList.add('scale-100');
+        content.classList.remove('scale-95');
+
+        // Mobile animation (slide-up)
+        content.classList.remove('translate-y-full');
+      });
+
+      if (!frame.src) {
+        frame.src = "https://docs.google.com/forms/d/e/iiotXL2Vzjuxf1tAA/viewform?embedded=true";
       }
+
+      closeBtn.focus();
     }
+
+    function closeContactForm() {
+      const modal = document.getElementById('contact-modal');
+      const content = document.getElementById('contact-modal-content');
+
+      document.body.classList.remove('overflow-hidden');
+
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+
+      // Desktop fade out + zoom back
+      content.classList.remove('scale-100');
+      content.classList.add('scale-95');
+
+      // Mobile slide back down
+      content.classList.add('translate-y-full');
+
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        if (lastFocusedElement) lastFocusedElement.focus();
+      }, 300);
+    }
+
+    // Close modal when clicking outside form
+    document.getElementById('contact-modal').addEventListener('click', function () {
+      closeContactForm();
+    });
+
+    // Close modal when pressing Escape
+    document.addEventListener('keydown', function (e) {
+      const modal = document.getElementById('contact-modal');
+      if (e.key === "Escape" && !modal.classList.contains('hidden')) {
+        closeContactForm();
+      }
+    });
+
+    // Focus trap for accessibility
+    document.addEventListener('keydown', function (e) {
+      const modal = document.getElementById('contact-modal');
+      if (modal.classList.contains('hidden')) return;
+
+      const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, iframe, [tabindex]:not([tabindex="-1"])');
+      const firstEl = focusableElements[0];
+      const lastEl = focusableElements[focusableElements.length - 1];
+
+      if (e.key === "Tab") {
+        if (e.shiftKey) {
+          if (document.activeElement === firstEl) {
+            e.preventDefault();
+            lastEl.focus();
+          }
+        } else {
+          if (document.activeElement === lastEl) {
+            e.preventDefault();
+            firstEl.focus();
+          }
+        }
+      }
+    });
   </script>
 </section>

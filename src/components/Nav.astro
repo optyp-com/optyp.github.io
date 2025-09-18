@@ -45,15 +45,14 @@
   </div>
 
   <script is:inline>
-    // Close mobile menu and smooth scroll with offset for anchors on mobile
-    document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(anchor => {
+    // Close mobile menu and smooth scroll with offset for anchors
+    document.querySelectorAll('#mobile-menu a[href^="#"], nav ul a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         // Close mobile menu
         document.getElementById('mobile-menu').classList.add('hidden');
         // Calculate offset (navbar height)
         const navHeight = document.querySelector('nav').offsetHeight;
-        // Smooth scroll with offset
         const targetId = this.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
         if (!targetElement) return;
