@@ -1,5 +1,4 @@
 ---
-// src/layouts/Layout.astro
 export interface Props {
   title: string;
   description?: string;
@@ -88,11 +87,9 @@ import '../styles/global.css';
       }
     </script>
 
-    <!-- Global CSS -->
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body class="bg-white text-gray-900 font-body">
-    <!-- Skip to main content for accessibility -->
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only p-2 bg-primary-500 text-white"
@@ -104,18 +101,7 @@ import '../styles/global.css';
       <slot />
     </main>
     <Footer />
-    <!-- Floating WhatsApp Contact -->
-    <div class="fixed bottom-6 right-6 z-50">
-      <a
-        href="https://wa.me/919848934274"
-        target="_blank"
-        rel="noopener"
-        aria-label="WhatsApp Contact"
-        class="p-4 bg-green-500 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-transform"
-      >
-        <!-- SVG icon here -->
-      </a>
-    </div>
+    <!-- Removed WhatsApp Floating Icon -->
     <!-- Floating Contact Icon -->
     <FloatingContactIcon />
   </body>
