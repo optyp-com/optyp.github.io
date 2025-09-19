@@ -1,5 +1,4 @@
 ---
-// src/components/Header.astro
 ---
 <header class="bg-white shadow sticky top-0 z-40">
   <div class="container mx-auto flex items-center justify-between px-4 py-3">
@@ -36,7 +35,6 @@
     <a href="/#testimonials" class="block hover:text-primary-600" data-section="#testimonials">Testimonials</a>
     <a href="/#contact" class="block hover:text-primary-600" data-section="#contact">Contact</a>
   </nav>
-
   <script is:inline>
     // Mobile Menu Toggle
     const button = document.getElementById('mobile-menu-button');
@@ -44,7 +42,6 @@
     button?.addEventListener('click', () => {
       menu.classList.toggle('hidden');
     });
-
     // Hover & Active Link Handling
     const navLinks = document.querySelectorAll('nav a');
     function setActive(link) {
@@ -58,7 +55,6 @@
         setActive(link);
       });
     });
-
     // Set active based on URL hash on load
     const currentHash = window.location.hash || '#hero';
     const initial = Array.from(navLinks).find(l => l.getAttribute('href') === currentHash);

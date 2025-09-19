@@ -85,31 +85,31 @@
       <div>
         <h4 class="font-semibold mb-4 text-primary-500">Services</h4>
         <ul class="space-y-2 text-sm text-white">
-          <li><a href="/#services" class="hover:text-primary-400">ATS Resume</a></li>
-          <li><a href="/#services" class="hover:text-primary-400">LinkedIn Optimization</a></li>
-          <li><a href="/#services" class="hover:text-primary-400">Portfolio Website</a></li>
-          <li><a href="/#services" class="hover:text-primary-400">Profile Optimization</a></li>
+          <li><a href="/#services" class="hover:text-primary-600">ATS Resume</a></li>
+          <li><a href="/#services" class="hover:text-primary-600">LinkedIn Optimization</a></li>
+          <li><a href="/#services" class="hover:text-primary-600">Portfolio Website</a></li>
+          <li><a href="/#services" class="hover:text-primary-600">Profile Optimization</a></li>
         </ul>
       </div>
       <!-- Quick Links -->
       <div>
         <h4 class="font-semibold mb-4 text-primary-500">Quick Links</h4>
         <ul class="space-y-2 text-sm text-white">
-          <li><a href="/" class="hover:text-primary-400">Home</a></li>
-          <li><a href="/#about" class="hover:text-primary-400">About</a></li>
-          <li><a href="/#plans" class="hover:text-primary-400">Plans</a></li>
-          <li><a href="/#contact" class="hover:text-primary-400">Contact</a></li>
-          <li><a href="/feedback/" class="hover:text-primary-400">Feedback</a></li>
+          <li><a href="/" class="hover:text-primary-600">Home</a></li>
+          <li><a href="/#about" class="hover:text-primary-600">About</a></li>
+          <li><a href="/#plans" class="hover:text-primary-600">Plans</a></li>
+          <li><a href="/#contact" class="hover:text-primary-600">Contact</a></li>
+          <li><a href="/feedback/" class="hover:text-primary-600">Feedback</a></li>
         </ul>
       </div>
       <!-- Legal Links -->
       <div>
         <h4 class="font-semibold mb-4 text-primary-500">Legal</h4>
         <ul class="space-y-2 text-sm text-white">
-          <li><a href="/privacy/" class="hover:text-primary-400">Privacy Policy</a></li>
-          <li><a href="/terms/" class="hover:text-primary-400">Terms & Conditions</a></li>
-          <li><a href="/refund/" class="hover:text-primary-400">Refund Policy</a></li>
-          <li><a href="/FAQ/" class="hover:text-primary-400">FAQ</a></li>
+          <li><a href="/privacy/" class="hover:text-primary-600">Privacy Policy</a></li>
+          <li><a href="/terms/" class="hover:text-primary-600">Terms & Conditions</a></li>
+          <li><a href="/refund/" class="hover:text-primary-600">Refund Policy</a></li>
+          <li><a href="/FAQ/" class="hover:text-primary-600">FAQ</a></li>
         </ul>
       </div>
     </div>
@@ -121,29 +121,16 @@
     </div>
   </div>
 
-  <!-- Back to Top Button (centered, light theme) -->
-  <button 
-    id="backToTop" 
-    onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
-    class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 border border-gray-300 w-12 h-12 rounded-full shadow-lg 
-           flex items-center justify-center hover:bg-gray-100 transition-opacity duration-300 opacity-0 pointer-events-none z-50"
-    aria-label="Back to Top"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
-    </svg>
-  </button>
-
   <script is:inline>
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTop.classList.remove('opacity-0', 'pointer-events-none');
-        backToTop.classList.add('opacity-100');
-      } else {
-        backToTop.classList.add('opacity-0', 'pointer-events-none');
-        backToTop.classList.remove('opacity-100');
-      }
+    const footerLinks = document.querySelectorAll('footer a[href]');
+    function setActiveFooter(link) {
+      footerLinks.forEach(l => l.classList.remove('nav-active'));
+      link.classList.add('nav-active');
+    }
+    footerLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setActiveFooter(link);
+      });
     });
   </script>
 </footer>
