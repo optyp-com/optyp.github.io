@@ -7,7 +7,6 @@
       <img src="/images/logo.svg" alt="OPTYP Logo" class="h-10 w-auto" />
       <span class="font-bold text-xl text-primary-500 tracking-wide">OPTYP</span>
     </a>
-
     <!-- Right Side Controls -->
     <div class="flex items-center space-x-4">
       <!-- Mobile Menu Button -->
@@ -20,7 +19,6 @@
         </svg>
       </button>
     </div>
-
     <!-- Desktop Navigation -->
     <nav class="hidden md:flex space-x-8 font-body text-gray-700">
       <a href="/" class="hover-underline">Home</a>
@@ -31,14 +29,13 @@
       <a href="/#contact" class="hover-underline">Contact</a>
     </nav>
   </div>
-
   <!-- Mobile Navigation -->
   <nav id="mobile-menu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-16 hidden px-4 py-4 space-y-2 font-body">
-    <a href="/" class="block text-gray-700 hover-underline">Home</a>
-    <a href="/#about" class="block text-gray-700 hover-underline">About</a>
-    <a href="/#services" class="block text-gray-700 hover-underline">Services</a>
-    <a href="/#plans" class="block text-gray-700 hover-underline">Plans</a>
-    <a href="/#testimonials" class="block text-gray-700 hover-underline">Testimonials</a>
+    <a href="/" class="block text-gray-700 hover-underline" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+    <a href="/#about" class="block text-gray-700 hover-underline" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+    <a href="/#services" class="block text-gray-700 hover-underline" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a>
+    <a href="/#plans" class="block text-gray-700 hover-underline" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Plans</a>
+    <a href="/#testimonials" class="block text-gray-700 hover-underline" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Testimonials</a>
     
     <!-- Mobile Contact (opens modal) -->
     <button
@@ -52,7 +49,6 @@
       <span>Contact</span>
     </button>
   </nav>
-
   <script is:inline>
     // Mobile Menu Toggle
     const button = document.getElementById('mobile-menu-button');
