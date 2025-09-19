@@ -2,17 +2,49 @@
 const { plans } = Astro.props;
 ---
 
-<section id="plans" class="py-20 text-center">
-  <div class="container mx-auto max-w-5xl px-4">
-    <h2 class="text-4xl font-bold mb-8">Our Plans</h2>
-    <p class="max-w-xl mx-auto mb-12">
+<section 
+  id="plans" 
+  class="py-16 sm:py-20 bg-white dark:bg-gray-900 transition-colors duration-500 text-center"
+>
+  <div class="container-custom">
+    <!-- Heading -->
+    <h2 class="text-3xl sm:text-4xl font-heading font-bold mb-6 text-primary-700 dark:text-primary-500">
+      Our Plans
+    </h2>
+    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-12 max-w-xl mx-auto">
       Choose the perfect plan to elevate your profile.
     </p>
-    <div class="grid md:grid-cols-3 gap-8">
+
+    <!-- Illustration -->
+    <div class="flex justify-center mb-8">
+      <img 
+        src="/images/about-network.svg" 
+        alt="Networking Illustration" 
+        class="w-40 sm:w-56 md:w-64 dark:opacity-90 transition-opacity duration-500"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Plans Grid -->
+    <div class="grid gap-8 md:grid-cols-3">
       {plans.map(plan => (
-        <div class="p-6 border rounded shadow bg-white" key={plan.name}>
-          <h3 class="text-2xl font-bold mb-4">{plan.name}</h3>
-          <p class="mb-4">
+        <div 
+          class="card dark:bg-gray-900 dark:text-gray-200"
+          key={plan.name}
+          itemscope
+          itemtype="https://schema.org/Product"
+        >
+          <!-- Plan Name -->
+          <h3 class="text-2xl font-bold mb-4" itemprop="name">{plan.name}</h3>
+
+          <!-- Plan Price -->
+          <p 
+            class="mb-4"
+            itemprop="offers"
+            itemscope
+            itemtype="https://schema.org/Offer"
+          >
+            <meta itemprop="priceCurrency" content="INR" />
             {plan.features &&
              plan.features.length &&
              plan.features.find(f => f.toLowerCase().includes("total")) ? (
@@ -32,28 +64,39 @@ const { plans } = Astro.props;
                     })()
                   }
                 </span>
-                <span class="text-primary-600 font-extrabold text-3xl">
+                <span 
+                  class="text-primary-600 dark:text-primary-400 font-extrabold text-3xl"
+                  itemprop="price"
+                >
                   {plan.price}
                 </span>
               </>
             ) : (
-              <span class="text-primary-600 font-extrabold text-3xl">
+              <span 
+                class="text-primary-600 dark:text-primary-400 font-extrabold text-3xl"
+                itemprop="price"
+              >
                 {plan.price}
               </span>
             )}
+            <link itemprop="availability" href="https://schema.org/InStock" />
+            <link itemprop="url" href="https://optyp.github.io/#plans" />
           </p>
-          <ul class="list-disc text-left mb-4 px-4">
+
+          <!-- Features -->
+          <ul class="list-disc text-left mb-4 px-4 space-y-2" itemprop="description">
             {plan.features
               .filter(f => !f.toLowerCase().startsWith("total"))
               .map(feature => (
-                <li key={feature}>{feature}</li>
+                <li key={feature} class="text-gray-700 dark:text-gray-400">{feature}</li>
               ))}
           </ul>
 
-          <!-- Choose Plan button that opens contact modal -->
+          <!-- Choose Plan Button -->
           <button
             onclick="openContactForm()"
-            class="inline-block bg-primary-600 text-white px-6 py-3 rounded hover:bg-primary-700 transition-colors"
+            class="btn-primary-filled w-full"
+            aria-label={`Choose ${plan.name}`}
           >
             Choose Plan
           </button>

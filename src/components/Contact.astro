@@ -1,31 +1,28 @@
 ---
 ---
-<section class="py-20 bg-primary-50 text-center">
-  <!-- Scroll target -->
-  <div id="contact">
-    <h2 class="text-4xl font-extrabold mb-6 text-primary-700">Contact Us</h2>
-    <p class="max-w-xl mx-auto mb-12 text-black text-lg font-medium">
-      Have questions or want to get started? Click below to open the form.
-    </p>
+<section id="contact" class="py-16 sm:py-20 bg-primary-50 dark:bg-gray-800 transition-colors duration-500 text-center">
+  <h2 class="text-3xl sm:text-4xl font-heading font-bold mb-6 text-primary-700 dark:text-primary-400">
+    Contact Us
+  </h2>
+  <p class="max-w-xl mx-auto mb-12 text-black dark:text-gray-200 text-base sm:text-lg font-medium">
+    Have questions or want to get started? Click below to open the form.
+  </p>
 
-    <!-- Button + Label -->
-    <div class="flex flex-col items-center space-y-2">
-      <!-- Button to open form -->
-      <button
-        id="contact-icon-btn"
-        class="inline-flex items-center justify-center w-16 h-16 bg-primary-600 text-white rounded-full shadow-lg hover:bg-primary-700 transition-colors"
-        aria-label="Open Contact Form"
-        onclick="openContactForm()"
-      >
-        <!-- Envelope Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z" />
-        </svg>
-      </button>
-      <!-- Mobile-only label -->
-      <span class="text-sm text-primary-700 font-medium sm:hidden">Open Contact Form</span>
-    </div>
+  <!-- Button + Label -->
+  <div class="flex flex-col items-center space-y-2">
+    <button
+      id="contact-icon-btn"
+      class="inline-flex items-center justify-center w-16 h-16 bg-primary-600 text-white rounded-full shadow-lg hover:bg-primary-700 transition-colors"
+      aria-label="Open Contact Form"
+      onclick="openContactForm()"
+    >
+      <!-- Envelope Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z" />
+      </svg>
+    </button>
+    <span class="text-sm text-primary-700 dark:text-primary-400 font-medium sm:hidden">Open Contact Form</span>
   </div>
 </section>
 
@@ -34,7 +31,7 @@
      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60
             hidden opacity-0 transition-opacity duration-300"
      aria-modal="true" role="dialog">
-  <div class="relative bg-white shadow-lg
+  <div class="relative bg-white dark:bg-gray-900 shadow-lg
               w-full h-full sm:w-[95%] sm:h-[90%] md:w-[70%] md:h-[85%]
               flex flex-col transform transition-transform duration-300
               sm:rounded-lg md:rounded-lg
@@ -43,7 +40,7 @@
        onclick="event.stopPropagation()">
     
     <!-- Sticky Header with Close Button -->
-    <div class="sticky top-0 z-10 flex justify-end p-3 bg-white border-b sm:rounded-t-lg">
+    <div class="sticky top-0 z-10 flex justify-end p-3 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sm:rounded-t-lg">
       <button
         id="close-contact-btn"
         onclick="closeContactForm()"
