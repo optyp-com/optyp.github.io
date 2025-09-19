@@ -1,68 +1,72 @@
-
 ---
 export interface Props {
   title: string;
   description?: string;
 }
-const { title, description = 'OptyP - Optimize Your Professionalism.' } = Astro.props;
+const { title, description = 'OPTYP - Optimize Your Professionalism' } = Astro.props;
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingContactIcon from '../components/FloatingContactIcon.astro';
 ---
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!-- Title & Description -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="ATS resume, LinkedIn optimization, job search" />
-    <meta name="author" content="OptyP" />
 
-    <!-- ✅ Security Headers (fixed) -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="
-        default-src 'self';
-        img-src 'self' https://fonts.gstatic.com https://ssl.gstatic.com data:;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        font-src https://fonts.gstatic.com;
-        script-src 'self' 'unsafe-inline' https://docs.google.com https://ssl.gstatic.com;
-        frame-src https://docs.google.com https://forms.gle;
-      "
-    />
-    <!-- ❌ Removed X-Frame-Options (was blocking Google Forms) -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://optyp.github.io" />
 
-    <!-- Google Fonts CDN -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Open Graph (Social Preview) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://optyp.github.io/images/og-banner.png" />
+    <meta property="og:url" content="https://optyp.github.io" />
 
-    <!-- Manifest -->
-    <link rel="manifest" href="/manifest.json" />
-    <!-- Favicon -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://optyp.github.io/images/og-banner.png" />
+
+    <!-- Author -->
+    <meta name="author" content="OPTYP" />
+
+    <!-- Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" as="style" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" />
+
+    <!-- Favicon + Manifest -->
     <link rel="icon" href="/favicon.ico" />
-    <!-- Theme color (your brand green) -->
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#3CB592" />
 
-    <!-- Structured Data JSON-LD -->
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="/styles/global.css" />
+
+    <!-- Structured Data (Organization + Services + Plans) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@graph": [
           {
             "@type": "Organization",
-            "name": "OptyP",
+            "name": "OPTYP",
             "url": "https://optyp.github.io",
-            "logo": "https://optyp.github.io/assets/logo-white.svg",
+            "logo": "https://optyp.github.io/images/logo.svg",
             "sameAs": [
               "https://linkedin.com/company/optyp",
-              "https://wa.me/919848934274"
+              "https://instagram.com/optyp",
+              "https://facebook.com/optyp",
+              "https://twitter.com/optyp",
+              "https://naukri.com/optyp"
             ],
             "contactPoint": {
               "@type": "ContactPoint",
@@ -71,46 +75,62 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
             }
           },
           {
-            "@type": "Service",
+            "@type": "Product",
             "name": "Essentials Plan",
-            "description": "ATS Resume, Naukri & LinkedIn at ₹499",
-            "provider": { "@type": "Organization", "name": "OptyP" },
-            "offers": { "@type": "Offer", "price": "499", "priceCurrency": "INR" }
+            "description": "ATS Resume, LinkedIn & Naukri optimization to kickstart your career.",
+            "brand": { "@type": "Organization", "name": "OPTYP" },
+            "offers": {
+              "@type": "Offer",
+              "price": "499",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://optyp.github.io/#plans"
+            }
           },
           {
-            "@type": "Service",
+            "@type": "Product",
             "name": "Professional Plan",
-            "description": "Complete profile optimization at ₹749",
-            "provider": { "@type": "Organization", "name": "OptyP" },
-            "offers": { "@type": "Offer", "price": "749", "priceCurrency": "INR" }
+            "description": "Complete career profile optimization with advanced resume + LinkedIn.",
+            "brand": { "@type": "Organization", "name": "OPTYP" },
+            "offers": {
+              "@type": "Offer",
+              "price": "749",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://optyp.github.io/#plans"
+            }
           },
           {
-            "@type": "Service",
+            "@type": "Product",
             "name": "Elite Plan",
-            "description": "Premium service + Portfolio at ₹999",
-            "provider": { "@type": "Organization", "name": "OptyP" },
-            "offers": { "@type": "Offer", "price": "999", "priceCurrency": "INR" }
+            "description": "Premium optimization + portfolio website for standout professionals.",
+            "brand": { "@type": "Organization", "name": "OPTYP" },
+            "offers": {
+              "@type": "Offer",
+              "price": "999",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://optyp.github.io/#plans"
+            }
           }
         ]
       }
     </script>
-
-    <!-- Global Styles -->
-    <link rel="stylesheet" href="/styles/global.css" />
   </head>
+
   <body class="bg-white text-gray-900">
-    <a
-      href="#main-content"
-      class="sr-only focus:not-sr-only p-2 bg-primary-500 text-white"
-    >
+    <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-primary-600 text-white">
       Skip to main content
     </a>
+
     <Header />
+
     <main id="main-content">
       <slot />
     </main>
+
     <Footer />
-    <!-- Floating Contact Us (fixed left bottom) -->
+
     <FloatingContactIcon />
   </body>
 </html>
