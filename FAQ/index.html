@@ -61,7 +61,7 @@
           }
         ]
       }
-    </script><link rel="stylesheet" href="/assets/style.XM3Wcq5T.css"></head> <body class="bg-white text-gray-900"> <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-primary-600 text-white">
+    </script><link rel="stylesheet" href="/assets/style.C0h-dGoV.css"></head> <body class="bg-white text-gray-900"> <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-primary-600 text-white">
 Skip to main content
 </a> <header class="bg-white shadow sticky top-0 z-40"> <div class="container mx-auto flex items-center justify-between px-4 py-3"> <!-- Logo --> <a href="/" class="flex items-center space-x-2"> <img src="/images/logo.svg" alt="OPTYP Logo" class="h-10 w-auto"> <span class="font-bold text-xl text-primary-500 tracking-wide">OPTYP</span> </a> <!-- Mobile Menu Button --> <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Toggle Menu"> <svg class="w-7 h-7 text-primary-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> </button> <!-- Desktop Navigation --> <nav class="hidden md:flex space-x-8 font-semibold font-body text-gray-700"> <a href="/#hero" class="hover:text-primary-600">Home</a> <a href="/#about" class="hover:text-primary-600">About</a> <a href="/#services" class="hover:text-primary-600">Services</a> <a href="/#plans" class="hover:text-primary-600">Plans</a> <a href="/#testimonials" class="hover:text-primary-600">Testimonials</a> <a href="/#contact" class="hover:text-primary-600">Contact</a> </nav> </div> <!-- Mobile Navigation --> <nav id="mobile-menu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-16 hidden px-4 py-4 space-y-2 font-semibold font-body"> <a href="/#hero" class="block hover:text-primary-600" data-section="#hero">Home</a> <a href="/#about" class="block hover:text-primary-600" data-section="#about">About</a> <a href="/#services" class="block hover:text-primary-600" data-section="#services">Services</a> <a href="/#plans" class="block hover:text-primary-600" data-section="#plans">Plans</a> <a href="/#testimonials" class="block hover:text-primary-600" data-section="#testimonials">Testimonials</a> <a href="/#contact" class="block hover:text-primary-600" data-section="#contact">Contact</a> </nav> <script>
     // Mobile Menu Toggle
@@ -140,30 +140,73 @@ WhatsApp Support
           icon.style.transform = 'rotate(180deg)';
         }
       }
-    </script> </section>  </main> <footer class="bg-black text-white py-12 font-body relative"> <div class="container mx-auto px-4"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <!-- Company Info --> <div class="md:col-span-1 flex flex-col"> <div class="flex items-center mb-4 space-x-3"> <img src="/images/logo.svg" alt="OPTYP Logo" class="h-8 w-auto"> <h3 class="text-xl font-bold text-primary-500">OPTYP</h3> </div> <p class="text-white text-sm leading-relaxed">
-Professional resume & profile optimization services. Get Set, Get Hired!
-</p> <div class="mt-4"> <a href="mailto:info@optyp.com" class="text-primary-500 hover:text-primary-400 transition-colors duration-200">
-info@optyp.com
-</a> </div> <div class="flex space-x-4 mt-6"> <!-- LinkedIn --> <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-primary-500 hover:text-primary-400 transition-colors duration-200"> <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zm-11 19H5v-9h3v9zm-1.5-10.29c-1 0-1.71-.7-1.71-1.58 
+    </script> </section>  </main> ```astro
+---
+// src/components/Footer.astro
+---
+<footer class="bg-black text-white py-12 font-body relative">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Company Info -->
+      <div class="md:col-span-1 flex flex-col">
+        <div class="flex items-center mb-4 space-x-3">
+          <img src="/images/logo.svg" alt="OPTYP Logo" class="h-8 w-auto" />
+          <h3 class="text-xl font-bold text-primary-500">OPTYP</h3>
+        </div>
+        <p class="text-white text-sm leading-relaxed">
+          Professional resume & profile optimization services. Get Set, Get Hired!
+        </p>
+        <div class="mt-4">
+          <a href="mailto:info@optyp.com" class="text-primary-500 hover:text-primary-400 transition-colors duration-200">
+            info@optyp.com
+          </a>
+        </div>
+        <div class="flex space-x-4 mt-6">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener" aria-label="LinkedIn"
+             class="text-primary-500 hover:text-primary-400 transition-colors duration-200">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zm-11 19H5v-9h3v9zm-1.5-10.29c-1 0-1.71-.7-1.71-1.58 
               0-.9.71-1.57 1.74-1.57 1.03 0 1.71.67 1.73 1.57 
               0 .88-.7 1.58-1.76 1.58zm13.5 10.29h-3v-4.93c0-1.18-.42-1.99-1.47-1.99-.8 0-1.28.55-1.5 1.09
               -.08.19-.1.45-.1.71V19h-3s.04-7.64 0-8.44h3v1.2
               c.4-.61 1.11-1.47 2.7-1.47 1.97 0 3.44 1.29 
-              3.44 4.05V19z"></path> </svg> </a> <!-- Twitter (X) --> <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener" aria-label="Twitter" class="text-primary-400 hover:text-primary-300 transition-colors duration-200"> <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path d="M23 3a10.9 10.9 0 0 1-3.14.86A4.48 4.48 0 0 0 
+              3.44 4.05V19z"/>
+            </svg>
+          </a>
+          <!-- Twitter (X) -->
+          <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener" aria-label="Twitter"
+             class="text-primary-400 hover:text-primary-300 transition-colors duration-200">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23 3a10.9 10.9 0 0 1-3.14.86A4.48 4.48 0 0 0 
               22.4 1.65a8.12 8.12 0 0 1-2.54.97A4.52 4.52 
               0 0 0 16.74.71a4.5 4.5 0 0 0-4.56 
               4.58c0 .36.05.71.12 1.04A12.9 12.9 
               0 0 1 3 2s-4 9 5 13a13.04 13.04 
               0 0 1-7 2c8 5 17 0 17-11.5 
               0-.18-.01-.36-.02-.55A4.26 
-              4.26 0 0 0 23 3z"></path> </svg> </a> <!-- Facebook --> <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener" aria-label="Facebook" class="text-primary-600 hover:text-primary-500 transition-colors duration-200"> <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path d="M22.68 0H1.32C.59 0 0 
+              4.26 0 0 0 23 3z"/>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener" aria-label="Facebook"
+             class="text-primary-600 hover:text-primary-500 transition-colors duration-200">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.68 0H1.32C.59 0 0 
               .59 0 1.32v21.36C0 23.41.59 
               24 1.32 24h11.5V14.67H9.69v-3.62h3.13V8.41
               c0-3.1 1.89-4.79 4.65-4.79 
               1.32 0 2.46.1 2.79.14v3.24h-1.92
               c-1.5 0-1.79.72-1.79 1.77v2.31h3.57l-.47 
               3.62h-3.1V24h6.08c.73 0 1.32-.59 
-              1.32-1.32V1.32c0-.73-.59-1.32-1.32-1.32"></path> </svg> </a> <!-- Instagram --> <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener" aria-label="Instagram" class="text-primary-300 hover:text-primary-200 transition-colors duration-200"> <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path d="M7.75 2h8.5A5.75 5.75 
+              1.32-1.32V1.32c0-.73-.59-1.32-1.32-1.32"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener" aria-label="Instagram"
+             class="text-primary-300 hover:text-primary-200 transition-colors duration-200">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M7.75 2h8.5A5.75 5.75 
               0 0122 7.75v8.5A5.75 5.75 0 
               0116.25 22h-8.5A5.75 5.75 0 
               012 16.25v-8.5A5.75 5.75 0 
@@ -176,17 +219,75 @@ info@optyp.com
               0112 7zm0 1.5a3.5 3.5 0 
               100 7 3.5 3.5 0 000-7zm5.75-.25a1.25 
               1.25 0 11-2.5 0 1.25 1.25 
-              0 012.5 0z"></path> </svg> </a> </div> </div> <!-- Services --> <div> <h4 class="font-semibold mb-4 text-primary-500">Services</h4> <ul class="space-y-2 text-sm text-white"> <li><a href="/#services" class="hover:text-primary-600">ATS Resume</a></li> <li><a href="/#services" class="hover:text-primary-600">LinkedIn Optimization</a></li> <li><a href="/#services" class="hover:text-primary-600">Portfolio Website</a></li> <li><a href="/#services" class="hover:text-primary-600">Profile Optimization</a></li> </ul> </div> <!-- Quick Links --> <div> <h4 class="font-semibold mb-4 text-primary-500">Quick Links</h4> <ul class="space-y-2 text-sm text-white"> <li><a href="/" class="hover:text-primary-600">Home</a></li> <li><a href="/#about" class="hover:text-primary-600">About</a></li> <li><a href="/#plans" class="hover:text-primary-600">Plans</a></li> <li><a href="/#contact" class="hover:text-primary-600">Contact</a></li> <li><a href="/feedback/" class="hover:text-primary-600">Feedback</a></li> </ul> </div> <!-- Legal Links --> <div> <h4 class="font-semibold mb-4 text-primary-500">Legal</h4> <ul class="space-y-2 text-sm text-white"> <li><a href="/privacy/" class="hover:text-primary-600">Privacy Policy</a></li> <li><a href="/terms/" class="hover:text-primary-600">Terms & Conditions</a></li> <li><a href="/refund/" class="hover:text-primary-600">Refund Policy</a></li> <li><a href="/FAQ/" class="hover:text-primary-600">FAQ</a></li> </ul> </div> </div> <!-- Copyright --> <div class="border-t border-primary-700 mt-8 pt-8 text-center"> <p class="text-primary-400 text-sm">
-© 2025 OPTYP. All rights reserved | OPTYP. Get Set, Get Hired!
-</p> </div> </div> <script>
-    const footerLinks = document.querySelectorAll('footer a[href]');
-    function setActiveFooter(link) {
-      footerLinks.forEach(l => l.classList.remove('nav-active'));
-      link.classList.add('nav-active');
-    }
-    footerLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        setActiveFooter(link);
-      });
+              0 012.5 0z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <!-- Services -->
+      <div>
+        <h4 class="font-semibold mb-4 text-primary-500">Services</h4>
+        <ul class="space-y-2 text-sm text-white">
+          <li><a href="/#services" class="hover:text-primary-600">ATS Resume</a></li>
+          <li><a href="/#services" class="hover:text-primary-600">LinkedIn Optimization</a></li>
+          <li><a href="/#services" class="hover:text-primary-600">Portfolio Website</a></li>
+          <li><a href="/#services" class="hover:text-primary-600">Profile Optimization</a></li>
+        </ul>
+      </div>
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-semibold mb-4 text-primary-500">Quick Links</h4>
+        <ul class="space-y-2 text-sm text-white">
+          <li><a href="/" class="hover:text-primary-600">Home</a></li>
+          <li><a href="/#about" class="hover:text-primary-600">About</a></li>
+          <li><a href="/#plans" class="hover:text-primary-600">Plans</a></li>
+          <li><a href="/#contact" class="hover:text-primary-600">Contact</a></li>
+          <li><a href="/feedback/" class="hover:text-primary-600">Feedback</a></li>
+        </ul>
+      </div>
+      <!-- Legal Links -->
+      <div>
+        <h4 class="font-semibold mb-4 text-primary-500">Legal</h4>
+        <ul class="space-y-2 text-sm text-white">
+          <li><a href="/privacy/" class="hover:text-primary-600">Privacy Policy</a></li>
+          <li><a href="/terms/" class="hover:text-primary-600">Terms & Conditions</a></li>
+          <li><a href="/refund/" class="hover:text-primary-600">Refund Policy</a></li>
+          <li><a href="/FAQ/" class="hover:text-primary-600">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <div class="border-t border-primary-700 mt-8 pt-8 text-center">
+      <p class="text-primary-400 text-sm">
+        © {new Date().getFullYear()} OPTYP. All rights reserved | OPTYP. Get Set, Get Hired!
+      </p>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button 
+    id="backToTop" 
+    onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+    class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 border border-gray-300 w-12 h-12 rounded-full shadow-lg 
+           flex items-center justify-center hover:bg-gray-100 transition-opacity duration-300 opacity-0 pointer-events-none z-50"
+    aria-label="Back to Top"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script is:inline>
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.remove('opacity-0', 'pointer-events-none');
+        backToTop.classList.add('opacity-100');
+      } else {
+        backToTop.classList.add('opacity-0', 'pointer-events-none');
+        backToTop.classList.remove('opacity-100');
+      }
     });
-  </script> </footer> <div class="fixed bottom-8 right-8 flex flex-col space-y-4 z-50"> <!-- WhatsApp Icon --> <a href="https://wa.me/919848934274" aria-label="WhatsApp OptyP" class="bg-[#25D366] hover:bg-[#1DA851] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition transform hover:scale-110" target="_blank" rel="noopener noreferrer"> <!-- WhatsApp Icon --> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="h-6 w-6"> <path d="M16 0C7.164 0 0 7.164 0 16c0 2.82.73 5.566 2.117 7.992L0 32l8.32-2.176A15.9 15.9 0 0 0 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.09c-2.588 0-5.105-.676-7.293-1.96l-.523-.309-4.934 1.29 1.32-4.816-.34-.547A12.84 12.84 0 0 1 3.09 16C3.09 9.29 9.29 3.09 16 3.09c6.71 0 12.91 6.2 12.91 12.91 0 6.71-6.2 13.09-12.91 13.09z"></path> <path d="M24.32 19.68c-.34-.17-2.02-1-2.33-1.11-.31-.12-.54-.17-.77.17-.23.34-.89 1.11-1.09 1.34-.2.23-.4.26-.74.09-.34-.17-1.43-.53-2.73-1.68-1.01-.9-1.69-2.01-1.89-2.35-.2-.34-.02-.53.15-.7.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.77-1.85-1.06-2.53-.28-.67-.57-.58-.77-.59l-.66-.01c-.23 0-.6.09-.91.43-.31.34-1.19 1.16-1.19 2.84s1.22 3.29 1.39 3.52c.17.23 2.4 3.66 5.82 5.13.81.35 1.44.55 1.93.7.81.26 1.55.22 2.14.14.65-.1 2.02-.83 2.31-1.63.28-.8.28-1.49.2-1.63-.09-.14-.31-.23-.65-.4z"></path> </svg> </a></div> </body></html>
+  </script>
+</footer>
+``` <div class="fixed bottom-8 right-8 flex flex-col space-y-4 z-50"> <!-- WhatsApp Icon --> <a href="https://wa.me/919848934274" aria-label="WhatsApp OptyP" class="bg-[#25D366] hover:bg-[#1DA851] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition transform hover:scale-110" target="_blank" rel="noopener noreferrer"> <!-- WhatsApp Icon --> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="h-6 w-6"> <path d="M16 0C7.164 0 0 7.164 0 16c0 2.82.73 5.566 2.117 7.992L0 32l8.32-2.176A15.9 15.9 0 0 0 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.09c-2.588 0-5.105-.676-7.293-1.96l-.523-.309-4.934 1.29 1.32-4.816-.34-.547A12.84 12.84 0 0 1 3.09 16C3.09 9.29 9.29 3.09 16 3.09c6.71 0 12.91 6.2 12.91 12.91 0 6.71-6.2 13.09-12.91 13.09z"></path> <path d="M24.32 19.68c-.34-.17-2.02-1-2.33-1.11-.31-.12-.54-.17-.77.17-.23.34-.89 1.11-1.09 1.34-.2.23-.4.26-.74.09-.34-.17-1.43-.53-2.73-1.68-1.01-.9-1.69-2.01-1.89-2.35-.2-.34-.02-.53.15-.7.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.77-1.85-1.06-2.53-.28-.67-.57-.58-.77-.59l-.66-.01c-.23 0-.6.09-.91.43-.31.34-1.19 1.16-1.19 2.84s1.22 3.29 1.39 3.52c.17.23 2.4 3.66 5.82 5.13.81.35 1.44.55 1.93.7.81.26 1.55.22 2.14.14.65-.1 2.02-.83 2.31-1.63.28-.8.28-1.49.2-1.63-.09-.14-.31-.23-.65-.4z"></path> </svg> </a></div> </body></html>
