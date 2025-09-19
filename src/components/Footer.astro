@@ -1,9 +1,9 @@
 ---
+// src/components/Footer.astro
 ---
 <footer class="bg-black text-white py-12 font-body relative">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-
       <!-- Company Info -->
       <div class="md:col-span-1 flex flex-col">
         <div class="flex items-center mb-4 space-x-3">
@@ -81,7 +81,6 @@
           </a>
         </div>
       </div>
-
       <!-- Services -->
       <div>
         <h4 class="font-semibold mb-4 text-primary-500">Services</h4>
@@ -92,7 +91,6 @@
           <li><a href="/#services" class="hover:text-primary-400">Profile Optimization</a></li>
         </ul>
       </div>
-
       <!-- Quick Links -->
       <div>
         <h4 class="font-semibold mb-4 text-primary-500">Quick Links</h4>
@@ -104,7 +102,6 @@
           <li><a href="/feedback/" class="hover:text-primary-400">Feedback</a></li>
         </ul>
       </div>
-
       <!-- Legal Links -->
       <div>
         <h4 class="font-semibold mb-4 text-primary-500">Legal</h4>
@@ -115,9 +112,7 @@
           <li><a href="/FAQ/" class="hover:text-primary-400">FAQ</a></li>
         </ul>
       </div>
-
     </div>
-
     <!-- Copyright -->
     <div class="border-t border-primary-700 mt-8 pt-8 text-center">
       <p class="text-primary-400 text-sm">
@@ -126,12 +121,12 @@
     </div>
   </div>
 
-  <!-- Back to Top Button -->
+  <!-- Back to Top Button (centered, light theme) -->
   <button 
     id="backToTop" 
     onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
-    class="fixed bottom-6 right-6 bg-primary-600 text-white w-12 h-12 rounded-full shadow-lg 
-           flex items-center justify-center hover:bg-primary-700 transition-opacity duration-300 opacity-0 pointer-events-none z-50"
+    class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 border border-gray-300 w-12 h-12 rounded-full shadow-lg 
+           flex items-center justify-center hover:bg-gray-100 transition-opacity duration-300 opacity-0 pointer-events-none z-50"
     aria-label="Back to Top"
   >
     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
