@@ -2,11 +2,12 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-html { 
-  scroll-behavior: smooth; 
+html {
+  scroll-behavior: smooth;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
-body { 
+
+body {
   font-family: 'Inter', sans-serif;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
@@ -141,4 +142,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .hover-underline:hover::after {
   width: 100%;
+}
+
+/* Active navigation link style */
+.nav-active {
+  @apply text-primary-600;
 }
