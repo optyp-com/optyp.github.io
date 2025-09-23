@@ -1,16 +1,16 @@
 ---
+const siteUrl = "https://yourusername.github.io"; // replace with your GitHub Pages URL
 ---
+
 <section class="py-20 bg-primary-50 text-center">
-  <!-- Scroll target -->
   <div id="contact">
     <h2 class="text-4xl font-extrabold mb-6 text-primary-700">Contact Us</h2>
     <p class="max-w-xl mx-auto mb-12 text-black text-lg font-medium">
       Have questions or want to get started? Click below to open the form.
     </p>
 
-    <!-- Button + Label -->
+    <!-- Trigger Button -->
     <div class="flex flex-col items-center space-y-2">
-      <!-- Button to open form -->
       <button
         id="contact-icon-btn"
         class="inline-flex items-center justify-center w-16 h-16 bg-primary-600 text-white rounded-full shadow-lg hover:bg-primary-700 transition-colors"
@@ -23,17 +23,17 @@
             d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z" />
         </svg>
       </button>
-      <!-- Mobile-only label -->
       <span class="text-sm text-primary-700 font-medium sm:hidden">Open Contact Form</span>
     </div>
   </div>
 </section>
 
-<!-- Modal Overlay -->
+<!-- Modal -->
 <div id="contact-modal"
-     class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60
-            hidden opacity-0 transition-opacity duration-300"
-     aria-modal="true" role="dialog">
+     class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 hidden opacity-0 transition-opacity duration-300"
+     aria-modal="true" role="dialog"
+     onclick="closeContactForm()">
+
   <div class="relative bg-white shadow-lg
               w-full h-full sm:w-[95%] sm:h-[90%] md:w-[70%] md:h-[85%]
               flex flex-col transform transition-transform duration-300
@@ -41,30 +41,79 @@
               translate-y-full sm:translate-y-0 scale-95"
        id="contact-modal-content"
        onclick="event.stopPropagation()">
-    
-    <!-- Sticky Header with Close Button -->
+
+    <!-- Header -->
     <div class="sticky top-0 z-10 flex justify-end p-3 bg-white border-b sm:rounded-t-lg">
-      <button
-        id="close-contact-btn"
+      <button id="close-contact-btn"
         onclick="closeContactForm()"
-        class="w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center
-               bg-gray-600 hover:bg-gray-700 text-white rounded-full shadow-md"
-        aria-label="Close Form"
-      >
-        ✕
+        class="w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center bg-gray-600 hover:bg-gray-700 text-white rounded-full shadow-md"
+        aria-label="Close Form">✕
       </button>
     </div>
 
-    <!-- Embedded Google Form -->
-    <iframe
-      id="contact-form-frame"
-      width="100%"
-      height="100%"
-      frameborder="0"
-      class="flex-1 rounded-b-lg"
-      title="Contact Form"
-    >
-    </iframe>
+    <!-- Contact Form -->
+    <div class="flex-1 overflow-y-auto p-6 sm:p-10">
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6 max-w-2xl mx-auto" novalidate>
+        
+        <!-- Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="adb0d3eb-198d-40ab-bfeb-d6d36ed4e402">
+
+        <!-- Redirects -->
+        <input type="hidden" name="redirect" value={`${siteUrl}/thank-you.html`}>
+        <input type="hidden" name="redirect_error" value={`${siteUrl}/error.html`}>
+
+        <!-- Name + Email -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+            <input type="text" name="name" id="name" required
+              class="input-field w-full border-gray-300 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 p-3">
+            <p class="error-message text-red-600 text-sm mt-1 hidden">Please enter your name.</p>
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input type="email" name="email" id="email" required
+              class="input-field w-full border-gray-300 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 p-3">
+            <p class="error-message text-red-600 text-sm mt-1 hidden">Please enter a valid email.</p>
+          </div>
+        </div>
+
+        <!-- Subject -->
+        <div>
+          <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+          <input type="text" name="subject" id="subject"
+            class="input-field w-full border-gray-300 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 p-3">
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+          <textarea name="message" id="message" rows="6" required
+            class="input-field w-full border-gray-300 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 p-3"></textarea>
+          <p class="error-message text-red-600 text-sm mt-1 hidden">Message cannot be empty.</p>
+        </div>
+
+        <!-- Honeypot -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit"
+            class="w-full md:w-auto bg-primary-600 text-white font-semibold px-8 py-3 rounded-lg shadow hover:bg-primary-700 transition">
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="fixed bottom-5 right-5 hidden z-[9999]">
+  <div id="toast-content"
+       class="flex items-center gap-3 px-6 py-4 rounded-lg shadow-lg text-white font-medium transition transform translate-y-5 opacity-0">
+    <span id="toast-icon"></span>
+    <span id="toast-message"></span>
   </div>
 </div>
 
@@ -74,9 +123,6 @@
   function openContactForm() {
     const modal = document.getElementById('contact-modal');
     const content = document.getElementById('contact-modal-content');
-    const frame = document.getElementById('contact-form-frame');
-    const closeBtn = document.getElementById('close-contact-btn');
-
     lastFocusedElement = document.activeElement;
     document.body.classList.add('overflow-hidden');
 
@@ -84,31 +130,21 @@
     requestAnimationFrame(() => {
       modal.classList.add('opacity-100');
       modal.classList.remove('opacity-0');
-
-      // Desktop fade+zoom
       content.classList.add('scale-100');
       content.classList.remove('scale-95');
-
-      // Mobile slide-up
       content.classList.remove('translate-y-full');
     });
 
-    if (!frame.src) {
-      frame.src = "https://forms.gle/iiotXL2Vzjuxf1tAA";
-    }
-
-    closeBtn.focus();
+    document.getElementById('close-contact-btn').focus();
   }
 
   function closeContactForm() {
     const modal = document.getElementById('contact-modal');
     const content = document.getElementById('contact-modal-content');
-
     document.body.classList.remove('overflow-hidden');
 
     modal.classList.remove('opacity-100');
     modal.classList.add('opacity-0');
-
     content.classList.remove('scale-100');
     content.classList.add('scale-95');
     content.classList.add('translate-y-full');
@@ -119,40 +155,83 @@
     }, 300);
   }
 
-  // Close modal when clicking outside
-  document.getElementById('contact-modal').addEventListener('click', function () {
-    closeContactForm();
+  // Toast + Validation
+  const form = document.getElementById("contact-form");
+  const toast = document.getElementById("toast");
+  const toastContent = document.getElementById("toast-content");
+  const toastMessage = document.getElementById("toast-message");
+  const toastIcon = document.getElementById("toast-icon");
+
+  const fields = form.querySelectorAll(".input-field");
+  fields.forEach(field => {
+    field.addEventListener("blur", () => validateField(field));
   });
 
-  // ESC key closes modal
+  function validateField(field) {
+    const errorMsg = field.parentElement.querySelector(".error-message");
+    if (field.checkValidity()) {
+      field.classList.remove("border-red-500");
+      field.classList.add("border-green-500");
+      if (errorMsg) errorMsg.classList.add("hidden");
+      return true;
+    } else {
+      field.classList.add("border-red-500");
+      field.classList.remove("border-green-500");
+      if (errorMsg) errorMsg.classList.remove("hidden");
+      return false;
+    }
+  }
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    let valid = true;
+    fields.forEach(field => {
+      if (!validateField(field)) valid = false;
+    });
+    if (!valid) return;
+
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      showToast("Message sent successfully!", "bg-green-600", "✔️");
+      setTimeout(() => {
+        window.location.href = `${siteUrl}/thank-you.html`;
+      }, 2000);
+      form.reset();
+      fields.forEach(f => f.classList.remove("border-green-500"));
+    } else {
+      showToast("Failed to send. Please try again.", "bg-red-600", "❌");
+      setTimeout(() => {
+        window.location.href = `${siteUrl}/error.html`;
+      }, 2000);
+    }
+  });
+
+  function showToast(message, colorClass, icon) {
+    toastMessage.textContent = message;
+    toastIcon.textContent = icon;
+    toastContent.className = `flex items-center gap-3 px-6 py-4 rounded-lg shadow-lg text-white font-medium transition transform ${colorClass}`;
+    toast.classList.remove("hidden");
+
+    toastContent.classList.remove("opacity-0", "translate-y-5");
+    toastContent.classList.add("opacity-100", "translate-y-0");
+
+    setTimeout(() => {
+      toastContent.classList.remove("opacity-100", "translate-y-0");
+      toastContent.classList.add("opacity-0", "translate-y-5");
+    }, 1500);
+  }
+
   document.addEventListener('keydown', function (e) {
     const modal = document.getElementById('contact-modal');
     if (e.key === "Escape" && !modal.classList.contains('hidden')) {
       closeContactForm();
-    }
-  });
-
-  // Focus trap
-  document.addEventListener('keydown', function (e) {
-    const modal = document.getElementById('contact-modal');
-    if (modal.classList.contains('hidden')) return;
-
-    const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, iframe, [tabindex]:not([tabindex="-1"])');
-    const firstEl = focusableElements[0];
-    const lastEl = focusableElements[focusableElements.length - 1];
-
-    if (e.key === "Tab") {
-      if (e.shiftKey) {
-        if (document.activeElement === firstEl) {
-          e.preventDefault();
-          lastEl.focus();
-        }
-      } else {
-        if (document.activeElement === lastEl) {
-          e.preventDefault();
-          firstEl.focus();
-        }
-      }
     }
   });
 </script>
