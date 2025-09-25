@@ -1,74 +1,215 @@
-  <!-- FAQ Schema JSON-LD for SEO -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What services are included in each plan?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Essentials: ATS-optimized resume, LinkedIn profile optimization, and Naukri profile setup. Professional: Everything in Essentials plus Indeed profile, portfolio website, and cover letter template. Elite: All services plus 2 free revisions, priority support, and personalized consultation call."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does the delivery process take?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most projects are completed within 24–48 hours after receiving the required details. Elite plan customers receive priority processing."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What information do I need to provide to get started?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You’ll need to share your current resume or work history, target job roles, achievements, LinkedIn/login details (if applicable), and any specific requirements."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer revisions if I'm not satisfied?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Essentials and Professional plans include 1 free revision within 7 days. Elite includes 2 free revisions within 14 days. Additional revisions are available at ₹500 each."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are your resumes ATS-compliant and optimized for applicant tracking systems?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely. All resumes are designed to pass ATS filters using proper formatting, relevant keywords, and industry-standard layouts."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What payment methods do you accept?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We accept UPI, credit/debit cards, net banking, and digital wallets. All payments are secure and processed via trusted gateways."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I order individual services instead of a complete plan?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, individual services are available. However, bundled plans provide better value and more complete optimization."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you provide ongoing support after delivery?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We provide 30 days of email support for all customers. Elite plan customers also get a follow-up consultation call after 2 weeks."
-          }
+---
+---
+<section class="bg-white py-16 px-4" id="faq">
+  <div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Get quick answers to common questions about our professional resume and profile optimization services
+      </p>
+    </div>
+
+    <!-- FAQ Items -->
+    <div class="space-y-4">
+
+      <!-- FAQ 1 (Expanded by default) -->
+      <div class="border border-gray-200 rounded-lg shadow-sm">
+        <button 
+          class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
+          aria-expanded="true" 
+          aria-controls="faq1"
+          onclick="toggleFAQ('faq1', this)"
+        >
+          How does the process work after I sign up?
+          <svg class="w-5 h-5 transform rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="faq1" class="faq-answer px-6 pb-6 text-gray-700 leading-relaxed">
+          <p>Once you sign up, you’ll receive a questionnaire. After submission, our experts create your resume/profile and deliver it in 24–48 hours. Elite plans get priority and faster turnaround.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 (Expanded by default) -->
+      <div class="border border-gray-200 rounded-lg shadow-sm">
+        <button 
+          class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
+          aria-expanded="true" 
+          aria-controls="faq2"
+          onclick="toggleFAQ('faq2', this)"
+        >
+          How long does the delivery process take?
+          <svg class="w-5 h-5 transform rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="faq2" class="faq-answer px-6 pb-6 text-gray-700 leading-relaxed">
+          <p>Most projects are delivered in 24–48 hours after receiving your details. Elite plan users get priority delivery even faster.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 (Expanded by default) -->
+      <div class="border border-gray-200 rounded-lg shadow-sm">
+        <button 
+          class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
+          aria-expanded="true" 
+          aria-controls="faq3"
+          onclick="toggleFAQ('faq3', this)"
+        >
+          What information do I need to provide to get started?
+          <svg class="w-5 h-5 transform rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="faq3" class="faq-answer px-6 pb-6 text-gray-700 leading-relaxed">
+          <ul class="list-disc list-inside mt-2 space-y-1">
+            <li>Your current resume or work history</li>
+            <li>Target job roles and industries</li>
+            <li>Career achievements and skills</li>
+            <li>LinkedIn/profile login (if applicable)</li>
+            <li>Any preferences or requirements</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FAQ 4+ (Collapsed by default) -->
+      <div class="border border-gray-200 rounded-lg shadow-sm">
+        <button 
+          class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
+          aria-expanded="false" 
+          aria-controls="faq4"
+          onclick="toggleFAQ('faq4', this)"
+        >
+          Do you offer revisions if I'm not satisfied?
+          <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="faq4" class="faq-answer hidden px-6 pb-6 text-gray-700 leading-relaxed">
+          <p>Yes. Essentials & Professional plans include 1 free revision within 7 days. Elite plan includes 2 free revisions within 14 days. Additional revisions available at ₹500 each.</p>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-lg shadow-sm">
+        <button 
+          class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
+          aria-expanded="false" 
+          aria-controls="faq5"
+          onclick="toggleFAQ('faq5', this)"
+        >
+          Are your resumes ATS-compliant and optimized for applicant tracking systems?
+          <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="faq5" class="faq-answer hidden px-6 pb-6 text-gray-700 leading-relaxed">
+          <p>Absolutely. All resumes are designed to pass Applicant Tracking Systems (ATS) used by major companies. We use proper formatting, relevant keywords, and layouts to ensure recruiter visibility.</p>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-lg shadow-sm">
+        <button 
+          class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
+          aria-expanded="false" 
+          aria-controls="faq6"
+          onclick="toggleFAQ('faq6', this)"
+        >
+          What payment methods do you accept?
+          <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="faq6" class="faq-answer hidden px-6 pb-6 text-gray-700 leading-relaxed">
+          <p>We accept UPI, credit/debit cards, net banking, and digital wallets. All payments are processed through secure gateways.</p>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-lg shadow-sm">
+        <button 
+          class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
+          aria-expanded="false" 
+          aria-controls="faq7"
+          onclick="toggleFAQ('faq7', this)"
+        >
+          Can I order individual services instead of a complete plan?
+          <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="faq7" class="faq-answer hidden px-6 pb-6 text-gray-700 leading-relaxed">
+          <p>Yes. Individual services are available, but bundled plans provide more value and comprehensive optimization.</p>
+        </div>
+      </div>
+
+      <div class="border border-gray-200 rounded-lg shadow-sm">
+        <button 
+          class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
+          aria-expanded="false" 
+          aria-controls="faq8"
+          onclick="toggleFAQ('faq8', this)"
+        >
+          Do you provide ongoing support after delivery?
+          <svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="faq8" class="faq-answer hidden px-6 pb-6 text-gray-700 leading-relaxed">
+          <p>Yes. We provide 30 days of email support for all customers. Elite plan users also get a follow-up consultation call after 2 weeks.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-12 p-6 bg-gray-50 rounded-lg">
+      <h3 class="text-xl font-semibold text-gray-900 mb-2">Still have questions?</h3>
+      <p class="text-gray-600 mb-4">Our team is here to help you succeed in your career journey.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://forms.gle/e2psZyv2BjAniPeP6" 
+           class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+           target="_blank" rel="noopener">
+          Contact Us
+        </a>
+        <a href="https://wa.me/919848934274" 
+           class="inline-flex items-center px-6 py-3 border border-primary-600 text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50 transition-colors"
+           target="_blank" rel="noopener">
+          WhatsApp Support
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    function toggleFAQ(faqId, button) {
+      const answer = document.getElementById(faqId);
+      const icon = button.querySelector('svg');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+      // Close all other FAQs
+      document.querySelectorAll('.faq-answer').forEach(el => {
+        if (el.id !== faqId) {
+          el.classList.add('hidden');
         }
-      ]
+      });
+
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        if (btn !== button) {
+          btn.setAttribute('aria-expanded', 'false');
+          btn.querySelector('svg').style.transform = 'rotate(0deg)';
+        }
+      });
+
+      // Toggle current FAQ
+      if (isExpanded) {
+        answer.classList.add('hidden');
+        button.setAttribute('aria-expanded', 'false');
+        icon.style.transform = 'rotate(0deg)';
+      } else {
+        answer.classList.remove('hidden');
+        button.setAttribute('aria-expanded', 'true');
+        icon.style.transform = 'rotate(180deg)';
+      }
     }
   </script>
 </section>
