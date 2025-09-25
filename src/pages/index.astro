@@ -6,12 +6,12 @@ import Services from '../components/Services.astro';
 import Plans from '../components/Plans.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Contact from '../components/Contact.astro';
+import FAQHome from '../components/FAQHome.astro';
 
 import { services } from '../data/services.js';
 import { plans } from '../data/plans.js';
 import { testimonials } from '../data/testimonials.js';
 ---
-
 <Layout
   title="OPTYP – Optimize Your Professionalism"
   description="Professional resume, LinkedIn, Naukri, and portfolio optimization services to help you get hired faster globally."
@@ -39,6 +39,11 @@ import { testimonials } from '../data/testimonials.js';
   <!-- Testimonials -->
   <section id="testimonials" class="bg-gray-50 section-padding">
     <Testimonials testimonials={testimonials} />
+  </section>
+
+  <!-- FAQ (short version) -->
+  <section id="faq" class="section-padding">
+    <FAQHome />
   </section>
 
   <!-- Contact -->
