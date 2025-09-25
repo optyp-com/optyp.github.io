@@ -61,7 +61,7 @@
           }
         ]
       }
-    </script><link rel="stylesheet" href="/assets/style.8tcYVPsq.css"></head> <body class="bg-white text-gray-900"> <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-primary-600 text-white">
+    </script><link rel="stylesheet" href="/assets/style.B2vAtnbn.css"></head> <body class="bg-white text-gray-900"> <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-primary-600 text-white">
 Skip to main content
 </a> <header class="bg-white shadow sticky top-0 z-40"> <div class="container mx-auto flex items-center justify-between px-4 py-3"> <!-- Logo --> <a href="/" class="flex items-center space-x-2"> <img src="/images/logo.svg" alt="OPTYP Logo" class="h-10 w-auto"> <span class="font-bold text-xl text-primary-500 tracking-wide">OPTYP</span> </a> <!-- Mobile Menu Button --> <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Toggle Menu"> <svg class="w-7 h-7 text-primary-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> </button> <!-- Desktop Navigation --> <nav class="hidden md:flex space-x-8 font-semibold font-body text-gray-700"> <a href="/#hero" class="hover:text-primary-600">Home</a> <a href="/#about" class="hover:text-primary-600">About</a> <a href="/#services" class="hover:text-primary-600">Services</a> <a href="/#plans" class="hover:text-primary-600">Plans</a> <a href="/#testimonials" class="hover:text-primary-600">Testimonials</a> <a href="/#contact" class="hover:text-primary-600">Contact</a> </nav> </div> <!-- Mobile Navigation --> <nav id="mobile-menu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-16 hidden px-4 py-4 space-y-2 font-semibold font-body"> <a href="/#hero" class="block hover:text-primary-600" data-section="#hero">Home</a> <a href="/#about" class="block hover:text-primary-600" data-section="#about">About</a> <a href="/#services" class="block hover:text-primary-600" data-section="#services">Services</a> <a href="/#plans" class="block hover:text-primary-600" data-section="#plans">Plans</a> <a href="/#testimonials" class="block hover:text-primary-600" data-section="#testimonials">Testimonials</a> <a href="/#contact" class="block hover:text-primary-600" data-section="#contact">Contact</a> </nav> <script>
     // Mobile Menu Toggle
@@ -87,78 +87,60 @@ Skip to main content
     const currentHash = window.location.hash || '#hero';
     const initial = Array.from(navLinks).find(l => l.getAttribute('href') === currentHash);
     if (initial) setActive(initial);
-  </script> </header> <main id="main-content">  <section id="faq" class="section-padding"> <!-- FAQ Schema JSON-LD for SEO --><script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What services are included in each plan?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Essentials: ATS-optimized resume, LinkedIn profile optimization, and Naukri profile setup. Professional: Everything in Essentials plus Indeed profile, portfolio website, and cover letter template. Elite: All services plus 2 free revisions, priority support, and personalized consultation call."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does the delivery process take?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most projects are completed within 24–48 hours after receiving the required details. Elite plan customers receive priority processing."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What information do I need to provide to get started?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You’ll need to share your current resume or work history, target job roles, achievements, LinkedIn/login details (if applicable), and any specific requirements."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer revisions if I'm not satisfied?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Essentials and Professional plans include 1 free revision within 7 days. Elite includes 2 free revisions within 14 days. Additional revisions are available at ₹500 each."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are your resumes ATS-compliant and optimized for applicant tracking systems?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely. All resumes are designed to pass ATS filters using proper formatting, relevant keywords, and industry-standard layouts."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What payment methods do you accept?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We accept UPI, credit/debit cards, net banking, and digital wallets. All payments are secure and processed via trusted gateways."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I order individual services instead of a complete plan?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, individual services are available. However, bundled plans provide better value and more complete optimization."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you provide ongoing support after delivery?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We provide 30 days of email support for all customers. Elite plan customers also get a follow-up consultation call after 2 weeks."
-          }
+  </script> </header> <main id="main-content">  <section id="faq" class="section-padding"> <section class="bg-white py-16 px-4" id="faq"> <div class="max-w-4xl mx-auto"> <!-- Header --> <div class="text-center mb-12"> <h2 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2> <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+Get quick answers to common questions about our professional resume and profile optimization services
+</p> </div> <!-- FAQ Items --> <div class="space-y-4"> <!-- FAQ 1 (Expanded by default) --> <div class="border border-gray-200 rounded-lg shadow-sm"> <button class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center" aria-expanded="true" aria-controls="faq1" onclick="toggleFAQ('faq1', this)">
+How does the process work after I sign up?
+<svg class="w-5 h-5 transform rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <div id="faq1" class="faq-answer px-6 pb-6 text-gray-700 leading-relaxed"> <p>Once you sign up, you’ll receive a questionnaire. After submission, our experts create your resume/profile and deliver it in 24–48 hours. Elite plans get priority and faster turnaround.</p> </div> </div> <!-- FAQ 2 (Expanded by default) --> <div class="border border-gray-200 rounded-lg shadow-sm"> <button class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center" aria-expanded="true" aria-controls="faq2" onclick="toggleFAQ('faq2', this)">
+How long does the delivery process take?
+<svg class="w-5 h-5 transform rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <div id="faq2" class="faq-answer px-6 pb-6 text-gray-700 leading-relaxed"> <p>Most projects are delivered in 24–48 hours after receiving your details. Elite plan users get priority delivery even faster.</p> </div> </div> <!-- FAQ 3 (Expanded by default) --> <div class="border border-gray-200 rounded-lg shadow-sm"> <button class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center" aria-expanded="true" aria-controls="faq3" onclick="toggleFAQ('faq3', this)">
+What information do I need to provide to get started?
+<svg class="w-5 h-5 transform rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <div id="faq3" class="faq-answer px-6 pb-6 text-gray-700 leading-relaxed"> <ul class="list-disc list-inside mt-2 space-y-1"> <li>Your current resume or work history</li> <li>Target job roles and industries</li> <li>Career achievements and skills</li> <li>LinkedIn/profile login (if applicable)</li> <li>Any preferences or requirements</li> </ul> </div> </div> <!-- FAQ 4+ (Collapsed by default) --> <div class="border border-gray-200 rounded-lg shadow-sm"> <button class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center" aria-expanded="false" aria-controls="faq4" onclick="toggleFAQ('faq4', this)">
+Do you offer revisions if I'm not satisfied?
+<svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <div id="faq4" class="faq-answer hidden px-6 pb-6 text-gray-700 leading-relaxed"> <p>Yes. Essentials & Professional plans include 1 free revision within 7 days. Elite plan includes 2 free revisions within 14 days. Additional revisions available at ₹500 each.</p> </div> </div> <div class="border border-gray-200 rounded-lg shadow-sm"> <button class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center" aria-expanded="false" aria-controls="faq5" onclick="toggleFAQ('faq5', this)">
+Are your resumes ATS-compliant and optimized for applicant tracking systems?
+<svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <div id="faq5" class="faq-answer hidden px-6 pb-6 text-gray-700 leading-relaxed"> <p>Absolutely. All resumes are designed to pass Applicant Tracking Systems (ATS) used by major companies. We use proper formatting, relevant keywords, and layouts to ensure recruiter visibility.</p> </div> </div> <div class="border border-gray-200 rounded-lg shadow-sm"> <button class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center" aria-expanded="false" aria-controls="faq6" onclick="toggleFAQ('faq6', this)">
+What payment methods do you accept?
+<svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <div id="faq6" class="faq-answer hidden px-6 pb-6 text-gray-700 leading-relaxed"> <p>We accept UPI, credit/debit cards, net banking, and digital wallets. All payments are processed through secure gateways.</p> </div> </div> <div class="border border-gray-200 rounded-lg shadow-sm"> <button class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center" aria-expanded="false" aria-controls="faq7" onclick="toggleFAQ('faq7', this)">
+Can I order individual services instead of a complete plan?
+<svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <div id="faq7" class="faq-answer hidden px-6 pb-6 text-gray-700 leading-relaxed"> <p>Yes. Individual services are available, but bundled plans provide more value and comprehensive optimization.</p> </div> </div> <div class="border border-gray-200 rounded-lg shadow-sm"> <button class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center" aria-expanded="false" aria-controls="faq8" onclick="toggleFAQ('faq8', this)">
+Do you provide ongoing support after delivery?
+<svg class="w-5 h-5 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </button> <div id="faq8" class="faq-answer hidden px-6 pb-6 text-gray-700 leading-relaxed"> <p>Yes. We provide 30 days of email support for all customers. Elite plan users also get a follow-up consultation call after 2 weeks.</p> </div> </div> </div> <!-- CTA Section --> <div class="text-center mt-12 p-6 bg-gray-50 rounded-lg"> <h3 class="text-xl font-semibold text-gray-900 mb-2">Still have questions?</h3> <p class="text-gray-600 mb-4">Our team is here to help you succeed in your career journey.</p> <div class="flex flex-col sm:flex-row gap-4 justify-center"> <a href="https://forms.gle/e2psZyv2BjAniPeP6" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors" target="_blank" rel="noopener">
+Contact Us
+</a> <a href="https://wa.me/919848934274" class="inline-flex items-center px-6 py-3 border border-primary-600 text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50 transition-colors" target="_blank" rel="noopener">
+WhatsApp Support
+</a> </div> </div> </div> <script>
+    function toggleFAQ(faqId, button) {
+      const answer = document.getElementById(faqId);
+      const icon = button.querySelector('svg');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+      // Close all other FAQs
+      document.querySelectorAll('.faq-answer').forEach(el => {
+        if (el.id !== faqId) {
+          el.classList.add('hidden');
         }
-      ]
+      });
+
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        if (btn !== button) {
+          btn.setAttribute('aria-expanded', 'false');
+          btn.querySelector('svg').style.transform = 'rotate(0deg)';
+        }
+      });
+
+      // Toggle current FAQ
+      if (isExpanded) {
+        answer.classList.add('hidden');
+        button.setAttribute('aria-expanded', 'false');
+        icon.style.transform = 'rotate(0deg)';
+      } else {
+        answer.classList.remove('hidden');
+        button.setAttribute('aria-expanded', 'true');
+        icon.style.transform = 'rotate(180deg)';
+      }
     }
-  </script>  </section>  </main> <footer class="bg-black text-white py-12 font-body relative"> <div class="container mx-auto px-4"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <!-- Company Info --> <div class="md:col-span-1 flex flex-col"> <div class="flex items-center mb-4 space-x-3"> <img src="/images/logo.svg" alt="OPTYP Logo" class="h-8 w-auto"> <h3 class="text-xl font-bold text-primary-500">OPTYP</h3> </div> <p class="text-white text-sm leading-relaxed">
+  </script> </section> </section>  </main> <footer class="bg-black text-white py-12 font-body relative"> <div class="container mx-auto px-4"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <!-- Company Info --> <div class="md:col-span-1 flex flex-col"> <div class="flex items-center mb-4 space-x-3"> <img src="/images/logo.svg" alt="OPTYP Logo" class="h-8 w-auto"> <h3 class="text-xl font-bold text-primary-500">OPTYP</h3> </div> <p class="text-white text-sm leading-relaxed">
 Professional resume & profile optimization services. Get Set, Get Hired!
 </p> <div class="mt-4"> <a href="mailto:info@optyp.com" class="text-primary-500 hover:text-primary-400 transition-colors duration-200">
 info@optyp.com
@@ -194,7 +176,7 @@ info@optyp.com
               0112 7zm0 1.5a3.5 3.5 0 
               100 7 3.5 3.5 0 000-7zm5.75-.25a1.25 
               1.25 0 11-2.5 0 1.25 1.25 
-              0 012.5 0z"></path> </svg> </a> </div> </div> <!-- Services --> <div> <h4 class="font-semibold mb-4 text-primary-500">Services</h4> <ul class="space-y-2 text-sm text-white"> <li><a href="/#services" class="hover:text-primary-600">ATS Resume</a></li> <li><a href="/#services" class="hover:text-primary-600">LinkedIn Optimization</a></li> <li><a href="/#services" class="hover:text-primary-600">Portfolio Website</a></li> <li><a href="/#services" class="hover:text-primary-600">Profile Optimization</a></li> </ul> </div> <!-- Quick Links --> <div> <h4 class="font-semibold mb-4 text-primary-500">Quick Links</h4> <ul class="space-y-2 text-sm text-white"> <li><a href="/" class="hover:text-primary-600">Home</a></li> <li><a href="/#about" class="hover:text-primary-600">About</a></li> <li><a href="/#plans" class="hover:text-primary-600">Plans</a></li> <li><a href="/#contact" class="hover:text-primary-600">Contact</a></li> <li><a href="/feedback/" class="hover:text-primary-600">Feedback</a></li> </ul> </div> <!-- Legal Links --> <div> <h4 class="font-semibold mb-4 text-primary-500">Legal</h4> <ul class="space-y-2 text-sm text-white"> <li><a href="/privacy/" class="hover:text-primary-600">Privacy Policy</a></li> <li><a href="/terms/" class="hover:text-primary-600">Terms & Conditions</a></li> <li><a href="/refund/" class="hover:text-primary-600">Refund Policy</a></li> <li><a href="/FAQ/" class="hover:text-primary-600">FAQ</a></li> </ul> </div> </div> <!-- Copyright --> <div class="border-t border-primary-700 mt-8 pt-8 text-center"> <p class="text-primary-400 text-sm">
+              0 012.5 0z"></path> </svg> </a> </div> </div> <!-- Services --> <div> <h4 class="font-semibold mb-4 text-primary-500">Services</h4> <ul class="space-y-2 text-sm text-white"> <li><a href="/#services" class="hover:text-primary-600">ATS Resume</a></li> <li><a href="/#services" class="hover:text-primary-600">LinkedIn Optimization</a></li> <li><a href="/#services" class="hover:text-primary-600">Portfolio Website</a></li> <li><a href="/#services" class="hover:text-primary-600">Profile Optimization</a></li> </ul> </div> <!-- Quick Links --> <div> <h4 class="font-semibold mb-4 text-primary-500">Quick Links</h4> <ul class="space-y-2 text-sm text-white"> <li><a href="/" class="hover:text-primary-600">Home</a></li> <li><a href="/#about" class="hover:text-primary-600">About</a></li> <li><a href="/#plans" class="hover:text-primary-600">Plans</a></li> <li><a href="/#contact" class="hover:text-primary-600">Contact</a></li> <li><a href="/feedback/" class="hover:text-primary-600">Feedback</a></li> <li><a href="/faq" class="hover:text-primary-600">FAQ</a></li> </ul> </div> <!-- Legal Links --> <div> <h4 class="font-semibold mb-4 text-primary-500">Legal</h4> <ul class="space-y-2 text-sm text-white"> <li><a href="/privacy/" class="hover:text-primary-600">Privacy Policy</a></li> <li><a href="/terms/" class="hover:text-primary-600">Terms & Conditions</a></li> <li><a href="/refund/" class="hover:text-primary-600">Refund Policy</a></li> </ul> </div> </div> <!-- Copyright --> <div class="border-t border-primary-700 mt-8 pt-8 text-center"> <p class="text-primary-400 text-sm">
 © 2025 OPTYP. All rights reserved | OPTYP. Get Set, Get Hired!
 </p> </div> </div> <!-- Back to Top Button --> <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 border border-gray-300 w-12 h-12 rounded-full shadow-lg 
            flex items-center justify-center hover:bg-gray-100 transition-opacity duration-300 opacity-0 pointer-events-none z-50" aria-label="Back to Top"> <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path> </svg> </button> <script>
