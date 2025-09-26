@@ -1,5 +1,8 @@
 ---
+const siteUrl = "https://optyp-com.github.io/optyp.github.io";
+import Contact from './contact.astro';
 ---
+
 <section class="bg-white py-16 px-4" id="faq">
   <div class="max-w-4xl mx-auto">
     <!-- Header -->
@@ -73,7 +76,7 @@
         </div>
       </div>
 
-      <!-- FAQ 4+ (Collapsed by default) -->
+      <!-- FAQ 4 (Collapsed by default) -->
       <div class="border border-gray-200 rounded-lg shadow-sm">
         <button 
           class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
@@ -91,6 +94,7 @@
         </div>
       </div>
 
+      <!-- FAQ 5 -->
       <div class="border border-gray-200 rounded-lg shadow-sm">
         <button 
           class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
@@ -108,6 +112,7 @@
         </div>
       </div>
 
+      <!-- FAQ 6 -->
       <div class="border border-gray-200 rounded-lg shadow-sm">
         <button 
           class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
@@ -125,6 +130,7 @@
         </div>
       </div>
 
+      <!-- FAQ 7 -->
       <div class="border border-gray-200 rounded-lg shadow-sm">
         <button 
           class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
@@ -142,6 +148,7 @@
         </div>
       </div>
 
+      <!-- FAQ 8 -->
       <div class="border border-gray-200 rounded-lg shadow-sm">
         <button 
           class="faq-question w-full text-left p-6 font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors flex justify-between items-center"
@@ -166,33 +173,38 @@
       <h3 class="text-xl font-semibold text-gray-900 mb-2">Still have questions?</h3>
       <p class="text-gray-600 mb-4">Our team is here to help you succeed in your career journey.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://forms.gle/e2psZyv2BjAniPeP6" 
-           class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
-           target="_blank" rel="noopener">
+        <!-- Opens the contact.astro modal -->
+        <button
+          id="faq-contact-btn"
+          class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+          type="button"
+          onclick="openContactForm()"
+        >
           Contact Us
-        </a>
-        <a href="https://wa.me/919848934274" 
-           class="inline-flex items-center px-6 py-3 border border-primary-600 text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50 transition-colors"
-           target="_blank" rel="noopener">
+        </button>
+        <!-- WhatsApp link -->
+        <a
+          href="https://wa.me/919848934274"
+          class="inline-flex items-center px-6 py-3 border border-primary-600 text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50 transition-colors"
+          target="_blank"
+          rel="noopener"
+        >
           WhatsApp Support
         </a>
       </div>
     </div>
   </div>
 
+  <!-- FAQ toggle & modal script -->
   <script is:inline>
     function toggleFAQ(faqId, button) {
       const answer = document.getElementById(faqId);
       const icon = button.querySelector('svg');
       const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
-      // Close all other FAQs
       document.querySelectorAll('.faq-answer').forEach(el => {
-        if (el.id !== faqId) {
-          el.classList.add('hidden');
-        }
+        if (el.id !== faqId) el.classList.add('hidden');
       });
-
       document.querySelectorAll('.faq-question').forEach(btn => {
         if (btn !== button) {
           btn.setAttribute('aria-expanded', 'false');
@@ -200,7 +212,6 @@
         }
       });
 
-      // Toggle current FAQ
       if (isExpanded) {
         answer.classList.add('hidden');
         button.setAttribute('aria-expanded', 'false');
@@ -211,5 +222,10 @@
         icon.style.transform = 'rotate(180deg)';
       }
     }
+
+    document.getElementById('faq-contact-btn').addEventListener('click', openContactForm);
   </script>
+
+  <!-- Contact modal from Contact.astro -->
+  <Contact />
 </section>
