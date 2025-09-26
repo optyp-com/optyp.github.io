@@ -1,25 +1,39 @@
 ---
 const { testimonials } = Astro.props;
 ---
+
 <section id="testimonials" class="bg-white py-20">
   <div class="container mx-auto max-w-6xl px-6 text-center">
-    <h2 class="text-5xl font-extrabold mb-6 text-gray-900">Hear From Our Clients Worldwide</h2>
-    <p class="text-xl mb-4 text-gray-700 max-w-4xl mx-auto">
+    <!-- Section Heading -->
+    <h2 class="text-5xl font-extrabold mb-6 text-gray-900 tracking-wide-heading">
+      Hear From Our Clients Worldwide
+    </h2>
+    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-10 rounded-full"></div>
+
+    <!-- Intro -->
+    <p class="text-gray-800 text-xl mb-4 max-w-4xl mx-auto">
       We have successfully optimized over <span class="font-semibold text-primary-600">500+ professional profiles</span> across multiple countries, empowering careers globally.
     </p>
-    <p class="mb-12 text-lg font-semibold text-primary-700 max-w-3xl mx-auto">
+    <p class="mb-12 text-lg font-semibold text-gray-800 max-w-3xl mx-auto">
       <strong>We value your privacy.</strong><br />
       Your personal and professional details are never disclosed. <br />
       Confidentiality and trust are the foundation of our service.
     </p>
+
+    <!-- Testimonials Grid -->
     <div class="grid gap-12 md:grid-cols-3">
       {testimonials.map(({quote, profession, location}) => (
-        <blockquote class="bg-gray-50 p-8 rounded-xl shadow-lg border border-primary-200 hover:shadow-2xl transition-shadow duration-300">
-          <p class="text-gray-800 italic mb-6 text-lg leading-relaxed">"{quote}"</p>
-          <footer class="text-sm font-bold text-primary-600 uppercase tracking-wide">{profession}, {location}</footer>
+        <blockquote
+          class="group bg-gray-50 p-8 rounded-xl shadow-lg border border-primary-100 hover:shadow-2xl hover:scale-105 transition duration-300 transform"
+        >
+          <p class="text-gray-800 italic mb-6 text-lg leading-relaxed">
+            "{quote}"
+          </p>
+          <footer class="text-sm font-bold text-primary-600 uppercase tracking-wide transition-colors duration-300 group-hover:text-primary-700">
+            {profession}, {location}
+          </footer>
         </blockquote>
       ))}
     </div>
   </div>
 </section>
-
