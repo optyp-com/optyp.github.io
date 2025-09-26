@@ -1,18 +1,39 @@
 ---
 const { services } = Astro.props;
 ---
+
 <section id="services" class="bg-gray-50 py-16">
   <div class="container mx-auto max-w-5xl px-4 text-center">
+    <!-- Section Heading -->
     <h2 class="text-4xl font-extrabold mb-8 text-gray-900">Our Services</h2>
     <p class="text-gray-600 mb-12 max-w-3xl mx-auto">
-We offer a full suite of career services that not only optimize your existing profiles but also build new, high-impact accounts from scratch.    </p>
+      We offer a full suite of career services that not only optimize your existing profiles 
+      but also build new, high-impact accounts from scratch.
+    </p>
+
+    <!-- Services Grid -->
     <div class="grid gap-10 md:grid-cols-3">
       {services.map(service => (
         <div
           class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow duration-300"
           key={service.title}
         >
-          <h3 class="text-xl font-semibold mb-4">{service.title}</h3>
+          <!-- Icon in brand color circle -->
+          {service.icon && (
+            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-brand">
+              <img
+                src={service.icon}
+                alt={service.title}
+                class="w-8 h-8 text-white"
+                loading="lazy"
+              />
+            </div>
+          )}
+
+          <!-- Title -->
+          <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
+
+          <!-- Description -->
           <p class="text-gray-700">{service.description}</p>
         </div>
       ))}
