@@ -34,10 +34,10 @@ export const plans = [
     name: "Freelance Career",
     price: "₹4,999 ($59)",
     features: [
-      "Upwork Profile Setup",
-      "Fiverr Profile Setup",
+      "Upwork Optimization",
+      "Fiverr Optimization",
+      "Toptal Optimization",
       "Optimized Gigs, Templates",
-      "Toptal Profile Setup",
     ],
     note: "✨ Kickstart Your Freelance Career – From Fiverr to Toptal!",
   },
