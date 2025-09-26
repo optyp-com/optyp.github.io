@@ -33,8 +33,8 @@ export const services = [
     description: "Craft high-converting Fiverr gigs and profiles that boost visibility and secure orders faster.",
   },
   {
-    title: "Toptal Preparation",
-    description: "Get expert guidance for Toptal applications, portfolio setup, and screening test readiness.",
+     title: "Toptal Profile Setup",
+    description: "Optimize your Toptal profile and portfolio with guidance to improve your chances of passing the screening process.",
   },
   {
     title: "Personal Branding",
