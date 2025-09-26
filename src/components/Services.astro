@@ -2,13 +2,13 @@
 const { services } = Astro.props;
 ---
 
-<section id="services" class="bg-gray-50 py-16 font-body">
+<section id="services" class="bg-gray-50 py-16">
   <div class="container mx-auto max-w-5xl px-4 text-center">
     <!-- Section Heading -->
-    <h2 class="text-4xl font-extrabold mb-4 text-gray-900 font-heading tracking-wide-heading">
+    <h2 class="text-4xl font-extrabold mb-4 text-gray-900 tracking-wide-heading">
       Our Services
     </h2>
-    <div class="w-20 h-1 bg-primary-500 mx-auto mb-10 rounded-full"></div>
+    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-10 rounded-full"></div>
 
     <p class="text-gray-500 mb-12 max-w-3xl mx-auto">
       We offer a full suite of career services that not only optimize your existing profiles 
@@ -37,12 +37,12 @@ const { services } = Astro.props;
           )}
 
           <!-- Title -->
-          <h3 class="text-xl font-semibold mb-2 text-gray-900 font-heading transition-colors duration-300 group-hover:text-primary-600">
+          <h3 class="text-xl font-semibold mb-2 text-gray-900 transition-colors duration-300 group-hover:text-primary-600">
             {service.title}
           </h3>
 
           <!-- Description -->
-          <p class="text-gray-500 font-body">
+          <p class="text-gray-500">
             {service.description}
           </p>
         </div>
