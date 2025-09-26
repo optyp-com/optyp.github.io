@@ -24,4 +24,20 @@ export const services = [
     title: "Portfolio Creation",
     description: "Create a polished online portfolio with case studies and visuals that highlight your expertise.",
   },
+  {
+    title: "Upwork Profile Setup",
+    description: "Build and optimize your Upwork profile to stand out, win projects, and attract quality clients.",
+  },
+  {
+    title: "Fiverr Profile Setup",
+    description: "Craft high-converting Fiverr gigs and profiles that boost visibility and secure orders faster.",
+  },
+  {
+    title: "Toptal Preparation",
+    description: "Get expert guidance for Toptal applications, portfolio setup, and screening test readiness.",
+  },
+  {
+    title: "Personal Branding",
+    description: "Develop a strong personal brand with strategy, content planning, and authority building online.",
+  },
 ];
