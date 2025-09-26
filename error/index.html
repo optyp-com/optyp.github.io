@@ -45,12 +45,12 @@ info@optyp.com
               0-.18-.01-.36-.02-.55A4.26 
               4.26 0 0 0 23 3z"></path> </svg> </a> <!-- Facebook --> <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener" aria-label="Facebook" class="text-primary-600 hover:text-primary-500 transition-colors duration-200"> <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path d="M22.68 0H1.32C.59 0 0 
               .59 0 1.32v21.36C0 23.41.59 
-              24 1.32 24h11.5V14.67H9.69v-3.62h3v8.41
-              c0 3.1-1.89 4.79-4.65 4.79 
-              -1.32 0-2.46-.1-2.79-.14v-3.24h1.92
-              c1.5 0 1.79-.72 1.79-1.77v-2.31h-3.57l.47
-              -3.62h3.1V0h-6.08c-.73 0-1.32.59
-              -1.32 1.32V24c0 .73.59 1.32 1.32 1.32"></path> </svg> </a> <!-- Instagram --> <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener" aria-label="Instagram" class="text-primary-300 hover:text-primary-200 transition-colors duration-200"> <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path d="M7.75 2h8.5A5.75 5.75 
+              24 1.32 24h11.5V14.67H9.69v-3.62h3.13V8.41
+              c0-3.1 1.89-4.79 4.65-4.79 
+              1.32 0 2.46.1 2.79.14v3.24h-1.92
+              c-1.5 0-1.79.72-1.79 1.77v2.31h3.57l-.47 
+              3.62h-3.1V24h6.08c.73 0 1.32-.59 
+              1.32-1.32V1.32c0-.73-.59-1.32-1.32-1.32"></path> </svg> </a> <!-- Instagram --> <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener" aria-label="Instagram" class="text-primary-300 hover:text-primary-200 transition-colors duration-200"> <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path d="M7.75 2h8.5A5.75 5.75 
               0 0122 7.75v8.5A5.75 5.75 0 
               0116.25 22h-8.5A5.75 5.75 0 
               012 16.25v-8.5A5.75 5.75 0 
@@ -87,18 +87,18 @@ info@optyp.com
 
     window.addEventListener('scroll', updateBackToTopVisibility);
 
+    // Wrap modal open/close to update backToTop
     window.openContactForm = window.openContactForm || function() {};
     window.closeContactForm = window.closeContactForm || function() {};
 
-    const originalOpen = window.openContactForm;
+    const origOpen = window.openContactForm;
     window.openContactForm = function(...args) {
-      originalOpen(...args);
+      origOpen(...args);
       updateBackToTopVisibility();
     };
-
-    const originalClose = window.closeContactForm;
+    const origClose = window.closeContactForm;
     window.closeContactForm = function(...args) {
-      originalClose(...args);
+      origClose(...args);
       updateBackToTopVisibility();
     };
   </script> </footer> </body></html>
