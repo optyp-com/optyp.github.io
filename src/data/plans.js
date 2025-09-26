@@ -63,7 +63,7 @@ export const plans = [
       "LinkedIn Optimization → ₹399 ($4.99)",
       "Portfolio Optimization → ₹899 ($9.99)",
       "Fiverr Optimization → ₹1,499 ($18.99)",
-      "Upwork Optimization → ₹1,899($23.99)",
+      "Upwork Optimization → ₹1,899 ($23)",
       "Toptal Optimization → ₹2,499 ($29.99)",
       "Personal Branding → ₹9,999 ($114.99)",
     ],
