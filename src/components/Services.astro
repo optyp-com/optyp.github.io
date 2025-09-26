@@ -19,30 +19,26 @@ const { services } = Astro.props;
     <div class="grid gap-10 md:grid-cols-3">
       {services.map(service => (
         <div
-          class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition duration-300 hover:border-brand border border-transparent"
+          class="bg-brand p-6 rounded-lg shadow hover:shadow-lg transition duration-300 hover:bg-brand-dark text-white"
           key={service.title}
         >
-          <!-- Icon in brand color circle -->
+          <!-- Icon in white circle -->
           {service.icon && (
-            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-brand text-white shadow-sm">
+            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-white shadow-sm">
               <img
                 src={service.icon}
                 alt={service.title}
-                class="w-8 h-8"
+                class="w-8 h-8 text-brand"
                 loading="lazy"
               />
             </div>
           )}
 
           <!-- Title -->
-          <h3 class="text-xl font-semibold mb-2 text-gray-900 group-hover:text-brand">
-            {service.title}
-          </h3>
+          <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
 
           <!-- Description -->
-          <p class="text-gray-700">
-            {service.description}
-          </p>
+          <p class="text-gray-100">{service.description}</p>
         </div>
       ))}
     </div>
