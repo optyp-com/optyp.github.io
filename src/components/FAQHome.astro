@@ -1,67 +1,88 @@
 ---
 ---
-<section class="bg-white py-12 px-4 sm:py-16" id="faq">
-  <div class="max-w-4xl mx-auto">
-    <!-- Header -->
-    <div class="text-center mb-10 sm:mb-12">
-      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">Frequently Asked Questions</h2>
-      <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-        Quick answers to the most common questions about our resume and profile services.
-      </p>
-    </div>
+<section class="bg-gray-50 py-20 px-4" id="faq">
+  <div class="container mx-auto max-w-5xl text-center">
+    <!-- Section Heading -->
+    <h2 class="text-4xl font-extrabold mb-4 text-gray-900 tracking-wide-heading">
+      Frequently Asked Questions
+    </h2>
+    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-10 rounded-full"></div>
+    <p class="text-gray-800 mb-12 max-w-xl mx-auto text-lg font-medium">
+      Quick answers to the most common questions about our resume and profile services.
+    </p>
 
     <!-- FAQ Items -->
-    <div class="space-y-4">
+    <div class="space-y-6">
       <!-- FAQ 1 -->
-      <div class="border border-gray-200 rounded-lg shadow-sm">
-        <button 
-          class="faq-question w-full text-left p-4 sm:p-6 font-semibold text-base sm:text-lg text-gray-900 hover:bg-gray-50 flex justify-between items-center"
-          aria-expanded="false" aria-controls="faq1" onclick="toggleFAQ('faq1', this)">
+      <div class="group bg-white rounded-lg shadow hover:shadow-lg transition duration-300 border border-transparent hover:border-primary-500">
+        <button
+          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
+          aria-expanded="false"
+          aria-controls="faq1"
+          onclick="toggleFAQ('faq1', this)"
+        >
           How does the process work after I sign up?
-          <svg class="w-5 h-5 flex-shrink-0 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="faq1" class="faq-answer hidden px-4 sm:px-6 pb-4 sm:pb-6 text-gray-700 text-sm sm:text-base">
+        <div
+          id="faq1"
+          class="faq-answer hidden px-6 pb-6 text-gray-700 text-base transition-opacity duration-300"
+        >
           After purchase, you’ll receive a short questionnaire. Our team reviews your details, optimizes your profiles/resume, and delivers the first draft within 24–48 hours. You’ll then have time to request revisions (based on your plan).
         </div>
       </div>
 
       <!-- FAQ 2 -->
-      <div class="border border-gray-200 rounded-lg shadow-sm">
-        <button 
-          class="faq-question w-full text-left p-4 sm:p-6 font-semibold text-base sm:text-lg text-gray-900 hover:bg-gray-50 flex justify-between items-center"
-          aria-expanded="false" aria-controls="faq2" onclick="toggleFAQ('faq2', this)">
+      <div class="group bg-white rounded-lg shadow hover:shadow-lg transition duration-300 border border-transparent hover:border-primary-500">
+        <button
+          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
+          aria-expanded="false"
+          aria-controls="faq2"
+          onclick="toggleFAQ('faq2', this)"
+        >
           How long does the delivery process take?
-          <svg class="w-5 h-5 flex-shrink-0 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="faq2" class="faq-answer hidden px-4 sm:px-6 pb-4 sm:pb-6 text-gray-700 text-sm sm:text-base">
+        <div
+          id="faq2"
+          class="faq-answer hidden px-6 pb-6 text-gray-700 text-base transition-opacity duration-300"
+        >
           Most projects are completed within <strong>24–48 hours</strong>. Elite plan customers receive priority processing.
         </div>
       </div>
 
       <!-- FAQ 3 -->
-      <div class="border border-gray-200 rounded-lg shadow-sm">
-        <button 
-          class="faq-question w-full text-left p-4 sm:p-6 font-semibold text-base sm:text-lg text-gray-900 hover:bg-gray-50 flex justify-between items-center"
-          aria-expanded="false" aria-controls="faq3" onclick="toggleFAQ('faq3', this)">
+      <div class="group bg-white rounded-lg shadow hover:shadow-lg transition duration-300 border border-transparent hover:border-primary-500">
+        <button
+          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
+          aria-expanded="false"
+          aria-controls="faq3"
+          onclick="toggleFAQ('faq3', this)"
+        >
           Do you offer revisions if I'm not satisfied?
-          <svg class="w-5 h-5 flex-shrink-0 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="faq3" class="faq-answer hidden px-4 sm:px-6 pb-4 sm:pb-6 text-gray-700 text-sm sm:text-base">
+        <div
+          id="faq3"
+          class="faq-answer hidden px-6 pb-6 text-gray-700 text-base transition-opacity duration-300"
+        >
           Yes. Essentials & Professional → 1 free revision (7 days). Elite → 2 free revisions (14 days). Extra revisions at ₹500.
         </div>
       </div>
     </div>
 
     <!-- CTA -->
-    <div class="text-center mt-8 sm:mt-10">
-      <a href="/faq" 
-         class="inline-flex items-center px-5 py-3 sm:px-6 sm:py-3 border border-primary-600 text-sm sm:text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50 transition">
+    <div class="text-center mt-10">
+      <a
+        href="/faq"
+        class="inline-flex items-center px-8 py-3 bg-primary-600 text-white font-semibold rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300 hover:bg-primary-700"
+      >
         See More FAQs →
       </a>
     </div>
@@ -105,24 +126,16 @@
     function toggleFAQ(faqId, button) {
       const answer = document.getElementById(faqId);
       const icon = button.querySelector('svg');
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      const expanded = button.getAttribute('aria-expanded') === 'true';
 
-      document.querySelectorAll('.faq-answer').forEach(el => {
-        if (el.id !== faqId) el.classList.add('hidden');
-      });
-
+      // Collapse all
+      document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.faq-question').forEach(btn => {
-        if (btn !== button) {
-          btn.setAttribute('aria-expanded', 'false');
-          btn.querySelector('svg').style.transform = 'rotate(0deg)';
-        }
+        btn.setAttribute('aria-expanded', 'false');
+        btn.querySelector('svg').style.transform = 'rotate(0deg)';
       });
 
-      if (isExpanded) {
-        answer.classList.add('hidden');
-        button.setAttribute('aria-expanded', 'false');
-        icon.style.transform = 'rotate(0deg)';
-      } else {
+      if (!expanded) {
         answer.classList.remove('hidden');
         button.setAttribute('aria-expanded', 'true');
         icon.style.transform = 'rotate(180deg)';
