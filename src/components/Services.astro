@@ -2,15 +2,15 @@
 const { services } = Astro.props;
 ---
 
-<section id="services" class="bg-gray-50 py-16">
+<section id="services" class="bg-gray-50 py-16 font-body">
   <div class="container mx-auto max-w-5xl px-4 text-center">
     <!-- Section Heading -->
-    <h2 class="text-4xl font-extrabold mb-4 text-gray-900">
+    <h2 class="text-4xl font-extrabold mb-4 text-gray-900 font-heading tracking-wide-heading">
       Our Services
     </h2>
-    <div class="w-20 h-1 bg-brand mx-auto mb-10 rounded-full"></div>
+    <div class="w-20 h-1 bg-primary-500 mx-auto mb-10 rounded-full"></div>
 
-    <p class="text-gray-600 mb-12 max-w-3xl mx-auto">
+    <p class="text-gray-500 mb-12 max-w-3xl mx-auto">
       We offer a full suite of career services that not only optimize your existing profiles 
       but also build new, high-impact accounts from scratch.
     </p>
@@ -19,26 +19,32 @@ const { services } = Astro.props;
     <div class="grid gap-10 md:grid-cols-3">
       {services.map(service => (
         <div
-          class="bg-brand p-6 rounded-lg shadow hover:shadow-lg transition duration-300 hover:bg-brand-dark text-white"
+          class="group bg-white p-6 rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300 hover:border-primary-500 border border-transparent transform"
           key={service.title}
         >
-          <!-- Icon in white circle -->
+          <!-- Icon in brand color circle with hover -->
           {service.icon && (
-            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-white shadow-sm">
+            <div
+              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary-500 shadow-sm transition-colors duration-300 group-hover:bg-primary-600"
+            >
               <img
                 src={service.icon}
                 alt={service.title}
-                class="w-8 h-8 text-brand"
+                class="w-8 h-8 text-white"
                 loading="lazy"
               />
             </div>
           )}
 
           <!-- Title -->
-          <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
+          <h3 class="text-xl font-semibold mb-2 text-gray-900 font-heading transition-colors duration-300 group-hover:text-primary-600">
+            {service.title}
+          </h3>
 
           <!-- Description -->
-          <p class="text-gray-100">{service.description}</p>
+          <p class="text-gray-500 font-body">
+            {service.description}
+          </p>
         </div>
       ))}
     </div>
