@@ -14,7 +14,7 @@ export const plans = [
     name: "Professional",
     price: "₹749 ($9)",
     features: [
-      "Essentials Plan +",
+      "Essentials plan +",
       "Indeed Optimization",
       "GitHub Optimization",
     ],
@@ -24,15 +24,37 @@ export const plans = [
     name: "Elite",
     price: "₹999 ($14)",
     features: [
-      "Professional Plan +",
+      "Professional plan +",
       "Additional ATS Resume",
       "Portfolio Creation",
     ],
-    note: "✨ Go Elite – Premium Career Tools, Unbeatable Price!",
+    note: "✨ Go Advanced – Premium Career Tools at the Best Price!",
   },
   {
-    name: "Individual Services",
-    price: "Flexible",
+    name: "Freelance Career",
+    price: "₹2,499 ($30)",
+    features: [
+      "Upwork Profile Setup",
+      "Fiverr Profile Setup",
+      "Optimized Gigs + Proposal Templates",
+      "✨ Toptal Preparation → Custom Pricing ",
+    ],
+    note: "✨ Kickstart Your Freelance Career – From Fiverr to Toptal!",
+  },
+  {
+    name: "Personal Branding",
+    price: "₹9,999 ($120)",
+    features: [
+      "Elite Plan +",
+      "Freelancing Setup",
+      "Personal Branding Strategy & Audit",
+      "Content Calendar (30 Days)",
+    ],
+    note: "✨ Complete Career Growth – Branding, Jobs & Freelancing in One!",
+  },
+  {
+    name: "Flexible (Individual Services)",
+    price: "Custom",
     features: [
       "ATS Resume Crafting → ₹299 ($3.40)",
       "Naukri Optimization → ₹299 ($3.40)",
@@ -40,7 +62,11 @@ export const plans = [
       "GitHub Optimization → ₹299 ($3.40)",
       "LinkedIn Optimization → ₹399 ($4.53)",
       "Portfolio Optimization → ₹799 ($9.08)",
+      "Upwork Optimization → ₹1,499 ($18)",
+      "Fiverr Optimization → ₹1,499 ($18)",
+      "✨ Toptal Preparation → Custom Pricing",
+      "Personal Branding → ₹9,999 ($120)",
     ],
-    note: "✨ Flexible choice – Buy only what you need!",
+    note: "✨ Pick and Pay – Buy Only What You Need!",
   },
 ];
