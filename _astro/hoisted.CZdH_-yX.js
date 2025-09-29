@@ -1,0 +1,1 @@
+import"./hoisted.CQ0waNuA.js";document.addEventListener("DOMContentLoaded",()=>{const c=document.querySelectorAll(".counter"),i=100;c.forEach(t=>{const n=()=>{const e=+t.getAttribute("data-target"),o=+t.innerText,r=Math.ceil(e/i);o<e?(t.innerText=o+r,setTimeout(n,30)):t.innerText=e+"+"};n()})});
