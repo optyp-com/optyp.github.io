@@ -1,17 +1,17 @@
 ---
- // src/components/Header.astro
+// src/components/Header.astro
 ---
-<header class="bg-white shadow sticky top-0 z-40">
+<header id="site-header" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
   <div class="container mx-auto flex items-center justify-between px-4 py-3">
     <!-- Logo -->
     <a href="/" class="flex items-center space-x-2">
       <img src="/images/logo.svg" alt="OPTYP Logo" class="h-10 w-auto" />
-      <span class="font-bold text-xl text-primary-500 tracking-wide">OPTYP</span>
+      <span class="font-bold text-xl tracking-wide transition-colors duration-300 header-text">OPTYP</span>
     </a>
 
     <!-- Mobile Menu Button -->
     <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Toggle Menu">
-      <svg class="w-7 h-7 text-primary-500" fill="none" stroke="currentColor" stroke-width="2"
+      <svg class="w-7 h-7 header-text" fill="none" stroke="currentColor" stroke-width="2"
         viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
         <line x1="3" y1="12" x2="21" y2="12" />
         <line x1="3" y1="6" x2="21" y2="6" />
@@ -20,64 +20,106 @@
     </button>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex space-x-8 font-semibold font-body text-gray-700">
-      <a href="/#hero" data-section="hero" class="nav-link hover:text-primary-600">Home</a>
-      <a href="/#about" data-section="about" class="nav-link hover:text-primary-600">About</a>
-      <a href="/#services" data-section="services" class="nav-link hover:text-primary-600">Services</a>
-      <a href="/#plans" data-section="plans" class="nav-link hover:text-primary-600">Plans</a>
-      <a href="/#testimonials" data-section="testimonials" class="nav-link hover:text-primary-600">Testimonials</a>
-      <a href="/#contact" data-section="contact" class="nav-link hover:text-primary-600">Contact</a>
+    <nav class="hidden md:flex space-x-8 font-semibold font-body">
+      <a href="/#hero" data-section="hero" class="nav-link">Home</a>
+      <a href="/#about" data-section="about" class="nav-link">About</a>
+      <a href="/#services" data-section="services" class="nav-link">Services</a>
+      <a href="/#plans" data-section="plans" class="nav-link">Plans</a>
+      <a href="/#testimonials" data-section="testimonials" class="nav-link">Testimonials</a>
+      <a href="/#faq" data-section="faq" class="nav-link">FAQ</a>
+      <a href="/#contact" data-section="contact" class="nav-link">Contact</a>
     </nav>
   </div>
 
   <!-- Mobile Navigation -->
-  <nav id="mobile-menu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-16 hidden px-4 py-4 space-y-2 font-semibold font-body">
-    <a href="/#hero" data-section="hero" class="block nav-link hover:text-primary-600">Home</a>
-    <a href="/#about" data-section="about" class="block nav-link hover:text-primary-600">About</a>
-    <a href="/#services" data-section="services" class="block nav-link hover:text-primary-600">Services</a>
-    <a href="/#plans" data-section="plans" class="block nav-link hover:text-primary-600">Plans</a>
-    <a href="/#testimonials" data-section="testimonials" class="block nav-link hover:text-primary-600">Testimonials</a>
-    <a href="/#contact" data-section="contact" class="block nav-link hover:text-primary-600">Contact</a>
+  <nav id="mobile-menu"
+    class="md:hidden absolute w-full left-0 top-16 px-4 py-4 space-y-2 font-semibold font-body bg-white shadow-lg transform -translate-y-10 opacity-0 scale-95 transition-all duration-300 ease-out pointer-events-none">
+    <a href="/#hero" data-section="hero" class="nav-link block">Home</a>
+    <a href="/#about" data-section="about" class="nav-link block">About</a>
+    <a href="/#services" data-section="services" class="nav-link block">Services</a>
+    <a href="/#plans" data-section="plans" class="nav-link block">Plans</a>
+    <a href="/#testimonials" data-section="testimonials" class="nav-link block">Testimonials</a>
+    <a href="/#faq" data-section="faq" class="nav-link block">FAQ</a>
+    <a href="/#contact" data-section="contact" class="nav-link block">Contact</a>
   </nav>
 
-  <script is:inline>
-    // Mobile Menu Toggle
-    const button = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
-    button?.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-
-    // ScrollSpy: Highlight active nav link
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute("id");
-            navLinks.forEach((link) => {
-              link.classList.remove("nav-active");
-              if (link.getAttribute("data-section") === id) {
-                link.classList.add("nav-active");
-              }
-            });
-          }
-        });
-      },
-      { threshold: 0.6 } // 60% visible
-    );
-
-    sections.forEach((section) => observer.observe(section));
-  </script>
-
   <style>
-    .nav-link.nav-active {
-      color: #16a34a; /* primary green */
-      font-weight: 700;
+    .nav-link {
+      color: inherit;
+      transition: color 0.3s;
+    }
+    .nav-link:hover {
+      color: #16a34a; /* green-600 */
+    }
+    .nav-active {
+      color: #16a34a;
       border-bottom: 2px solid #16a34a;
-      transition: all 0.3s ease;
+      padding-bottom: 2px;
+    }
+    /* Default header text (white when transparent) */
+    .header-text {
+      color: white;
+    }
+    /* When scrolled -> dark text */
+    .scrolled .header-text,
+    .scrolled .nav-link {
+      color: #1f2937; /* gray-800 */
+    }
+    /* Mobile menu open state */
+    #mobile-menu.open {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      pointer-events: auto;
     }
   </style>
+
+  <script is:inline>
+    const button = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
+    const header = document.getElementById('site-header');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    // Mobile Menu Toggle with animation
+    button?.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+
+    // Scrollspy
+    function setActive(id) {
+      navLinks.forEach(link => {
+        link.classList.remove('nav-active');
+        if (link.dataset.section === id) {
+          link.classList.add('nav-active');
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    sections.forEach(section => observer.observe(section));
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+      });
+    });
+
+    // Header background + text color change on scroll
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('bg-white', 'shadow-md', 'scrolled');
+        header.classList.remove('bg-transparent');
+      } else {
+        header.classList.add('bg-transparent');
+        header.classList.remove('bg-white', 'shadow-md', 'scrolled');
+      }
+    });
+  </script>
 </header>
