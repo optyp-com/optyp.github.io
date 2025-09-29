@@ -13,72 +13,78 @@
 
     <!-- FAQ Items -->
     <div class="space-y-6 text-left">
-      <!-- FAQ Item -->
-      <div class="group bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl transition duration-300 hover:border-primary-500">
-        <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 flex justify-between items-center"
-          aria-expanded="false"
-          aria-controls="faq1"
-          onclick="toggleFAQ('faq1', this)"
-        >
-          How does the process work after I sign up?
-          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <div
-          id="faq1"
-          class="faq-answer max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-700 text-base"
-        >
-          <p class="py-4">
-            After purchase, you’ll receive a short questionnaire. Our team reviews your details, optimizes your profiles/resume, and delivers the first draft within 24–48 hours. You’ll then have time to request revisions (based on your plan).
-          </p>
+      <!-- FAQ 1 -->
+      <div class="faq-card group relative rounded-2xl p-[2px] bg-gradient-to-r from-primary-400 via-primary-600 to-primary-800 hover:animate-borderGlow transition duration-500">
+        <div class="bg-white/20 backdrop-blur-lg border border-white/20 rounded-2xl shadow-md transition duration-500 group-hover:scale-[1.02] group-hover:shadow-xl">
+          <button
+            class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 flex justify-between items-center"
+            aria-expanded="false"
+            aria-controls="faq1"
+            onclick="toggleFAQ('faq1', this)"
+          >
+            How does the process work after I sign up?
+            <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div
+            id="faq1"
+            class="faq-answer max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-700 text-base"
+          >
+            <p class="py-4">
+              After purchase, you’ll receive a short questionnaire. Our team reviews your details, optimizes your profiles/resume, and delivers the first draft within 24–48 hours. You’ll then have time to request revisions (based on your plan).
+            </p>
+          </div>
         </div>
       </div>
 
       <!-- FAQ 2 -->
-      <div class="group bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl transition duration-300 hover:border-primary-500">
-        <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 flex justify-between items-center"
-          aria-expanded="false"
-          aria-controls="faq2"
-          onclick="toggleFAQ('faq2', this)"
-        >
-          How long does the delivery process take?
-          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <div
-          id="faq2"
-          class="faq-answer max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-700 text-base"
-        >
-          <p class="py-4">
-            Most projects are completed within <strong>24–48 hours</strong>. Elite plan customers receive priority processing.
-          </p>
+      <div class="faq-card group relative rounded-2xl p-[2px] bg-gradient-to-r from-primary-400 via-primary-600 to-primary-800 hover:animate-borderGlow transition duration-500">
+        <div class="bg-white/20 backdrop-blur-lg border border-white/20 rounded-2xl shadow-md transition duration-500 group-hover:scale-[1.02] group-hover:shadow-xl">
+          <button
+            class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 flex justify-between items-center"
+            aria-expanded="false"
+            aria-controls="faq2"
+            onclick="toggleFAQ('faq2', this)"
+          >
+            How long does the delivery process take?
+            <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div
+            id="faq2"
+            class="faq-answer max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-700 text-base"
+          >
+            <p class="py-4">
+              Most projects are completed within <strong>24–48 hours</strong>. Elite plan customers receive priority processing.
+            </p>
+          </div>
         </div>
       </div>
 
       <!-- FAQ 3 -->
-      <div class="group bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl transition duration-300 hover:border-primary-500">
-        <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 flex justify-between items-center"
-          aria-expanded="false"
-          aria-controls="faq3"
-          onclick="toggleFAQ('faq3', this)"
-        >
-          Do you offer revisions if I'm not satisfied?
-          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <div
-          id="faq3"
-          class="faq-answer max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-700 text-base"
-        >
-          <p class="py-4">
-            Yes. Essentials & Professional → 1 free revision (7 days). Elite → 2 free revisions (14 days). Extra revisions at ₹500.
-          </p>
+      <div class="faq-card group relative rounded-2xl p-[2px] bg-gradient-to-r from-primary-400 via-primary-600 to-primary-800 hover:animate-borderGlow transition duration-500">
+        <div class="bg-white/20 backdrop-blur-lg border border-white/20 rounded-2xl shadow-md transition duration-500 group-hover:scale-[1.02] group-hover:shadow-xl">
+          <button
+            class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 flex justify-between items-center"
+            aria-expanded="false"
+            aria-controls="faq3"
+            onclick="toggleFAQ('faq3', this)"
+          >
+            Do you offer revisions if I'm not satisfied?
+            <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div
+            id="faq3"
+            class="faq-answer max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-700 text-base"
+          >
+            <p class="py-4">
+              Yes. Essentials & Professional → 1 free revision (7 days). Elite → 2 free revisions (14 days). Extra revisions at ₹500.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -104,7 +110,17 @@
     .animate-pulse-slow {
       animation: pulse-slow 1.5s ease-in-out infinite;
       animation-delay: 10s;
-      animation-iteration-count: infinite;
+    }
+
+    /* Animated glowing gradient border */
+    @keyframes borderGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animate-borderGlow {
+      background-size: 200% 200%;
+      animation: borderGlow 4s linear infinite;
     }
   </style>
 
