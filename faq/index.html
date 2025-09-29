@@ -61,7 +61,7 @@
           }
         ]
       }
-    </script><link rel="stylesheet" href="/assets/style.hkO_IC0i.css"></head> <body class="bg-white text-gray-900"> <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-primary-600 text-white">
+    </script><link rel="stylesheet" href="/assets/style.DD_Z4RgD.css"></head> <body class="bg-white text-gray-900"> <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-primary-600 text-white">
 Skip to main content
 </a> <header class="bg-white shadow sticky top-0 z-40"> <div class="container mx-auto flex items-center justify-between px-4 py-3"> <!-- Logo --> <a href="/" class="flex items-center space-x-2"> <img src="/images/logo.svg" alt="OPTYP Logo" class="h-10 w-auto"> <span class="font-bold text-xl text-primary-500 tracking-wide">OPTYP</span> </a> <!-- Mobile Menu Button --> <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Toggle Menu"> <svg class="w-7 h-7 text-primary-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> </button> <!-- Desktop Navigation --> <nav class="hidden md:flex space-x-8 font-semibold font-body text-gray-700"> <a href="/#hero" class="hover:text-primary-600">Home</a> <a href="/#about" class="hover:text-primary-600">About</a> <a href="/#services" class="hover:text-primary-600">Services</a> <a href="/#plans" class="hover:text-primary-600">Plans</a> <a href="/#testimonials" class="hover:text-primary-600">Testimonials</a> <a href="/#contact" class="hover:text-primary-600">Contact</a> </nav> </div> <!-- Mobile Navigation --> <nav id="mobile-menu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-16 hidden px-4 py-4 space-y-2 font-semibold font-body"> <a href="/#hero" class="block hover:text-primary-600" data-section="#hero">Home</a> <a href="/#about" class="block hover:text-primary-600" data-section="#about">About</a> <a href="/#services" class="block hover:text-primary-600" data-section="#services">Services</a> <a href="/#plans" class="block hover:text-primary-600" data-section="#plans">Plans</a> <a href="/#testimonials" class="block hover:text-primary-600" data-section="#testimonials">Testimonials</a> <a href="/#contact" class="block hover:text-primary-600" data-section="#contact">Contact</a> </nav> <script>
     // Mobile Menu Toggle
@@ -141,8 +141,57 @@ Get Started
               translate-y-full sm:translate-y-0 scale-95" id="contact-modal-content" onclick="event.stopPropagation()"> <!-- Header --> <div class="sticky top-0 z-10 flex justify-end p-3 bg-white/30 backdrop-blur-lg border-b border-white/30 sm:rounded-t-2xl"> <button id="close-contact-btn" onclick="closeContactForm()" class="w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white rounded-full shadow-md transition duration-300 hover:scale-105" aria-label="Close Form">✕
 </button> </div> <!-- Contact Form --> <div class="flex-1 overflow-y-auto p-6 sm:p-10"> <div class="group bg-white/30 backdrop-blur-md border border-white/40 p-8 rounded-2xl shadow-sm transform transition duration-300 max-w-2xl mx-auto"> <form id="contact-form" class="space-y-6" novalidate> <!-- Web3Forms Access Key --> <input type="hidden" name="access_key" value="adb0d3eb-198d-40ab-bfeb-d6d36ed4e402"> <input type="hidden" name="subject" value="New Contact Form Submission - OPTYP"> <input type="hidden" name="from_name" value="OPTYP Contact Form"> <input type="checkbox" name="botcheck" style="display: none;"> <!-- Name + Email --> <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> <div> <label for="name" class="block text-sm font-semibold mb-1 text-gray-900">Full Name *</label> <input type="text" name="name" id="name" required class="w-full rounded-xl border border-gray-300 bg-white/90 focus:bg-white p-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300"> <div class="field-error text-red-500 text-sm mt-1 hidden"></div> </div> <div> <label for="email" class="block text-sm font-semibold mb-1 text-gray-900">Email *</label> <input type="email" name="email" id="email" required class="w-full rounded-xl border border-gray-300 bg-white/90 focus:bg-white p-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300"> <div class="field-error text-red-500 text-sm mt-1 hidden"></div> </div> </div> <!-- Contact Number --> <div> <label for="phone" class="block text-sm font-semibold mb-1 text-gray-900">Contact Number *</label> <input type="tel" name="phone" id="phone" required class="w-full rounded-xl border border-gray-300 bg-white/90 focus:bg-white p-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300" placeholder="e.g. +91 9876543210"> <div class="field-error text-red-500 text-sm mt-1 hidden"></div> </div> <!-- Profession --> <div> <label for="profession" class="block text-sm font-semibold mb-1 text-gray-900">What do you currently do? *</label> <select name="profession" id="profession" required class="w-full rounded-xl border border-gray-300 bg-white/90 focus:bg-white p-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300"> <option value="">Select an option</option> <option value="salaried">Salaried Professional</option> <option value="self-employed">Self-Employed</option> <option value="student">Student</option> </select> <div class="field-error text-red-500 text-sm mt-1 hidden"></div> </div> <!-- Experience (only for salaried) --> <div id="experience-wrapper" class="hidden"> <label for="experience" class="block text-sm font-semibold mb-1 text-gray-900">Years of Experience *</label> <select name="experience" id="experience" class="w-full rounded-xl border border-gray-300 bg-white/90 focus:bg-white p-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300"> <option value="">Select experience</option> <option value="0">0 years (Fresher)</option> <option value="1-2">1-2 years</option> <option value="3-5">3-5 years</option> <option value="5-10">5-10 years</option> <option value="10-15">10-15 years</option> <option value="15+">15+ years</option> </select> <div class="field-error text-red-500 text-sm mt-1 hidden"></div> </div> <!-- Services --> <div> <label for="services" class="block text-sm font-semibold mb-1 text-gray-900">Select Services *</label> <select name="services" id="services" multiple required class="w-full rounded-xl border border-gray-300 bg-white/90 focus:bg-white p-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300"> <option value="ATS Resume">ATS Resume</option> <option value="LinkedIn Optimization">LinkedIn Optimization</option> <option value="Naukri">Naukri</option> <option value="Indeed">Indeed</option> <option value="GitHub">GitHub</option> <option value="Portfolio Website">Portfolio Website</option> <option value="Upwork">Upwork</option> <option value="Fiverr">Fiverr</option> <option value="Topal">Topal</option> <option value="Personal Branding">Personal Branding</option> </select> <p class="text-sm text-gray-600 mt-1">Hold CTRL (Windows) or CMD (Mac) to select multiple.</p> <div class="field-error text-red-500 text-sm mt-1 hidden"></div> </div> <!-- Message --> <div> <label for="message" class="block text-sm font-semibold mb-1 text-gray-900">Message *</label> <textarea name="message" id="message" rows="5" required class="w-full rounded-xl border border-gray-300 bg-white/90 focus:bg-white p-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-300"></textarea> <div class="field-error text-red-500 text-sm mt-1 hidden"></div> </div> <!-- Submit --> <div class="text-center"> <button id="submit-btn" type="submit" class="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition duration-300"> <span id="btn-text">Send Message</span> <svg id="btn-spinner" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"> <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle> <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path> </svg> </button> </div> </form> </div> </div> </div> </div> <!-- Toast --> <div id="toast" class="fixed bottom-5 right-5 md:bottom-5 md:right-5 sm:inset-x-0 sm:mx-auto sm:bottom-4 hidden z-[9999] w-fit max-w-[90%]"> <div id="toast-content" class="flex items-center gap-3 px-6 py-4 rounded-xl border backdrop-blur-md bg-white/20 shadow-lg text-white font-medium 
               transform translate-y-5 opacity-0 transition-all duration-500 ease-out"> <span id="toast-icon" class="text-xl"></span> <span id="toast-message"></span> </div> </div> <script>
-  // ... all your original modal, validation & submission JS code ...
-  // Only updated showToast() to support icons + glass styles
+  // Modal & form variables
+  let lastFocusedElement = null;
+
+  const modal = document.getElementById('contact-modal');
+  const content = document.getElementById('contact-modal-content');
+  const form = document.getElementById("contact-form");
+  const submitBtn = document.getElementById("submit-btn");
+  const btnText = document.getElementById("btn-text");
+  const btnSpinner = document.getElementById("btn-spinner");
+
+  const toast = document.getElementById("toast");
+  const toastContent = document.getElementById("toast-content");
+  const toastMessage = document.getElementById("toast-message");
+  const toastIcon = document.getElementById("toast-icon");
+
+  function openContactForm() {
+    lastFocusedElement = document.activeElement;
+    document.body.classList.add('overflow-hidden');
+    modal.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      modal.classList.add('opacity-100');
+      modal.classList.remove('opacity-0');
+      content.classList.add('scale-100');
+      content.classList.remove('scale-95');
+      content.classList.remove('translate-y-full');
+    });
+    document.getElementById('close-contact-btn').focus();
+  }
+
+  function closeContactForm() {
+    document.body.classList.remove('overflow-hidden');
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0');
+    content.classList.remove('scale-100');
+    content.classList.add('scale-95');
+    content.classList.add('translate-y-full');
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }, 300);
+  }
+
+  // Escape key closes modal
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeContactForm();
+    }
+  });
+
+  // ✅ Keep your full validation + submission JS here...
+  // (unchanged, except updated showToast below)
 
   function showToast(message, type = "info") {
     toastMessage.textContent = message;
@@ -177,7 +226,7 @@ Get Started
       toastContent.classList.add("opacity-0", "translate-y-5");
       setTimeout(() => {
         toast.classList.add("hidden");
-      }, 500); // matches transition duration
+      }, 500);
     }, 3000);
   }
 </script> </section> </section>  </main> <footer class="bg-black text-white py-12 font-body relative"> <div class="container mx-auto px-4"> <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> <!-- Company Info --> <div class="md:col-span-1 flex flex-col"> <div class="flex items-center mb-4 space-x-3"> <img src="/images/logo.svg" alt="OPTYP Logo" class="h-8 w-auto"> <h3 class="text-xl font-bold text-primary-500">OPTYP</h3> </div> <p class="text-white text-sm leading-relaxed">
