@@ -2,8 +2,8 @@
 const { services } = Astro.props;
 ---
 
-<section id="services" class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 py-16">
-  <div class="container mx-auto max-w-5xl px-4 text-center">
+<section id="services" class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 py-20 relative overflow-hidden">
+  <div class="container mx-auto max-w-6xl px-4 text-center relative z-10">
     <!-- Section Heading -->
     <h2 class="text-4xl font-extrabold mb-4 text-gray-900 tracking-wide-heading">
       Our Services
@@ -16,16 +16,22 @@ const { services } = Astro.props;
     </p>
 
     <!-- Services Grid -->
-    <div class="grid gap-10 md:grid-cols-3">
-      {services.map(service => (
+    <div class="grid gap-8 sm:gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((service, i) => (
         <div
-          class="group bg-white/20 backdrop-blur-lg border border-white/30 p-6 rounded-xl hover:scale-105 transition duration-300 transform hover:border-primary-500"
           key={service.title}
+          class="service-card group relative bg-white/20 backdrop-blur-lg border border-white/30 
+                 p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105 
+                 hover:shadow-2xl"
+          data-aos="fade-up"
+          data-aos-delay={i * 100}
         >
           <!-- Icon -->
           {service.icon && (
             <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary-500 shadow-sm transition-colors duration-300 group-hover:bg-primary-600"
+              class="icon-box w-16 h-16 mx-auto mb-6 flex items-center justify-center 
+                     rounded-full bg-gradient-to-r from-primary-500 to-primary-600 shadow-md 
+                     transition-all duration-300 group-hover:rotate-6 group-hover:scale-110"
             >
               <img
                 src={service.icon}
@@ -37,16 +43,66 @@ const { services } = Astro.props;
           )}
 
           <!-- Title -->
-          <h3 class="text-xl font-semibold mb-2 text-gray-900 transition-colors duration-300 group-hover:text-primary-600">
+          <h3 class="text-xl font-semibold mb-3 text-gray-900 transition-colors duration-300 group-hover:text-primary-600">
             {service.title}
           </h3>
 
           <!-- Description -->
-          <p class="text-gray-800">
+          <p class="text-gray-700">
             {service.description}
           </p>
         </div>
       ))}
     </div>
   </div>
+
+  <!-- Extra Styles -->
+  <style>
+    /* Glassmorphism + Gradient Hover Border */
+    .service-card {
+      position: relative;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      border-image: linear-gradient(to right, #00c6ff, #0072ff) 1;
+    }
+
+    /* Icon subtle pulse */
+    .icon-box {
+      transform-origin: center;
+    }
+    .service-card:hover .icon-box {
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 640px) {
+      .service-card {
+        padding: 1.5rem;
+      }
+      .service-card h3 {
+        font-size: 1.125rem; /* keep text readable */
+      }
+      .service-card p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+
+  <!-- AOS Initialization -->
+  <script type="module">
+    import AOS from "aos";
+    import "aos/dist/aos.css";
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 80,
+    });
+  </script>
 </section>
