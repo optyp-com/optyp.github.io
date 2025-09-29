@@ -67,16 +67,20 @@ import { plans } from "../data/plans";
             <ul class="text-gray-700 space-y-3 mb-6 text-left">
               {plan.features.map((feature) => {
                 if (isIndividual) {
-                  // Match "Service → ~₹old~ ₹new"
-                  const match = feature.match(/^(.*?)→\s*~?₹?([\d,.]+).*?₹([\d,.]+)/);
+                  // Match "Service → ~₹old ($oldUSD)~ ₹new ($newUSD)"
+                  const match = feature.match(/^(.*?)→\s*~?₹([\d,.]+)\s*\((\$[\d,.]+)\)~?\s*₹([\d,.]+)\s*\((\$[\d,.]+)\)/);
                   if (match) {
-                    const [ , name, oldPrice, newPrice ] = match;
+                    const [ , name, oldPriceINR, oldPriceUSD, newPriceINR, newPriceUSD ] = match;
                     return (
                       <li class="flex flex-col">
                         <span class="font-medium">{name.trim()}</span>
                         <div class="flex items-center space-x-2">
-                          <span class="text-sm text-gray-500 line-through">₹{oldPrice}</span>
-                          <span class="text-primary-600 font-semibold">₹{newPrice}</span>
+                          <span class="text-sm text-gray-500 line-through">
+                            ₹{oldPriceINR} ({oldPriceUSD})
+                          </span>
+                          <span class="text-primary-600 font-semibold">
+                            ₹{newPriceINR} ({newPriceUSD})
+                          </span>
                         </div>
                       </li>
                     );
@@ -118,7 +122,7 @@ import { plans } from "../data/plans";
       transition: all 0.3s ease;
     }
     .plan-card:hover {
-      border-image: linear-gradient(to right, #00c6ff, #0072ff) 1;
+      border-image: linear-gradient(to right, #3CB592, #2F9E7F) 1;
     }
 
     /* Animated gradient background for ribbon */
@@ -169,7 +173,6 @@ import { plans } from "../data/plans";
       const distance = saleEnd.getTime() - now;
 
       if (distance <= 0) {
-        // Sale ended
         banner?.classList.add("hidden");
         return;
       }
