@@ -2,7 +2,7 @@
 const { plans } = Astro.props;
 ---
 
-<section id="plans" class="bg-gray-50 py-20">
+<section id="plans" class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 py-20">
   <div class="container mx-auto max-w-5xl px-4 text-center">
     <!-- Section Heading -->
     <h2 class="text-4xl font-extrabold mb-4 text-gray-900 tracking-wide-heading">
@@ -18,7 +18,7 @@ const { plans } = Astro.props;
     <div class="grid md:grid-cols-3 gap-8">
       {plans.map(plan => (
         <div
-          class="group bg-white p-6 rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300 hover:border-primary-500 border border-transparent transform"
+          class="group bg-white/20 backdrop-blur-lg border border-white/30 p-6 rounded-xl hover:scale-105 transition duration-300 transform hover:border-primary-500"
           key={plan.name}
         >
           <!-- Plan Title -->
