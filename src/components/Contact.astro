@@ -13,7 +13,8 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     </p>
     <div class="flex flex-col items-center space-y-2">
       <button
-        class="inline-block bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition duration-300"
+        id="get-started-btn"
+        class="inline-block bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 hover:bg-primary-700 transition duration-300 animate-getStartedPulse"
         onclick="openContactForm()"
       >
         Get Started
@@ -155,6 +156,33 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     <span id="toast-message"></span>
   </div>
 </div>
+
+<style is:global>
+/* Pulse animation for 'Get Started' btn — every 10s */
+@keyframes getStartedPulse {
+  0%, 95%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  96% {
+    transform: scale(1.08);
+    opacity: 0.90;
+  }
+  98% {
+    transform: scale(1.10);
+    opacity: 0.85;
+  }
+  99% {
+    transform: scale(1.07);
+    opacity: 0.93;
+  }
+}
+
+.animate-getStartedPulse {
+  animation: getStartedPulse 10s infinite;
+  /* Ensures regular subtle pulses */
+}
+</style>
 
 <script is:inline>
   let lastFocusedElement = null;
