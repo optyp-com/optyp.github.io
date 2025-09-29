@@ -1,5 +1,12 @@
 ---
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/astro';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 const { testimonials } = Astro.props;
+
+SwiperCore.use([Autoplay, Pagination]);
 ---
 
 <section id="testimonials" class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 py-20">
@@ -22,20 +29,56 @@ const { testimonials } = Astro.props;
       Confidentiality and trust are the foundation of our service.
     </p>
 
-    <!-- Testimonials Grid -->
-    <div class="grid gap-12 md:grid-cols-3">
-      {testimonials.map(({quote, profession, location}) => (
-        <blockquote
-          class="group bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-xl hover:scale-105 transition duration-300 transform hover:border-primary-500"
-        >
-          <p class="text-gray-800 italic mb-6 text-lg leading-relaxed">
-            "{quote}"
-          </p>
-          <footer class="text-sm font-bold text-primary-600 uppercase tracking-wide transition-colors duration-300 group-hover:text-primary-700">
-            {profession}, {location}
-          </footer>
-        </blockquote>
+    <!-- Testimonials Carousel -->
+    <Swiper
+      spaceBetween={30}
+      slidesPerView={1}
+      autoplay={{ delay: 4000, disableOnInteraction: false }}
+      pagination={{ clickable: true }}
+      breakpoints={{
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      }}
+      class="pb-12"
+    >
+      {testimonials.map(({ quote, profession, location }, index) => (
+        <SwiperSlide>
+          <blockquote
+            class="relative group bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500 hover:border-primary-500"
+          >
+            <!-- Speech bubble tail -->
+            <span class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[12px] border-r-[12px] border-t-[16px] border-l-transparent border-r-transparent border-t-white/30"></span>
+
+            <!-- Animated profile icon -->
+            <div class="mx-auto mb-4 w-16 h-16 rounded-full bg-primary-600 flex items-center justify-center shadow-md group-hover:scale-110 transition duration-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.121 17.804A9.969 9.969 0 0112 15c2.21 0 4.243.72 5.879 1.929M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+
+            <p class="text-gray-800 italic mb-6 text-lg leading-relaxed">
+              "{quote}"
+            </p>
+            <footer class="text-sm font-bold text-primary-600 uppercase tracking-wide transition-colors duration-300 group-hover:text-primary-700">
+              {profession}, {location}
+            </footer>
+          </blockquote>
+        </SwiperSlide>
       ))}
-    </div>
+    </Swiper>
   </div>
 </section>
+
+<style>
+  /* Swiper pagination style */
+  .swiper-pagination-bullet {
+    background: #4ade80; /* green dots */
+    opacity: 0.5;
+    transition: all 0.3s;
+  }
+  .swiper-pagination-bullet-active {
+    background: #16a34a;
+    opacity: 1;
+    transform: scale(1.2);
+  }
+</style>
