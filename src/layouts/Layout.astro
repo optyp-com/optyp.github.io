@@ -130,7 +130,6 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     </main>
 
     <Footer />
-
     <FloatingContactIcon />
 
     <!-- Global Animation Styles -->
@@ -146,6 +145,33 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
         }
       }
       .animate-fadeInUp {
+        animation: fadeInUp 0.8s ease-out both;
+      }
+    </style>
+
+    <!-- Scroll Reveal Script -->
+    <script is:inline>
+      const revealEls = document.querySelectorAll(".animate-fadeInUp");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      revealEls.forEach((el) => revealObserver.observe(el));
+    </script>
+
+    <style>
+      .animate-fadeInUp {
+        opacity: 0;
+      }
+      .animate-fadeInUp.visible {
+        opacity: 1;
         animation: fadeInUp 0.8s ease-out both;
       }
     </style>
