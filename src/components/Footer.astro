@@ -107,12 +107,12 @@
     </div>
   </div>
 
-  <!-- Back to Top (center bottom small) -->
+  <!-- Back to Top (center bottom, small, mobile always visible) -->
   <button 
     id="backToTop" 
     onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
     class="fixed bottom-4 left-1/2 -translate-x-1/2
-           bg-white text-gray-900 border border-gray-300 w-9 h-9 rounded-full shadow-lg 
+           bg-white text-gray-900 border border-gray-300 w-8 h-8 rounded-full shadow-md 
            flex items-center justify-center hover:bg-primary-500 hover:text-white
            transition-all duration-300 opacity-0 pointer-events-none z-50"
     aria-label="Back to Top"
@@ -123,24 +123,36 @@
     </svg>
   </button>
 
-  <script is:inline>
-    const backToTop = document.getElementById('backToTop');
-    const modal = document.getElementById('contact-modal');
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const backToTop = document.getElementById('backToTop');
+      const modal = document.getElementById('contact-modal');
 
-    function updateBackToTopVisibility() {
-      if (modal && !modal.classList.contains('hidden')) {
-        backToTop.classList.add('opacity-0', 'pointer-events-none');
-        return;
-      }
-      if (window.scrollY > 300) {
-        backToTop.classList.remove('opacity-0', 'pointer-events-none');
-      } else {
-        backToTop.classList.add('opacity-0', 'pointer-events-none');
-      }
-    }
+      function updateBackToTopVisibility() {
+        // Hide if contact modal is open
+        if (modal && !modal.classList.contains('hidden')) {
+          backToTop.classList.add('opacity-0', 'pointer-events-none');
+          return;
+        }
 
-    window.addEventListener('scroll', updateBackToTopVisibility);
-    window.addEventListener('load', updateBackToTopVisibility);
+        // Always visible on mobile (<768px)
+        if (window.innerWidth < 768) {
+          backToTop.classList.remove('opacity-0', 'pointer-events-none');
+          return;
+        }
+
+        // On desktop, only visible after scroll 300px
+        if (window.scrollY > 300) {
+          backToTop.classList.remove('opacity-0', 'pointer-events-none');
+        } else {
+          backToTop.classList.add('opacity-0', 'pointer-events-none');
+        }
+      }
+
+      window.addEventListener('scroll', updateBackToTopVisibility);
+      window.addEventListener('resize', updateBackToTopVisibility);
+      updateBackToTopVisibility(); // run once on load
+    });
   </script>
 
   <!-- ✅ JSON-LD Structured Data -->
