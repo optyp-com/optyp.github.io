@@ -2,7 +2,7 @@
 const { testimonials } = Astro.props;
 ---
 
-<section id="testimonials" class="bg-gray-50 py-20">
+<section id="testimonials" class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 py-20">
   <div class="container mx-auto max-w-6xl px-6 text-center">
     <!-- Section Heading -->
     <h2 class="text-5xl font-extrabold mb-4 text-gray-900 tracking-wide-heading">
@@ -26,7 +26,7 @@ const { testimonials } = Astro.props;
     <div class="grid gap-12 md:grid-cols-3">
       {testimonials.map(({quote, profession, location}) => (
         <blockquote
-          class="group bg-white p-8 rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300 hover:border-primary-500 border border-transparent transform"
+          class="group bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-xl hover:scale-105 transition duration-300 transform hover:border-primary-500"
         >
           <p class="text-gray-800 italic mb-6 text-lg leading-relaxed">
             "{quote}"

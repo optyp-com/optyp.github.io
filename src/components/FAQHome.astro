@@ -1,6 +1,6 @@
 ---
 ---
-<section class="bg-gray-50 py-20 px-4" id="faq">
+<section class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 py-20 px-4" id="faq">
   <div class="container mx-auto max-w-5xl text-center">
     <!-- Section Heading -->
     <h2 class="text-4xl font-extrabold mb-4 text-gray-900 tracking-wide-heading">
@@ -13,8 +13,8 @@
 
     <!-- FAQ Items -->
     <div class="space-y-6">
-      <!-- FAQ 1 -->
-      <div class="group bg-white rounded-lg shadow hover:shadow-lg transition duration-300 border border-transparent hover:border-primary-500">
+      <!-- FAQ Item -->
+      <div class="group bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl transition duration-300 hover:border-primary-500">
         <button
           class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
           aria-expanded="false"
@@ -34,8 +34,8 @@
         </div>
       </div>
 
-      <!-- FAQ 2 -->
-      <div class="group bg-white rounded-lg shadow hover:shadow-lg transition duration-300 border border-transparent hover:border-primary-500">
+      <!-- Duplicate for other FAQs -->
+      <div class="group bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl transition duration-300 hover:border-primary-500">
         <button
           class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
           aria-expanded="false"
@@ -55,8 +55,7 @@
         </div>
       </div>
 
-      <!-- FAQ 3 -->
-      <div class="group bg-white rounded-lg shadow hover:shadow-lg transition duration-300 border border-transparent hover:border-primary-500">
+      <div class="group bg-white/30 backdrop-blur-lg border border-white/40 rounded-xl transition duration-300 hover:border-primary-500">
         <button
           class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
           aria-expanded="false"
@@ -81,54 +80,20 @@
     <div class="text-center mt-10">
       <a
         href="/faq"
-        class="inline-flex items-center px-8 py-3 bg-primary-600 text-white font-semibold rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300 hover:bg-primary-700"
+        class="inline-flex items-center px-8 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:scale-105 transition duration-300 hover:bg-primary-700"
       >
         See More FAQs →
       </a>
     </div>
   </div>
 
-  <!-- FAQ Schema JSON-LD -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How does the process work after I sign up?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "After purchase, you’ll receive a short questionnaire. Our team reviews your details, optimizes your profiles/resume, and delivers the first draft within 24–48 hours. You’ll then have time to request revisions (based on your plan)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does the delivery process take?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most projects are completed within 24–48 hours. Elite plan customers receive priority processing."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer revisions if I'm not satisfied?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Essentials & Professional → 1 free revision (7 days). Elite → 2 free revisions (14 days). Extra revisions at ₹500."
-          }
-        }
-      ]
-    }
-  </script>
-
+  <!-- Toggle Script -->
   <script is:inline>
     function toggleFAQ(faqId, button) {
       const answer = document.getElementById(faqId);
       const icon = button.querySelector('svg');
       const expanded = button.getAttribute('aria-expanded') === 'true';
 
-      // Collapse all
       document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.faq-question').forEach(btn => {
         btn.setAttribute('aria-expanded', 'false');
