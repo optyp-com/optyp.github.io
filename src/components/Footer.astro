@@ -107,13 +107,14 @@
     </div>
   </div>
 
-  <!-- Back to Top (center bottom, small, mobile always visible) -->
+  <!-- Back to Top (glassmorphic style, small, center) -->
   <button 
     id="backToTop" 
     onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
     class="fixed bottom-4 left-1/2 -translate-x-1/2
-           bg-white text-gray-900 border border-gray-300 w-8 h-8 rounded-full shadow-md 
-           flex items-center justify-center hover:bg-primary-500 hover:text-white
+           backdrop-blur-md bg-white/20 border border-white/30 w-8 h-8 rounded-full shadow-lg 
+           flex items-center justify-center text-white
+           hover:bg-primary-500 hover:text-white
            transition-all duration-300 opacity-0 pointer-events-none z-50"
     aria-label="Back to Top"
   >
@@ -135,14 +136,11 @@
           return;
         }
 
-        // Always visible on mobile (<768px)
-        if (window.innerWidth < 768) {
-          backToTop.classList.remove('opacity-0', 'pointer-events-none');
-          return;
-        }
+        const scrollY = window.scrollY;
+        const halfPage = document.body.scrollHeight / 2;
 
-        // On desktop, only visible after scroll 300px
-        if (window.scrollY > 300) {
+        // Show only after scrolling half the page
+        if (scrollY > halfPage) {
           backToTop.classList.remove('opacity-0', 'pointer-events-none');
         } else {
           backToTop.classList.add('opacity-0', 'pointer-events-none');
