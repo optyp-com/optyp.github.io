@@ -1,5 +1,5 @@
 ---
-import { faq } from "@/data/faq.js";
+import { faqs } from "../data/faqs.js";
 import FAQSearch from "./FAQSearch.astro";
 ---
 
@@ -16,14 +16,14 @@ import FAQSearch from "./FAQSearch.astro";
       <input
         id="faq-search"
         type="text"
-        placeholder="🔍 Search FAQ..."
+        placeholder="🔍 Search FAQs..."
         class="w-full px-5 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
       />
     </div>
 
     <!-- FAQ List (Preview: first 3 only) -->
     <div id="faq-list" class="space-y-6 text-left">
-      {faq.slice(0, 3).map((faq, i) => (
+      {faqs.slice(0, 3).map((faq, i) => (
         <div class="faq-item group bg-white/30 backdrop-blur-lg rounded-xl shadow-md transition hover:border-primary-500"
              data-aos="fade-up" data-aos-delay={i * 100}>
           <button class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 flex justify-between items-center"
@@ -43,12 +43,12 @@ import FAQSearch from "./FAQSearch.astro";
     </div>
 
     <!-- No Results -->
-    <p id="faq-no-results" class="hidden text-gray-600 mt-8">❌ No FAQ found. Try a different keyword.</p>
+    <p id="faq-no-results" class="hidden text-gray-600 mt-8">❌ No FAQs found. Try a different keyword.</p>
 
     <!-- Redirect -->
     <div class="text-center mt-10">
       <a href="/faq" class="inline-flex items-center px-8 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:scale-105 transition">
-        See More FAQ →
+        See More FAQs →
       </a>
     </div>
   </div>
