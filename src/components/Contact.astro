@@ -13,7 +13,7 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     </p>
     <div class="flex flex-col items-center space-y-2">
       <button
-        class="inline-block bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition duration-300 animate-pulse-slow"
+        class="inline-block bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition duration-300 animate-pulse-fast"
         onclick="openContactForm()"
       >
         Get Started
@@ -132,7 +132,7 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
           <!-- Submit -->
           <div class="text-center">
             <button id="submit-btn" type="submit"
-              class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition">
+              class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition animate-pulse-fast">
               <span id="btn-text">Send Message</span>
               <svg id="btn-spinner" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -254,13 +254,12 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
 </script>
 
 <style>
-  /* Slow pulse animation every 10s */
-  @keyframes pulse-slow {
+  /* Fast pulse animation (every second) */
+  @keyframes pulse-fast {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.08); }
   }
-  .animate-pulse-slow {
-    animation: pulse-slow 2s ease-in-out infinite;
-    animation-delay: 10s;
+  .animate-pulse-fast {
+    animation: pulse-fast 1s ease-in-out infinite;
   }
 </style>
