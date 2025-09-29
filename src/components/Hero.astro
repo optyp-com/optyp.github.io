@@ -7,6 +7,8 @@
   <!-- Background with animated gradient -->
   <div class="absolute inset-0 -z-10">
     <div class="w-full h-full bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 animate-gradient-x"></div>
+    <!-- Gradient overlay for depth -->
+    <div class="absolute inset-0 bg-black/20"></div>
   </div>
 
   <div class="container-custom md:pl-8">
@@ -17,9 +19,9 @@
         aria-label="OPTYP Hero" 
         class="mb-10 md:mb-0 animate-fadeInUp"
       >
-        <div class="bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl shadow-lg p-6 sm:p-8 inline-block">
+        <div class="bg-white/15 backdrop-blur-lg border border-white/20 rounded-3xl shadow-xl p-6 sm:p-8 inline-block">
           <h1
-            class="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold leading-tight text-white drop-shadow-md"
+            class="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold leading-tight text-white drop-shadow-lg"
           >
             Optimize Your <span class="text-primary-100">Professionalism</span>
           </h1>
@@ -31,13 +33,15 @@
           <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a 
               href="#contact" 
-              class="px-6 py-3 rounded-lg bg-white text-primary-600 font-semibold shadow hover:shadow-lg hover:scale-105 transition"
+              class="px-6 py-3 rounded-xl bg-white/80 text-primary-700 font-semibold shadow-lg backdrop-blur-sm
+              hover:bg-gradient-to-r hover:from-primary-400 hover:to-primary-600 hover:text-white hover:scale-105 transition-all"
             >
               Get Started
             </a>
             <a 
               href="#plans" 
-              class="px-6 py-3 rounded-lg border border-white text-white font-semibold hover:bg-white/10 shadow hover:scale-105 transition"
+              class="px-6 py-3 rounded-xl border border-white/60 text-white font-semibold 
+              hover:bg-white/10 hover:scale-105 hover:shadow-lg transition-all"
             >
               View Plans
             </a>
@@ -46,11 +50,11 @@
       </div>
 
       <!-- Right Side (Image or Illustration) -->
-      <div class="flex justify-center md:justify-end animate-fadeInUp" style="animation-delay:0.2s">
+      <div class="flex justify-center md:justify-end animate-fadeInUp floating" style="animation-delay:0.2s">
         <img
           src="/images/illu.svg"
           alt="Career Growth"
-          class="w-64 sm:w-80 md:w-full max-w-md drop-shadow-xl"
+          class="w-64 sm:w-80 md:w-full max-w-md drop-shadow-2xl"
         />
       </div>
     </div>
@@ -58,8 +62,8 @@
 
   <!-- Scroll Down Indicator -->
   <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
-    <a href="#about" aria-label="Scroll Down">
-      <svg class="w-6 h-6 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <a href="#about" aria-label="Scroll Down" class="group">
+      <svg class="w-7 h-7 text-white opacity-80 group-hover:opacity-100 group-hover:text-primary-200 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
       </svg>
     </a>
@@ -79,6 +83,24 @@
     .animate-gradient-x {
       background-size: 200% 200%;
       animation: gradient-x 10s ease infinite;
+    }
+
+    /* Floating animation for hero image */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Fade-in-up animation */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeInUp {
+      animation: fadeInUp 1s ease forwards;
     }
   </style>
 </section>
