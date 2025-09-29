@@ -1,6 +1,6 @@
 ---
 ---
-<nav class="fixed inset-x-0 top-0 z-50 bg-white shadow-md">
+<nav class="fixed inset-x-0 top-0 z-50 bg-white/20 backdrop-blur-md border-b border-white/30">
   <div class="container mx-auto flex items-center justify-between px-4 py-3">
     <!-- Logo -->
     <a href="/" class="flex items-center space-x-2">
@@ -9,13 +9,12 @@
     </a>
 
     <!-- Desktop Menu -->
-    <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+    <ul class="hidden md:flex space-x-8 text-gray-800 font-medium">
       <li><a href="#hero" class="hover:text-primary-600 transition-colors">Home</a></li>
       <li><a href="#about" class="hover:text-primary-600 transition-colors">About</a></li>
       <li><a href="#services" class="hover:text-primary-600 transition-colors">Services</a></li>
       <li><a href="#plans" class="hover:text-primary-600 transition-colors">Plans</a></li>
       <li><a href="#testimonials" class="hover:text-primary-600 transition-colors">Testimonials</a></li>
-      <!-- Desktop Contact (scrolls) -->
       <li><a href="#contact" class="hover:text-primary-600 transition-colors">Contact</a></li>
     </ul>
 
@@ -34,20 +33,19 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-inner">
-    <ul class="flex flex-col space-y-1 px-4 py-2 text-gray-700 font-medium">
-      <li><a href="#hero" class="block py-2 hover:text-primary-600">Home</a></li>
-      <li><a href="#about" class="block py-2 hover:text-primary-600">About</a></li>
-      <li><a href="#services" class="block py-2 hover:text-primary-600">Services</a></li>
-      <li><a href="#plans" class="block py-2 hover:text-primary-600">Plans</a></li>
-      <li><a href="#testimonials" class="block py-2 hover:text-primary-600">Testimonials</a></li>
-      <!-- Mobile Contact (opens modal directly) -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white/20 backdrop-blur-md border-t border-white/30">
+    <ul class="flex flex-col space-y-1 px-4 py-3 text-gray-800 font-medium">
+      <li><a href="#hero" class="block py-2 hover:text-primary-600 transition-colors">Home</a></li>
+      <li><a href="#about" class="block py-2 hover:text-primary-600 transition-colors">About</a></li>
+      <li><a href="#services" class="block py-2 hover:text-primary-600 transition-colors">Services</a></li>
+      <li><a href="#plans" class="block py-2 hover:text-primary-600 transition-colors">Plans</a></li>
+      <li><a href="#testimonials" class="block py-2 hover:text-primary-600 transition-colors">Testimonials</a></li>
       <li>
         <button
-          class="flex items-center space-x-2 py-2 text-left w-full hover:text-primary-600"
+          class="flex items-center space-x-2 py-2 w-full text-left hover:text-primary-600 transition-colors"
           onclick="document.getElementById('mobile-menu').classList.add('hidden'); openContactForm();"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-600 md:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z" />
           </svg>
@@ -58,7 +56,7 @@
   </div>
 
   <script is:inline>
-    // Smooth scroll for desktop only (not mobile Contact)
+    // Smooth scroll for desktop only (not mobile Contact button)
     document.querySelectorAll('nav ul a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
