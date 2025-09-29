@@ -9,7 +9,9 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
+  line-height: 1.6;
   transition: background-color 0.4s ease, color 0.4s ease;
+  -webkit-font-smoothing: antialiased;
 }
 
 :focus {
@@ -17,134 +19,131 @@ body {
   outline-offset: 2px;
 }
 
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
   letter-spacing: 0.12em;
   transition: color 0.4s ease;
 }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 
+/* Screen reader */
 .sr-only {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
+  width: 1px; height: 1px;
+  padding: 0; overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  white-space: nowrap; border: 0;
 }
 
-/* Add animation for floating icons */
+/* Animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
 }
+.animate-float { animation: float 3s ease-in-out infinite; }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+.animate-fadeInUp { animation: fadeInUp 0.8s ease-out both; }
 
-/* FAQ question button styles */
-.faq-question {
-  transition: all 0.3s ease;
-}
+/* FAQ hover */
+.faq-question { transition: all 0.3s ease; }
+.faq-question:hover { background-color: theme('colors.gray.50'); }
 
-.faq-question:hover {
-  background-color: theme('colors.gray.50');
-}
-
-/* Utility classes for spacing and layout */
+/* Layout helpers */
 .container-custom {
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  margin: 0 auto;
+  padding-left: 1rem; padding-right: 1rem;
 }
-
 .section-padding {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 4rem; padding-bottom: 4rem;
 }
-
 @media (min-width: 768px) {
-  .section-padding {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
+  .section-padding { padding-top: 6rem; padding-bottom: 6rem; }
 }
 
-/* Button styles */
+/* Buttons */
+.btn-primary, .btn-primary-filled {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
 .btn-primary {
-  background-color: transparent;
+  background: transparent;
   color: theme('colors.primary.500');
   border: 2px solid theme('colors.primary.500');
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.3s ease;
 }
-
 .btn-primary:hover {
-  background-color: theme('colors.primary.500');
+  background: theme('colors.primary.500');
   color: white;
 }
-
 .btn-primary-filled {
-  background-color: theme('colors.primary.500');
+  background: theme('colors.primary.500');
   color: white;
   border: 2px solid theme('colors.primary.500');
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.3s ease;
 }
-
 .btn-primary-filled:hover {
-  background-color: theme('colors.primary.600');
+  background: theme('colors.primary.600');
   border-color: theme('colors.primary.600');
 }
+/* Gradient button option */
+.btn-gradient {
+  background: linear-gradient(to right, theme('colors.primary.500'), theme('colors.primary.700'));
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-gradient:hover { transform: scale(1.05); }
 
-/* Card styles */
+/* Cards */
 .card {
-  background-color: white;
+  background: white;
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease, background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease, background-color 0.4s ease, color 0.4s ease;
 }
-
-.card:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+.card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.15); transform: translateY(-2px); }
+/* Glass card utility */
+.glass-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
+.glass-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
 
-/* ✅ Premium underline hover effect */
+/* ✅ Premium underline hover */
 .hover-underline {
   position: relative;
   transition: color 0.3s ease;
 }
-
 .hover-underline::after {
   content: "";
   position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -3px;
+  width: 0%; height: 2px;
+  left: 0; bottom: -3px;
   background-color: currentColor;
   transition: width 0.3s ease;
 }
+.hover-underline:hover::after { width: 100%; }
 
-.hover-underline:hover::after {
-  width: 100%;
-}
+/* Active nav link */
+.nav-active { @apply text-primary-600; }
 
-/* Active navigation link style */
-.nav-active {
-  @apply text-primary-600;
+/* Motion reduce */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }

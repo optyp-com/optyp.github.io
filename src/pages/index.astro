@@ -12,42 +12,43 @@ import { services } from '../data/services.js';
 import { plans } from '../data/plans.js';
 import { testimonials } from '../data/testimonials.js';
 ---
+
 <Layout
   title="OPTYP – Optimize Your Professionalism"
   description="Professional resume, LinkedIn, Naukri, and portfolio optimization services to help you get hired faster globally."
 >
   <!-- Hero -->
-  <section id="hero">
+  <section id="hero" class="scroll-mt-20">
     <Hero />
   </section>
 
   <!-- About -->
-  <section id="about" class="section-padding">
+  <section id="about" class="relative bg-gradient-to-b from-white to-gray-50 py-20 lg:py-28 scroll-mt-20">
     <About />
   </section>
 
   <!-- Services -->
-  <section id="services" class="bg-gray-50 section-padding">
+  <section id="services" class="relative bg-white/30 backdrop-blur-md py-20 lg:py-28 scroll-mt-20">
     <Services services={services} />
   </section>
 
   <!-- Plans -->
-  <section id="plans" class="section-padding">
+  <section id="plans" class="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-28 scroll-mt-20">
     <Plans plans={plans} />
   </section>
 
   <!-- Testimonials -->
-  <section id="testimonials" class="bg-gray-50 section-padding">
+  <section id="testimonials" class="relative bg-white/30 backdrop-blur-md py-20 lg:py-28 scroll-mt-20">
     <Testimonials testimonials={testimonials} />
   </section>
 
-  <!-- FAQ (short version) -->
-  <section id="faq" class="section-padding">
+  <!-- FAQ -->
+  <section id="faq" class="relative bg-gradient-to-b from-white to-gray-50 py-20 lg:py-28 scroll-mt-20">
     <FAQHome />
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section-padding">
+  <section id="contact" class="relative bg-white/30 backdrop-blur-md py-20 lg:py-28 scroll-mt-20">
     <Contact />
   </section>
 </Layout>
