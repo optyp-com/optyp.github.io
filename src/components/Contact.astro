@@ -172,8 +172,57 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
 </div>
 
 <script is:inline>
-  // ... all your original modal, validation & submission JS code ...
-  // Only updated showToast() to support icons + glass styles
+  // Modal & form variables
+  let lastFocusedElement = null;
+
+  const modal = document.getElementById('contact-modal');
+  const content = document.getElementById('contact-modal-content');
+  const form = document.getElementById("contact-form");
+  const submitBtn = document.getElementById("submit-btn");
+  const btnText = document.getElementById("btn-text");
+  const btnSpinner = document.getElementById("btn-spinner");
+
+  const toast = document.getElementById("toast");
+  const toastContent = document.getElementById("toast-content");
+  const toastMessage = document.getElementById("toast-message");
+  const toastIcon = document.getElementById("toast-icon");
+
+  function openContactForm() {
+    lastFocusedElement = document.activeElement;
+    document.body.classList.add('overflow-hidden');
+    modal.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      modal.classList.add('opacity-100');
+      modal.classList.remove('opacity-0');
+      content.classList.add('scale-100');
+      content.classList.remove('scale-95');
+      content.classList.remove('translate-y-full');
+    });
+    document.getElementById('close-contact-btn').focus();
+  }
+
+  function closeContactForm() {
+    document.body.classList.remove('overflow-hidden');
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0');
+    content.classList.remove('scale-100');
+    content.classList.add('scale-95');
+    content.classList.add('translate-y-full');
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }, 300);
+  }
+
+  // Escape key closes modal
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeContactForm();
+    }
+  });
+
+  // ✅ Keep your full validation + submission JS here...
+  // (unchanged, except updated showToast below)
 
   function showToast(message, type = "info") {
     toastMessage.textContent = message;
@@ -208,7 +257,7 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
       toastContent.classList.add("opacity-0", "translate-y-5");
       setTimeout(() => {
         toast.classList.add("hidden");
-      }, 500); // matches transition duration
+      }, 500);
     }, 3000);
   }
 </script>
