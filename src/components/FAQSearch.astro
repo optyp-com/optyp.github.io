@@ -1,0 +1,63 @@
+---
+/**
+ * FAQSearch Component
+ * Provides live search + highlight for FAQs
+ * 
+ * Props:
+ * - inputId: string (ID for the search input element)
+ * - listId: string (ID for the FAQ list container)
+ * - noResultsId: string (ID for "no results" message)
+ */
+const { inputId = "faq-search", listId = "faq-list", noResultsId = "faq-no-results" } = Astro.props;
+---
+
+<script is:inline>
+  const input = document.getElementById("{{inputId}}");
+  const list = document.getElementById("{{listId}}");
+  const noResults = document.getElementById("{{noResultsId}}");
+
+  if (input && list) {
+    const faqItems = list.querySelectorAll(".faq-item");
+
+    input.addEventListener("input", () => {
+      const query = input.value.toLowerCase();
+      let visibleCount = 0;
+
+      faqItems.forEach(item => {
+        const textEls = item.querySelectorAll(".faq-text");
+        let textMatch = false;
+
+        // Reset highlights
+        textEls.forEach(el => {
+          el.innerHTML = el.textContent;
+        });
+
+        if (query) {
+          textEls.forEach(el => {
+            const regex = new RegExp(`(${query})`, "gi");
+            if (el.textContent.toLowerCase().includes(query)) {
+              textMatch = true;
+              el.innerHTML = el.textContent.replace(
+                regex,
+                `<mark class='bg-yellow-200 rounded px-1'>$1</mark>`
+              );
+            }
+          });
+        } else {
+          textMatch = true; // show all if search is empty
+        }
+
+        if (textMatch) {
+          item.classList.remove("hidden");
+          visibleCount++;
+        } else {
+          item.classList.add("hidden");
+        }
+      });
+
+      if (noResults) {
+        noResults.classList.toggle("hidden", visibleCount > 0);
+      }
+    });
+  }
+</script>
