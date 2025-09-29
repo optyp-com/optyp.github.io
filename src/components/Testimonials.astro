@@ -1,12 +1,6 @@
 ---
-import SwiperCore, { Autoplay, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/astro';
-import 'swiper/css';
-import 'swiper/css/pagination';
-
 const { testimonials } = Astro.props;
-
-SwiperCore.use([Autoplay, Pagination]);
+import 'swiper/swiper-bundle.css';
 ---
 
 <section id="testimonials" class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 py-20">
@@ -29,20 +23,18 @@ SwiperCore.use([Autoplay, Pagination]);
       Confidentiality and trust are the foundation of our service.
     </p>
 
-    <!-- Testimonials Carousel -->
-    <Swiper
-      spaceBetween={30}
-      slidesPerView={1}
-      autoplay={{ delay: 4000, disableOnInteraction: false }}
-      pagination={{ clickable: true }}
-      breakpoints={{
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      }}
+    <!-- Swiper Carousel -->
+    <swiper-container
       class="pb-12"
+      space-between="30"
+      slides-per-view="1"
+      autoplay-delay="4000"
+      autoplay-disable-on-interaction="false"
+      pagination="true"
+      breakpoints='{"768":{"slidesPerView":2},"1024":{"slidesPerView":3}}'
     >
-      {testimonials.map(({ quote, profession, location }, index) => (
-        <SwiperSlide>
+      {testimonials.map(({ quote, profession, location }) => (
+        <swiper-slide>
           <blockquote
             class="relative group bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500 hover:border-primary-500"
           >
@@ -52,7 +44,7 @@ SwiperCore.use([Autoplay, Pagination]);
             <!-- Animated profile icon -->
             <div class="mx-auto mb-4 w-16 h-16 rounded-full bg-primary-600 flex items-center justify-center shadow-md group-hover:scale-110 transition duration-500">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.121 17.804A9.969 9.969 0 0112 15c2.21 0 4.243.72 5.879 1.929M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A9.969 9.969 0 0112 15c2.21 0 4.243.72 5.879 1.929M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
 
@@ -63,16 +55,20 @@ SwiperCore.use([Autoplay, Pagination]);
               {profession}, {location}
             </footer>
           </blockquote>
-        </SwiperSlide>
+        </swiper-slide>
       ))}
-    </Swiper>
+    </swiper-container>
   </div>
 </section>
 
+<!-- Scripts -->
+<script>
+  import 'swiper/element/bundle';
+</script>
+
 <style>
-  /* Swiper pagination style */
   .swiper-pagination-bullet {
-    background: #4ade80; /* green dots */
+    background: #4ade80;
     opacity: 0.5;
     transition: all 0.3s;
   }
