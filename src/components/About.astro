@@ -43,6 +43,7 @@
           <!-- Mini Stats Row -->
           <div class="mt-8 grid grid-cols-2 gap-6 sm:flex sm:gap-12 text-center md:text-left">
             <div>
+              <!-- Keep data-target numeric (no plus sign) -->
               <p class="text-3xl font-bold text-primary-600 counter" data-target="500">0</p>
               <p class="text-gray-700 text-sm">Profiles Optimized</p>
             </div>
@@ -80,7 +81,7 @@
     /* Keyword highlight hover */
     .highlight {
       position: relative;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
     }
     .highlight:hover {
       color: #16a34a; /* green-600 */
@@ -88,25 +89,58 @@
     }
   </style>
 
-  <!-- Counter Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const counters = document.querySelectorAll(".counter");
-      const speed = 100; // smaller = faster
-      counters.forEach(counter => {
-        const animate = () => {
-          const target = +counter.getAttribute("data-target");
-          const count = +counter.innerText;
-          const increment = Math.ceil(target / speed);
-          if (count < target) {
-            counter.innerText = count + increment;
-            setTimeout(animate, 30);
+  <!-- COUNTER SCRIPT: smooth, uses IntersectionObserver and requestAnimationFrame -->
+  <script type="module">
+    // Run when the module loads on the client
+    const counters = Array.from(document.querySelectorAll('.counter'));
+
+    // If no counters, nothing to do
+    if (counters.length === 0) {
+      // no-op
+    } else {
+      // Smooth counting using requestAnimationFrame
+      function animateCount(el, end, duration = 1500) {
+        let startTime = null;
+        function step(now) {
+          if (!startTime) startTime = now;
+          const progress = Math.min((now - startTime) / duration, 1);
+          const current = Math.floor(progress * end);
+          // format with locale separators for readability
+          el.textContent = current.toLocaleString();
+          if (progress < 1) {
+            requestAnimationFrame(step);
           } else {
-            counter.innerText = target + "+";
+            el.textContent = end.toLocaleString() + '+';
           }
-        };
-        animate();
-      });
-    });
+        }
+        requestAnimationFrame(step);
+      }
+
+      function runCounters() {
+        counters.forEach(el => {
+          // parseInt will ignore non-numeric trailing characters; ensure numeric target
+          const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+          animateCount(el, target, 1400 + Math.min(target, 1000)); // slightly scale duration with size
+        });
+      }
+
+      // Observe the about section (or fallback to first counter if not present)
+      const section = document.getElementById('about') || counters[0].closest('section') || document.body;
+
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              runCounters();
+              observer.disconnect(); // run once
+            }
+          });
+        }, { threshold: 0.35 });
+        io.observe(section);
+      } else {
+        // Fallback: just run
+        runCounters();
+      }
+    }
   </script>
 </section>
