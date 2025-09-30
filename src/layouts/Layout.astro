@@ -1,30 +1,179 @@
 ---
-/* File: src/layouts/Layout.astro */
+export interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'OPTYP - Optimize Your Professionalism' } = Astro.props;
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Contact from '../components/Contact.astro';
+import FloatingContactIcon from '../components/FloatingContactIcon.astro';
 ---
-<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <slot name="head" />
+
+    <!-- Title & Description -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://optyp.github.io" />
+
+    <!-- Open Graph (Social Preview) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://optyp.github.io/images/og-banner.png" />
+    <meta property="og:url" content="https://optyp.github.io" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://optyp.github.io/images/og-banner.png" />
+
+    <!-- Author -->
+    <meta name="author" content="OPTYP" />
+
+    <!-- Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" as="style" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" />
+
+    <!-- Favicon + Manifest -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#3CB592" />
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="/styles/global.css" />
+
+    <!-- Structured Data (SEO JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "OPTYP",
+            "url": "https://optyp.github.io",
+            "logo": "https://optyp.github.io/images/logo.svg",
+            "sameAs": [
+              "https://linkedin.com/company/optyp",
+              "https://instagram.com/optyp",
+              "https://facebook.com/optyp",
+              "https://twitter.com/optyp",
+              "https://naukri.com/optyp"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-9848934274",
+              "contactType": "customer service"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "Essentials Plan",
+            "description": "ATS Resume, LinkedIn & Naukri optimization to kickstart your career.",
+            "brand": { "@type": "Organization", "name": "OPTYP" },
+            "offers": {
+              "@type": "Offer",
+              "price": "499",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://optyp.github.io/#plans"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "Professional Plan",
+            "description": "Complete career profile optimization with advanced resume + LinkedIn.",
+            "brand": { "@type": "Organization", "name": "OPTYP" },
+            "offers": {
+              "@type": "Offer",
+              "price": "749",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://optyp.github.io/#plans"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "Elite Plan",
+            "description": "Premium optimization + portfolio website for standout professionals.",
+            "brand": { "@type": "Organization", "name": "OPTYP" },
+            "offers": {
+              "@type": "Offer",
+              "price": "999",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://optyp.github.io/#plans"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
-  <body class="antialiased bg-white text-gray-900">
+
+  <body class="bg-gradient-to-br from-white via-gray-50 to-gray-100 text-gray-900 font-inter leading-relaxed antialiased transition-colors duration-300">
+    <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-primary-600 text-white rounded-md shadow-lg">
+      Skip to main content
+    </a>
+
     <Header />
-    <main class="pt-20">
+
+    <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <slot />
     </main>
 
     <Footer />
-    <Contact />
+    <FloatingContactIcon />
 
-    <!-- Small sticky micro CTA -->
-    <button onclick="openContactForm()" aria-label="Open contact"
-            class="fixed right-6 bottom-6 z-50 btn-primary hidden md:flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      <span>Contact</span>
-    </button>
+    <!-- Global Animation Styles -->
+    <style>
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fadeInUp {
+        animation: fadeInUp 0.8s ease-out both;
+      }
+    </style>
 
+    <!-- Scroll Reveal Script -->
+    <script is:inline>
+      const revealEls = document.querySelectorAll(".animate-fadeInUp");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      revealEls.forEach((el) => revealObserver.observe(el));
+    </script>
+
+    <style>
+      .animate-fadeInUp {
+        opacity: 0;
+      }
+      .animate-fadeInUp.visible {
+        opacity: 1;
+        animation: fadeInUp 0.8s ease-out both;
+      }
+    </style>
   </body>
 </html>

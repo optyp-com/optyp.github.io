@@ -1,113 +1,265 @@
 ---
-/* File: src/components/Contact.astro */
-const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // update if needed
+const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update if repo name changes
 ---
-<!-- Contact trigger area (can be placed on pages to open modal) -->
-<section id="contact-cta" class="py-12 bg-transparent">
-  <div class="container-custom text-center">
-    <h2 class="text-3xl font-extrabold mb-3">Ready to improve your chances?</h2>
-    <p class="text-gray-700 max-w-xl mx-auto mb-6">Book a review or send your resume — we’ll respond within 24 hours.</p>
-    <div class="flex justify-center gap-3">
-      <button class="btn-primary" onclick="openContactForm()">Get Started</button>
-      <a href="#plans" class="btn-ghost">See Plans</a>
+
+<section class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 py-20">
+  <div class="container mx-auto max-w-5xl px-4 text-center">
+    <h2 class="text-4xl font-extrabold mb-4 text-gray-900 tracking-wide-heading">
+      Contact Us
+    </h2>
+    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-10 rounded-full"></div>
+    <p class="text-gray-800 mb-12 max-w-xl mx-auto">
+      Have questions or want to get started? Click below to open the form.
+    </p>
+    <div class="flex flex-col items-center space-y-2">
+      <button
+        class="inline-block bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition duration-300 animate-pulse-smooth"
+        onclick="openContactForm()"
+      >
+        Get Started
+      </button>
     </div>
   </div>
 </section>
 
 <!-- Modal -->
-<div id="contact-modal" aria-hidden="true"
-     class="fixed inset-0 z-50 hidden opacity-0 pointer-events-none transition-opacity duration-300">
-  <div class="absolute inset-0 bg-black/45" aria-hidden="true" onclick="closeContactForm()"></div>
+<div id="contact-modal"
+     class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 hidden opacity-0 transition-opacity duration-500 ease-out"
+     onclick="closeContactForm()">
+  <div id="contact-modal-content"
+       class="relative bg-white/20 backdrop-blur-lg border border-white/30 shadow-lg
+              w-full h-full sm:w-[95%] sm:h-[90%] md:w-[70%] md:h-[85%]
+              flex flex-col transform transition-all duration-500 ease-out
+              sm:rounded-2xl md:rounded-2xl
+              translate-y-10 opacity-0 scale-95"
+       onclick="event.stopPropagation()">
 
-  <div class="flex items-center justify-center min-h-screen px-4">
-    <div role="dialog" aria-modal="true" aria-labelledby="contact-title"
-         class="glass max-w-3xl w-full rounded-2xl p-6 relative">
-      <button aria-label="Close modal" class="absolute right-4 top-4 text-gray-600" onclick="closeContactForm()">
-        ✕
-      </button>
+    <!-- Header -->
+    <div class="sticky top-0 z-10 flex justify-end p-3 bg-white/30 backdrop-blur-lg border-b border-white/30 sm:rounded-t-2xl">
+      <button id="close-contact-btn"
+        onclick="closeContactForm()"
+        class="w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white rounded-full shadow-md transition duration-300 hover:scale-105">✕</button>
+    </div>
 
-      <div class="grid md:grid-cols-2 gap-6 items-start">
-        <div>
-          <h3 id="contact-title" class="text-2xl font-extrabold mb-2">Send your resume or book a review</h3>
-          <p class="text-sm text-gray-700/80 mb-4">Share a resume file or summary and we’ll return a prioritized checklist and improvement estimate.</p>
+    <!-- Form -->
+    <div class="flex-1 overflow-y-auto p-6 sm:p-10">
+      <div class="bg-white/30 backdrop-blur-md border border-white/40 p-8 rounded-2xl shadow-sm max-w-2xl mx-auto">
+        <form id="contact-form" class="space-y-6" novalidate>
+          <input type="hidden" name="access_key" value="adb0d3eb-198d-40ab-bfeb-d6d36ed4e402">
+          <input type="hidden" name="subject" value="New Contact Form Submission - OPTYP">
+          <input type="hidden" name="from_name" value="OPTYP Contact Form">
+          <input type="checkbox" name="botcheck" style="display:none">
 
-          <ul class="text-sm space-y-3">
-            <li class="flex items-start gap-3"><strong class="text-brand">✓</strong> ATS scan + visual design suggestions</li>
-            <li class="flex items-start gap-3"><strong class="text-brand">✓</strong> LinkedIn headline & summary quick fix</li>
-            <li class="flex items-start gap-3"><strong class="text-brand">✓</strong> Turnaround within 48 hours</li>
-          </ul>
-        </div>
+          <!-- Name + Email -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold mb-1">Full Name *</label>
+              <input type="text" name="name" required class="w-full rounded-xl border p-3 bg-white/90 focus:ring-2 focus:ring-primary-500">
+              <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-1">Email *</label>
+              <input type="email" name="email" required class="w-full rounded-xl border p-3 bg-white/90 focus:ring-2 focus:ring-primary-500">
+              <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
+            </div>
+          </div>
 
-        <form id="contact-form" class="space-y-4" onsubmit="handleContactSubmit(event)">
+          <!-- Phone -->
           <div>
-            <label class="text-sm font-medium">Full name</label>
-            <input id="name" name="name" required class="w-full mt-1 p-3 rounded-lg subtle-border" placeholder="Jane Doe" />
+            <label class="block text-sm font-semibold mb-1">Contact Number *</label>
+            <input type="tel" name="phone" required placeholder="+91 9876543210"
+              class="w-full rounded-xl border p-3 bg-white/90 focus:ring-2 focus:ring-primary-500">
+            <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
           </div>
 
+          <!-- Profession -->
           <div>
-            <label class="text-sm font-medium">Email</label>
-            <input id="email" name="email" type="email" required class="w-full mt-1 p-3 rounded-lg subtle-border" placeholder="you@example.com" />
+            <label class="block text-sm font-semibold mb-1">What do you currently do? *</label>
+            <select name="profession" id="profession" required
+              class="w-full rounded-xl border p-3 bg-white/90 focus:ring-2 focus:ring-primary-500">
+              <option value="">Select an option</option>
+              <option value="salaried">Salaried Professional</option>
+              <option value="self-employed">Self-Employed</option>
+              <option value="student">Student</option>
+            </select>
+            <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
           </div>
 
+          <!-- Experience -->
+          <div id="experience-wrapper" class="hidden">
+            <label class="block text-sm font-semibold mb-1">Years of Experience *</label>
+            <select name="experience" id="experience"
+              class="w-full rounded-xl border p-3 bg-white/90 focus:ring-2 focus:ring-primary-500">
+              <option value="">Select experience</option>
+              <option value="0">0 years (Fresher)</option>
+              <option value="1-2">1–2 years</option>
+              <option value="3-5">3–5 years</option>
+              <option value="5-10">5–10 years</option>
+              <option value="10-15">10–15 years</option>
+              <option value="15+">15+ years</option>
+            </select>
+            <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
+          </div>
+
+          <!-- Services -->
           <div>
-            <label class="text-sm font-medium">Message (short)</label>
-            <textarea id="message" name="message" rows="4" class="w-full mt-1 p-3 rounded-lg subtle-border" placeholder="Paste your LinkedIn or a short note..."></textarea>
+            <label class="block text-sm font-semibold mb-1">Select Services *</label>
+            <select name="services" id="services" multiple required
+              class="w-full rounded-xl border p-3 bg-white/90 focus:ring-2 focus:ring-primary-500">
+              <option value="ATS Resume">ATS Resume</option>
+              <option value="LinkedIn Optimization">LinkedIn Optimization</option>
+              <option value="Naukri">Naukri</option>
+              <option value="Indeed">Indeed</option>
+              <option value="GitHub">GitHub</option>
+              <option value="Portfolio Website">Portfolio Website</option>
+              <option value="Upwork">Upwork</option>
+              <option value="Fiverr">Fiverr</option>
+              <option value="Topal">Topal</option>
+              <option value="Personal Branding">Personal Branding</option>
+            </select>
+            <p class="text-sm text-gray-600 mt-1">Hold CTRL (Windows) or CMD (Mac) to select multiple.</p>
+            <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
           </div>
 
+          <!-- Message -->
           <div>
-            <label class="text-sm font-medium">Upload resume (optional)</label>
-            <input id="resume" name="resume" type="file" accept=".pdf,.doc,.docx" class="w-full mt-2" />
+            <label class="block text-sm font-semibold mb-1">Message *</label>
+            <textarea name="message" rows="5" required
+              class="w-full rounded-xl border p-3 bg-white/90 focus:ring-2 focus:ring-primary-500"></textarea>
+            <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
           </div>
 
-          <div class="flex items-center gap-3">
-            <button type="submit" class="btn-primary">Send & Request Review</button>
-            <button type="button" class="btn-ghost" onclick="closeContactForm()">Cancel</button>
+          <!-- Submit -->
+          <div class="text-center">
+            <button id="submit-btn" type="submit"
+              class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition animate-pulse-smooth">
+              <span id="btn-text">Send Message</span>
+              <svg id="btn-spinner" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+              </svg>
+            </button>
           </div>
-
-          <div id="contact-msg" class="text-sm text-green-600 hidden mt-2">Thanks! We’ll respond soon.</div>
         </form>
       </div>
     </div>
   </div>
 </div>
 
-<script>
-  window.closeContactForm = function() {
-    const modal = document.getElementById('contact-modal');
-    if (!modal) return;
-    modal.classList.add('hidden','opacity-0','pointer-events-none');
-    document.body.style.overflow = '';
-  };
+<!-- Toast -->
+<div id="toast" class="fixed bottom-5 right-5 hidden z-[9999]">
+  <div id="toast-content"
+       class="flex items-center gap-3 px-6 py-4 rounded-xl border backdrop-blur-md bg-white/20 shadow-lg text-white font-medium
+              transform translate-y-5 opacity-0 transition-all duration-500 ease-out">
+    <span id="toast-icon" class="text-xl"></span>
+    <span id="toast-message"></span>
+  </div>
+</div>
 
-  window.openContactForm = function() {
-    const modal = document.getElementById('contact-modal');
-    if (!modal) return;
-    modal.classList.remove('hidden','opacity-0','pointer-events-none');
-    modal.classList.add('opacity-100');
-    document.body.style.overflow = 'hidden';
-    // focus first input
-    setTimeout(()=>document.getElementById('name')?.focus(), 120);
-  };
+<script is:inline>
+  let lastFocusedElement = null;
+  const modal = document.getElementById('contact-modal');
+  const content = document.getElementById('contact-modal-content');
+  const form = document.getElementById("contact-form");
+  const submitBtn = document.getElementById("submit-btn");
+  const btnText = document.getElementById("btn-text");
+  const btnSpinner = document.getElementById("btn-spinner");
 
-  async function handleContactSubmit(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-    // Minimal client-side validation
-    if (!name || !email) {
-      alert('Please provide name and email.');
-      return;
-    }
+  const toast = document.getElementById("toast");
+  const toastContent = document.getElementById("toast-content");
+  const toastMessage = document.getElementById("toast-message");
+  const toastIcon = document.getElementById("toast-icon");
 
-    // TODO: wire this to your backend or form endpoint
-    // For now we show a success message and close modal after a short delay.
-    document.getElementById('contact-msg').classList.remove('hidden');
-    setTimeout(()=> {
-      closeContactForm();
-      document.getElementById('contact-form').reset();
-      document.getElementById('contact-msg').classList.add('hidden');
-      alert('Demo: message sent (client-only). Wire to backend endpoint for real submissions.');
-    }, 900);
+  function openContactForm() {
+    lastFocusedElement = document.activeElement;
+    document.body.classList.add('overflow-hidden');
+    modal.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      modal.classList.add('opacity-100');
+      modal.classList.remove('opacity-0');
+      content.classList.remove('translate-y-10','opacity-0','scale-95');
+      content.classList.add('translate-y-0','opacity-100','scale-100');
+    });
+    document.getElementById('close-contact-btn').focus();
   }
+
+  function closeContactForm() {
+    document.body.classList.remove('overflow-hidden');
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0');
+    content.classList.remove('translate-y-0','opacity-100','scale-100');
+    content.classList.add('translate-y-10','opacity-0','scale-95');
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }, 500);
+  }
+
+  // Profession toggle
+  document.getElementById("profession").addEventListener("change", function() {
+    const expWrapper = document.getElementById("experience-wrapper");
+    const expField = document.getElementById("experience");
+    if (this.value === "salaried") {
+      expWrapper.classList.remove("hidden");
+      expField.setAttribute('required','true');
+    } else {
+      expWrapper.classList.add("hidden");
+      expField.removeAttribute('required');
+      expField.value = '';
+    }
+  });
+
+  // Toast
+  function showToast(msg,type="info") {
+    toastMessage.textContent = msg;
+    toastContent.className="flex items-center gap-3 px-6 py-4 rounded-xl border backdrop-blur-md bg-white/20 shadow-lg font-medium transform translate-y-5 opacity-0 transition-all duration-500 ease-out";
+    if(type==="success"){toastIcon.textContent="✔️";toastContent.classList.add("border-green-400","text-green-200");}
+    else if(type==="error"){toastIcon.textContent="❌";toastContent.classList.add("border-red-400","text-red-200");}
+    else{toastIcon.textContent="ℹ️";toastContent.classList.add("border-blue-400","text-blue-200");}
+    toast.classList.remove("hidden");
+    requestAnimationFrame(()=>{toastContent.classList.remove("opacity-0","translate-y-5");toastContent.classList.add("opacity-100","translate-y-0");});
+    setTimeout(()=>{toastContent.classList.remove("opacity-100","translate-y-0");toastContent.classList.add("opacity-0","translate-y-5");setTimeout(()=>toast.classList.add("hidden"),500);},3000);
+  }
+
+  // Validation
+  function validateForm() {
+    let valid=true;
+    form.querySelectorAll(".field-error").forEach(e=>e.classList.add("hidden"));
+    const req=["name","email","phone","profession","services","message"];
+    req.forEach(n=>{
+      const f=form.querySelector(`[name="${n}"]`);
+      if(!f.value.trim()){f.classList.add("border-red-500");f.parentNode.querySelector(".field-error").textContent="This field is required";f.parentNode.querySelector(".field-error").classList.remove("hidden");valid=false;}
+    });
+    if(form.profession.value==="salaried" && !form.experience.value){form.experience.classList.add("border-red-500");form.experience.parentNode.querySelector(".field-error").textContent="Please select experience";form.experience.parentNode.querySelector(".field-error").classList.remove("hidden");valid=false;}
+    const email=form.email.value; if(email && !/^[^@]+@[^@]+\.[^@]+$/.test(email)){form.email.parentNode.querySelector(".field-error").textContent="Invalid email";form.email.parentNode.querySelector(".field-error").classList.remove("hidden");valid=false;}
+    const phone=form.phone.value; if(phone && !/^[\+]?[\d\s\-]{10,15}$/.test(phone)){form.phone.parentNode.querySelector(".field-error").textContent="Invalid phone";form.phone.parentNode.querySelector(".field-error").classList.remove("hidden");valid=false;}
+    return valid;
+  }
+
+  // Submit
+  form.addEventListener("submit",async e=>{
+    e.preventDefault();
+    if(!validateForm()){showToast("Please fix errors","error");return;}
+    btnText.textContent="Sending...";btnSpinner.classList.remove("hidden");submitBtn.disabled=true;
+    try{
+      const fd=new FormData(form);
+      const services=fd.getAll("services");fd.delete("services");fd.append("services",services.join(", "));
+      const res=await fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(Object.fromEntries(fd))});
+      const result=await res.json();
+      if(res.status===200){showToast("Message sent successfully!","success");form.reset();setTimeout(()=>{closeContactForm();window.location.href=`${siteUrl}/thank-you/`;},2000);}
+      else{showToast(result.message||"Failed to send","error");}
+    }catch(err){showToast("Network error. Try again","error");}
+    finally{btnText.textContent="Send Message";btnSpinner.classList.add("hidden");submitBtn.disabled=false;}
+  });
 </script>
+
+<style>
+  /* Smooth pulse animation (2 seconds) */
+  @keyframes pulse-smooth {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+  .animate-pulse-smooth {
+    animation: pulse-smooth 2s ease-in-out infinite;
+  }
+</style>
