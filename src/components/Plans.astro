@@ -2,73 +2,74 @@
 import { plans } from "../data/plans";
 ---
 
-<section id="plans" class="relative py-24 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 overflow-hidden">
-  <!-- Sale Ribbon (conditionally visible via JS) -->
+<section id="plans" class="relative py-24 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+  <!-- Sale Ribbon -->
   <div id="sale-banner" class="absolute top-6 left-1/2 -translate-x-1/2 z-20 hidden">
-    <div class="sale-ribbon text-white text-sm sm:text-base 
-                font-semibold px-6 py-2 rounded-full shadow-lg animate-pulse">
-       Year-End offer Flat 50% OFF <span id="sale-countdown">Sale Ends Soon â³</span>
+    <div class="sale-ribbon text-white text-sm sm:text-base font-semibold px-6 py-2 rounded-full shadow-lg animate-pulse">
+      Year-End Offer: <span class="font-bold text-cyan-300">Flat 50% OFF</span> 
+      <span id="sale-countdown" class="ml-2">Sale Ends Soon ⏳</span>
     </div>
   </div>
 
-  <div class="container mx-auto max-w-7xl px-4 text-center relative z-10">
+  <div class="container mx-auto max-w-7xl px-6 sm:px-10 text-center relative z-10">
+    
     <!-- Section Heading -->
-    <h2 class="text-4xl font-extrabold mb-4 mt-12 text-gray-900 tracking-wide-heading">
-      Our Plans
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 mt-12 text-white">
+      Our <span class="text-cyan-400">Plans</span>
     </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-10 rounded-full"></div>
+    <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-10 rounded-full shadow-lg"></div>
 
-    <p class="text-gray-800 mb-12 max-w-3xl mx-auto">
-      Year-End Sale: Get <span class="font-semibold text-primary-600">Flat 50% OFF</span> on all plans & services.
+    <p class="text-gray-300 mb-12 max-w-3xl mx-auto">
+      Year-End Sale: Get <span class="font-semibold text-cyan-400">Flat 50% OFF</span> on all plans & services.
     </p>
 
     <!-- Plans Grid -->
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
       {plans.map((plan, i) => {
         const isIndividual = plan.name === "Individual Services";
+        const isPro = plan.name === "Professional";
         return (
           <div
             key={plan.name}
-            class={`plan-card group relative bg-white/20 backdrop-blur-lg border border-white/30 
-                    p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105 
-                    hover:shadow-2xl flex flex-col justify-between ${
-                      plan.name === "Professional" ? "border-2 border-primary-500 shadow-xl" : ""
-                    }`}
+            class={`plan-card group relative p-8 rounded-2xl flex flex-col justify-between transition-all duration-300
+                    bg-white/5 backdrop-blur-lg border border-white/10 hover:border-cyan-400/60 
+                    hover:shadow-[0_0_25px_rgba(0,255,204,0.4)] hover:scale-105
+                    ${isPro ? "border-2 border-cyan-400 shadow-[0_0_30px_rgba(0,255,204,0.6)]" : ""}`}
             data-aos="fade-up"
             data-aos-delay={i * 100}
           >
-            <!-- Highlight Badges -->
+            <!-- Discount Badge -->
             <span class="absolute -top-3 right-4 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
               50% OFF
             </span>
-            {plan.name === "Professional" && (
-              <span class="absolute -top-3 left-4 bg-gradient-to-r from-primary-500 to-primary-700 
-                           text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
+
+            {isPro && (
+              <span class="absolute -top-3 left-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-black text-xs font-bold px-3 py-1 rounded-full shadow-md">
                 Best Value
               </span>
             )}
 
             <!-- Plan Title -->
-            <h3 class="text-2xl font-semibold mb-2 text-gray-900 group-hover:text-primary-600">
+            <h3 class="text-2xl font-semibold mb-2 text-white group-hover:text-cyan-300 transition-colors">
               {plan.name}
             </h3>
 
             <!-- Price -->
             {plan.originalPrice ? (
               <div class="mb-4">
-                <p class="text-lg text-gray-500 line-through">{plan.originalPrice}</p>
-                <p class="text-2xl font-bold text-primary-600">{plan.price}</p>
+                <p class="text-lg text-gray-400 line-through">{plan.originalPrice}</p>
+                <p class="text-2xl font-bold text-cyan-400">{plan.price}</p>
               </div>
             ) : (
-              <p class="text-xl font-bold text-primary-600 mb-4">{plan.price}</p>
+              <p class="text-xl font-bold text-cyan-400 mb-4">{plan.price}</p>
             )}
 
             <!-- Features -->
-            <ul class="text-gray-700 space-y-3 mb-6 text-left">
+            <ul class="text-gray-300 space-y-3 mb-6 text-left">
               {plan.features.map((feature) => {
                 if (isIndividual) {
-                  // Match "Service â†’ ~â‚¹old ($oldUSD)~ â‚¹new ($newUSD)"
-                  const match = feature.match(/^(.*?)â†’\s*~?â‚¹([\d,.]+)\s*\((\$[\d,.]+)\)~?\s*â‚¹([\d,.]+)\s*\((\$[\d,.]+)\)/);
+                  // Format discounted service string if present
+                  const match = feature.match(/^(.*?)→\s*~?₹([\d,.]+)\s*\((\$[\d,.]+)\)~?\s*₹([\d,.]+)\s*\((\$[\d,.]+)\)/);
                   if (match) {
                     const [ , name, oldPriceINR, oldPriceUSD, newPriceINR, newPriceUSD ] = match;
                     return (
@@ -76,10 +77,10 @@ import { plans } from "../data/plans";
                         <span class="font-medium">{name.trim()}</span>
                         <div class="flex items-center space-x-2">
                           <span class="text-sm text-gray-500 line-through">
-                            â‚¹{oldPriceINR} ({oldPriceUSD})
+                            ₹{oldPriceINR} ({oldPriceUSD})
                           </span>
-                          <span class="text-primary-600 font-semibold">
-                            â‚¹{newPriceINR} ({newPriceUSD})
+                          <span class="text-cyan-400 font-semibold">
+                            ₹{newPriceINR} ({newPriceUSD})
                           </span>
                         </div>
                       </li>
@@ -88,7 +89,7 @@ import { plans } from "../data/plans";
                 }
                 return (
                   <li class="flex items-start">
-                    <svg class="w-5 h-5 text-primary-600 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 text-cyan-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                     <span>{feature}</span>
@@ -98,13 +99,12 @@ import { plans } from "../data/plans";
             </ul>
 
             <!-- Note -->
-            <p class="text-sm italic text-gray-600 mb-6">{plan.note}</p>
+            <p class="text-sm italic text-gray-400 mb-6">{plan.note}</p>
 
             <!-- CTA -->
             <a 
               href="#contact"
-              class="inline-block px-6 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 
-                     text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition"
+              class="glass-btn px-6 py-3 rounded-xl font-semibold text-center"
             >
               Get Started
             </a>
@@ -114,79 +114,68 @@ import { plans } from "../data/plans";
     </div>
   </div>
 
-  <!-- Extra Styles -->
+  <!-- Styles -->
   <style>
-    /* Glassmorphism + Gradient Hover Border */
-    .plan-card {
-      border: 2px solid rgba(255, 255, 255, 0.3);
+    /* Neon Glass CTA */
+    .glass-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #00ffcc;
       transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
     }
-    .plan-card:hover {
-      border-image: linear-gradient(to right, #3CB592, #2F9E7F) 1;
+    .glass-btn:hover {
+      background: rgba(0, 255, 204, 0.15);
+      box-shadow: 0 0 20px #00ffcc;
+      color: #fff;
+      transform: scale(1.05);
     }
 
-    /* Animated gradient background for ribbon */
+    /* Sale Ribbon Gradient Animation */
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
     .sale-ribbon {
-      background: linear-gradient(270deg, #FF0000);
+      background: linear-gradient(270deg, #ff0080, #ff0000, #ff6600);
       background-size: 400% 400%;
       animation: gradientShift 6s ease infinite, pulse 2s infinite;
     }
 
-    /* Mobile adjustments */
-    @media (max-width: 640px) {
-      .plan-card {
-        padding: 1.5rem;
-      }
-      .plan-card h3 {
-        font-size: 1.25rem;
-      }
-      .plan-card p {
-        font-size: 1rem;
-      }
+    /* Pulse Animation */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
   </style>
 
-  <!-- AOS & Sale Banner Script with Countdown -->
+  <!-- AOS & Sale Banner Countdown -->
   <script type="module">
     import AOS from "aos";
     import "aos/dist/aos.css";
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 80,
-    });
+    AOS.init({ duration: 800, once: true, offset: 80 });
 
-    // Sale Banner Countdown
     const banner = document.getElementById("sale-banner");
     const countdownEl = document.getElementById("sale-countdown");
-
     const now = new Date();
-    const saleEnd = new Date(now.getFullYear(), 11, 31, 23, 59, 59); // Dec 31, 23:59:59
+    const saleEnd = new Date(now.getFullYear(), 11, 31, 23, 59, 59); // Dec 31
 
     function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = saleEnd.getTime() - now;
-
+      const nowTime = new Date().getTime();
+      const distance = saleEnd.getTime() - nowTime;
       if (distance <= 0) {
         banner?.classList.add("hidden");
         return;
       }
-
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
       if (countdownEl) {
-        countdownEl.textContent = `Sale Ends in ${days}d ${hours}h ${minutes}m ${seconds}s â³`;
+        countdownEl.textContent = `Sale Ends in ${days}d ${hours}h ${minutes}m ${seconds}s ⏳`;
       }
     }
-
     if (banner && now <= saleEnd) {
       banner.classList.remove("hidden");
       updateCountdown();
