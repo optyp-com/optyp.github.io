@@ -1,76 +1,188 @@
----
---- 
-<footer class="relative bg-gradient-to-b from-gray-900 via-black to-black text-white py-12 font-body overflow-hidden">
-  <!-- Neon Glows -->
-  <div class="absolute -top-20 left-10 w-[300px] h-[300px] bg-emerald-500/20 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-0 right-10 w-[350px] h-[350px] bg-green-400/20 rounded-full blur-3xl"></div>
-
-  <div class="container mx-auto px-6 relative z-10">
-    <!-- Grid Layout -->
-    <div class="grid gap-8 md:grid-cols-3">
-
-      <!-- Logo + About -->
-      <div>
-        <a href="/" class="flex items-center space-x-2">
-          <img src="/images/logo.svg" alt="OPTYP Logo" class="h-10" />
-          <span class="text-xl font-bold">OPTYP</span>
-        </a>
-        <p class="mt-4 text-gray-400 text-sm">
-          Empowering professionals with AI-driven tools to optimize careers and build personal brands for the future of work.
+<footer class="bg-black text-white py-12 font-body relative">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <!-- Company Info -->
+      <div class="md:col-span-1 flex flex-col">
+        <div class="flex items-center mb-4 space-x-3">
+          <img src="/images/logo.svg" alt="OPTYP Logo" class="h-8 w-auto" />
+          <h3 class="text-xl font-bold text-primary-500">OPTYP</h3>
+        </div>
+        <p class="text-white text-sm leading-relaxed">
+          Professional resume & profile optimization services. 
+          <span class="text-primary-500 font-semibold">Get Set, Get Hired!</span>
         </p>
+        <div class="mt-4">
+          <a href="mailto:info@optyp.com" 
+             class="text-primary-500 hover:text-primary-400 transition-colors duration-200">
+            info@optyp.com
+          </a>
+        </div>
+
+        <!-- ✅ Social Icons -->
+        <div class="flex space-x-4 mt-6">
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/company/optyp" target="_blank" rel="noopener" 
+             aria-label="OPTYP LinkedIn Page" title="OPTYP LinkedIn"
+             class="text-primary-500 hover:text-[#0A66C2] transition-colors">
+            <svg role="img" xmlns="http://www.w3.org/2000/svg" 
+                 fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+              <path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM8 19H5V9h3v10zm-1.5-11.3c-1 0-1.7-.7-1.7-1.6s.7-1.6 1.7-1.6 1.7.7 1.7 1.6c0 .9-.7 1.6-1.7 1.6zM20 19h-3v-5c0-1.2-.4-2-1.5-2-0.8 0-1.3.6-1.5 1.1-.1.2-.1.5-.1.7V19h-3V9h3v1.2c.4-.6 1.1-1.5 2.7-1.5 2 0 3.4 1.3 3.4 4V19z"/>
+            </svg>
+          </a>
+
+          <!-- Twitter -->
+          <a href="https://twitter.com/optyp" target="_blank" rel="noopener" 
+             aria-label="OPTYP Twitter Profile" title="OPTYP Twitter"
+             class="text-primary-500 hover:text-[#1DA1F2] transition-colors">
+            <svg role="img" xmlns="http://www.w3.org/2000/svg" 
+                 fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+              <path d="M23 3a10.9 10.9 0 01-3.14.9A4.48 4.48 0 0022.4 1.6a8.18 8.18 0 01-2.6 1 4.52 4.52 0 00-7.7 4.1A12.94 12.94 0 013 2s-4 9 5 13a13.37 13.37 0 01-7 2c8 5 17 0 17-11.5v-.5A7.7 7.7 0 0023 3z"/>
+            </svg>
+          </a>
+
+          <!-- Facebook -->
+          <a href="https://facebook.com/optyp" target="_blank" rel="noopener" 
+             aria-label="OPTYP Facebook Page" title="OPTYP Facebook"
+             class="text-primary-500 hover:text-[#1877F2] transition-colors">
+            <svg role="img" xmlns="http://www.w3.org/2000/svg" 
+                 fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+              <path d="M22.68 0H1.32A1.3 1.3 0 000 1.32v21.36A1.3 1.3 0 001.32 24H12.8V14.7H9.7V11h3.1V8.4c0-3.1 1.9-4.8 4.7-4.8 1.3 0 2.5.1 2.8.1v3.2h-1.9c-1.5 0-1.8.7-1.8 1.8V11h3.6l-.5 3.6h-3.1V24h6.1a1.3 1.3 0 001.3-1.3V1.3A1.3 1.3 0 0022.7 0z"/>
+            </svg>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://instagram.com/optyp" target="_blank" rel="noopener" 
+             aria-label="OPTYP Instagram Profile" title="OPTYP Instagram"
+             class="text-primary-500 hover:text-[#E1306C] transition-colors">
+            <svg role="img" xmlns="http://www.w3.org/2000/svg" 
+                 fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+              <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm0 1.5C5.9 3.5 4.5 4.9 4.5 7.8v8.4c0 2.9 1.4 4.3 3.3 4.3h8.4c2 0 3.3-1.4 3.3-4.3V7.8c0-2.9-1.4-4.3-3.3-4.3H7.8zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm5.8-.3a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="font-semibold mb-4 text-primary-500">Services</h4>
+        <ul class="space-y-2 text-sm text-white">
+          <li><a href="/#services" class="hover:text-primary-600">ATS Resume</a></li>
+          <li><a href="/#services" class="hover:text-primary-600">LinkedIn Optimization</a></li>
+          <li><a href="/#services" class="hover:text-primary-600">Portfolio Website</a></li>
+          <li><a href="/#services" class="hover:text-primary-600">Profile Optimization</a></li>
+        </ul>
       </div>
 
       <!-- Quick Links -->
       <div>
-        <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
-        <ul class="space-y-2 text-gray-400 text-sm">
-          <li><a href="#services" class="hover:text-emerald-400 transition">Services</a></li>
-          <li><a href="#plans" class="hover:text-emerald-400 transition">Plans</a></li>
-          <li><a href="#testimonials" class="hover:text-emerald-400 transition">Testimonials</a></li>
-          <li><a href="#about" class="hover:text-emerald-400 transition">About</a></li>
-          <li><a href="#contact" class="hover:text-emerald-400 transition">Contact</a></li>
+        <h4 class="font-semibold mb-4 text-primary-500">Quick Links</h4>
+        <ul class="space-y-2 text-sm text-white">
+          <li><a href="/" class="hover:text-primary-600">Home</a></li>
+          <li><a href="/#about" class="hover:text-primary-600">About</a></li>
+          <li><a href="/#plans" class="hover:text-primary-600">Plans</a></li>
+          <li><a href="/#contact" class="hover:text-primary-600">Contact</a></li>
+          <li><a href="/feedback/" class="hover:text-primary-600">Feedback</a></li>
+          <li><a href="/faq" class="hover:text-primary-600">FAQ</a></li>
         </ul>
       </div>
 
-      <!-- Social + Contact -->
+      <!-- Legal -->
       <div>
-        <h3 class="font-semibold text-lg mb-4">Connect</h3>
-        <div class="flex gap-4 mb-4">
-          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"
-             class="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-lg hover:scale-110 hover:shadow-emerald-400/40 transition">
-            <img src="/icons/linkedin.svg" alt="LinkedIn" class="h-5 w-5" />
-          </a>
-          <a href="https://twitter.com" target="_blank" aria-label="Twitter"
-             class="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-lg hover:scale-110 hover:shadow-emerald-400/40 transition">
-            <img src="/icons/twitter.svg" alt="Twitter" class="h-5 w-5" />
-          </a>
-          <a href="https://facebook.com" target="_blank" aria-label="Facebook"
-             class="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-lg hover:scale-110 hover:shadow-emerald-400/40 transition">
-            <img src="/icons/facebook.svg" alt="Facebook" class="h-5 w-5" />
-          </a>
-          <a href="https://instagram.com" target="_blank" aria-label="Instagram"
-             class="p-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-lg hover:scale-110 hover:shadow-emerald-400/40 transition">
-            <img src="/icons/instagram.svg" alt="Instagram" class="h-5 w-5" />
-          </a>
-        </div>
-        <p class="text-gray-400 text-sm">
-          📩 support@optyp.com
-        </p>
+        <h4 class="font-semibold mb-4 text-primary-500">Legal</h4>
+        <ul class="space-y-2 text-sm text-white">
+          <li><a href="/privacy/" class="hover:text-primary-600">Privacy Policy</a></li>
+          <li><a href="/terms/" class="hover:text-primary-600">Terms & Conditions</a></li>
+          <li><a href="/refund/" class="hover:text-primary-600">Refund Policy</a></li>
+        </ul>
       </div>
     </div>
 
-    <!-- Divider -->
-    <div class="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-      <p>© 2026 OPTYP. All rights reserved.</p>
-      <p>Made with ❤️ for professionals</p>
+    <!-- Copyright -->
+    <div class="border-t border-primary-700 mt-8 pt-8 text-center">
+      <p class="text-primary-400 text-sm">
+        © {new Date().getFullYear()} OPTYP. All rights reserved | 
+        <span class="text-primary-500 font-semibold">Get Set, Get Hired!</span>
+      </p>
     </div>
   </div>
 
-  <!-- Back to Top -->
-  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-    class="fixed bottom-8 right-8 p-3 rounded-full bg-gradient-to-r from-emerald-400 to-green-500 shadow-lg hover:shadow-emerald-500/50 transition transform hover:scale-110 z-50">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+  <!-- Back to Top (glassmorphic style, small, center) -->
+  <button 
+    id="backToTop" 
+    onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+    class="fixed bottom-4 left-1/2 -translate-x-1/2
+           backdrop-blur-md bg-white/20 border border-white/30 w-8 h-8 rounded-full shadow-lg 
+           flex items-center justify-center text-white
+           hover:bg-primary-500 hover:text-white
+           transition-all duration-300 opacity-0 pointer-events-none z-50"
+    aria-label="Back to Top"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <title>Back to Top</title>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
     </svg>
   </button>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const backToTop = document.getElementById('backToTop');
+      const modal = document.getElementById('contact-modal');
+
+      function updateBackToTopVisibility() {
+        // Hide if contact modal is open
+        if (modal && !modal.classList.contains('hidden')) {
+          backToTop.classList.add('opacity-0', 'pointer-events-none');
+          return;
+        }
+
+        const scrollY = window.scrollY;
+        const halfPage = document.body.scrollHeight / 2;
+
+        // Show only after scrolling half the page
+        if (scrollY > halfPage) {
+          backToTop.classList.remove('opacity-0', 'pointer-events-none');
+        } else {
+          backToTop.classList.add('opacity-0', 'pointer-events-none');
+        }
+      }
+
+      window.addEventListener('scroll', updateBackToTopVisibility);
+      window.addEventListener('resize', updateBackToTopVisibility);
+      updateBackToTopVisibility(); // run once on load
+    });
+  </script>
+
+  <!-- ✅ JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "OPTYP",
+        "url": "https://optyp.github.io",
+        "logo": "https://optyp.github.io/images/logo.svg",
+        "sameAs": [
+          "https://linkedin.com/company/optyp",
+          "https://instagram.com/optyp",
+          "https://facebook.com/optyp",
+          "https://twitter.com/optyp"
+        ]
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "name": ["Home","About","Plans","Contact","Feedback","FAQ"],
+        "url": [
+          "https://optyp.github.io/",
+          "https://optyp.github.io/#about",
+          "https://optyp.github.io/#plans",
+          "https://optyp.github.io/#contact",
+          "https://optyp.github.io/feedback/",
+          "https://optyp.github.io/faq"
+        ]
+      }
+    ]
+  }
+  </script>
 </footer>
