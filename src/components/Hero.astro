@@ -1,43 +1,97 @@
 ---
---- 
-<section class="relative bg-gradient-to-b from-black via-gray-900 to-black text-white min-h-screen flex items-center justify-center overflow-hidden">
-  <!-- Background Neon Glow -->
-  <div class="absolute -top-40 -left-40 w-[500px] h-[500px] bg-green-500/30 rounded-full blur-3xl"></div>
-  <div class="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-emerald-400/20 rounded-full blur-3xl"></div>
+---
+<section
+  id="hero"
+  class="relative flex items-center justify-center min-h-[90vh] overflow-hidden"
+>
+  <!-- Background with animated gradient -->
+  <div class="absolute inset-0 -z-10">
+    <div class="w-full h-full bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 animate-gradient-x"></div>
+    <div class="absolute inset-0 bg-black/30"></div>
+  </div>
 
-  <div class="container mx-auto px-6 relative z-10 text-center max-w-3xl">
-    <!-- Badge -->
-    <span class="px-4 py-1 rounded-full text-sm font-semibold bg-white/10 border border-white/20 backdrop-blur-lg text-emerald-400">
-      🚀 Next-Gen Career Growth Platform
-    </span>
+  <div class="container-custom md:pl-8">
+    <div class="flex flex-col items-center text-center md:grid md:grid-cols-2 md:gap-12">
+      
+      <!-- Text Content -->
+      <div aria-label="OPTYP Hero" class="mb-10 md:mb-0">
+        <div class="bg-white/15 backdrop-blur-lg border border-white/20 rounded-3xl shadow-xl p-6 sm:p-8 inline-block hover:border-primary-300/60 hover:shadow-2xl transition-all duration-500">
+          <h1 class="animate-fadeInUp [animation-delay:0.1s] text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold leading-tight text-white drop-shadow-lg">
+            Optimize Your <span class="text-primary-100">Professionalism</span>
+          </h1>
+          <p class="animate-fadeInUp [animation-delay:0.3s] mt-4 text-lg sm:text-xl text-white/90">
+            Get resume, LinkedIn, Naukri, and portfolio optimization that makes you stand out worldwide.
+          </p>
 
-    <!-- Heading -->
-    <h1 class="mt-6 text-4xl md:text-6xl font-bold tracking-tight">
-      Optimize Your <span class="bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent">Professionalism</span>
-    </h1>
+          <!-- CTAs -->
+          <div class="animate-fadeInUp [animation-delay:0.5s] mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a 
+              href="#contact" 
+              class="px-6 py-3 rounded-xl bg-white/80 text-primary-700 font-semibold shadow-lg backdrop-blur-sm
+              hover:bg-gradient-to-r hover:from-primary-400 hover:to-primary-600 hover:text-white hover:scale-105 transition-all pulse-cta"
+            >
+              Get Started
+            </a>
+            <a 
+              href="#plans" 
+              class="px-6 py-3 rounded-xl border border-white/60 text-white font-semibold 
+              hover:bg-white/10 hover:scale-105 hover:shadow-lg transition-all"
+            >
+              View Plans
+            </a>
+          </div>
+        </div>
+      </div>
 
-    <!-- Subheading -->
-    <p class="mt-4 text-lg text-gray-300 max-w-xl mx-auto leading-relaxed">
-      Level up your career with AI-powered resume optimization, LinkedIn profile upgrades, and personalized guidance for the future of work.
-    </p>
-
-    <!-- CTA Buttons -->
-    <div class="mt-8 flex justify-center gap-4">
-      <a href="#plans" 
-         class="px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-emerald-400 to-green-500 text-black shadow-lg hover:shadow-green-500/40 transition-transform transform hover:scale-105">
-        Get Started
-      </a>
-      <a href="#about" 
-         class="px-6 py-3 rounded-xl font-semibold bg-white/10 border border-white/20 backdrop-blur-lg text-white hover:bg-white/20 transition">
-        Learn More
-      </a>
+      <!-- Right Side (Image or Illustration) -->
+      <div class="flex justify-center md:justify-end animate-fadeInUp [animation-delay:0.7s] floating">
+        <img
+          src="/images/illu.svg"
+          alt="Career Growth"
+          class="w-64 sm:w-80 md:w-full max-w-md drop-shadow-2xl"
+        />
+      </div>
     </div>
   </div>
 
-  <!-- Scroll Indicator -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-    <div class="w-6 h-10 rounded-full border-2 border-gray-400 flex items-start justify-center p-2 animate-bounce">
-      <div class="w-2 h-2 bg-emerald-400 rounded-full"></div>
-    </div>
+  <!-- Scroll Down Indicator -->
+  <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <a href="#about" aria-label="Scroll Down" class="group">
+      <svg class="w-8 h-8 text-white opacity-80 group-hover:text-primary-200 group-hover:opacity-100 transition-all drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </a>
   </div>
+
+  <!-- Styles -->
+  <style>
+    /* Animated gradient */
+    @keyframes gradient-x {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .animate-gradient-x { background-size: 200% 200%; animation: gradient-x 10s ease infinite; }
+
+    /* Floating */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .floating { animation: float 6s ease-in-out infinite; }
+
+    /* Fade-in stagger */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeInUp { opacity: 0; animation: fadeInUp 1s ease forwards; }
+    .animate-fadeInUp[animation-delay] { animation-delay: var(--animation-delay, 0s); }
+
+    /* CTA Pulse */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(255,255,255,0); }
+      50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,255,255,0.4); }
+    }
+    .pulse-cta { animation: pulse 2s infinite; }
+  </style>
 </section>
