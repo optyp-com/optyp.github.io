@@ -1,34 +1,36 @@
 ---
 ---
-<section class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 py-20 px-4" id="faq">
+<section id="faq" class="relative py-20 px-4 bg-gradient-to-br from-black via-gray-900 to-black text-white">
   <div class="container mx-auto max-w-5xl text-center">
     <!-- Section Heading -->
-    <h2 class="text-4xl font-extrabold mb-4 text-gray-900 tracking-wide-heading">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 tracking-wide-heading">
       Frequently Asked Questions
     </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-10 rounded-full"></div>
-    <p class="text-gray-800 mb-12 max-w-xl mx-auto text-lg font-medium">
+
+    <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-10 rounded-full shadow-sm"></div>
+
+    <p class="text-gray-300 mb-12 max-w-xl mx-auto text-lg font-medium">
       Quick answers to the most common questions about our resume and profile services.
     </p>
 
     <!-- FAQ Items -->
     <div class="space-y-6 text-left">
       <!-- FAQ 1 -->
-      <div class="faq-card group bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-md transition duration-500 hover:scale-[1.02] hover:shadow-xl hover:border-green-400">
+      <div class="faq-card group glass-box transition duration-500 hover:scale-[1.02] hover:shadow-xl">
         <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 flex justify-between items-center"
+          class="faq-question w-full text-left p-6 font-bold text-lg flex justify-between items-center text-white"
           aria-expanded="false"
           aria-controls="faq1"
-          onclick="toggleFAQ('faq1', this)"
+          id="faq-btn-1"
         >
-          How does the process work after I sign up?
-          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <span>How does the process work after I sign up?</span>
+          <svg class="w-6 h-6 transform transition-transform duration-300 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
         <div
           id="faq1"
-          class="faq-answer max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-700 text-base"
+          class="faq-answer max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-300 text-base"
         >
           <p class="py-4">
             After purchase, you’ll receive a short questionnaire. Our team reviews your details, optimizes your profiles/resume, and delivers the first draft within 24–48 hours. You’ll then have time to request revisions (based on your plan).
@@ -37,21 +39,21 @@
       </div>
 
       <!-- FAQ 2 -->
-      <div class="faq-card group bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-md transition duration-500 hover:scale-[1.02] hover:shadow-xl hover:border-green-400">
+      <div class="faq-card group glass-box transition duration-500 hover:scale-[1.02] hover:shadow-xl">
         <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 flex justify-between items-center"
+          class="faq-question w-full text-left p-6 font-bold text-lg flex justify-between items-center text-white"
           aria-expanded="false"
           aria-controls="faq2"
-          onclick="toggleFAQ('faq2', this)"
+          id="faq-btn-2"
         >
-          How long does the delivery process take?
-          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <span>How long does the delivery process take?</span>
+          <svg class="w-6 h-6 transform transition-transform duration-300 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
         <div
           id="faq2"
-          class="faq-answer max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-700 text-base"
+          class="faq-answer max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-300 text-base"
         >
           <p class="py-4">
             Most projects are completed within <strong>24–48 hours</strong>. Elite plan customers receive priority processing.
@@ -60,21 +62,21 @@
       </div>
 
       <!-- FAQ 3 -->
-      <div class="faq-card group bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-md transition duration-500 hover:scale-[1.02] hover:shadow-xl hover:border-green-400">
+      <div class="faq-card group glass-box transition duration-500 hover:scale-[1.02] hover:shadow-xl">
         <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 flex justify-between items-center"
+          class="faq-question w-full text-left p-6 font-bold text-lg flex justify-between items-center text-white"
           aria-expanded="false"
           aria-controls="faq3"
-          onclick="toggleFAQ('faq3', this)"
+          id="faq-btn-3"
         >
-          Do you offer revisions if I'm not satisfied?
-          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <span>Do you offer revisions if I'm not satisfied?</span>
+          <svg class="w-6 h-6 transform transition-transform duration-300 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
         <div
           id="faq3"
-          class="faq-answer max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-700 text-base"
+          class="faq-answer max-h-0 overflow-hidden transition-all duration-500 px-6 text-gray-300 text-base"
         >
           <p class="py-4">
             Yes. Essentials & Professional → 1 free revision (7 days). Elite → 2 free revisions (14 days). Extra revisions at ₹500.
@@ -87,7 +89,7 @@
     <div class="text-center mt-10">
       <a
         href="/faq"
-        class="inline-flex items-center px-8 py-3 bg-primary-600 text-white font-semibold rounded-lg transition duration-300 hover:bg-primary-700 animate-pulse-slow"
+        class="inline-flex items-center px-8 py-3 rounded-lg font-semibold transition duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 glass-btn"
       >
         See More FAQs →
       </a>
@@ -96,7 +98,33 @@
 
   <!-- Styles -->
   <style>
-    /* CTA pulse every 10s */
+    /* Reuse glass-box styles similar to other sections */
+    .glass-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      transition: all 0.25s ease;
+    }
+
+    /* Ensure question area is readable and keyboard friendly */
+    .faq-question {
+      cursor: pointer;
+    }
+
+    /* Rotate icon when expanded */
+    .faq-question[aria-expanded="true"] svg {
+      transform: rotate(180deg);
+    }
+
+    /* Answer text adjustments for mobile */
+    @media (max-width: 640px) {
+      .faq-answer { font-size: 0.95rem; }
+      .glass-box { border-radius: 0.8rem; padding: 0; }
+    }
+
+    /* CTA pulse (keeps existing slower pulse feel) */
     @keyframes pulse-slow {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.05); }
@@ -107,28 +135,62 @@
     }
   </style>
 
-  <!-- Toggle Script -->
+  <!-- Toggle Script (keeps original behavior + keyboard accessibility) -->
   <script is:inline>
-    function toggleFAQ(faqId, button) {
-      const answer = document.getElementById(faqId);
-      const icon = button.querySelector("svg");
-      const expanded = button.getAttribute("aria-expanded") === "true";
+    (function () {
+      // Toggle a single faq by id; close others
+      function toggleFAQById(faqId, button) {
+        const answer = document.getElementById(faqId);
+        if (!answer || !button) return;
+        const currentlyExpanded = button.getAttribute("aria-expanded") === "true";
 
-      // Close all
-      document.querySelectorAll(".faq-answer").forEach(el => {
-        el.style.maxHeight = "0";
-      });
-      document.querySelectorAll(".faq-question").forEach(btn => {
-        btn.setAttribute("aria-expanded", "false");
-        btn.querySelector("svg").style.transform = "rotate(0deg)";
-      });
+        // Close all answers first
+        document.querySelectorAll(".faq-answer").forEach(el => {
+          el.style.maxHeight = "0";
+        });
+        document.querySelectorAll(".faq-question").forEach(btn => {
+          btn.setAttribute("aria-expanded", "false");
+          const svg = btn.querySelector("svg");
+          if (svg) svg.style.transform = "rotate(0deg)";
+        });
 
-      // Expand selected
-      if (!expanded) {
-        answer.style.maxHeight = answer.scrollHeight + "px";
-        button.setAttribute("aria-expanded", "true");
-        icon.style.transform = "rotate(180deg)";
+        // If it was not expanded, expand it
+        if (!currentlyExpanded) {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+          button.setAttribute("aria-expanded", "true");
+          const icon = button.querySelector("svg");
+          if (icon) icon.style.transform = "rotate(180deg)";
+          // Move focus to the answer for screen readers (optional)
+          // answer.setAttribute('tabindex','-1'); answer.focus();
+        }
       }
-    }
+
+      // Attach click handlers to faq-question buttons
+      document.querySelectorAll(".faq-question").forEach(button => {
+        const controls = button.getAttribute("aria-controls");
+        button.addEventListener("click", () => toggleFAQById(controls, button));
+
+        // keyboard support: Enter / Space toggles
+        button.addEventListener("keydown", (ev) => {
+          if (ev.key === "Enter" || ev.key === " ") {
+            ev.preventDefault();
+            toggleFAQById(controls, button);
+          }
+        });
+
+        // ensure button is focusable
+        button.setAttribute("tabindex", "0");
+      });
+
+      // If user navigates with hash to a specific faq, open it
+      if (location.hash) {
+        const h = location.hash.replace("#", "");
+        const btn = document.querySelector(`[aria-controls="${h}"]`);
+        if (btn) {
+          // small timeout to allow layout
+          setTimeout(()=> toggleFAQById(h, btn), 120);
+        }
+      }
+    })();
   </script>
 </section>

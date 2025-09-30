@@ -2,16 +2,17 @@
 const siteUrl = "https://optyp-com.github.io/optyp.github.io";
 import Contact from './contact.astro';
 ---
-
-<section class="bg-gray-50 py-20 px-4" id="faq">
+<section id="faq" class="relative py-20 px-4 bg-gradient-to-br from-black via-gray-900 to-black text-white">
   <div class="container mx-auto max-w-5xl">
     <!-- Header -->
     <div class="text-center mb-12">
-      <h2 class="text-4xl font-extrabold mb-4 text-gray-900 tracking-wide-heading">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 tracking-wide-heading">
         Frequently Asked Questions
-      </h2>
-      <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-10 rounded-full"></div>
-      <p class="text-lg font-medium text-gray-800 max-w-2xl mx-auto">
+      </h1>
+
+      <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-10 rounded-full shadow-sm"></div>
+
+      <p class="text-lg font-medium text-gray-300 max-w-2xl mx-auto">
         Get quick answers to common questions about our professional resume and profile optimization services
       </p>
     </div>
@@ -19,55 +20,55 @@ import Contact from './contact.astro';
     <!-- FAQ Items -->
     <div class="space-y-6">
       <!-- FAQ 1 (Expanded) -->
-      <div class="group bg-white rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 border border-transparent hover:border-primary-500">
+      <div class="group glass-box">
         <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
+          class="faq-question w-full text-left p-6 font-bold text-lg transition-colors duration-300 flex justify-between items-center text-white"
           aria-expanded="true"
           aria-controls="faq1"
-          onclick="toggleFAQ('faq1', this)"
+          id="faq-btn-1"
         >
-          How does the process work after I sign up?
-          <svg class="w-6 h-6 transform rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <span>How does the process work after I sign up?</span>
+          <svg class="w-6 h-6 transform rotate-180 transition-transform duration-300 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="faq1" class="faq-answer px-6 pb-6 text-gray-700 text-base leading-relaxed transition-opacity duration-300">
+        <div id="faq1" class="faq-answer px-6 pb-6 text-gray-300 text-base leading-relaxed transition-all duration-300" style="max-height: none;">
           <p>Once you sign up, you’ll receive a questionnaire. After submission, our experts create your resume/profile and deliver it in 24–48 hours. Elite plans get priority and faster turnaround.</p>
         </div>
       </div>
 
       <!-- FAQ 2 (Expanded) -->
-      <div class="group bg-white rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 border border-transparent hover:border-primary-500">
+      <div class="group glass-box">
         <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
+          class="faq-question w-full text-left p-6 font-bold text-lg transition-colors duration-300 flex justify-between items-center text-white"
           aria-expanded="true"
           aria-controls="faq2"
-          onclick="toggleFAQ('faq2', this)"
+          id="faq-btn-2"
         >
-          How long does the delivery process take?
-          <svg class="w-6 h-6 transform rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <span>How long does the delivery process take?</span>
+          <svg class="w-6 h-6 transform rotate-180 transition-transform duration-300 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="faq2" class="faq-answer px-6 pb-6 text-gray-700 text-base leading-relaxed transition-opacity duration-300">
+        <div id="faq2" class="faq-answer px-6 pb-6 text-gray-300 text-base leading-relaxed transition-all duration-300" style="max-height: none;">
           <p>Most projects are delivered in 24–48 hours after receiving your details. Elite plan users get priority delivery even faster.</p>
         </div>
       </div>
 
       <!-- FAQ 3 (Expanded) -->
-      <div class="group bg-white rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 border border-transparent hover:border-primary-500">
+      <div class="group glass-box">
         <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
+          class="faq-question w-full text-left p-6 font-bold text-lg transition-colors duration-300 flex justify-between items-center text-white"
           aria-expanded="true"
           aria-controls="faq3"
-          onclick="toggleFAQ('faq3', this)"
+          id="faq-btn-3"
         >
-          What information do I need to provide to get started?
-          <svg class="w-6 h-6 transform rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <span>What information do I need to provide to get started?</span>
+          <svg class="w-6 h-6 transform rotate-180 transition-transform duration-300 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="faq3" class="faq-answer px-6 pb-6 text-gray-700 text-base leading-relaxed transition-opacity duration-300">
+        <div id="faq3" class="faq-answer px-6 pb-6 text-gray-300 text-base leading-relaxed transition-all duration-300" style="max-height: none;">
           <ul class="list-disc list-inside space-y-1">
             <li>Your current resume or work history</li>
             <li>Target job roles and industries</li>
@@ -79,111 +80,111 @@ import Contact from './contact.astro';
       </div>
 
       <!-- FAQ 4 (Collapsed) -->
-      <div class="group bg-white rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 border border-transparent hover:border-primary-500">
+      <div class="group glass-box">
         <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
+          class="faq-question w-full text-left p-6 font-bold text-lg transition-colors duration-300 flex justify-between items-center text-white"
           aria-expanded="false"
           aria-controls="faq4"
-          onclick="toggleFAQ('faq4', this)"
+          id="faq-btn-4"
         >
-          Do you offer revisions if I'm not satisfied?
-          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <span>Do you offer revisions if I'm not satisfied?</span>
+          <svg class="w-6 h-6 transform transition-transform duration-300 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="faq4" class="faq-answer hidden px-6 pb-6 text-gray-700 text-base leading-relaxed transition-opacity duration-300">
+        <div id="faq4" class="faq-answer hidden px-6 pb-6 text-gray-300 text-base leading-relaxed transition-all duration-300">
           <p>Yes. Essentials & Professional plans include 1 free revision within 7 days. Elite plan includes 2 free revisions within 14 days. Additional revisions available at ₹500 each.</p>
         </div>
       </div>
 
       <!-- FAQ 5 (Collapsed) -->
-      <div class="group bg-white rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 border border-transparent hover:border-primary-500">
+      <div class="group glass-box">
         <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
+          class="faq-question w-full text-left p-6 font-bold text-lg transition-colors duration-300 flex justify-between items-center text-white"
           aria-expanded="false"
           aria-controls="faq5"
-          onclick="toggleFAQ('faq5', this)"
+          id="faq-btn-5"
         >
-          Are your resumes ATS-compliant and optimized for applicant tracking systems?
-          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <span>Are your resumes ATS-compliant and optimized for applicant tracking systems?</span>
+          <svg class="w-6 h-6 transform transition-transform duration-300 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="faq5" class="faq-answer hidden px-6 pb-6 text-gray-700 text-base leading-relaxed transition-opacity duration-300">
+        <div id="faq5" class="faq-answer hidden px-6 pb-6 text-gray-300 text-base leading-relaxed transition-all duration-300">
           <p>Absolutely. All resumes are designed to pass Applicant Tracking Systems (ATS) used by major companies. We use proper formatting, relevant keywords, and layouts to ensure recruiter visibility.</p>
         </div>
       </div>
 
       <!-- FAQ 6 (Collapsed) -->
-      <div class="group bg-white rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 border border-transparent hover:border-primary-500">
+      <div class="group glass-box">
         <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
+          class="faq-question w-full text-left p-6 font-bold text-lg transition-colors duration-300 flex justify-between items-center text-white"
           aria-expanded="false"
           aria-controls="faq6"
-          onclick="toggleFAQ('faq6', this)"
+          id="faq-btn-6"
         >
-          What payment methods do you accept?
-          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <span>What payment methods do you accept?</span>
+          <svg class="w-6 h-6 transform transition-transform duration-300 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="faq6" class="faq-answer hidden px-6 pb-6 text-gray-700 text-base leading-relaxed transition-opacity duration-300">
+        <div id="faq6" class="faq-answer hidden px-6 pb-6 text-gray-300 text-base leading-relaxed transition-all duration-300">
           <p>We accept UPI, credit/debit cards, net banking, and digital wallets. All payments are processed through secure gateways.</p>
         </div>
       </div>
 
       <!-- FAQ 7 (Collapsed) -->
-      <div class="group bg-white rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 border border-transparent hover:border-primary-500">
+      <div class="group glass-box">
         <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
+          class="faq-question w-full text-left p-6 font-bold text-lg transition-colors duration-300 flex justify-between items-center text-white"
           aria-expanded="false"
           aria-controls="faq7"
-          onclick="toggleFAQ('faq7', this)"
+          id="faq-btn-7"
         >
-          Can I order individual services instead of a complete plan?
-          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <span>Can I order individual services instead of a complete plan?</span>
+          <svg class="w-6 h-6 transform transition-transform duration-300 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="faq7" class="faq-answer hidden px-6 pb-6 text-gray-700 text-base leading-relaxed transition-opacity duration-300">
+        <div id="faq7" class="faq-answer hidden px-6 pb-6 text-gray-300 text-base leading-relaxed transition-all duration-300">
           <p>Yes. Individual services are available, but bundled plans provide more value and comprehensive optimization.</p>
         </div>
       </div>
 
       <!-- FAQ 8 (Collapsed) -->
-      <div class="group bg-white rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 border border-transparent hover:border-primary-500">
+      <div class="group glass-box">
         <button
-          class="faq-question w-full text-left p-6 font-bold text-lg text-gray-900 transition-colors duration-300 group-hover:text-primary-600 flex justify-between items-center"
+          class="faq-question w-full text-left p-6 font-bold text-lg transition-colors duration-300 flex justify-between items-center text-white"
           aria-expanded="false"
           aria-controls="faq8"
-          onclick="toggleFAQ('faq8', this)"
+          id="faq-btn-8"
         >
-          Do you provide ongoing support after delivery?
-          <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <span>Do you provide ongoing support after delivery?</span>
+          <svg class="w-6 h-6 transform transition-transform duration-300 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div id="faq8" class="faq-answer hidden px-6 pb-6 text-gray-700 text-base leading-relaxed transition-opacity duration-300">
+        <div id="faq8" class="faq-answer hidden px-6 pb-6 text-gray-300 text-base leading-relaxed transition-all duration-300">
           <p>Yes. We provide 30 days of email support for all customers. Elite plan users also get a follow-up consultation call after 2 weeks.</p>
         </div>
       </div>
     </div>
 
     <!-- CTA Section -->
-    <div class="text-center mt-12 p-6 bg-white rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 border border-transparent hover:border-primary-500">
-      <h3 class="text-xl font-bold text-gray-900 mb-2">Still have questions?</h3>
-      <p class="text-gray-700 mb-4">Our team is here to help you succeed in your career journey.</p>
+    <div class="text-center mt-12 p-6 rounded-lg glass-box">
+      <h3 class="text-xl font-bold text-white mb-2">Still have questions?</h3>
+      <p class="text-gray-300 mb-4">Our team is here to help you succeed in your career journey.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <button
           id="faq-contact-btn"
-          class="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300 hover:bg-primary-700"
-          onclick="openContactForm()"
+          class="inline-flex items-center px-6 py-3 glass-btn text-white font-semibold rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          type="button"
         >
           Contact Us
         </button>
         <a
           href="https://wa.me/919848934274"
-          class="inline-flex items-center px-6 py-3 border border-primary-600 text-primary-600 font-semibold rounded-lg hover:bg-primary-50 transition duration-300"
+          class="inline-flex items-center px-6 py-3 border border-cyan-400 text-cyan-300 font-semibold rounded-lg hover:bg-white/5 transition duration-300"
           target="_blank" rel="noopener"
         >
           WhatsApp Support
@@ -194,24 +195,144 @@ import Contact from './contact.astro';
 
   <!-- Scripts -->
   <script is:inline>
-    function toggleFAQ(faqId, button) {
-      const ans = document.getElementById(faqId);
-      const icon = button.querySelector('svg');
-      const expanded = button.getAttribute('aria-expanded') === 'true';
-      document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.faq-question').forEach(b => {
-        b.setAttribute('aria-expanded', 'false');
-        b.querySelector('svg').style.transform = 'rotate(0deg)';
-      });
-      if (!expanded) {
-        ans.classList.remove('hidden');
-        button.setAttribute('aria-expanded', 'true');
-        icon.style.transform = 'rotate(180deg)';
+    (function () {
+      // Toggle by id with accessible behavior; closes all others
+      function toggleFAQ(faqId, button) {
+        const ans = document.getElementById(faqId);
+        if (!ans || !button) return;
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+
+        // Close all answers
+        document.querySelectorAll('.faq-answer').forEach(el => {
+          el.classList.add('hidden');
+          el.style.maxHeight = null;
+        });
+        document.querySelectorAll('.faq-question').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          const svg = b.querySelector('svg');
+          if (svg) svg.style.transform = 'rotate(0deg)';
+        });
+
+        // Toggle selected
+        if (!expanded) {
+          ans.classList.remove('hidden');
+          // set maxHeight for smooth expand
+          ans.style.maxHeight = ans.scrollHeight + "px";
+          button.setAttribute('aria-expanded', 'true');
+          const icon = button.querySelector('svg');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+          // optionally move focus to answer for screen readers
+          // ans.setAttribute('tabindex','-1'); ans.focus();
+        }
       }
-    }
-    document.getElementById('faq-contact-btn').addEventListener('click', openContactForm);
+
+      // Attach handlers after DOM ready
+      function attachFAQHandlers() {
+        document.querySelectorAll('.faq-question').forEach(button => {
+          const controls = button.getAttribute('aria-controls');
+
+          // click handler
+          button.addEventListener('click', function () {
+            toggleFAQ(controls, button);
+          });
+
+          // keyboard support
+          button.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Enter' || ev.key === ' ') {
+              ev.preventDefault();
+              toggleFAQ(controls, button);
+            }
+          });
+
+          // ensure accessible tabindex
+          if (!button.hasAttribute('tabindex')) button.setAttribute('tabindex', '0');
+        });
+
+        // If location.hash points to a specific FAQ, open it
+        if (location.hash) {
+          const h = location.hash.replace('#', '');
+          const btn = document.querySelector(`[aria-controls="${h}"]`);
+          if (btn) {
+            // small timeout to allow layout paint
+            setTimeout(()=> toggleFAQ(h, btn), 120);
+          }
+        }
+      }
+
+      // Safe attach contact button handler (works even if Contact component loads later)
+      function attachContactTrigger() {
+        const btn = document.getElementById('faq-contact-btn');
+        if (btn) {
+          btn.addEventListener('click', function () {
+            // openContactForm is defined inside contact.astro; call if present
+            if (typeof openContactForm === 'function') {
+              openContactForm();
+            } else {
+              // If not yet defined, try again after a short delay
+              let tries = 0;
+              const t = setInterval(() => {
+                tries++;
+                if (typeof openContactForm === 'function') {
+                  clearInterval(t);
+                  openContactForm();
+                } else if (tries > 10) {
+                  clearInterval(t);
+                }
+              }, 200);
+            }
+          });
+        }
+      }
+
+      // Wait for DOMContentLoaded to attach handlers
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          attachFAQHandlers();
+          attachContactTrigger();
+        });
+      } else {
+        attachFAQHandlers();
+        attachContactTrigger();
+      }
+    })();
   </script>
 
-  <!-- Contact Modal -->
+  <!-- Contact Modal (component insertion) -->
   <Contact />
 </section>
+
+<style>
+  /* Reusable glass style for FAQ boxes */
+  .glass-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 0.75rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    overflow: hidden;
+  }
+
+  .glass-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.7);
+    border-color: rgba(0,255,204,0.08);
+  }
+
+  /* Ensure the collapsed answer uses max-height transitions */
+  .faq-answer {
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+  }
+
+  /* Question focus style */
+  .faq-question:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,255,204,0.12);
+  }
+
+  /* Smaller screens tweaks */
+  @media (max-width: 640px) {
+    .glass-box { border-radius: 0.6rem; padding: 0; }
+    .faq-answer { font-size: 0.95rem; }
+  }
+</style>
