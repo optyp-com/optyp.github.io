@@ -1,129 +1,82 @@
 ---
+/* File: src/components/Header.astro */
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#plans', label: 'Plans' },
+  { href: '/#testimonials', label: 'Clients' },
+  { href: '/faq', label: 'FAQ' },
+];
 ---
-<header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent backdrop-blur-sm">
-  <div class="container mx-auto flex items-center justify-between px-6 py-3">
-    
-    <!-- Logo -->
-    <a href="/" class="flex items-center space-x-2">
-      <img src="/images/logo.svg" alt="OPTYP Logo" class="h-9 w-auto" />
-      <span class="font-heading text-xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-        OPTYP
-      </span>
-    </a>
-
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center space-x-8 font-medium">
-      <a href="/#hero" class="nav-link" data-section="hero">Home</a>
-      <a href="/#about" class="nav-link" data-section="about">About</a>
-      <a href="/#services" class="nav-link" data-section="services">Services</a>
-      <a href="/#plans" class="nav-link" data-section="plans">Plans</a>
-      <a href="/#testimonials" class="nav-link" data-section="testimonials">Testimonials</a>
-      <a href="/#contact" class="nav-link" data-section="contact">Contact</a>
-    </nav>
-
-    <!-- CTA Button (Desktop) -->
-    <div class="hidden md:block">
-      <a href="/#plans" 
-         class="px-5 py-2 rounded-xl bg-primary-600 text-white font-semibold shadow-soft hover:shadow-glass hover:scale-105 transition">
-        Get Started
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all">
+  <div class="px-4 bg-white/70 backdrop-blur-md shadow-sm">
+    <div class="container flex items-center justify-between h-16">
+      
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2">
+        <img src="/images/logo.svg" alt="OPTYP logo" class="h-8 w-auto" />
+        <span class="font-heading text-lg font-bold text-brand">OPTYP</span>
       </a>
-    </div>
 
-    <!-- Mobile Menu Button -->
-    <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Toggle Menu">
-      <svg class="w-7 h-7 text-primary-500" fill="none" stroke="currentColor" stroke-width="2"
-        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="12" x2="21" y2="12" />
-        <line x1="3" y1="6" x2="21" y2="6" />
-        <line x1="3" y1="18" x2="21" y2="18" />
-      </svg>
-    </button>
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-6">
+        {nav.map(item => (
+          <a class="text-sm font-medium text-slate-700 hover:text-brand transition" href={item.href}>
+            {item.label}
+          </a>
+        ))}
+        <a href="#contact" class="ml-2 btn-ghost">Contact</a>
+        <button onclick="openContactForm()" class="ml-4 btn-primary">Get Started</button>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="mobile-toggle" aria-label="Open menu" class="p-2 rounded-md">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 
-  <!-- Mobile Navigation -->
-  <nav id="mobile-menu" class="md:hidden bg-white/90 dark:bg-dark-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700 absolute w-full left-0 top-16 hidden px-6 py-6 space-y-4 font-medium shadow-lg">
-    <a href="/#hero" class="nav-link block" data-section="hero">Home</a>
-    <a href="/#about" class="nav-link block" data-section="about">About</a>
-    <a href="/#services" class="nav-link block" data-section="services">Services</a>
-    <a href="/#plans" class="nav-link block" data-section="plans">Plans</a>
-    <a href="/#testimonials" class="nav-link block" data-section="testimonials">Testimonials</a>
-    <a href="/#contact" class="nav-link block" data-section="contact">Contact</a>
-    <a href="/#plans" class="block px-5 py-2 rounded-xl bg-primary-600 text-white font-semibold shadow-soft text-center hover:shadow-glass transition">
-      Get Started
-    </a>
-  </nav>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur-lg border-t border-gray-100">
+    <div class="container py-4 space-y-2">
+      {nav.map(item => (
+        <a class="block text-base font-medium text-slate-700 py-2 hover:text-brand" href={item.href}>{item.label}</a>
+      ))}
+      <div class="pt-2">
+        <a href="#contact" class="block w-full text-center py-2 btn-ghost">Contact</a>
+        <button onclick="openContactForm()" class="mt-2 w-full btn-primary">Get Started</button>
+      </div>
+    </div>
+  </div>
 
-  <script is:inline>
-    const button = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
+  <script>
+    // Mobile toggle
+    const toggle = () => {
+      document.getElementById('mobile-menu')?.classList.toggle('hidden');
+    };
+    document.getElementById('mobile-toggle')?.addEventListener('click', toggle);
+
+    // Sticky scroll effect
     const header = document.getElementById('site-header');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section[id]');
-
-    // Mobile menu toggle
-    button?.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-
-    // Scrollspy
-    function setActive(sectionId) {
-      navLinks.forEach(link => {
-        if (link.dataset.section === sectionId) {
-          link.classList.add('text-primary-600', 'font-semibold');
-        } else {
-          link.classList.remove('text-primary-600', 'font-semibold');
-        }
-      });
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-
-    sections.forEach(section => observer.observe(section));
-
-    // Smooth scroll
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        const targetId = link.getAttribute('href').split('#')[1];
-        const target = document.getElementById(targetId);
-        if (target) {
-          e.preventDefault();
-          window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
-        }
-        menu.classList.add('hidden');
-      });
-    });
-
-    // Glassmorphic background on scroll
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('bg-white/80', 'dark:bg-dark-900/80', 'backdrop-blur-md', 'shadow-md');
-        header.classList.remove('bg-transparent');
+      if (window.scrollY > 48) {
+        header.classList.add("shadow-md", "bg-white/90");
       } else {
-        header.classList.add('bg-transparent');
-        header.classList.remove('bg-white/80', 'dark:bg-dark-900/80', 'shadow-md');
+        header.classList.remove("shadow-md", "bg-white/90");
       }
     });
-  </script>
 
-  <style>
-    .nav-link {
-      color: #4b5563; /* gray-700 */
-      transition: all 0.3s ease;
-    }
-    .dark .nav-link {
-      color: #e5e7eb; /* gray-200 */
-    }
-    .nav-link:hover {
-      color: var(--tw-color-primary-600, #22c55e);
-    }
-  </style>
+    // Contact modal function (global)
+    window.openContactForm = function() {
+      const modal = document.getElementById('contact-modal');
+      if (!modal) return;
+      modal.classList.remove('hidden','opacity-0','pointer-events-none');
+      modal.classList.add('opacity-100');
+      document.body.style.overflow = 'hidden';
+    };
+  </script>
 </header>

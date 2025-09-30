@@ -1,137 +1,30 @@
 ---
-export interface Props {
-  title: string;
-  description?: string;
-}
-const { title, description = 'OPTYP - Optimize Your Professionalism' } = Astro.props;
-import Nav from '../components/Nav.astro';
+/* File: src/layouts/Layout.astro */
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import FloatingContactIcon from '../components/FloatingContactIcon.astro';
+import Contact from '../components/Contact.astro';
 ---
-
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <!-- Title & Description -->
-    <title>{title}</title>
-    <meta name="description" content={description} />
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://optyp.github.io" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://optyp.github.io/images/og-banner.png" />
-    <meta property="og:url" content="https://optyp.github.io" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://optyp.github.io/images/og-banner.png" />
-
-    <!-- Author -->
-    <meta name="author" content="OPTYP" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" />
-
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#3CB592" />
-
-    <!-- Global CSS -->
-    <link rel="stylesheet" href="/styles/global.css" />
-
-    <!-- JSON-LD (SEO Schema) -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "name": "OPTYP",
-            "url": "https://optyp.github.io",
-            "logo": "https://optyp.github.io/images/logo.svg",
-            "sameAs": [
-              "https://linkedin.com/company/optyp",
-              "https://instagram.com/optyp",
-              "https://facebook.com/optyp",
-              "https://twitter.com/optyp"
-            ]
-          },
-          {
-            "@type": "SiteNavigationElement",
-            "name": ["Home","About","Services","Plans","Testimonials","Contact"],
-            "url": [
-              "https://optyp.github.io/#hero",
-              "https://optyp.github.io/#about",
-              "https://optyp.github.io/#services",
-              "https://optyp.github.io/#plans",
-              "https://optyp.github.io/#testimonials",
-              "https://optyp.github.io/#contact"
-            ]
-          }
-        ]
-      }
-    </script>
+    <slot name="head" />
   </head>
-
-  <body class="bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-dark-900 dark:to-dark-950 text-gray-900 dark:text-gray-100 font-inter leading-relaxed antialiased transition-colors duration-300">
-    <!-- Skip Link -->
-    <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-primary-600 text-white rounded-md shadow-lg">
-      Skip to main content
-    </a>
-
-    <!-- Global Navigation -->
-    <Nav />
-
-    <!-- Main -->
-    <main id="main-content">
+  <body class="antialiased bg-white text-gray-900">
+    <Header />
+    <main class="pt-20">
       <slot />
     </main>
 
-    <!-- Global Footer -->
     <Footer />
-    <FloatingContactIcon />
+    <Contact />
 
-    <!-- Animations -->
-    <style>
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-fadeInUp { opacity: 0; }
-      .animate-fadeInUp.visible {
-        opacity: 1;
-        animation: fadeInUp 0.8s ease-out both;
-      }
-    </style>
+    <!-- Small sticky micro CTA -->
+    <button onclick="openContactForm()" aria-label="Open contact"
+            class="fixed right-6 bottom-6 z-50 btn-primary hidden md:flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span>Contact</span>
+    </button>
 
-    <!-- Scroll Reveal -->
-    <script is:inline>
-      const revealEls = document.querySelectorAll(".animate-fadeInUp");
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-      revealEls.forEach((el) => revealObserver.observe(el));
-    </script>
   </body>
 </html>
