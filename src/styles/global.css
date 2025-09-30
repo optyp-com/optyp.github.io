@@ -2,146 +2,200 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-html {
+/* -----------------------
+   Design tokens & system
+   ----------------------- */
+:root{
+  /* Core */
+  --bg-900: #050406;
+  --bg-800: #0b0b0c;
+  --panel: rgba(255,255,255,0.03);
+  --panel-2: rgba(255,255,255,0.045);
+  --glass-border: rgba(255,255,255,0.06);
+
+  /* Accents (unique identity) */
+  --accent-1: #00ffd1;   /* neon cyan */
+  --accent-2: #ff7a6b;   /* warm coral */
+  --accent-3: #6ed0ff;   /* soft blue (for gradients) */
+
+  /* Typography / text */
+  --text-1: #f4f7f7;
+  --muted: #9ca3af;
+
+  /* Shadows */
+  --shadow-strong: 0 18px 50px rgba(0,0,0,0.6);
+}
+
+/* Keep tailwind utilities but set base background to dark */
+html, body {
+  background: linear-gradient(180deg, var(--bg-900), var(--bg-800));
+  color: var(--text-1);
+  -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+/* Fonts */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
   line-height: 1.6;
-  transition: background-color 0.4s ease, color 0.4s ease;
-  -webkit-font-smoothing: antialiased;
 }
 
-:focus {
-  outline: 3px solid theme('colors.primary.600');
-  outline-offset: 2px;
-}
-
-/* Typography */
+/* Headings use a display face */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 0.12em;
-  transition: color 0.4s ease;
-}
-h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
-h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
-
-/* Screen reader */
-.sr-only {
-  position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap; border: 0;
-}
-
-/* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-.animate-float { animation: float 3s ease-in-out infinite; }
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fadeInUp { animation: fadeInUp 0.8s ease-out both; }
-
-/* FAQ hover */
-.faq-question { transition: all 0.3s ease; }
-.faq-question:hover { background-color: theme('colors.gray.50'); }
-
-/* Layout helpers */
-.container-custom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 1rem; padding-right: 1rem;
-}
-.section-padding {
-  padding-top: 4rem; padding-bottom: 4rem;
-}
-@media (min-width: 768px) {
-  .section-padding { padding-top: 6rem; padding-bottom: 6rem; }
-}
-
-/* Buttons */
-.btn-primary, .btn-primary-filled {
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  font-weight: 600;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-.btn-primary {
-  background: transparent;
-  color: theme('colors.primary.500');
-  border: 2px solid theme('colors.primary.500');
-}
-.btn-primary:hover {
-  background: theme('colors.primary.500');
-  color: white;
-}
-.btn-primary-filled {
-  background: theme('colors.primary.500');
-  color: white;
-  border: 2px solid theme('colors.primary.500');
-}
-.btn-primary-filled:hover {
-  background: theme('colors.primary.600');
-  border-color: theme('colors.primary.600');
-}
-/* Gradient button option */
-.btn-gradient {
-  background: linear-gradient(to right, theme('colors.primary.500'), theme('colors.primary.700'));
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-.btn-gradient:hover { transform: scale(1.05); }
-
-/* Cards */
-.card {
-  background: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-  transition: all 0.3s ease, background-color 0.4s ease, color 0.4s ease;
-}
-.card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.15); transform: translateY(-2px); }
-/* Glass card utility */
-.glass-card {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 1rem;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
-.glass-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
-
-/* ✅ Premium underline hover */
-.hover-underline {
-  position: relative;
+  font-family: 'Poppins', system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  color: var(--text-1);
   transition: color 0.3s ease;
 }
-.hover-underline::after {
-  content: "";
-  position: absolute;
-  width: 0%; height: 2px;
-  left: 0; bottom: -3px;
-  background-color: currentColor;
-  transition: width 0.3s ease;
+
+/* Responsive typographic scale */
+:root{
+  --fs-h1: clamp(2.25rem, 5vw, 4rem);
+  --fs-h2: clamp(1.6rem, 3.5vw, 2.25rem);
+  --fs-h3: clamp(1.25rem, 2.5vw, 1.5rem);
+  --fs-body: clamp(1rem, 1.8vw, 1.0625rem);
 }
+
+.h-hero { font-size: var(--fs-h1); line-height: 1.02; font-weight: 800; letter-spacing: -0.02em; }
+.h-2 { font-size: var(--fs-h2); font-weight: 700; }
+.body-md { font-size: var(--fs-body); }
+
+/* Accessibility helper */
+.sr-only {
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+
+/* Focus outline using token */
+:focus {
+  outline: 3px solid rgba(var(--accent-1-r,0), var(--accent-1-g,255), var(--accent-1-b,209), 0.14);
+  outline-offset: 3px;
+}
+
+/* -----------------------
+   Motion & animations
+   ----------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeInUp { animation: fadeInUp 0.9s ease-out both; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float, .animate-fadeInUp { animation: none !important; transition: none !important; }
+}
+
+/* -----------------------
+   Glass / Panel utilities
+   ----------------------- */
+.glass {
+  background: var(--panel);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-strong);
+  transition: all 0.28s ease;
+}
+
+.glass-2 {
+  background: var(--panel-2);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+/* A slightly stronger glass card variant */
+.glass-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.glass-card:hover {
+  border-color: rgba(0,255,204,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.65);
+}
+
+/* Glass CTA (neon) */
+.glass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .7rem 1.25rem;
+  border-radius: .9rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  color: var(--accent-1);
+  font-weight: 700;
+  backdrop-filter: blur(6px);
+  transition: all .22s ease;
+}
+.glass-btn:hover {
+  background: rgba(0,255,204,0.06);
+  box-shadow: 0 0 28px rgba(0,255,204,0.14);
+  color: #fff;
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Gradient CTA utility */
+.btn-gradient {
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  color: #041014;
+  padding: .8rem 1.4rem;
+  border-radius: .9rem;
+  font-weight: 800;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 30px rgba(0,255,209,0.06);
+}
+.btn-gradient:hover { transform: translateY(-3px) scale(1.02); }
+
+/* -----------------------
+   Components / helpers
+   ----------------------- */
+.container-custom { max-width: 1200px; margin: 0 auto; padding-left: 1rem; padding-right: 1rem; }
+
+/* Premium underline hover */
+.hover-underline { position: relative; transition: color .25s ease; }
+.hover-underline::after { content: ""; position: absolute; left:0; bottom:-6px; height:2px; width:0; background: linear-gradient(90deg,var(--accent-1),var(--accent-3)); transition: width .28s ease; }
 .hover-underline:hover::after { width: 100%; }
 
-/* Active nav link */
-.nav-active { @apply text-primary-600; }
+/* Cards - dark default */
+.card {
+  background: rgba(255,255,255,0.02);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.7); }
+
+/* FAQ tweaks */
+.faq-question { cursor: pointer; transition: all .22s ease; }
+.faq-question:hover { background: rgba(255,255,255,0.02); }
+
+/* Buttons (backwards compatibility with your existing classes) */
+.btn-primary, .btn-primary-filled {
+  padding: 0.75rem 1.5rem; border-radius: .75rem; font-weight: 600; display:inline-block; transition: all .2s ease;
+}
+.btn-primary { background: transparent; color: var(--accent-1); border: 2px solid rgba(255,255,255,0.06); }
+.btn-primary:hover { background: rgba(0,255,204,0.06); color: white; }
+.btn-primary-filled { background: var(--accent-1); color: #041014; border: none; }
+.btn-gradient { /* keep as defined above */ }
+
+/* Hover underline utility for nav active states (Tailwind compatibility) */
+.nav-active { color: var(--accent-1); }
 
 /* Motion reduce */
 @media (prefers-reduced-motion: reduce) {

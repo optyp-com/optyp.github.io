@@ -17,72 +17,112 @@ import { testimonials } from '../data/testimonials.js';
   title="OPTYP – Optimize Your Professionalism"
   description="Premium resume, LinkedIn, Naukri, and portfolio optimization services to help professionals get hired faster globally."
 >
-  <main class="bg-gradient-to-b from-black via-gray-900 to-black text-gray-100">
-    
-    <!-- Hero -->
-    <section id="hero" class="scroll-mt-20">
+  <main class="bg-[linear-gradient(180deg,var(--bg-900),var(--bg-800))] text-gray-100">
+    <!-- Hero (landmark + accessible) -->
+    <section id="hero" class="scroll-mt-20" role="region" aria-labelledby="hero-heading">
       <Hero />
     </section>
 
     <!-- About -->
-    <section id="about" class="relative py-20 lg:py-28 scroll-mt-20">
-      <div class="glass-container max-w-6xl mx-auto px-6 sm:px-10">
+    <section id="about" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="about-heading">
+      <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <About />
       </div>
     </section>
 
     <!-- Services -->
-    <section id="services" class="relative py-20 lg:py-28 scroll-mt-20">
-      <div class="glass-container max-w-6xl mx-auto px-6 sm:px-10">
+    <section id="services" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="services-heading">
+      <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Services services={services} />
       </div>
     </section>
 
     <!-- Plans -->
-    <section id="plans" class="relative py-20 lg:py-28 scroll-mt-20">
-      <div class="glass-container max-w-6xl mx-auto px-6 sm:px-10">
+    <section id="plans" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="plans-heading">
+      <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Plans plans={plans} />
       </div>
     </section>
 
     <!-- Testimonials -->
-    <section id="testimonials" class="relative py-20 lg:py-28 scroll-mt-20">
-      <div class="glass-container max-w-6xl mx-auto px-6 sm:px-10">
+    <section id="testimonials" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="testimonials-heading">
+      <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Testimonials testimonials={testimonials} />
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="relative py-20 lg:py-28 scroll-mt-20">
-      <div class="glass-container max-w-6xl mx-auto px-6 sm:px-10">
+    <!-- FAQ (home) -->
+    <section id="faq" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="faq-heading">
+      <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <FAQHome />
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="relative py-20 lg:py-28 scroll-mt-20">
-      <div class="glass-container max-w-4xl mx-auto px-6 sm:px-10">
+    <section id="contact" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="contact-heading">
+      <div class="glass-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Contact />
       </div>
     </section>
-    
   </main>
+
+  <style>
+    /* Reusable glass effect (uses CSS variables provided in Layout or global.css) */
+    .glass-container {
+      background: var(--panel, rgba(255,255,255,0.06));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 1rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      padding: 1.25rem;
+      transition: all 0.28s ease;
+    }
+
+    .glass-container:hover {
+      border-color: rgba(0, 255, 204, 0.16);
+      box-shadow: 0 18px 60px rgba(0, 255, 204, 0.06);
+      transform: translateY(-4px);
+    }
+
+    /* Ensure comfortable spacing for mobile-first */
+    @media (min-width: 640px) {
+      .glass-container { padding: 2rem; }
+    }
+  </style>
+
+  <!-- Ensure any anchor to #contact opens the modal if contact component is available -->
+  <script is:inline>
+    // Intercept any internal clicks to links that target #contact to open the modal (progressive)
+    document.addEventListener('click', function (ev) {
+      const a = ev.target.closest && ev.target.closest('a[href*="#contact"]');
+      if (!a) return;
+      // If href is purposely external (contains full origin), don't intercept
+      try {
+        const href = a.getAttribute('href') || '';
+        // If pathname includes host, treat as external -> allow default
+        if (href.indexOf('http') === 0 && !href.includes(location.hostname)) return;
+      } catch (e) { /* ignore */ }
+
+      ev.preventDefault();
+      if (typeof openContactForm === 'function') {
+        openContactForm();
+      } else {
+        const el = document.getElementById('contact');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, { passive: false });
+
+    // Ensure deep links (URL contains #contact) open modal on load
+    document.addEventListener('DOMContentLoaded', function () {
+      if (location.hash === '#contact') {
+        if (typeof openContactForm === 'function') {
+          openContactForm();
+        } else {
+          const el = document.getElementById('contact');
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  </script>
 </Layout>
-
-<style>
-  /* Reusable glass effect */
-  .glass-container {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 1rem;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    padding: 2rem;
-    transition: all 0.3s ease;
-  }
-
-  .glass-container:hover {
-    border-color: rgba(0, 255, 204, 0.6);
-    box-shadow: 0 0 25px rgba(0, 255, 204, 0.5);
-  }
-</style>

@@ -12,7 +12,7 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
     <!-- Title & Description -->
@@ -38,15 +38,37 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     <!-- Author -->
     <meta name="author" content="OPTYP" />
 
-    <!-- Fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" as="style" />
+    <!-- Color scheme & theme -->
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#00ffd1" />
+
+    <!-- Fonts: preconnect + stylesheet (keeps your original font selection) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" />
 
     <!-- Favicon + Manifest -->
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/icons/icon-192.png" />
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#3CB592" />
+
+    <!-- Design tokens (CSS variables fallback for non-Tailwind places) -->
+    <style>
+      :root{
+        --bg-900: #050406;
+        --bg-800: #0b0b0c;
+        --panel: rgba(255,255,255,0.03);
+        --accent-1: #00ffd1; /* neon cyan */
+        --accent-2: #ff7a6b; /* warm coral */
+        --accent-3: #6ed0ff; /* soft blue */
+        --text-1: #f4f7f7;
+        --muted: #9ca3af;
+      }
+      /* Prefer reduced motion: quick opt-out (only for first paint) */
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+    </style>
 
     <!-- Global CSS -->
     <link rel="stylesheet" href="/styles/global.css" />
@@ -118,62 +140,62 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     </script>
   </head>
 
-  <body class="bg-gradient-to-br from-white via-gray-50 to-gray-100 text-gray-900 font-inter leading-relaxed antialiased transition-colors duration-300">
-    <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-primary-600 text-white rounded-md shadow-lg">
+  <body class="bg-[linear-gradient(180deg,var(--bg-900),var(--bg-800))] text-white font-body leading-relaxed antialiased transition-colors duration-300">
+    <!-- Skip link (visible on focus) -->
+    <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-[color:var(--accent-1)] text-black rounded-md shadow-lg">
       Skip to main content
     </a>
 
+    <!-- Header -->
     <Header />
 
-    <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Main content wrapper (keeps same max width as before) -->
+    <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="main">
       <slot />
     </main>
 
+    <!-- Footer & floating contact -->
     <Footer />
     <FloatingContactIcon />
 
-    <!-- Global Animation Styles -->
+    <!-- Global Animation Styles (kept, but animation classes are in global.css) -->
     <style>
       @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
       }
-      .animate-fadeInUp {
-        animation: fadeInUp 0.8s ease-out both;
-      }
+      .animate-fadeInUp { animation: fadeInUp 0.8s ease-out both; opacity: 0; }
+      .animate-fadeInUp.visible { opacity: 1; }
     </style>
 
     <!-- Scroll Reveal Script -->
     <script is:inline>
-      const revealEls = document.querySelectorAll(".animate-fadeInUp");
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-      revealEls.forEach((el) => revealObserver.observe(el));
+      (function () {
+        const revealEls = document.querySelectorAll(".animate-fadeInUp");
+        if (!('IntersectionObserver' in window)) {
+          // If IO not supported, simply show all
+          revealEls.forEach(el => el.classList.add('visible'));
+          return;
+        }
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.18 }
+        );
+        revealEls.forEach((el) => revealObserver.observe(el));
+      }());
     </script>
 
+    <!-- Keep the small CSS that toggles visibility after reveal -->
     <style>
-      .animate-fadeInUp {
-        opacity: 0;
-      }
-      .animate-fadeInUp.visible {
-        opacity: 1;
-        animation: fadeInUp 0.8s ease-out both;
-      }
+      .animate-fadeInUp { opacity: 0; }
+      .animate-fadeInUp.visible { opacity: 1; animation: fadeInUp 0.8s ease-out both; }
     </style>
   </body>
 </html>

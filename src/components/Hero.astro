@@ -1,109 +1,87 @@
 ---
----
-<section
-  id="hero"
-  class="relative flex items-center justify-center min-h-[92vh] overflow-hidden text-white"
-  role="banner"
->
-  <!-- Background -->
+--- 
+<section id="hero" class="relative flex items-center justify-center min-h-[84vh] overflow-hidden" role="banner" aria-label="OPTYP hero section">
+  <!-- Background gradient + subtle moving highlights -->
   <div class="absolute inset-0 -z-10">
-    <!-- Animated dark gradient -->
-    <div class="w-full h-full bg-gradient-to-br from-black via-gray-900 to-black animate-gradient-x"></div>
-    <!-- Subtle overlay -->
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+    <div class="w-full h-full" style="background: radial-gradient(1200px 600px at 10% 20%, rgba(0,255,204,0.06), transparent 6%), radial-gradient(900px 450px at 90% 80%, rgba(110,208,255,0.04), transparent 6%), linear-gradient(180deg, rgba(3,7,11,1), rgba(7,10,12,1)); background-blend-mode: screen; background-repeat: no-repeat;"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
   </div>
 
-  <div class="container-custom px-6 sm:px-10 md:pl-8">
+  <div class="container-custom px-6 sm:px-10">
     <div class="flex flex-col-reverse md:grid md:grid-cols-2 md:gap-12 items-center text-center md:text-left">
-      
-      <!-- Text Content -->
-      <div aria-label="OPTYP Hero" class="mt-10 md:mt-0">
-        <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-xl p-6 sm:p-8 inline-block transition-all duration-500 hover:border-cyan-400/60 hover:shadow-[0_0_25px_rgba(0,255,204,0.4)]">
-          
-          <h1 class="animate-fadeInUp [animation-delay:0.1s] text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold leading-tight drop-shadow-lg">
-            Optimize Your <span class="text-cyan-400">Professionalism</span>
+
+      <!-- LEFT: Text content -->
+      <div class="mt-8 md:mt-0">
+        <div class="glass-card inline-block p-6 sm:p-8">
+          <h1 class="h-hero animate-fadeInUp" style="animation-delay: 0.06s;">
+            From <span class="text-[color:var(--accent-2)]">overlooked</span> to <span style="color:var(--accent-1)">headhunted</span>.
           </h1>
 
-          <p class="animate-fadeInUp [animation-delay:0.3s] mt-4 text-lg sm:text-xl text-gray-200">
-            Premium resume, LinkedIn, Naukri, and portfolio optimization services that make you stand out worldwide.
+          <p class="mt-4 body-md text-gray-300 animate-fadeInUp" style="animation-delay: 0.18s;">
+            We rewrite resumes, LinkedIn & portfolio stories so recruiters notice — proven for professionals worldwide. <strong class="text-white">500+ profiles optimized</strong>.
           </p>
 
           <!-- CTAs -->
-          <div class="animate-fadeInUp [animation-delay:0.5s] mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <a 
-              href="#contact" 
-              class="glass-btn px-6 py-3 rounded-xl font-semibold shadow-lg text-center"
+          <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center md:justify-start animate-fadeInUp" style="animation-delay:0.34s;">
+            <a
+              href="#contact"
+              class="glass-btn btn-gradient text-center"
+              onclick="if(typeof openContactForm === 'function'){ openContactForm(); } else { /* fallback: scroll */ const el = document.getElementById('contact'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }"
             >
               Get Started
             </a>
-            <a 
-              href="#plans" 
-              class="px-6 py-3 rounded-xl border border-white/40 text-white font-semibold 
-              hover:bg-white/10 hover:scale-105 hover:shadow-lg transition-all"
-            >
+
+            <a
+              href="#plans"
+              class="inline-flex items-center justify-center gap-2 glass-btn text-white"
+              onclick="const el = document.getElementById('plans'); if(el){ el.scrollIntoView({behavior:'smooth', block:'start'});}">
               View Plans
             </a>
+          </div>
+
+          <!-- Micro-trust / proof row -->
+          <div class="mt-5 text-sm text-gray-300 flex flex-col sm:flex-row gap-3 items-center md:items-start">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>500+ profiles optimized</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 6 6 .5-4.5 4 1 6L12 16l-5.5 3.5 1-6L3 8.5 9 8 12 2z" stroke="currentColor" stroke-width="0"/></svg>
+              <span>Trusted across 30+ countries</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Illustration / Hero Image -->
-      <div class="flex justify-center md:justify-end animate-fadeInUp [animation-delay:0.7s] floating">
+      <!-- RIGHT: Illustration -->
+      <div class="flex justify-center md:justify-end mb-8 md:mb-0 animate-float" style="animation-delay:0.6s;">
         <img
           src="/images/illu.svg"
-          alt="Illustration representing career growth and optimization"
-          class="w-64 sm:w-80 md:w-full max-w-md drop-shadow-2xl"
+          alt="Illustration showing career growth and profile optimization"
+          class="w-64 sm:w-80 md:max-w-md drop-shadow-[0_25px_50px_rgba(0,0,0,0.6)]"
           loading="lazy"
         />
       </div>
     </div>
   </div>
 
-  <!-- Scroll Down Indicator -->
-  <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
-    <a href="#about" aria-label="Scroll Down" class="group">
-      <svg class="w-8 h-8 text-white opacity-80 group-hover:text-cyan-400 group-hover:opacity-100 transition-all drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-fadeInUp" style="animation-delay:0.9s;">
+    <a href="#about" aria-label="Scroll to about" class="group">
+      <svg class="w-8 h-8 text-gray-300 group-hover:text-[color:var(--accent-1)] transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
       </svg>
     </a>
   </div>
 
-  <!-- Styles -->
   <style>
-    /* Animated gradient */
-    @keyframes gradient-x {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-    .animate-gradient-x { background-size: 200% 200%; animation: gradient-x 12s ease infinite; }
+    /* Small inline tweaks that complement global.css */
+    /* Ensure heading wraps nicely on small screens */
+    .h-hero { word-break: break-word; }
 
-    /* Floating illustration */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
-    }
-    .floating { animation: float 6s ease-in-out infinite; }
-
-    /* Fade-in stagger */
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fadeInUp { opacity: 0; animation: fadeInUp 1s ease forwards; }
-
-    /* Neon Glass CTA */
-    .glass-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #00ffcc;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-    .glass-btn:hover {
-      background: rgba(0, 255, 204, 0.15);
-      box-shadow: 0 0 20px #00ffcc;
-      color: #fff;
-      transform: scale(1.05);
+    /* Respect reduced motion for float */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-float { animation: none !important; transform: none !important; }
     }
   </style>
 </section>
