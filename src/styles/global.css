@@ -1,67 +1,171 @@
+/* File: src/styles/global.css
+   Replace your existing global.css with this file.
+   Notes: uses Tailwind utilities + some custom classes.
+*/
+
+/* --- CSS Variables / Theme Tokens --- */
+:root{
+  --brand-green: #17a87a;       /* main brand */
+  --accent-neon: #7CFF9E;       /* bright neon accent */
+  --brand-dark: #071018;        /* deep neutral for accents */
+  --muted-100: #f7faf9;
+  --muted-200: #f1f5f4;
+  --muted-400: #94a3b8;
+  --glass-bg: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.08);
+  --card-shadow: 0 8px 24px rgba(12,20,20,0.06);
+  --glass-blur: 8px;
+  --radius-lg: 1rem;
+}
+
+/* Base resets (Tailwind preflight included by default) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 🌌 Base Theme Reset */
-html, body {
-  @apply bg-black text-white antialiased scroll-smooth;
-  font-family: 'Inter', sans-serif;
+/* --- Base typography improvements --- */
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial;
+}
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+p, li {
+  color: #0b1220;
+  line-height: 1.65;
 }
 
-/* 🌈 Gradient Text Utility */
-.gradient-text {
-  @apply bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent;
+/* Utility: Container (slightly wider for premium layouts) */
+.container-custom{
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-/* 🪟 Glassmorphism Utility */
-.glass-card {
-  @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl shadow-lg;
+/* Glassmorphism utility */
+.glass {
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
 }
 
-/* ✨ Neon Glow on Hover */
-.neon-hover {
-  @apply transition-transform transform hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/40;
-}
-
-/* 🎯 Section Padding */
-.section-padding {
-  @apply py-20 px-6 md:px-12;
-}
-
-/* 🎨 Buttons */
+/* Accent button styles for primary CTAs */
 .btn-primary {
-  @apply px-6 py-3 rounded-xl font-semibold text-black bg-gradient-to-r from-emerald-400 to-green-500 shadow-lg hover:shadow-emerald-500/40 transition-transform transform hover:scale-105;
-}
-
-.btn-secondary {
-  @apply px-6 py-3 rounded-xl font-semibold text-white bg-white/10 border border-white/20 backdrop-blur-lg hover:bg-white/20 transition;
-}
-
-/* 🌟 Scrollbar (modern minimal) */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #34d399, #10b981);
+  display:inline-flex;
+  align-items:center;
+  gap: .6rem;
+  padding: .75rem 1.15rem;
+  background: linear-gradient(90deg, var(--brand-green) 0%, var(--accent-neon) 100%);
+  color: white;
   border-radius: 9999px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(22,160,130,0.12);
+  transition: transform .22s ease, box-shadow .22s ease;
 }
-::-webkit-scrollbar-track {
-  background: #111827;
+.btn-primary:hover { transform: translateY(-4px); box-shadow: 0 18px 30px rgba(22,160,130,0.14); }
+
+/* Secondary ghost */
+.btn-ghost {
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding: .6rem .95rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(12,18,20,0.06);
+  background: transparent;
+  color: var(--brand-dark);
+  font-weight: 600;
+  transition: background .22s ease, transform .18s ease;
+}
+.btn-ghost:hover { background: rgba(12,18,20,0.03); transform: translateY(-2px); }
+
+/* Card styles */
+.feature-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,250,0.98));
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 8px 30px rgba(12,20,24,0.04);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.feature-card:hover { transform: translateY(-6px); box-shadow: 0 22px 40px rgba(12,20,24,0.08); }
+
+/* Pricing card */
+.pricing-card {
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background: white;
+  border: 1px solid rgba(12,20,24,0.04);
+  transition: transform .20s ease, box-shadow .20s ease;
+}
+.pricing-card.popular {
+  background: linear-gradient(180deg, rgba(124,255,158,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(124,255,158,0.12);
+  box-shadow: 0 20px 40px rgba(16,24,32,0.06);
+}
+.pricing-card:hover { transform: translateY(-6px); }
+
+/* Accent ribbon */
+.ribbon {
+  position: absolute;
+  top: -10px;
+  right: -8px;
+  background: linear-gradient(90deg, var(--brand-green), var(--accent-neon));
+  color: #021012;
+  padding: .45rem .75rem;
+  border-radius: 999px;
+  font-weight:700;
+  font-size: .75rem;
+  box-shadow: 0 6px 18px rgba(20,120,100,0.08);
 }
 
-/* 🌐 Smooth Link Hover */
-a {
-  @apply transition-colors duration-300;
+/* Hero gradient animation */
+@keyframes gradientShift {
+  0%{ background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
 }
-a:hover {
-  @apply text-emerald-400;
+.hero-gradient {
+  background: linear-gradient(120deg, rgba(23,168,122,0.92), rgba(124,255,158,0.86), rgba(14,107,86,0.88));
+  background-size: 300% 300%;
+  animation: gradientShift 12s ease infinite;
 }
 
-/* 🌌 Section Headings */
-.section-heading {
-  @apply text-3xl md:text-5xl font-bold text-center mb-6;
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
-.section-subheading {
-  @apply text-gray-300 max-w-2xl mx-auto text-center mb-12;
+.float-slow { animation: float 5.2s ease-in-out infinite; }
+
+/* Smooth fade in utility */
+.fade-in-up { animation: fadeInUp .7s ease both; }
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Small helper for subtle borders */
+.subtle-border { border: 1px solid rgba(12,20,24,0.04); }
+
+/* Footer small */
+.site-footer { background: linear-gradient(180deg, #fcfffb, #f4f9f6); }
+.footer-dark-band {
+  background: linear-gradient(180deg, #060708, #0b0f11);
+  color: #dbeee3;
+}
+
+/* Accessibility / focus */
+:focus { outline: 3px solid rgba(23,168,122,0.14); outline-offset: 3px; }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .container-custom { padding-left: 1rem; padding-right: 1rem; }
+  .hero-heading { font-size: 1.9rem; }
 }

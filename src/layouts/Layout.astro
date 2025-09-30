@@ -1,13 +1,9 @@
 ---
-import "aos/dist/aos.css";
-import AOS from "aos";
-
 export interface Props {
   title: string;
   description?: string;
 }
 const { title, description = 'OPTYP - Optimize Your Professionalism' } = Astro.props;
-
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingContactIcon from '../components/FloatingContactIcon.astro';
@@ -18,32 +14,98 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!-- Title & Description -->
     <title>{title}</title>
     <meta name="description" content={description} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://optyp.github.io" />
+
+    <!-- Open Graph (Social Preview) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://optyp.github.io/images/og-banner.png" />
+    <meta property="og:url" content="https://optyp.github.io" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://optyp.github.io/images/og-banner.png" />
+
+    <!-- Author -->
+    <meta name="author" content="OPTYP" />
+
+    <!-- Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" as="style" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" />
+
+    <!-- Favicon + Manifest -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#3CB592" />
+
+    <!-- Global CSS -->
     <link rel="stylesheet" href="/styles/global.css" />
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="node_modules/aos/dist/aos.css" />
+
+    <!-- Structured Data (SEO JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "OPTYP",
+            "url": "https://optyp.github.io",
+            "logo": "https://optyp.github.io/images/logo.svg",
+            "sameAs": [
+              "https://linkedin.com/company/optyp",
+              "https://instagram.com/optyp",
+              "https://facebook.com/optyp",
+              "https://twitter.com/optyp",
+              "https://naukri.com/optyp"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-9848934274",
+              "contactType": "customer service"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
 
-  <body class="bg-black text-white">
+  <body class="bg-gradient-to-br from-white via-gray-50 to-gray-100 text-gray-900 font-inter leading-relaxed antialiased transition-colors duration-300">
+    <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-primary-600 text-white rounded-md shadow-lg">
+      Skip to main content
+    </a>
+
     <Header />
 
-    <main id="main-content">
+    <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <slot />
     </main>
 
     <Footer />
     <FloatingContactIcon />
 
-    <!-- Initialize AOS (only in client) -->
-    <script is:inline>
-      if (typeof window !== "undefined") {
-        document.addEventListener("DOMContentLoaded", () => {
-          AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 80
-          });
+    <!-- AOS Script -->
+    <script src="node_modules/aos/dist/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        AOS.init({
+          duration: 1000,  // smooth animation speed
+          once: true,      // animate only once
+          offset: 80,      // earlier trigger
         });
-      }
+      });
     </script>
   </body>
 </html>
