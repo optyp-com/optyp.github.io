@@ -1,35 +1,27 @@
 {
   "name": "optyp-website",
   "version": "0.0.1",
-  "type": "module",
-  "description": "OptyP: Optimize Your Professionalism. ATS Resume & LinkedIn optimization services.",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "deploy": "gh-pages -d dist"
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/tailwind": "^5.1.0",
     "aos": "^2.3.4",
-    "astro": "^4.15.0",
-    "swiper": "^12.0.2",
+    "astro": "^4.0.0",
     "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/typography": "^0.5.19",
-    "@types/node": "^20.0.0"
+    "@astrojs/tailwind": "^5.0.0"
   },
-  "keywords": [
-    "astro",
-    "tailwind",
-    "resume",
-    "ATS",
-    "LinkedIn",
-    "job search",
-    "optimization"
-  ],
-  "author": "OptyP Team",
-  "license": "MIT"
+  "vite": {
+    "optimizeDeps": {
+      "include": ["aos"]
+    },
+    "build": {
+      "rollupOptions": {
+        "external": ["aos"]
+      }
+    }
+  }
 }
