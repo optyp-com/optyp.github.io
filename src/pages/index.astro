@@ -15,40 +15,74 @@ import { testimonials } from '../data/testimonials.js';
 
 <Layout
   title="OPTYP – Optimize Your Professionalism"
-  description="Professional resume, LinkedIn, Naukri, and portfolio optimization services to help you get hired faster globally."
+  description="Premium resume, LinkedIn, Naukri, and portfolio optimization services to help professionals get hired faster globally."
 >
-  <!-- Hero -->
-  <section id="hero" class="scroll-mt-20">
-    <Hero />
-  </section>
+  <main class="bg-gradient-to-b from-black via-gray-900 to-black text-gray-100">
+    
+    <!-- Hero -->
+    <section id="hero" class="scroll-mt-20">
+      <Hero />
+    </section>
 
-  <!-- About -->
-  <section id="about" class="relative bg-gradient-to-b from-white to-gray-50 py-20 lg:py-28 scroll-mt-20">
-    <About />
-  </section>
+    <!-- About -->
+    <section id="about" class="relative py-20 lg:py-28 scroll-mt-20">
+      <div class="glass-container max-w-6xl mx-auto px-6 sm:px-10">
+        <About />
+      </div>
+    </section>
 
-  <!-- Services -->
-  <section id="services" class="relative bg-white/30 backdrop-blur-md py-20 lg:py-28 scroll-mt-20">
-    <Services services={services} />
-  </section>
+    <!-- Services -->
+    <section id="services" class="relative py-20 lg:py-28 scroll-mt-20">
+      <div class="glass-container max-w-6xl mx-auto px-6 sm:px-10">
+        <Services services={services} />
+      </div>
+    </section>
 
-  <!-- Plans -->
-  <section id="plans" class="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-28 scroll-mt-20">
-    <Plans plans={plans} />
-  </section>
+    <!-- Plans -->
+    <section id="plans" class="relative py-20 lg:py-28 scroll-mt-20">
+      <div class="glass-container max-w-6xl mx-auto px-6 sm:px-10">
+        <Plans plans={plans} />
+      </div>
+    </section>
 
-  <!-- Testimonials -->
-  <section id="testimonials" class="relative bg-white/30 backdrop-blur-md py-20 lg:py-28 scroll-mt-20">
-    <Testimonials testimonials={testimonials} />
-  </section>
+    <!-- Testimonials -->
+    <section id="testimonials" class="relative py-20 lg:py-28 scroll-mt-20">
+      <div class="glass-container max-w-6xl mx-auto px-6 sm:px-10">
+        <Testimonials testimonials={testimonials} />
+      </div>
+    </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="relative bg-gradient-to-b from-white to-gray-50 py-20 lg:py-28 scroll-mt-20">
-    <FAQHome />
-  </section>
+    <!-- FAQ -->
+    <section id="faq" class="relative py-20 lg:py-28 scroll-mt-20">
+      <div class="glass-container max-w-6xl mx-auto px-6 sm:px-10">
+        <FAQHome />
+      </div>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="relative bg-white/30 backdrop-blur-md py-20 lg:py-28 scroll-mt-20">
-    <Contact />
-  </section>
+    <!-- Contact -->
+    <section id="contact" class="relative py-20 lg:py-28 scroll-mt-20">
+      <div class="glass-container max-w-4xl mx-auto px-6 sm:px-10">
+        <Contact />
+      </div>
+    </section>
+    
+  </main>
 </Layout>
+
+<style>
+  /* Reusable glass effect */
+  .glass-container {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 1rem;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .glass-container:hover {
+    border-color: rgba(0, 255, 204, 0.6);
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.5);
+  }
+</style>
