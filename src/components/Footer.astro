@@ -1,53 +1,110 @@
-<footer class="bg-black text-white py-12 font-body relative">
-  <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<footer class="relative bg-gradient-to-b from-dark-900 to-dark-800 text-gray-300 py-16 font-sans">
+  <div class="container mx-auto px-6">
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
       
-      <div class="md:col-span-1 flex flex-col">
+      <!-- Brand Info -->
+      <div>
         <div class="flex items-center mb-4 space-x-3">
           <img src="/images/logo.svg" alt="OPTYP Logo" class="h-8 w-auto" />
-          <h3 class="text-xl font-bold text-green-400">OPTYP</h3>
+          <h3 class="text-xl font-bold text-primary-500">OPTYP</h3>
         </div>
-        <p class="text-gray-400 text-sm leading-relaxed">
-          Professional resume & profile optimization services.
-          <span class="text-green-400 font-semibold block mt-1">Get Set, Get Hired!</span>
+        <p class="text-sm leading-relaxed mb-4">
+          AI-powered resume & profile optimization services. 
+          <span class="text-primary-400 font-semibold">Get Set, Get Hired!</span>
         </p>
-        <div class="mt-4">
-          <a href="mailto:info@optyp.com" 
-             class="text-green-400 hover:text-green-300 transition-colors duration-200">
-            info@optyp.com
+        <a href="mailto:info@optyp.com" 
+           class="text-primary-400 hover:text-primary-300 text-sm transition">
+          info@optyp.com
+        </a>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4 mt-6">
+          <a href="https://linkedin.com/company/optyp" aria-label="LinkedIn" target="_blank" rel="noopener"
+             class="hover:text-primary-400 transition">
+            <i class="fab fa-linkedin text-2xl"></i>
+          </a>
+          <a href="https://twitter.com/optyp" aria-label="Twitter" target="_blank" rel="noopener"
+             class="hover:text-primary-400 transition">
+            <i class="fab fa-twitter text-2xl"></i>
+          </a>
+          <a href="https://facebook.com/optyp" aria-label="Facebook" target="_blank" rel="noopener"
+             class="hover:text-primary-400 transition">
+            <i class="fab fa-facebook text-2xl"></i>
+          </a>
+          <a href="https://instagram.com/optyp" aria-label="Instagram" target="_blank" rel="noopener"
+             class="hover:text-primary-400 transition">
+            <i class="fab fa-instagram text-2xl"></i>
           </a>
         </div>
-        <div class="flex space-x-4 mt-6">
-           <a href="..." class="text-gray-500 hover:text-[#0A66C2] transition-colors"></a>
-           <a href="..." class="text-gray-500 hover:text-[#1DA1F2] transition-colors"></a>
-           </div>
       </div>
 
+      <!-- Services -->
       <div>
-        <h4 class="font-semibold mb-4 text-green-400">Services</h4>
-        <ul class="space-y-2 text-sm text-gray-400">
-          <li><a href="/#services" class="hover:text-white transition">ATS Resume</a></li>
-          </ul>
+        <h4 class="font-semibold mb-4 text-white">Services</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/#services" class="hover:text-primary-400">ATS Resume</a></li>
+          <li><a href="/#services" class="hover:text-primary-400">LinkedIn Optimization</a></li>
+          <li><a href="/#services" class="hover:text-primary-400">Portfolio Website</a></li>
+          <li><a href="/#services" class="hover:text-primary-400">Profile Optimization</a></li>
+        </ul>
       </div>
+
+      <!-- Quick Links -->
       <div>
-        <h4 class="font-semibold mb-4 text-green-400">Quick Links</h4>
-        <ul class="space-y-2 text-sm text-gray-400">
-          <li><a href="/" class="hover:text-white transition">Home</a></li>
-          </ul>
+        <h4 class="font-semibold mb-4 text-white">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/" class="hover:text-primary-400">Home</a></li>
+          <li><a href="/#about" class="hover:text-primary-400">About</a></li>
+          <li><a href="/#plans" class="hover:text-primary-400">Plans</a></li>
+          <li><a href="/#contact" class="hover:text-primary-400">Contact</a></li>
+          <li><a href="/feedback/" class="hover:text-primary-400">Feedback</a></li>
+          <li><a href="/faq" class="hover:text-primary-400">FAQ</a></li>
+        </ul>
       </div>
+
+      <!-- Legal -->
       <div>
-        <h4 class="font-semibold mb-4 text-green-400">Legal</h4>
-        <ul class="space-y-2 text-sm text-gray-400">
-          <li><a href="/privacy/" class="hover:text-white transition">Privacy Policy</a></li>
-          </ul>
+        <h4 class="font-semibold mb-4 text-white">Legal</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/privacy/" class="hover:text-primary-400">Privacy Policy</a></li>
+          <li><a href="/terms/" class="hover:text-primary-400">Terms & Conditions</a></li>
+          <li><a href="/refund/" class="hover:text-primary-400">Refund Policy</a></li>
+        </ul>
       </div>
     </div>
 
-    <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-      <p class="text-gray-500 text-sm">
-        © {new Date().getFullYear()} OPTYP. All rights reserved | 
-        <span class="text-green-400 font-semibold">Get Set, Get Hired!</span>
-      </p>
+    <!-- Divider -->
+    <div class="my-8 border-t border-gray-700"></div>
+
+    <!-- Bottom -->
+    <div class="flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
+      <p>© {new Date().getFullYear()} OPTYP. All rights reserved.</p>
+      <p class="mt-2 md:mt-0">Made with ❤️ for professionals.</p>
     </div>
   </div>
-  </footer>
+
+  <!-- Back to Top -->
+  <button 
+    id="backToTop" 
+    class="fixed bottom-6 right-6 hidden bg-primary-600 text-white w-10 h-10 rounded-full shadow-soft flex items-center justify-center hover:bg-primary-500 transition z-50"
+    aria-label="Back to Top"
+  >
+    ↑
+  </button>
+
+  <script>
+    // Back to top visibility logic
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > window.innerHeight / 2) {
+        backToTop.classList.remove("hidden");
+      } else {
+        backToTop.classList.add("hidden");
+      }
+    });
+    backToTop?.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</footer>

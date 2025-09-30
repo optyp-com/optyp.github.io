@@ -2,53 +2,48 @@
 const { services } = Astro.props;
 ---
 
-<section id="services" class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 py-20 relative overflow-hidden">
-  <div class="container mx-auto max-w-6xl px-4 text-center relative z-10">
+<section id="services" class="relative py-24 bg-gradient-to-b from-white to-primary-50 dark:from-dark-900 dark:to-dark-800">
+  <div class="container mx-auto max-w-6xl px-6 text-center relative z-10">
+    
     <!-- Section Heading -->
-    <h2 class="text-4xl font-extrabold mb-4 text-gray-900 tracking-wide-heading">
+    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
       Our Services
     </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-10 rounded-full"></div>
+    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto mb-10 rounded-full"></div>
 
-    <p class="text-gray-800 mb-12 max-w-3xl mx-auto">
-      We offer a full suite of career services that not only optimize your existing profiles 
-      but also build new, high-impact accounts from scratch.
+    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-16">
+      AI-powered tools and guidance to help you optimize resumes, LinkedIn profiles, and portfolios for maximum career impact.
     </p>
 
     <!-- Services Grid -->
-    <div class="grid gap-8 sm:gap-10 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {services.map((service, i) => (
         <div
           key={service.title}
-          class="service-card group relative bg-white/20 backdrop-blur-lg border border-white/30 
-                 p-8 rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105 
-                 hover:shadow-2xl"
+          class="group relative bg-white/40 dark:bg-dark-800/50 backdrop-blur-md border border-white/20 
+                 rounded-2xl shadow-soft p-8 transition-transform duration-300 hover:scale-105 hover:shadow-glass"
           data-aos="fade-up"
           data-aos-delay={i * 100}
         >
           <!-- Icon -->
           {service.icon && (
-            <div
-              class="icon-box w-16 h-16 mx-auto mb-6 flex items-center justify-center 
-                     rounded-full bg-gradient-to-r from-primary-500 to-primary-600 shadow-md 
-                     transition-all duration-300 group-hover:rotate-6 group-hover:scale-110"
-            >
+            <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 shadow-md transform group-hover:scale-110 transition">
               <img
                 src={service.icon}
                 alt={service.title}
-                class="w-8 h-8 text-white"
+                class="w-8 h-8"
                 loading="lazy"
               />
             </div>
           )}
 
           <!-- Title -->
-          <h3 class="text-xl font-semibold mb-3 text-gray-900 transition-colors duration-300 group-hover:text-primary-600">
+          <h3 class="font-heading text-2xl font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
             {service.title}
           </h3>
 
           <!-- Description -->
-          <p class="text-gray-700">
+          <p class="text-gray-600 dark:text-gray-300">
             {service.description}
           </p>
         </div>
@@ -56,46 +51,7 @@ const { services } = Astro.props;
     </div>
   </div>
 
-  <!-- Extra Styles -->
-  <style>
-    /* Glassmorphism + Gradient Hover Border */
-    .service-card {
-      position: relative;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      transition: all 0.3s ease;
-    }
-    .service-card:hover {
-      border-image: linear-gradient(to right,  #3CB592, #2F9E7F) 1;
-    }
-
-    /* Icon subtle pulse */
-    .icon-box {
-      transform-origin: center;
-    }
-    .service-card:hover .icon-box {
-      animation: pulse 1.2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    /* Mobile adjustments */
-    @media (max-width: 640px) {
-      .service-card {
-        padding: 1.5rem;
-      }
-      .service-card h3 {
-        font-size: 1.125rem; /* keep text readable */
-      }
-      .service-card p {
-        font-size: 0.95rem;
-      }
-    }
-  </style>
-
-  <!-- AOS Initialization -->
+  <!-- AOS Animation Script -->
   <script type="module">
     import AOS from "aos";
     import "aos/dist/aos.css";

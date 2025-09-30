@@ -1,13 +1,33 @@
 ---
-// src/components/Header.astro
 ---
-<header id="site-header" class="bg-transparent sticky top-0 z-40 transition-all duration-500">
-  <div class="container mx-auto flex items-center justify-between px-4 py-3">
+<header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent backdrop-blur-sm">
+  <div class="container mx-auto flex items-center justify-between px-6 py-3">
+    
     <!-- Logo -->
     <a href="/" class="flex items-center space-x-2">
-      <img src="/images/logo.svg" alt="OPTYP Logo" class="h-10 w-auto" />
-      <span class="font-bold text-xl text-primary-500 tracking-wide">OPTYP</span>
+      <img src="/images/logo.svg" alt="OPTYP Logo" class="h-9 w-auto" />
+      <span class="font-heading text-xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
+        OPTYP
+      </span>
     </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-8 font-medium">
+      <a href="/#hero" class="nav-link" data-section="hero">Home</a>
+      <a href="/#about" class="nav-link" data-section="about">About</a>
+      <a href="/#services" class="nav-link" data-section="services">Services</a>
+      <a href="/#plans" class="nav-link" data-section="plans">Plans</a>
+      <a href="/#testimonials" class="nav-link" data-section="testimonials">Testimonials</a>
+      <a href="/#contact" class="nav-link" data-section="contact">Contact</a>
+    </nav>
+
+    <!-- CTA Button (Desktop) -->
+    <div class="hidden md:block">
+      <a href="/#plans" 
+         class="px-5 py-2 rounded-xl bg-primary-600 text-white font-semibold shadow-soft hover:shadow-glass hover:scale-105 transition">
+        Get Started
+      </a>
+    </div>
 
     <!-- Mobile Menu Button -->
     <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Toggle Menu">
@@ -18,26 +38,19 @@
         <line x1="3" y1="18" x2="21" y2="18" />
       </svg>
     </button>
-
-    <!-- Desktop Navigation -->
-    <nav class="hidden md:flex space-x-8 font-semibold font-body text-gray-700">
-      <a href="/#hero" class="nav-link hover:text-primary-600" data-section="hero">Home</a>
-      <a href="/#about" class="nav-link hover:text-primary-600" data-section="about">About</a>
-      <a href="/#services" class="nav-link hover:text-primary-600" data-section="services">Services</a>
-      <a href="/#plans" class="nav-link hover:text-primary-600" data-section="plans">Plans</a>
-      <a href="/#testimonials" class="nav-link hover:text-primary-600" data-section="testimonials">Testimonials</a>
-      <a href="/#contact" class="nav-link hover:text-primary-600" data-section="contact">Contact</a>
-    </nav>
   </div>
 
   <!-- Mobile Navigation -->
-  <nav id="mobile-menu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-16 hidden px-4 py-4 space-y-2 font-semibold font-body">
-    <a href="/#hero" class="nav-link block hover:text-primary-600" data-section="hero">Home</a>
-    <a href="/#about" class="nav-link block hover:text-primary-600" data-section="about">About</a>
-    <a href="/#services" class="nav-link block hover:text-primary-600" data-section="services">Services</a>
-    <a href="/#plans" class="nav-link block hover:text-primary-600" data-section="plans">Plans</a>
-    <a href="/#testimonials" class="nav-link block hover:text-primary-600" data-section="testimonials">Testimonials</a>
-    <a href="/#contact" class="nav-link block hover:text-primary-600" data-section="contact">Contact</a>
+  <nav id="mobile-menu" class="md:hidden bg-white/90 dark:bg-dark-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700 absolute w-full left-0 top-16 hidden px-6 py-6 space-y-4 font-medium shadow-lg">
+    <a href="/#hero" class="nav-link block" data-section="hero">Home</a>
+    <a href="/#about" class="nav-link block" data-section="about">About</a>
+    <a href="/#services" class="nav-link block" data-section="services">Services</a>
+    <a href="/#plans" class="nav-link block" data-section="plans">Plans</a>
+    <a href="/#testimonials" class="nav-link block" data-section="testimonials">Testimonials</a>
+    <a href="/#contact" class="nav-link block" data-section="contact">Contact</a>
+    <a href="/#plans" class="block px-5 py-2 rounded-xl bg-primary-600 text-white font-semibold shadow-soft text-center hover:shadow-glass transition">
+      Get Started
+    </a>
   </nav>
 
   <script is:inline>
@@ -52,13 +65,13 @@
       menu.classList.toggle('hidden');
     });
 
-    // Scrollspy (highlight current section)
+    // Scrollspy
     function setActive(sectionId) {
       navLinks.forEach(link => {
         if (link.dataset.section === sectionId) {
-          link.classList.add('text-primary-600', 'font-bold', 'border-b-2', 'border-primary-600');
+          link.classList.add('text-primary-600', 'font-semibold');
         } else {
-          link.classList.remove('text-primary-600', 'font-bold', 'border-b-2', 'border-primary-600');
+          link.classList.remove('text-primary-600', 'font-semibold');
         }
       });
     }
@@ -76,37 +89,41 @@
 
     sections.forEach(section => observer.observe(section));
 
-    // Smooth scroll for links
+    // Smooth scroll
     navLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         const targetId = link.getAttribute('href').split('#')[1];
         const target = document.getElementById(targetId);
         if (target) {
           e.preventDefault();
-          window.scrollTo({
-            top: target.offsetTop - 70,
-            behavior: 'smooth'
-          });
+          window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
         }
-        menu.classList.add('hidden'); // close mobile menu
+        menu.classList.add('hidden');
       });
     });
 
-    // Header background fade on scroll
+    // Glassmorphic background on scroll
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
-        header.classList.add('bg-white', 'shadow-md');
+        header.classList.add('bg-white/80', 'dark:bg-dark-900/80', 'backdrop-blur-md', 'shadow-md');
         header.classList.remove('bg-transparent');
       } else {
         header.classList.add('bg-transparent');
-        header.classList.remove('bg-white', 'shadow-md');
+        header.classList.remove('bg-white/80', 'dark:bg-dark-900/80', 'shadow-md');
       }
     });
   </script>
 
   <style>
     .nav-link {
+      color: #4b5563; /* gray-700 */
       transition: all 0.3s ease;
+    }
+    .dark .nav-link {
+      color: #e5e7eb; /* gray-200 */
+    }
+    .nav-link:hover {
+      color: var(--tw-color-primary-600, #22c55e);
     }
   </style>
 </header>

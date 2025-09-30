@@ -4,7 +4,7 @@ export interface Props {
   description?: string;
 }
 const { title, description = 'OPTYP - Optimize Your Professionalism' } = Astro.props;
-import Header from '../components/Header.astro';
+import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import FloatingContactIcon from '../components/FloatingContactIcon.astro';
 ---
@@ -22,14 +22,14 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     <!-- Canonical -->
     <link rel="canonical" href="https://optyp.github.io" />
 
-    <!-- Open Graph (Social Preview) -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="https://optyp.github.io/images/og-banner.png" />
     <meta property="og:url" content="https://optyp.github.io" />
 
-    <!-- Twitter Card -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -39,10 +39,11 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     <meta name="author" content="OPTYP" />
 
     <!-- Fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" as="style" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" />
 
-    <!-- Favicon + Manifest -->
+    <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/icons/icon-192.png" />
     <link rel="manifest" href="/manifest.json" />
@@ -51,7 +52,7 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     <!-- Global CSS -->
     <link rel="stylesheet" href="/styles/global.css" />
 
-    <!-- Structured Data (SEO JSON-LD) -->
+    <!-- JSON-LD (SEO Schema) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -65,91 +66,58 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
               "https://linkedin.com/company/optyp",
               "https://instagram.com/optyp",
               "https://facebook.com/optyp",
-              "https://twitter.com/optyp",
-              "https://naukri.com/optyp"
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+91-9848934274",
-              "contactType": "customer service"
-            }
+              "https://twitter.com/optyp"
+            ]
           },
           {
-            "@type": "Product",
-            "name": "Essentials Plan",
-            "description": "ATS Resume, LinkedIn & Naukri optimization to kickstart your career.",
-            "brand": { "@type": "Organization", "name": "OPTYP" },
-            "offers": {
-              "@type": "Offer",
-              "price": "499",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://optyp.github.io/#plans"
-            }
-          },
-          {
-            "@type": "Product",
-            "name": "Professional Plan",
-            "description": "Complete career profile optimization with advanced resume + LinkedIn.",
-            "brand": { "@type": "Organization", "name": "OPTYP" },
-            "offers": {
-              "@type": "Offer",
-              "price": "749",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://optyp.github.io/#plans"
-            }
-          },
-          {
-            "@type": "Product",
-            "name": "Elite Plan",
-            "description": "Premium optimization + portfolio website for standout professionals.",
-            "brand": { "@type": "Organization", "name": "OPTYP" },
-            "offers": {
-              "@type": "Offer",
-              "price": "999",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://optyp.github.io/#plans"
-            }
+            "@type": "SiteNavigationElement",
+            "name": ["Home","About","Services","Plans","Testimonials","Contact"],
+            "url": [
+              "https://optyp.github.io/#hero",
+              "https://optyp.github.io/#about",
+              "https://optyp.github.io/#services",
+              "https://optyp.github.io/#plans",
+              "https://optyp.github.io/#testimonials",
+              "https://optyp.github.io/#contact"
+            ]
           }
         ]
       }
     </script>
   </head>
 
-  <body class="bg-gradient-to-br from-white via-gray-50 to-gray-100 text-gray-900 font-inter leading-relaxed antialiased transition-colors duration-300">
+  <body class="bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-dark-900 dark:to-dark-950 text-gray-900 dark:text-gray-100 font-inter leading-relaxed antialiased transition-colors duration-300">
+    <!-- Skip Link -->
     <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-primary-600 text-white rounded-md shadow-lg">
       Skip to main content
     </a>
 
-    <Header />
+    <!-- Global Navigation -->
+    <Nav />
 
-    <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Main -->
+    <main id="main-content">
       <slot />
     </main>
 
+    <!-- Global Footer -->
     <Footer />
     <FloatingContactIcon />
 
-    <!-- Global Animation Styles -->
+    <!-- Animations -->
     <style>
       @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
       }
-      .animate-fadeInUp {
+      .animate-fadeInUp { opacity: 0; }
+      .animate-fadeInUp.visible {
+        opacity: 1;
         animation: fadeInUp 0.8s ease-out both;
       }
     </style>
 
-    <!-- Scroll Reveal Script -->
+    <!-- Scroll Reveal -->
     <script is:inline>
       const revealEls = document.querySelectorAll(".animate-fadeInUp");
       const revealObserver = new IntersectionObserver(
@@ -165,15 +133,5 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
       );
       revealEls.forEach((el) => revealObserver.observe(el));
     </script>
-
-    <style>
-      .animate-fadeInUp {
-        opacity: 0;
-      }
-      .animate-fadeInUp.visible {
-        opacity: 1;
-        animation: fadeInUp 0.8s ease-out both;
-      }
-    </style>
   </body>
 </html>

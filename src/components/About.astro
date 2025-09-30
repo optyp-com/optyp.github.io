@@ -1,48 +1,54 @@
 ---
 ---
-<section 
-  id="about" 
-  class="relative py-20 lg:py-28 overflow-hidden bg-gray-900"
->
-  <div class="container-custom text-center md:text-left relative z-10">
-    <div class="flex flex-col md:grid md:grid-cols-2 md:gap-16 items-center">
+<section id="about" class="relative py-24 lg:py-32 overflow-hidden">
+  <!-- Decorative Background -->
+  <div class="absolute inset-0 -z-10 bg-gradient-to-br from-white to-primary-50 dark:from-dark-900 dark:to-dark-800"></div>
+
+  <div class="container mx-auto px-6 md:px-12 relative z-10">
+    <div class="grid md:grid-cols-2 items-center gap-16">
       
-      <div class="flex justify-center mb-10 md:mb-0 animate-fadeInUp floating">
+      <!-- Illustration -->
+      <div class="flex justify-center md:justify-start animate-float">
         <img
           src="/images/about-resume.svg"
           alt="Career Growth Success Illustration"
-          class="w-56 sm:w-72 md:w-full max-w-md drop-shadow-[0_0_30px_rgba(52,211,153,0.25)]"
+          class="w-56 sm:w-72 md:w-full max-w-md drop-shadow-xl"
         />
       </div>
 
-      <div class="animate-fadeInUp" style="animation-delay:0.15s">
-        <div class="bg-gray-800/30 backdrop-blur-xl border border-white/10 rounded-3xl shadow-xl p-6 sm:p-10 hover:shadow-2xl hover:border-green-400/50 transition">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold mb-6 text-white">
-            About <span class="text-green-400">OPTYP</span>
+      <!-- Content -->
+      <div class="animate-fadeInUp space-y-6">
+        <div class="bg-white/50 dark:bg-dark-800/60 backdrop-blur-md border border-white/20 rounded-2xl shadow-soft p-8 sm:p-10 hover:shadow-glass transition">
+          
+          <!-- Heading -->
+          <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+            About <span class="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">OPTYP</span>
           </h2>
-          <p class="text-base sm:text-lg leading-relaxed text-gray-300 mb-4">
-            At <span class="font-semibold text-green-400">OPTYP</span>, we specialize in optimizing your 
-            <strong class="highlight">ATS Resume</strong>, 
-            <strong class="highlight">LinkedIn</strong>, 
-            <strong class="highlight">Indeed</strong>, 
-            <strong class="highlight">Naukri</strong>, 
-            <strong class="highlight">GitHub</strong>, and 
-            <strong class="highlight">portfolio</strong> profiles 
-            to help you get noticed and hired faster globally.
+
+          <!-- Paragraphs -->
+          <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            At <span class="font-semibold text-primary-600 dark:text-primary-400">OPTYP</span>, we specialize in optimizing your 
+            <span class="highlight">ATS Resume</span>, 
+            <span class="highlight">LinkedIn</span>, 
+            <span class="highlight">Indeed</span>, 
+            <span class="highlight">Naukri</span>, 
+            <span class="highlight">GitHub</span>, and 
+            <span class="highlight">Portfolio</span> profiles to help you get noticed and hired faster globally.
           </p>
-          <p class="text-base sm:text-lg leading-relaxed text-gray-300">
-            Our expert team ensures your professionalism is showcased to attract recruiters effectively.
-            <span class="font-semibold text-green-400 block mt-2">GET SET, GET HIRED!</span>
+          <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            Our expert team ensures your professionalism is showcased to attract recruiters effectively.  
+            <span class="font-semibold text-primary-600 dark:text-primary-400">Get Set, Get Hired!</span>
           </p>
 
-          <div class="mt-8 grid grid-cols-2 gap-6 sm:flex sm:gap-12 text-center md:text-left">
+          <!-- Stats Row -->
+          <div class="mt-10 grid grid-cols-2 gap-8 text-center md:text-left">
             <div>
-              <p class="text-4xl font-bold text-green-400 counter" data-target="500">0</p>
-              <p class="text-gray-400 text-sm">Profiles Optimized</p>
+              <p class="text-4xl font-extrabold text-primary-600 dark:text-primary-400 counter" data-target="500">0</p>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">Profiles Optimized</p>
             </div>
             <div>
-              <p class="text-4xl font-bold text-green-400 counter" data-target="30">0</p>
-              <p class="text-gray-400 text-sm">Countries Served</p>
+              <p class="text-4xl font-extrabold text-primary-600 dark:text-primary-400 counter" data-target="30">0</p>
+              <p class="text-gray-600 dark:text-gray-400 mt-1">Countries Served</p>
             </div>
           </div>
         </div>
@@ -51,26 +57,61 @@
     </div>
   </div>
 
+  <!-- Counter Script -->
+  <script type="module">
+    const counters = document.querySelectorAll('.counter');
+    if (counters.length) {
+      function animateCount(el, end, duration = 1500) {
+        let startTime;
+        function step(now) {
+          if (!startTime) startTime = now;
+          const progress = Math.min((now - startTime) / duration, 1);
+          const current = Math.floor(progress * end);
+          el.textContent = current.toLocaleString();
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = end.toLocaleString() + '+';
+        }
+        requestAnimationFrame(step);
+      }
+
+      const runCounters = () => counters.forEach(el => {
+        const target = parseInt(el.dataset.target, 10) || 0;
+        animateCount(el, target, 1200 + Math.min(target, 1000));
+      });
+
+      const section = document.getElementById('about');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries, obs) => {
+          if (entries.some(e => e.isIntersecting)) {
+            runCounters();
+            obs.disconnect();
+          }
+        }, { threshold: 0.35 });
+        io.observe(section);
+      } else {
+        runCounters();
+      }
+    }
+  </script>
+
   <style>
+    /* Floating animation */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
+      50% { transform: translateY(-10px); }
     }
-    .floating { animation: float 6s ease-in-out infinite; }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fadeInUp { animation: fadeInUp 1s ease forwards; }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+
+    /* Highlight keywords */
     .highlight {
+      font-weight: 600;
       position: relative;
+      color: inherit;
       transition: color 0.3s ease, text-shadow 0.3s ease;
     }
     .highlight:hover {
-      color: #34D399; /* green-400 */
-      text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+      color: #16a34a;
+      text-shadow: 0 0 8px rgba(22, 163, 74, 0.4);
     }
   </style>
-
-  <script type="module" src="../scripts/counter.js"></script>
 </section>

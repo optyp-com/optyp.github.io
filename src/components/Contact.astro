@@ -1,17 +1,19 @@
 ---
+const siteUrl = "https://optyp-com.github.io/optyp.github.io";
 ---
-<section class="bg-gray-900 py-20">
+
+<section id="contact" class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 py-20">
   <div class="container mx-auto max-w-5xl px-4 text-center">
-    <h2 class="text-4xl font-extrabold mb-4 text-white tracking-wide-heading">
+    <h2 class="text-4xl font-extrabold mb-4 text-gray-900 tracking-wide-heading">
       Contact Us
     </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-green-500 to-green-600 mx-auto mb-10 rounded-full"></div>
-    <p class="text-gray-300 mb-12 max-w-xl mx-auto text-lg">
-      Have questions or want to get started? Our team is ready to help you succeed.
+    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-10 rounded-full"></div>
+    <p class="text-gray-800 mb-12 max-w-xl mx-auto">
+      Have questions or want to get started? Click below to open the form.
     </p>
-    <div class="flex flex-col items-center space-y-2">
+    <div class="flex justify-center">
       <button
-        class="inline-block bg-gradient-to-r from-green-500 to-green-600 text-black px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-green-500/30 hover:scale-105 transition duration-300 animate-pulse-smooth"
+        class="px-8 py-3 rounded-xl font-semibold shadow-md bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:shadow-lg hover:scale-105 transition duration-300 animate-pulse-smooth"
         onclick="openContactForm()"
       >
         Get Started
@@ -20,57 +22,147 @@
   </div>
 </section>
 
+<!-- Modal -->
 <div id="contact-modal"
-     class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 hidden opacity-0 transition-opacity duration-500 ease-out"
+     class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 hidden opacity-0 transition-opacity duration-500 ease-out"
      onclick="closeContactForm()">
   <div id="contact-modal-content"
-       class="relative bg-gray-800/50 backdrop-blur-xl border border-white/10 shadow-lg
-              w-full h-full sm:w-[95%] sm:h-[90%] md:w-[70%] lg:w-[50%] md:h-auto
+       class="relative bg-white/30 backdrop-blur-lg border border-white/40 shadow-xl
+              w-full h-full sm:w-[95%] sm:h-[90%] md:w-[70%] md:h-[85%]
               flex flex-col transform transition-all duration-500 ease-out
               sm:rounded-2xl md:rounded-2xl
               translate-y-10 opacity-0 scale-95"
        onclick="event.stopPropagation()">
 
-    <div class="sticky top-0 z-10 flex justify-end p-3 bg-gray-900/30 backdrop-blur-lg border-b border-white/10 sm:rounded-t-2xl">
-      <button onclick="closeContactForm()"
-        class="w-8 h-8 flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white rounded-full shadow-md transition duration-300 hover:scale-105">✕</button>
+    <!-- Close Button -->
+    <div class="sticky top-0 z-10 flex justify-end p-3 bg-white/40 backdrop-blur-md border-b border-white/30 sm:rounded-t-2xl">
+      <button id="close-contact-btn"
+        onclick="closeContactForm()"
+        class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-900 text-white rounded-full shadow-md transition duration-300 hover:scale-105">✕</button>
     </div>
 
+    <!-- Form -->
     <div class="flex-1 overflow-y-auto p-6 sm:p-10">
-      <form id="contact-form" class="space-y-6" novalidate>
-        <style>
-          .form-input {
-            @apply w-full rounded-xl border p-3 bg-gray-900/80 text-white border-gray-600 placeholder-gray-500;
-            @apply focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition;
-          }
-          .form-label {
-            @apply block text-sm font-semibold mb-1 text-gray-300;
-          }
-        </style>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label class="form-label">Full Name *</label>
-            <input type="text" name="name" required class="form-input">
-            <div class="field-error text-red-400 text-sm mt-1 hidden"></div>
+      <div class="bg-white/40 backdrop-blur-md border border-white/50 p-8 rounded-2xl shadow-sm max-w-2xl mx-auto">
+        <form id="contact-form" class="space-y-6" novalidate>
+          <!-- Hidden Web3Forms Inputs -->
+          <input type="hidden" name="access_key" value="adb0d3eb-198d-40ab-bfeb-d6d36ed4e402">
+          <input type="hidden" name="subject" value="New Contact Form Submission - OPTYP">
+          <input type="hidden" name="from_name" value="OPTYP Contact Form">
+          <input type="checkbox" name="botcheck" style="display:none">
+
+          <!-- Name + Email -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold mb-1">Full Name *</label>
+              <input type="text" name="name" required
+                class="input-field">
+              <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-1">Email *</label>
+              <input type="email" name="email" required
+                class="input-field">
+              <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
+            </div>
           </div>
+
+          <!-- Phone -->
           <div>
-            <label class="form-label">Email *</label>
-            <input type="email" name="email" required class="form-input">
-            <div class="field-error text-red-400 text-sm mt-1 hidden"></div>
+            <label class="block text-sm font-semibold mb-1">Contact Number *</label>
+            <input type="tel" name="phone" required placeholder="+91 9876543210" class="input-field">
+            <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
           </div>
-        </div>
-        
-        <div class="text-center pt-4">
+
+          <!-- Profession -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">What do you currently do? *</label>
+            <select name="profession" id="profession" required class="input-field">
+              <option value="">Select an option</option>
+              <option value="salaried">Salaried Professional</option>
+              <option value="self-employed">Self-Employed</option>
+              <option value="student">Student</option>
+            </select>
+            <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
+          </div>
+
+          <!-- Experience -->
+          <div id="experience-wrapper" class="hidden">
+            <label class="block text-sm font-semibold mb-1">Years of Experience *</label>
+            <select name="experience" id="experience" class="input-field">
+              <option value="">Select experience</option>
+              <option value="0">0 years (Fresher)</option>
+              <option value="1-2">1–2 years</option>
+              <option value="3-5">3–5 years</option>
+              <option value="5-10">5–10 years</option>
+              <option value="10-15">10–15 years</option>
+              <option value="15+">15+ years</option>
+            </select>
+            <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">Select Services *</label>
+            <select name="services" id="services" multiple required class="input-field">
+              <option value="ATS Resume">ATS Resume</option>
+              <option value="LinkedIn Optimization">LinkedIn Optimization</option>
+              <option value="Naukri">Naukri</option>
+              <option value="Indeed">Indeed</option>
+              <option value="GitHub">GitHub</option>
+              <option value="Portfolio Website">Portfolio Website</option>
+              <option value="Upwork">Upwork</option>
+              <option value="Fiverr">Fiverr</option>
+              <option value="Toptal">Toptal</option>
+              <option value="Personal Branding">Personal Branding</option>
+            </select>
+            <p class="text-sm text-gray-600 mt-1">Hold CTRL (Windows) or CMD (Mac) to select multiple.</p>
+            <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">Message *</label>
+            <textarea name="message" rows="5" required class="input-field"></textarea>
+            <div class="field-error text-red-500 text-sm mt-1 hidden"></div>
+          </div>
+
+          <!-- Submit -->
+          <div class="text-center">
             <button id="submit-btn" type="submit"
-              class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-black px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-green-500/30 hover:scale-105 transition">
+              class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl font-semibold shadow-md bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:shadow-lg hover:scale-105 transition">
               <span id="btn-text">Send Message</span>
-              <svg id="btn-spinner" class="animate-spin h-5 w-5 text-black hidden" ></svg>
+              <svg id="btn-spinner" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+              </svg>
             </button>
-        </div>
-      </form>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
 
-<script is:inline src="../scripts/contact.js"></script>
+<!-- Toast -->
+<div id="toast" class="fixed top-5 right-5 hidden z-[9999]">
+  <div id="toast-content"
+       class="flex items-center gap-3 px-6 py-4 rounded-xl border backdrop-blur-md bg-white/30 shadow-lg text-white font-medium
+              transform translate-x-5 opacity-0 transition-all duration-500 ease-out">
+    <span id="toast-icon" class="text-xl"></span>
+    <span id="toast-message"></span>
+  </div>
+</div>
+
+<style>
+  .input-field {
+    @apply w-full rounded-xl border p-3 bg-white/90 focus:ring-2 focus:ring-primary-500 focus:outline-none transition;
+  }
+  @keyframes pulse-smooth {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  .animate-pulse-smooth {
+    animation: pulse-smooth 2s ease-in-out infinite;
+  }
+</style>
