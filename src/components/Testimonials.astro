@@ -5,23 +5,24 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 ---
 
-<section id="testimonials" class="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 py-20 relative">
-  <div class="container mx-auto max-w-6xl px-6 text-center relative">
+<section id="testimonials" class="relative py-20 lg:py-28 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+  <div class="container mx-auto max-w-6xl px-6 text-center relative z-10">
+    
     <!-- Section Heading -->
-    <h2 class="text-5xl font-extrabold mb-4 text-gray-900 tracking-wide-heading">
-      Hear From Our Clients Worldwide
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 text-white">
+      Hear From Our <span class="text-cyan-400">Clients Worldwide</span>
     </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-10 rounded-full"></div>
+    <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-10 rounded-full shadow-lg"></div>
 
     <!-- Intro -->
-    <p class="text-gray-800 text-xl mb-6 max-w-4xl mx-auto">
+    <p class="text-gray-300 text-lg mb-6 max-w-4xl mx-auto">
       We have successfully optimized over 
-      <span class="font-semibold text-primary-600">500+ professional profiles</span> 
+      <span class="font-semibold text-cyan-400">500+ professional profiles</span> 
       across multiple countries, empowering careers globally.
     </p>
-    <p class="mb-12 text-lg font-semibold text-gray-800 max-w-3xl mx-auto">
-      <strong>We value your privacy.</strong><br />
-      Your personal and professional details are never disclosed. <br />
+    <p class="mb-12 text-base sm:text-lg font-medium text-gray-400 max-w-3xl mx-auto">
+      <strong class="text-cyan-300">We value your privacy.</strong><br />
+      Your personal and professional details are never disclosed.  
       Confidentiality and trust are the foundation of our service.
     </p>
 
@@ -40,22 +41,20 @@ import 'swiper/css/pagination';
       {testimonials.map(({ quote, profession, location }) => (
         <swiper-slide>
           <blockquote
-            class="relative group bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500 hover:border-primary-500"
+            class="relative group glass-card p-8 rounded-2xl transition-all duration-500 hover:scale-105"
           >
-            <!-- Speech bubble tail -->
-            <span class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[12px] border-r-[12px] border-t-[16px] border-l-transparent border-r-transparent border-t-white/30"></span>
-
-            <!-- Animated profile icon -->
-            <div class="mx-auto mb-4 w-16 h-16 rounded-full bg-primary-600 flex items-center justify-center shadow-md group-hover:scale-110 transition duration-500">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <!-- Profile Icon -->
+            <div class="mx-auto mb-4 w-16 h-16 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-black animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A9.969 9.969 0 0112 15c2.21 0 4.243.72 5.879 1.929M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
 
-            <p class="text-gray-800 italic mb-6 text-lg leading-relaxed">
+            <!-- Quote -->
+            <p class="text-gray-200 italic mb-6 text-lg leading-relaxed">
               "{quote}"
             </p>
-            <footer class="text-sm font-bold text-primary-600 uppercase tracking-wide transition-colors duration-300 group-hover:text-primary-700">
+            <footer class="text-sm font-bold text-cyan-300 uppercase tracking-wide">
               {profession}, {location}
             </footer>
           </blockquote>
@@ -63,45 +62,55 @@ import 'swiper/css/pagination';
       ))}
     </swiper-container>
 
-    <!-- Arrows (hidden on mobile) -->
+    <!-- Navigation Arrows -->
     <div class="swiper-button-prev hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 z-10"></div>
     <div class="swiper-button-next hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 z-10"></div>
   </div>
 </section>
 
-<!-- Scripts -->
+<!-- Swiper Bundle -->
 <script>
   import 'swiper/element/bundle';
 </script>
 
 <style>
-  /* Pagination dots */
+  /* Glass Card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+  }
+  .glass-card:hover {
+    border-color: rgba(0, 255, 204, 0.6);
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.4);
+  }
+
+  /* Pagination Dots */
   .swiper-pagination-bullet {
-    background: #4ade80;
-    opacity: 0.5;
+    background: #00ffcc;
+    opacity: 0.4;
     transition: all 0.3s;
   }
   .swiper-pagination-bullet-active {
-    background: #16a34a;
+    background: #00ffcc;
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1.3);
+    box-shadow: 0 0 10px #00ffcc;
   }
 
-  /* Navigation arrows (icons only, no circle background) */
+  /* Navigation Arrows */
   .swiper-button-next,
   .swiper-button-prev {
-    color: #16a34a; /* green chevrons */
+    color: #00ffcc;
     background: transparent;
-    border-radius: 0;
-    width: auto;
-    height: auto;
-    box-shadow: none;
     transition: transform 0.3s, color 0.3s;
   }
   .swiper-button-next:hover,
   .swiper-button-prev:hover {
-    color: #15803d; /* darker green */
     transform: scale(1.2);
+    color: #00e0b8;
   }
   .swiper-button-next::after,
   .swiper-button-prev::after {
