@@ -1,1 +1,0 @@
-const e=document.getElementById("backToTop");window.addEventListener("scroll",()=>{window.scrollY>window.innerHeight/2?e.classList.remove("hidden"):e.classList.add("hidden")});e?.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})});
