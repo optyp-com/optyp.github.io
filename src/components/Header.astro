@@ -1,18 +1,23 @@
 ---
- // src/components/Header.astro
+// src/components/Header.astro
 ---
-<header id="site-header" class="backdrop-blur-md bg-transparent sticky top-0 z-50 transition-all duration-500 border-b border-white/10">
+<header id="site-header" class="bg-transparent sticky top-0 z-50 transition-all duration-500">
   <div class="container mx-auto flex items-center justify-between px-4 py-3">
     <!-- Logo -->
-    <a href="/" class="flex items-center space-x-2">
-      <img src="/images/logo.svg" alt="OPTYP Logo" class="h-10 w-auto drop-shadow-lg" />
+    <a href="/" class="flex items-center space-x-3" aria-label="OPTYP home">
+      <img src="/images/logo.svg" alt="OPTYP Logo" class="h-10 w-auto" />
       <span class="font-bold text-xl tracking-wide text-white">OPTYP</span>
     </a>
 
     <!-- Mobile Menu Button -->
-    <button id="mobile-menu-button" class="md:hidden focus:outline-none" aria-label="Toggle Menu">
+    <button
+      id="mobile-menu-button"
+      class="md:hidden focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
+      aria-label="Toggle Menu"
+      aria-expanded="false"
+    >
       <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2"
-        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <line x1="3" y1="12" x2="21" y2="12" />
         <line x1="3" y1="6" x2="21" y2="6" />
         <line x1="3" y1="18" x2="21" y2="18" />
@@ -20,121 +25,234 @@
     </button>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center space-x-8 font-semibold font-body text-gray-200">
+    <nav class="hidden md:flex items-center space-x-6 font-semibold text-gray-200" role="navigation" aria-label="Primary">
       <a href="/#hero" class="nav-link" data-section="hero">Home</a>
       <a href="/#about" class="nav-link" data-section="about">About</a>
       <a href="/#services" class="nav-link" data-section="services">Services</a>
       <a href="/#plans" class="nav-link" data-section="plans">Plans</a>
       <a href="/#testimonials" class="nav-link" data-section="testimonials">Testimonials</a>
       <a href="/#contact" class="nav-link" data-section="contact">Contact</a>
-      <a href="/#contact" class="glass-btn px-4 py-2 rounded-lg">Get Started</a>
+
+      <!-- CTA -->
+      <button
+        id="header-cta"
+        class="ml-2 glass-btn px-4 py-2 rounded-lg text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        aria-haspopup="dialog"
+        aria-controls="contact-modal"
+      >
+        Get Started
+      </button>
     </nav>
   </div>
 
   <!-- Mobile Navigation -->
-  <nav id="mobile-menu" class="md:hidden backdrop-blur-md bg-black/70 border-t border-white/10 absolute w-full left-0 top-16 hidden px-4 py-4 space-y-3 font-semibold font-body text-gray-200">
-    <a href="/#hero" class="nav-link block" data-section="hero">Home</a>
-    <a href="/#about" class="nav-link block" data-section="about">About</a>
-    <a href="/#services" class="nav-link block" data-section="services">Services</a>
-    <a href="/#plans" class="nav-link block" data-section="plans">Plans</a>
-    <a href="/#testimonials" class="nav-link block" data-section="testimonials">Testimonials</a>
-    <a href="/#contact" class="nav-link block" data-section="contact">Contact</a>
-    <a href="/#contact" class="glass-btn w-full text-center block px-4 py-2 rounded-lg">Get Started</a>
+  <nav id="mobile-menu"
+       class="md:hidden fixed inset-x-4 top-16 bg-black/70 backdrop-blur-md border border-white/6 rounded-xl shadow-lg hidden p-4 space-y-2 font-semibold text-white z-50"
+       aria-hidden="true"
+  >
+    <a href="/#hero" class="nav-link block py-2 px-3 rounded-md">Home</a>
+    <a href="/#about" class="nav-link block py-2 px-3 rounded-md">About</a>
+    <a href="/#services" class="nav-link block py-2 px-3 rounded-md">Services</a>
+    <a href="/#plans" class="nav-link block py-2 px-3 rounded-md">Plans</a>
+    <a href="/#testimonials" class="nav-link block py-2 px-3 rounded-md">Testimonials</a>
+    <a href="/#contact" class="nav-link block py-2 px-3 rounded-md">Contact</a>
+    <button id="mobile-cta" class="w-full glass-btn text-center px-4 py-2 rounded-md font-semibold mt-2" aria-haspopup="dialog" aria-controls="contact-modal">
+      Get Started
+    </button>
   </nav>
 
   <script is:inline>
+    // Elements
     const button = document.getElementById('mobile-menu-button');
     const menu = document.getElementById('mobile-menu');
     const header = document.getElementById('site-header');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section[id]');
+    const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+    const headerCTA = document.getElementById('header-cta');
+    const mobileCTA = document.getElementById('mobile-cta');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
 
-    // Mobile menu toggle
-    button?.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
+    // Mobile toggle
+    function toggleMobileMenu() {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      if (expanded) {
+        menu.classList.add('hidden');
+        menu.setAttribute('aria-hidden', 'true');
+        button.setAttribute('aria-expanded', 'false');
+      } else {
+        menu.classList.remove('hidden');
+        menu.setAttribute('aria-hidden', 'false');
+        button.setAttribute('aria-expanded', 'true');
+        // focus first link for accessibility
+        const first = menu.querySelector('.nav-link');
+        if (first) first.focus();
+      }
+    }
+    button?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobileMenu();
     });
 
-    // Scrollspy (highlight current section)
+    // Close mobile menu when clicking outside (accessibility-friendly)
+    document.addEventListener('click', (e) => {
+      if (!menu.classList.contains('hidden') && !e.target.closest('#mobile-menu') && !e.target.closest('#mobile-menu-button')) {
+        menu.classList.add('hidden');
+        menu.setAttribute('aria-hidden', 'true');
+        button.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Scrollspy: highlight nav link for current section
     function setActive(sectionId) {
       navLinks.forEach(link => {
-        if (link.dataset.section === sectionId) {
-          link.classList.add('text-neon', 'font-bold');
+        const target = (link.dataset && link.dataset.section) || (link.getAttribute('href') || '').split('#')[1];
+        if (target === sectionId) {
+          link.classList.add('text-cyan-300','font-bold','bg-white/2','border-b-0');
         } else {
-          link.classList.remove('text-neon', 'font-bold');
+          link.classList.remove('text-cyan-300','font-bold','bg-white/2','border-b-0');
         }
       });
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
+    try {
+      const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
+          if (entry.isIntersecting) setActive(entry.target.id);
         });
-      },
-      { threshold: 0.6 }
-    );
+      }, { threshold: 0.6 });
+      sections.forEach(section => observer.observe(section));
+    } catch (err) {
+      // IntersectionObserver not supported: no scrollspy
+    }
 
-    sections.forEach(section => observer.observe(section));
+    // Smooth scroll for normal anchors and special handling for #contact links (open modal)
+    function handleNavClick(e, link) {
+      const href = link.getAttribute('href') || '';
+      const hash = href.includes('#') ? href.split('#')[1] : null;
 
-    // Smooth scroll for links
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        const targetId = link.getAttribute('href').split('#')[1];
-        const target = document.getElementById(targetId);
+      // If clicking contact target, open contact modal (if function available) else smooth scroll fallback
+      if (hash === 'contact') {
+        e.preventDefault();
+        if (typeof openContactForm === 'function') {
+          openContactForm();
+        } else {
+          // fallback: smooth scroll to contact section if exists
+          const el = document.getElementById('contact');
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        // close mobile menu if open
+        if (!menu.classList.contains('hidden')) { menu.classList.add('hidden'); button.setAttribute('aria-expanded','false'); }
+        return;
+      }
+
+      if (hash) {
+        const target = document.getElementById(hash);
         if (target) {
           e.preventDefault();
-          window.scrollTo({
-            top: target.offsetTop - 70,
-            behavior: 'smooth'
-          });
+          const top = target.getBoundingClientRect().top + window.pageYOffset - 70;
+          window.scrollTo({ top, behavior: 'smooth' });
         }
-        menu.classList.add('hidden'); // close mobile menu
+      }
+
+      // close mobile menu on any nav click
+      if (!menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        button.setAttribute('aria-expanded','false');
+      }
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => handleNavClick(e, link));
+      // keyboard accessibility (Enter/Space)
+      link.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          handleNavClick(ev, link);
+        }
       });
     });
 
-    // Header glass effect on scroll
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('bg-black/70', 'backdrop-blur-lg', 'shadow-lg');
+    // CTA buttons open contact modal too (if available)
+    function attachCTAOpen(btn) {
+      if (!btn) return;
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (typeof openContactForm === 'function') openContactForm();
+        else {
+          const el = document.getElementById('contact');
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        // close mobile menu when CTA clicked
+        if (!menu.classList.contains('hidden')) {
+          menu.classList.add('hidden');
+          button.setAttribute('aria-expanded','false');
+        }
+      });
+    }
+    attachCTAOpen(headerCTA);
+    attachCTAOpen(mobileCTA);
+
+    // Header glass effect on scroll (mobile-first: light change close to top)
+    function updateHeaderOnScroll() {
+      const sc = window.scrollY || window.pageYOffset;
+      if (sc > 50) {
+        header.classList.add('bg-black/70','backdrop-blur-sm','shadow-lg','border-b','border-white/6');
+        header.classList.remove('bg-transparent');
       } else {
-        header.classList.remove('bg-black/70', 'backdrop-blur-lg', 'shadow-lg');
+        header.classList.remove('bg-black/70','backdrop-blur-sm','shadow-lg','border-b','border-white/6');
+        header.classList.add('bg-transparent');
+      }
+    }
+    window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+    updateHeaderOnScroll();
+
+    // Close mobile menu and handle escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (!menu.classList.contains('hidden')) {
+          menu.classList.add('hidden');
+          button.setAttribute('aria-expanded','false');
+        }
       }
     });
   </script>
 
   <style>
+    /* Basic nav link styling + neon hover */
     .nav-link {
-      position: relative;
-      transition: all 0.3s ease;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.35rem;
+      color: #e6eef1;
+      transition: all 0.2s ease;
+      outline: none;
     }
-
-    /* Neon glow hover effect */
+    .nav-link:focus {
+      box-shadow: 0 0 0 3px rgba(0,255,204,0.08);
+    }
     .nav-link:hover {
-      color: #00ffcc;
-      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+      color: #00ffd1;
+      text-shadow: 0 0 8px rgba(0,255,204,0.12);
+      transform: translateY(-1px);
     }
 
-    .text-neon {
-      color: #00ffcc !important;
-      text-shadow: 0 0 8px #00ffcc, 0 0 20px #00ffcc;
-    }
-
-    /* Glass button */
+    /* Glass CTA used in header */
     .glass-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #00ffcc;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #00ffd1;
+      backdrop-filter: blur(6px);
+      transition: all 0.18s ease;
+    }
+    .glass-btn:hover {
+      background: rgba(0,255,204,0.06);
+      box-shadow: 0 6px 22px rgba(0,255,204,0.08);
+      color: #fff;
+      transform: translateY(-2px);
     }
 
-    .glass-btn:hover {
-      background: rgba(0, 255, 204, 0.15);
-      box-shadow: 0 0 15px #00ffcc;
-      color: #fff;
+    /* Small screens - ensure mobile menu looks clean and accessible */
+    @media (max-width: 767px) {
+      #mobile-menu { left: 0.5rem; right: 0.5rem; top: 4rem; }
+      #mobile-menu a.nav-link { display: block; width: 100%; }
     }
   </style>
 </header>
