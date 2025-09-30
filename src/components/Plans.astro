@@ -1,73 +1,74 @@
 ---
 import { plans } from "../data/plans";
-import { Check } from "lucide-react"; // if using Lucide for consistent icons
+
+// ✅ Inline SVG for checkmark (instead of lucide-react)
+const CheckIcon = `
+  <svg class="w-5 h-5 text-green-400 mr-3 flex-shrink-0" 
+       fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+          d="M5 13l4 4L19 7"></path>
+  </svg>
+`;
 ---
 
-<section id="plans" class="relative py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
+<section id="plans" class="relative py-24 bg-gray-900 overflow-hidden">
   <div class="container mx-auto max-w-7xl px-4 text-center relative z-10">
-    <!-- Heading -->
-    <h2 class="text-4xl sm:text-5xl font-extrabold mb-4 text-white tracking-wide-heading animate-fadeInUp">
+    <h2 class="text-4xl font-extrabold mb-4 text-white tracking-wide-heading">
       Our Plans
     </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-10 rounded-full"></div>
-    <p class="text-gray-300 mb-12 max-w-3xl mx-auto text-lg animate-fadeInUp">
-      🎉 Year-End Sale: Get <span class="font-semibold text-primary-400">Flat 50% OFF</span> on all plans & services.
+    <div class="w-20 h-1 bg-gradient-to-r from-green-500 to-green-600 mx-auto mb-10 rounded-full"></div>
+    <p class="text-gray-300 mb-12 max-w-3xl mx-auto text-lg">
+      🎉 Year-End Sale: Get <span class="font-semibold text-green-400">Flat 50% OFF</span> on all plans & services.
     </p>
 
-    <!-- Pricing Grid -->
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
       {plans.map((plan, i) => {
         const isProfessional = plan.name === "Professional";
         return (
           <div
             class:list={[
-              "group relative bg-glass-gradient backdrop-blur-lg border border-white/20 p-8 rounded-2xl shadow-glass flex flex-col justify-between transition-all duration-300 animate-fadeInUp hover:scale-105 hover:shadow-glow",
+              "plan-card group relative bg-gray-800/50 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-lg flex flex-col justify-between",
               { "is-popular": isProfessional }
             ]}
-            style={{ animationDelay: `${i * 0.15}s` }}
+            data-aos="fade-up"
+            data-aos-delay={i * 100}
           >
-            <!-- Ribbons -->
-            <span class="absolute -top-3 right-4 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md animate-fadeInUp">
+            <span class="absolute -top-3 right-4 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
               50% OFF
             </span>
             {isProfessional && (
-              <span class="absolute -top-3 left-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md animate-fadeInUp">
+              <span class="absolute -top-3 left-4 bg-gradient-to-r from-green-500 to-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
                 Best Value
               </span>
             )}
 
-            <!-- Plan Name -->
-            <h3 class="text-2xl font-semibold mb-4 text-white group-hover:text-primary-400 transition-colors">
+            <h3 class="text-2xl font-semibold mb-2 text-white group-hover:text-green-400 transition-colors">
               {plan.name}
             </h3>
 
-            <!-- Price -->
             {plan.originalPrice ? (
-              <div class="my-6">
+              <div class="my-4">
                 <p class="text-lg text-gray-500 line-through">{plan.originalPrice}</p>
-                <p class="text-4xl font-bold text-primary-400">{plan.price}</p>
+                <p class="text-4xl font-bold text-green-400">{plan.price}</p>
               </div>
             ) : (
-              <p class="text-3xl font-bold text-primary-400 my-6">{plan.price}</p>
+              <p class="text-2xl font-bold text-green-400 my-4">{plan.price}</p>
             )}
 
-            <!-- Features -->
             <ul class="text-gray-300 space-y-3 mb-6 text-left">
               {plan.features.map(feature => (
                 <li class="flex items-start">
-                  <Check class="w-5 h-5 text-primary-400 mr-3 flex-shrink-0" />
+                  <Fragment set:html={CheckIcon} />
                   <span>{feature}</span>
                 </li>
               ))}
             </ul>
 
-            <!-- Note -->
             <p class="text-sm italic text-gray-500 mb-6">{plan.note}</p>
 
-            <!-- CTA -->
             <a 
               href="#contact"
-              class="inline-block mt-auto px-6 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold shadow-md hover:shadow-lg hover:shadow-primary-500/30 hover:scale-105 transition"
+              class="inline-block mt-auto px-6 py-3 rounded-xl bg-gradient-to-r from-green-500 to-green-600 text-black font-semibold shadow-md hover:shadow-lg hover:shadow-green-500/30 hover:scale-105 transition"
             >
               Get Started
             </a>
@@ -76,11 +77,20 @@ import { Check } from "lucide-react"; // if using Lucide for consistent icons
       })}
     </div>
   </div>
-</section>
 
-<style>
-  .is-popular {
-    border: 2px solid #34D399;
-    box-shadow: 0 0 25px rgba(52, 211, 153, 0.3);
-  }
-</style>
+  <style>
+    .plan-card {
+      transition: all 0.3s ease;
+    }
+    .plan-card:hover {
+      transform: scale(1.05);
+      border-color: rgba(52, 211, 153, 0.5);
+    }
+    .is-popular {
+      border: 2px solid #34D399;
+      box-shadow: 0 0 25px rgba(52, 211, 153, 0.3);
+    }
+  </style>
+
+  <script type="module" src="../scripts/aos.js"></script>
+</section>
