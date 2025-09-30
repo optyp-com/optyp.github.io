@@ -51,6 +51,9 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     <!-- Global CSS -->
     <link rel="stylesheet" href="/styles/global.css" />
 
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="node_modules/aos/dist/aos.css" />
+
     <!-- Structured Data (SEO JSON-LD) -->
     <script type="application/ld+json">
       {
@@ -73,45 +76,6 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
               "telephone": "+91-9848934274",
               "contactType": "customer service"
             }
-          },
-          {
-            "@type": "Product",
-            "name": "Essentials Plan",
-            "description": "ATS Resume, LinkedIn & Naukri optimization to kickstart your career.",
-            "brand": { "@type": "Organization", "name": "OPTYP" },
-            "offers": {
-              "@type": "Offer",
-              "price": "499",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://optyp.github.io/#plans"
-            }
-          },
-          {
-            "@type": "Product",
-            "name": "Professional Plan",
-            "description": "Complete career profile optimization with advanced resume + LinkedIn.",
-            "brand": { "@type": "Organization", "name": "OPTYP" },
-            "offers": {
-              "@type": "Offer",
-              "price": "749",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://optyp.github.io/#plans"
-            }
-          },
-          {
-            "@type": "Product",
-            "name": "Elite Plan",
-            "description": "Premium optimization + portfolio website for standout professionals.",
-            "brand": { "@type": "Organization", "name": "OPTYP" },
-            "offers": {
-              "@type": "Offer",
-              "price": "999",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://optyp.github.io/#plans"
-            }
           }
         ]
       }
@@ -132,48 +96,16 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     <Footer />
     <FloatingContactIcon />
 
-    <!-- Global Animation Styles -->
-    <style>
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .animate-fadeInUp {
-        animation: fadeInUp 0.8s ease-out both;
-      }
-    </style>
-
-    <!-- Scroll Reveal Script -->
-    <script is:inline>
-      const revealEls = document.querySelectorAll(".animate-fadeInUp");
-      const revealObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-      revealEls.forEach((el) => revealObserver.observe(el));
+    <!-- AOS Script -->
+    <script src="node_modules/aos/dist/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        AOS.init({
+          duration: 1000,  // smooth animation speed
+          once: true,      // animate only once
+          offset: 80,      // earlier trigger
+        });
+      });
     </script>
-
-    <style>
-      .animate-fadeInUp {
-        opacity: 0;
-      }
-      .animate-fadeInUp.visible {
-        opacity: 1;
-        animation: fadeInUp 0.8s ease-out both;
-      }
-    </style>
   </body>
 </html>
