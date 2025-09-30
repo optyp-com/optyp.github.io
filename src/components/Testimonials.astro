@@ -3,99 +3,96 @@ const { testimonials } = Astro.props;
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/element/bundle';
+import { Quote } from "lucide-react";
 ---
 
-<section id="testimonials" class="relative py-24 bg-gradient-to-b from-white to-primary-50 dark:from-dark-900 dark:to-dark-800">
-  <div class="container mx-auto max-w-6xl px-6 text-center">
-    
+<section id="testimonials" class="relative py-24 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200">
+  <div class="container mx-auto max-w-7xl px-6 text-center relative">
     <!-- Section Heading -->
-    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-      Hear From Our Clients Worldwide
+    <h2 class="text-4xl sm:text-5xl font-extrabold mb-6 text-gray-900 tracking-wide-heading animate-fadeInUp">
+      Hear From Our Clients
     </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto mb-10 rounded-full"></div>
-
-    <!-- Intro -->
-    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12">
-      We’ve optimized <span class="font-semibold text-primary-600 dark:text-primary-400">500+ professional profiles</span> across multiple countries — empowering careers globally while ensuring privacy and trust.
+    <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto mb-12 rounded-full"></div>
+    <p class="text-gray-700 text-lg mb-14 max-w-3xl mx-auto animate-fadeInUp">
+      We’ve optimized <span class="font-semibold text-primary-600">500+ profiles</span> across multiple countries.  
+      Our mission: <strong>Confidential, effective, global impact.</strong>
     </p>
 
     <!-- Swiper Carousel -->
     <swiper-container
-      class="pb-16"
+      class="pb-12"
       space-between="30"
       slides-per-view="1"
-      autoplay-delay="5000"
+      autoplay-delay="4500"
       autoplay-disable-on-interaction="false"
       pagination="true"
       navigation="true"
       loop="true"
       breakpoints='{"768":{"slidesPerView":2},"1024":{"slidesPerView":3}}'
     >
-      {testimonials.map(({ name, profession, location, quote, image, rating }) => (
+      {testimonials.map(({ quote, profession, location }) => (
         <swiper-slide>
-          <blockquote class="bg-white/40 dark:bg-dark-800/50 backdrop-blur-md border border-white/20 p-8 rounded-2xl shadow-soft hover:shadow-glass transition">
-            
-            <!-- Profile Info -->
-            <div class="flex flex-col items-center mb-6">
-              {image && (
-                <img src={image} alt={name} class="w-16 h-16 rounded-full shadow-md mb-3" loading="lazy" />
-              )}
-              <h3 class="font-semibold text-gray-900 dark:text-white">{name}</h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400">{profession}, {location}</p>
+          <blockquote
+            class="relative bg-glass-gradient backdrop-blur-lg border border-white/30 p-8 rounded-2xl shadow-glass hover:shadow-glow transition duration-500 text-left h-full flex flex-col justify-between animate-fadeInUp"
+          >
+            <!-- Quote Icon -->
+            <div class="mb-6 flex items-center justify-center w-14 h-14 rounded-full bg-primary-600 text-white shadow-lg">
+              <Quote class="w-7 h-7" />
             </div>
 
             <!-- Quote -->
-            <p class="text-gray-700 dark:text-gray-300 italic mb-6 leading-relaxed">“{quote}”</p>
+            <p class="text-gray-800 italic mb-6 text-lg leading-relaxed">
+              “{quote}”
+            </p>
 
-            <!-- Rating -->
-            {rating && (
-              <div class="flex justify-center">
-                {[...Array(rating)].map((_, i) => (
-                  <span key={i} class="text-yellow-400 text-lg">★</span>
-                ))}
-                {[...Array(5 - rating)].map((_, i) => (
-                  <span key={i} class="text-gray-300 dark:text-gray-600 text-lg">★</span>
-                ))}
-              </div>
-            )}
+            <!-- Footer -->
+            <footer class="text-sm font-bold text-primary-600 uppercase tracking-wide">
+              {profession}, {location}
+            </footer>
           </blockquote>
         </swiper-slide>
       ))}
     </swiper-container>
 
-    <!-- Navigation -->
+    <!-- Navigation Arrows -->
     <div class="swiper-button-prev hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 z-10"></div>
     <div class="swiper-button-next hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 z-10"></div>
   </div>
 </section>
 
+<!-- Scripts -->
+<script>
+  import 'swiper/element/bundle';
+</script>
+
 <style>
-  /* Pagination Dots */
+  /* Pagination dots */
   .swiper-pagination-bullet {
-    background: #22c55e;
+    background: #3CB592;
     opacity: 0.4;
     transition: all 0.3s;
   }
   .swiper-pagination-bullet-active {
-    background: #16a34a;
+    background: #2F9E7F;
     opacity: 1;
     transform: scale(1.2);
   }
 
-  /* Navigation Arrows */
+  /* Navigation arrows */
   .swiper-button-next,
   .swiper-button-prev {
-    color: #16a34a;
+    color: #3CB592;
     background: transparent;
+    border-radius: 0;
     width: auto;
     height: auto;
+    box-shadow: none;
     transition: transform 0.3s, color 0.3s;
   }
   .swiper-button-next:hover,
   .swiper-button-prev:hover {
-    color: #15803d;
-    transform: scale(1.2);
+    color: #2F9E7F;
+    transform: scale(1.25);
   }
   .swiper-button-next::after,
   .swiper-button-prev::after {
