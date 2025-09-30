@@ -1,0 +1,28 @@
+/* empty css                                 */
+import { c as createComponent, a as renderComponent, b as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_DgE27xMi.mjs';
+import 'kleur/colors';
+import 'html-escaper';
+import { $ as $$Layout } from '../chunks/Layout_KPzSvLmH.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Privacy = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Privacy Policy - OptyP", "description": "Comprehensive Privacy Policy for OptyP, covering data collection, usage, and protection." }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="container mx-auto px-4 py-12 max-w-4xl"> <!-- Header --> <div class="text-center mb-12"> <h1 class="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1> <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+At OptyP, your privacy is paramount. This Privacy Policy details how we collect, use, and protect your personal information.
+</p> <div class="mt-4 text-sm text-gray-500"> <p>Last updated: ${(/* @__PURE__ */ new Date()).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p> </div> </div> <!-- Content --> <article class="prose prose-lg max-w-none text-gray-700"> <section> <h2>Information We Collect</h2> <p>We collect the following personal and usage data to provide and improve our services:</p> <ul> <li><strong>Personal Identification:</strong> names, contact details including email and phone number.</li> <li><strong>Profile Data:</strong> resume content, LinkedIn and other profile details needed for optimization.</li> <li><strong>Usage Information:</strong> website interactions and analytics collected via cookies and similar technologies.</li> <li><strong>Communications:</strong> correspondence and feedback you provide through email, chat, or forms.</li> </ul> </section> <section> <h2>How We Use Your Information</h2> <p>Your data enables us to:</p> <ul> <li>Deliver and tailor resume and profile optimization services.</li> <li>Communicate project details and provide customer support.</li> <li>Process payments securely and issue invoices.</li> <li>Analyze service usage to enhance our offerings.</li> <li>Comply with legal requirements and prevent fraudulent activities.</li> </ul> <div class="bg-green-50 border border-green-200 rounded-lg p-4 mt-4 text-green-800 font-semibold">
+We do not sell or share your personal data with third parties for marketing without your explicit consent.
+</div> </section> <section> <h2>Data Security</h2> <p>We implement advanced safeguards including:</p> <ul> <li>SSL/TLS encryption for all data transmissions.</li> <li>Secure storage with controlled access.</li> <li>Routine audits and system updates.</li> <li>Access restricted to authorized personnel only.</li> </ul> </section> <section> <h2>Data Retention</h2> <p>We retain your information only as long as necessary to fulfill service obligations, maintain legal compliance, and resolve disputes.</p> </section> <section> <h2>Your Rights</h2> <p>You have rights regarding your personal information:</p> <ul> <li><strong>Access:</strong> Request copies of your data.</li> <li><strong>Correction:</strong> Require amendments to inaccurate information.</li> <li><strong>Deletion:</strong> Request removal of your personal data.</li> <li><strong>Portability:</strong> Obtain data for use with other services.</li> <li><strong>Consent Withdrawal:</strong> Revoke permission for personal data processing.</li> </ul> <p>To exercise these rights, contact us at <a href="mailto:info@optyp.com" class="text-blue-600 hover:underline">info@optyp.com</a>.</p> </section> <section> <h2>Cookies and Tracking</h2> <p>Our website uses cookies and similar technologies to improve your experience. You can manage cookie preferences via your browser settings.</p> </section> <section> <h2>Changes to This Policy</h2> <p>We may update this Privacy Policy to reflect changes in laws or our operations. Significant updates will be posted on our website.</p> </section> <section class="bg-teal-600 text-white p-8 rounded-lg text-center"> <h2 class="text-2xl font-bold mb-4">Questions About Our Privacy Policy?</h2> <p class="mb-6">Reach out anytime with your concerns or inquiries regarding our data practices.</p> <p><strong>Email:</strong> <a href="mailto:info@optyp.com" class="text-blue-200 hover:text-white underline">info@optyp.com</a></p> <p><strong>Contact Page:</strong> <a href="/contact/" class="text-blue-200 hover:text-white underline">Visit our Contact Page</a></p> </section> </article> </div> ` })}`;
+}, "D:/daws/repos/optyp.github.io/src/pages/privacy.astro", void 0);
+
+const $$file = "D:/daws/repos/optyp.github.io/src/pages/privacy.astro";
+const $$url = "/privacy";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Privacy,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
