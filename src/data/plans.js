@@ -9,7 +9,6 @@ export const plans = [
       "Naukri Optimization",
       "LinkedIn Optimization",
     ],
-    note: "🎉 Year-End Sale – Flat 50% OFF!",
   },
   {
     name: "Professional",
@@ -20,7 +19,6 @@ export const plans = [
       "Indeed Optimization",
       "GitHub Optimization",
     ],
-    note: "🎉 Best Value – Limited Time 50% OFF!",
   },
   {
     name: "Elite",
@@ -31,7 +29,6 @@ export const plans = [
       "Additional ATS Resume",
       "Portfolio Creation",
     ],
-    note: "🎉 Go Advanced – Save 50% Today!",
   },
   {
     name: "Freelance Career",
@@ -43,7 +40,6 @@ export const plans = [
       "Toptal Optimization",
       "Optimized Gigs, Templates",
     ],
-    note: "🎉 Year-End Mega Offer – 50% OFF Freelance Pack!",
   },
   {
     name: "Personal Branding",
@@ -55,7 +51,6 @@ export const plans = [
       "Personal Branding Strategy",
       "Content Calendar (30 Days)",
     ],
-    note: "🎉 Complete Growth – Save 50% Instantly!",
   },
   {
     name: "Individual Services",
@@ -72,6 +67,5 @@ export const plans = [
       "Toptal Optimization → ~₹4,999 ($59.99)~ ₹2,499 ($29.99)",
       "Personal Branding → ~₹19,998 ($229.99)~ ₹9,999 ($114.99)",
     ],
-    note: "🎉 Pick & Pay – Flat 50% OFF on All Services!",
   },
 ];
