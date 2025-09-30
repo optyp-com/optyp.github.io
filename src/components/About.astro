@@ -4,8 +4,8 @@
   id="about" 
   class="relative py-20 lg:py-28 overflow-hidden"
 >
-  <!-- Decorative Gradient Background -->
-  <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-primary-100/40 via-white to-gray-100"></div>
+  <!-- Futuristic Gradient Background -->
+  <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-black via-gray-900 to-black"></div>
 
   <div class="container-custom text-center md:text-left relative z-10">
     <div class="flex flex-col md:grid md:grid-cols-2 md:gap-16 items-center">
@@ -14,19 +14,20 @@
       <div class="flex justify-center mb-10 md:mb-0 animate-fadeInUp floating">
         <img
           src="/images/about-resume.svg"
-          alt="Career Growth Success Illustration"
-          class="w-56 sm:w-72 md:w-full max-w-md drop-shadow-2xl"
+          alt="Career optimization and growth illustration"
+          class="w-56 sm:w-72 md:w-full max-w-md drop-shadow-[0_0_25px_rgba(0,255,204,0.5)]"
+          loading="lazy"
         />
       </div>
 
       <!-- Content -->
       <div class="animate-fadeInUp" style="animation-delay:0.15s">
-        <div class="bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl shadow-xl p-6 sm:p-10 hover:shadow-2xl transition">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold mb-6 text-gray-900">
-            About <span class="text-primary-600">OPTYP</span>
+        <div class="glass-box p-6 sm:p-10">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold mb-6 text-white">
+            About <span class="text-cyan-400">OPTYP</span>
           </h2>
-          <p class="text-base sm:text-lg leading-relaxed text-gray-700 mb-4">
-            At <span class="font-semibold text-primary-600">OPTYP</span>, we specialize in optimizing your 
+          <p class="text-base sm:text-lg leading-relaxed text-gray-200 mb-4">
+            At <span class="font-semibold text-cyan-400">OPTYP</span>, we specialize in optimizing your 
             <strong class="highlight">ATS Resume</strong>, 
             <strong class="highlight">LinkedIn</strong>, 
             <strong class="highlight">Indeed</strong>, 
@@ -35,21 +36,20 @@
             <strong class="highlight">portfolio</strong> profiles 
             to help you get noticed and hired faster globally.
           </p>
-          <p class="text-base sm:text-lg leading-relaxed text-gray-700">
+          <p class="text-base sm:text-lg leading-relaxed text-gray-300">
             Our expert team ensures your professionalism is showcased to attract recruiters effectively.  
-            <span class="font-semibold text-primary-600">GET SET, GET HIRED!</span>
+            <span class="font-semibold text-cyan-400">GET SET, GET HIRED!</span>
           </p>
 
           <!-- Mini Stats Row -->
           <div class="mt-8 grid grid-cols-2 gap-6 sm:flex sm:gap-12 text-center md:text-left">
             <div>
-              <!-- Keep data-target numeric (no plus sign) -->
-              <p class="text-3xl font-bold text-primary-600 counter" data-target="500">0</p>
-              <p class="text-gray-700 text-sm">Profiles Optimized</p>
+              <p class="text-3xl font-bold text-cyan-400 counter drop-shadow-md" data-target="500">0</p>
+              <p class="text-gray-300 text-sm">Profiles Optimized</p>
             </div>
             <div>
-              <p class="text-3xl font-bold text-primary-600 counter" data-target="30">0</p>
-              <p class="text-gray-700 text-sm">Countries Served</p>
+              <p class="text-3xl font-bold text-cyan-400 counter drop-shadow-md" data-target="30">0</p>
+              <p class="text-gray-300 text-sm">Countries Served</p>
             </div>
           </div>
         </div>
@@ -60,85 +60,79 @@
 
   <!-- Extra Styles -->
   <style>
-    /* Floating animation for illustration */
+    /* Glass box style */
+    .glass-box {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 1.2rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+      transition: all 0.3s ease;
+    }
+    .glass-box:hover {
+      border-color: rgba(0, 255, 204, 0.6);
+      box-shadow: 0 0 25px rgba(0, 255, 204, 0.4);
+    }
+
+    /* Floating animation */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
     }
-    .floating {
-      animation: float 6s ease-in-out infinite;
-    }
+    .floating { animation: float 6s ease-in-out infinite; }
 
     /* Fade-in-up animation */
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(30px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-    .animate-fadeInUp {
-      animation: fadeInUp 1s ease forwards;
-    }
+    .animate-fadeInUp { animation: fadeInUp 1s ease forwards; }
 
-    /* Keyword highlight hover */
+    /* Keyword highlight neon hover */
     .highlight {
       position: relative;
       transition: color 0.3s ease, text-shadow 0.3s ease;
     }
     .highlight:hover {
-      color: #16a34a; /* green-600 */
-      text-shadow: 0 0 8px rgba(22, 163, 74, 0.4);
+      color: #00ffcc;
+      text-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
     }
   </style>
 
-  <!-- COUNTER SCRIPT: smooth, uses IntersectionObserver and requestAnimationFrame -->
+  <!-- COUNTER SCRIPT -->
   <script type="module">
-    // Run when the module loads on the client
     const counters = Array.from(document.querySelectorAll('.counter'));
-
-    // If no counters, nothing to do
-    if (counters.length === 0) {
-      // no-op
-    } else {
-      // Smooth counting using requestAnimationFrame
+    if (counters.length > 0) {
       function animateCount(el, end, duration = 1500) {
         let startTime = null;
         function step(now) {
           if (!startTime) startTime = now;
           const progress = Math.min((now - startTime) / duration, 1);
           const current = Math.floor(progress * end);
-          // format with locale separators for readability
           el.textContent = current.toLocaleString();
-          if (progress < 1) {
-            requestAnimationFrame(step);
-          } else {
-            el.textContent = end.toLocaleString() + '+';
-          }
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = end.toLocaleString() + '+';
         }
         requestAnimationFrame(step);
       }
-
       function runCounters() {
         counters.forEach(el => {
-          // parseInt will ignore non-numeric trailing characters; ensure numeric target
           const target = parseInt(el.getAttribute('data-target'), 10) || 0;
-          animateCount(el, target, 1400 + Math.min(target, 1000)); // slightly scale duration with size
+          animateCount(el, target, 1400 + Math.min(target, 1000));
         });
       }
-
-      // Observe the about section (or fallback to first counter if not present)
-      const section = document.getElementById('about') || counters[0].closest('section') || document.body;
-
+      const section = document.getElementById('about');
       if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver((entries, observer) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               runCounters();
-              observer.disconnect(); // run once
+              observer.disconnect();
             }
           });
         }, { threshold: 0.35 });
         io.observe(section);
       } else {
-        // Fallback: just run
         runCounters();
       }
     }
