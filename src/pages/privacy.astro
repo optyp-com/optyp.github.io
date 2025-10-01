@@ -1,14 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Privacy Policy - OptyP" description="Comprehensive Privacy Policy for OptyP, covering data collection, usage, and protection.">
+
+<Layout 
+  title="Privacy Policy - OPTYP" 
+  description="Comprehensive Privacy Policy for OPTYP, covering data collection, usage, and protection.">
+  
   <div class="container mx-auto px-4 py-12 max-w-4xl">
 
     <!-- Header -->
     <div class="text-center mb-12">
       <h1 class="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        At OptyP, your privacy is paramount. This Privacy Policy details how we collect, use, and protect your personal information.
+        At OPTYP, your privacy is paramount. This Privacy Policy details how we collect, use, and protect your personal information.
       </p>
       <div class="mt-4 text-sm text-gray-500">
         <p>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
@@ -70,7 +74,12 @@ import Layout from '../layouts/Layout.astro';
           <li><strong>Portability:</strong> Obtain data for use with other services.</li>
           <li><strong>Consent Withdrawal:</strong> Revoke permission for personal data processing.</li>
         </ul>
-        <p>To exercise these rights, contact us at <a href="mailto:info@optyp.com" class="text-blue-600 hover:underline">info@optyp.com</a>.</p>
+        <p>
+          To exercise these rights, contact us at 
+          <a href="mailto:info@optyp.com" class="text-[#47C6A2] font-semibold hover:underline">
+            info@optyp.com
+          </a>.
+        </p>
       </section>
 
       <section>
@@ -83,13 +92,52 @@ import Layout from '../layouts/Layout.astro';
         <p>We may update this Privacy Policy to reflect changes in laws or our operations. Significant updates will be posted on our website.</p>
       </section>
 
-      <section class="bg-teal-600 text-white p-8 rounded-lg text-center">
+      <!-- CTA -->
+      <section class="bg-[#47C6A2] text-white p-8 rounded-lg text-center">
         <h2 class="text-2xl font-bold mb-4">Questions About Our Privacy Policy?</h2>
         <p class="mb-6">Reach out anytime with your concerns or inquiries regarding our data practices.</p>
-        <p><strong>Email:</strong> <a href="mailto:info@optyp.com" class="text-blue-200 hover:text-white underline">info@optyp.com</a></p>
-        <p><strong>Contact Page:</strong> <a href="/contact/" class="text-blue-200 hover:text-white underline">Visit our Contact Page</a></p>
+        <p>
+          <strong>Email:</strong> 
+          <a href="mailto:info@optyp.com" class="text-white underline hover:text-gray-200">info@optyp.com</a>
+        </p>
+        <p>
+          <strong>Contact Page:</strong> 
+          <a href="/contact/" class="text-white underline hover:text-gray-200">Visit our Contact Page</a>
+        </p>
       </section>
 
     </article>
   </div>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy",
+    "url": "https://optyp.github.io/privacy/",
+    "about": "Privacy Policy of OPTYP",
+    "publisher": {
+      "@type": "Organization",
+      "name": "OPTYP",
+      "url": "https://optyp.github.io",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://optyp.github.io/images/logo.svg"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@optyp.com",
+        "contactType": "customer support",
+        "availableLanguage": ["English"]
+      },
+      "sameAs": [
+        "https://linkedin.com/company/optyp",
+        "https://instagram.com/optyp",
+        "https://facebook.com/optyp",
+        "https://twitter.com/optyp"
+      ]
+    }
+  }
+  </script>
 </Layout>
