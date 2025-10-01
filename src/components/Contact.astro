@@ -8,13 +8,13 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     <h2 class="text-4xl font-extrabold mb-4 text-white tracking-wide-heading">
       Contact Us
     </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-10 rounded-full shadow-sm"></div>
+    <div class="w-20 h-1 bg-gradient-to-r from-[#47C6A2] to-green-400 mx-auto mb-10 rounded-full shadow-sm"></div>
     <p class="text-gray-300 mb-12 max-w-xl mx-auto">
       Have questions or want to get started? Click below to open the form.
     </p>
     <div class="flex flex-col items-center space-y-2">
       <button
-        class="inline-block glass-btn px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        class="inline-block glass-btn px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition duration-300 focus:outline-none focus:ring-2 focus:ring-[#47C6A2]"
         onclick="openContactForm()"
         aria-haspopup="dialog"
         aria-controls="contact-modal"
@@ -43,7 +43,7 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     <div class="sticky top-0 z-10 flex justify-end p-3 glass-header border-b border-white/10">
       <button id="close-contact-btn"
         onclick="closeContactForm()"
-        class="w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center bg-black/60 hover:bg-black/70 text-white rounded-full shadow-md transition duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        class="w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center bg-black/60 hover:bg-black/70 text-white rounded-full shadow-md transition duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#47C6A2]"
         aria-label="Close contact form">✕</button>
     </div>
 
@@ -62,12 +62,12 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label class="block text-sm font-semibold mb-1 text-gray-200">Full Name *</label>
-              <input type="text" name="name" required aria-required="true" class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+              <input type="text" name="name" required aria-required="true" class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#47C6A2]">
               <div class="field-error text-pink-400 text-sm mt-1 hidden" aria-live="polite"></div>
             </div>
             <div>
               <label class="block text-sm font-semibold mb-1 text-gray-200">Email *</label>
-              <input type="email" name="email" required aria-required="true" class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+              <input type="email" name="email" required aria-required="true" class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#47C6A2]">
               <div class="field-error text-pink-400 text-sm mt-1 hidden" aria-live="polite"></div>
             </div>
           </div>
@@ -76,7 +76,7 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
           <div>
             <label class="block text-sm font-semibold mb-1 text-gray-200">Contact Number *</label>
             <input type="tel" name="phone" required placeholder="+91 9876543210" aria-required="true"
-              class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+              class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#47C6A2]">
             <div class="field-error text-pink-400 text-sm mt-1 hidden" aria-live="polite"></div>
           </div>
 
@@ -84,7 +84,7 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
           <div>
             <label class="block text-sm font-semibold mb-1 text-gray-200">What do you currently do? *</label>
             <select name="profession" id="profession" required aria-required="true"
-              class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+              class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white focus:outline-none focus:ring-2 focus:ring-[#47C6A2]">
               <option value="">Select an option</option>
               <option value="salaried">Salaried Professional</option>
               <option value="self-employed">Self-Employed</option>
@@ -97,7 +97,7 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
           <div id="experience-wrapper" class="hidden">
             <label class="block text-sm font-semibold mb-1 text-gray-200">Years of Experience *</label>
             <select name="experience" id="experience"
-              class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+              class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white focus:outline-none focus:ring-2 focus:ring-[#47C6A2]">
               <option value="">Select experience</option>
               <option value="0">0 years (Fresher)</option>
               <option value="1-2">1–2 years</option>
@@ -113,7 +113,7 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
           <div>
             <label class="block text-sm font-semibold mb-1 text-gray-200">Select Services *</label>
             <select name="services" id="services" multiple required aria-required="true"
-              class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+              class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white focus:outline-none focus:ring-2 focus:ring-[#47C6A2]">
               <option value="ATS Resume">ATS Resume</option>
               <option value="LinkedIn Optimization">LinkedIn Optimization</option>
               <option value="Naukri">Naukri</option>
@@ -133,14 +133,14 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
           <div>
             <label class="block text-sm font-semibold mb-1 text-gray-200">Message *</label>
             <textarea name="message" rows="5" required aria-required="true"
-              class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"></textarea>
+              class="w-full rounded-xl border border-white/10 p-3 bg-black/60 text-white focus:outline-none focus:ring-2 focus:ring-[#47C6A2]"></textarea>
             <div class="field-error text-pink-400 text-sm mt-1 hidden" aria-live="polite"></div>
           </div>
 
           <!-- Submit -->
           <div class="text-center">
             <button id="submit-btn" type="submit"
-              class="inline-flex items-center justify-center gap-2 glass-btn px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-cyan-400">
+              class="inline-flex items-center justify-center gap-2 glass-btn px-8 py-3 rounded-xl font-semibold shadow-md hover:shadow-lg hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-[#47C6A2]">
               <span id="btn-text">Send Message</span>
               <svg id="btn-spinner" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -163,6 +163,7 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
   </div>
 </div>
 
+<!-- ✅ Keep full JS logic as in your original file -->
 <script is:inline>
   /* ====== Elements & state ====== */
   let lastFocusedElement = null;
@@ -185,7 +186,6 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     modal.classList.remove('hidden');
     modal.setAttribute('aria-hidden', 'false');
 
-    // animate in next frame
     requestAnimationFrame(() => {
       modal.classList.add('opacity-100');
       modal.classList.remove('opacity-0');
@@ -193,7 +193,6 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
       content.classList.add('translate-y-0','opacity-100','scale-100');
     });
 
-    // focus the close button for keyboard users
     const closeBtn = document.getElementById('close-contact-btn');
     if (closeBtn) closeBtn.focus();
   }
@@ -212,25 +211,19 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     }, 500);
   }
 
-  // Close on Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
       closeContactForm();
     }
   });
 
-  /* ====== Make any link or button that targets #contact open the modal instead of scrolling ======
-     This ensures header nav "Contact" and any CTA with href="#contact" open the contact modal directly.
-  */
   document.querySelectorAll('a[href*="#contact"], a[href$="/#contact"], a[href$="#contact"]').forEach(el => {
     el.addEventListener('click', (ev) => {
-      // If it's an anchor inside this page, open modal; preserve normal behavior for external links by checking hostname
       ev.preventDefault();
       openContactForm();
     });
   });
 
-  // Also intercept any future clicks delegated (in case nav is rendered after)
   document.addEventListener('click', (ev) => {
     const a = ev.target.closest && ev.target.closest('a[href*="#contact"]');
     if (a) {
@@ -239,7 +232,6 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     }
   });
 
-  /* ====== Profession toggle (keeps existing behavior) ====== */
   document.getElementById("profession").addEventListener("change", function() {
     const expWrapper = document.getElementById("experience-wrapper");
     const expField = document.getElementById("experience");
@@ -253,7 +245,6 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     }
   });
 
-  /* ====== Toast helper (updated colors/classes for dark theme) ====== */
   function showToast(msg, type="info") {
     toastMessage.textContent = msg;
     toastContent.className =
@@ -266,15 +257,13 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
       toastContent.classList.add("border-pink-400","text-pink-200");
     } else {
       toastIcon.textContent="ℹ️";
-      toastContent.classList.add("border-cyan-400","text-cyan-200");
+      toastContent.classList.add("border-[#47C6A2]","text-[#47C6A2]");
     }
     toast.classList.remove("hidden");
-    // animate in
     requestAnimationFrame(()=>{
       toastContent.classList.remove("opacity-0","translate-y-5");
       toastContent.classList.add("opacity-100","translate-y-0");
     });
-    // hide after 3s
     setTimeout(()=>{
       toastContent.classList.remove("opacity-100","translate-y-0");
       toastContent.classList.add("opacity-0","translate-y-5");
@@ -282,7 +271,6 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     },3000);
   }
 
-  /* ====== Validation (keeps existing validation logic but adapts to new styling) ====== */
   function validateForm() {
     let valid=true;
     form.querySelectorAll(".field-error").forEach(e=>e.classList.add("hidden"));
@@ -290,7 +278,6 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     req.forEach(n=>{
       const f=form.querySelector(`[name="${n}"]`);
       if(!f) return;
-      // Handle select[multiple] (services)
       const value = f.multiple ? Array.from(f.selectedOptions).map(o=>o.value).join(', ').trim() : (f.value || '').trim();
       if(!value){
         f.classList.add("border-pink-400");
@@ -327,7 +314,6 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     return valid;
   }
 
-  /* ====== Submit handler (keeps original behavior, sends to web3forms) ====== */
   form.addEventListener("submit", async e => {
     e.preventDefault();
     if(!validateForm()){ showToast("Please fix errors","error"); return; }
@@ -337,16 +323,13 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
 
     try {
       const fd = new FormData(form);
-      // handle multiple selected services properly
       const services = fd.getAll("services");
       fd.delete("services");
       fd.append("services", services.join(", "));
 
-      // Convert FormData to plain object
       const payload = {};
       for (const [k, v] of fd.entries()) payload[k] = v;
 
-      // send using fetch to original endpoint
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
@@ -357,7 +340,6 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
       if (res.status === 200) {
         showToast("Message sent successfully!","success");
         form.reset();
-        // close modal & redirect to thank-you after small delay
         setTimeout(()=>{ closeContactForm(); window.location.href = `${siteUrl}/thank-you/`; }, 2000);
       } else {
         showToast(result.message || "Failed to send","error");
@@ -373,7 +355,6 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
 </script>
 
 <style>
-  /* Reusable glass styles */
   .glass-panel {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.06);
@@ -391,42 +372,27 @@ const siteUrl = "https://optyp-com.github.io/optyp.github.io"; // ⚠️ update 
     border-radius: 1rem;
     backdrop-filter: blur(10px);
   }
-
-  /* Glass button (neon) */
   .glass-btn {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.12);
-    color: #00ffd1;
+    color: #47C6A2;
     font-weight: 600;
     transition: all 0.25s ease;
     backdrop-filter: blur(8px);
   }
   .glass-btn:hover {
-    background: rgba(0,255,204,0.08);
-    box-shadow: 0 0 22px rgba(0,255,204,0.18);
+    background: rgba(71,198,162,0.1);
+    box-shadow: 0 0 22px rgba(71,198,162,0.25);
     color: #ffffff;
     transform: translateY(-2px) scale(1.02);
   }
-
-  /* Input focus and placeholder */
   input::placeholder, textarea::placeholder, select::placeholder { color: #9ca3af; }
-  input, textarea, select {
-    color: #fff;
-  }
-
-  /* Toast base */
-  #toast-content {
-    /* leave default as set in JS; add slight neon border on dark theme */
-    border-radius: 12px;
-  }
-
-  /* Small responsive tweaks */
+  input, textarea, select { color: #fff; }
+  #toast-content { border-radius: 12px; }
   @media (max-width: 640px) {
     .glass-panel { width: 95%; height: 92%; border-radius: 0.75rem; }
     .glass-box { padding: 1.25rem; }
   }
-
-  /* Smooth pulse animation (2 seconds) - kept from original */
   @keyframes pulse-smooth {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.08); }

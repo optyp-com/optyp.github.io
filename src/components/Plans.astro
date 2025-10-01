@@ -6,7 +6,7 @@ import { plans } from "../data/plans";
   <!-- Sale Ribbon -->
   <div id="sale-banner" class="absolute top-6 left-1/2 -translate-x-1/2 z-20 hidden">
     <div class="sale-ribbon text-white text-sm sm:text-base font-semibold px-6 py-2 rounded-full shadow-lg animate-pulse">
-      Year-End Offer: <span class="font-bold text-cyan-300">Flat 50% OFF</span> 
+      Year-End Offer: <span class="font-bold text-[#47C6A2]">Flat 50% OFF</span> 
       <span id="sale-countdown" class="ml-2">Sale Ends Soon ⏳</span>
     </div>
   </div>
@@ -15,12 +15,12 @@ import { plans } from "../data/plans";
     
     <!-- Section Heading -->
     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 mt-12 text-white">
-      Our <span class="text-cyan-400">Plans</span>
+      Our <span class="text-[#47C6A2]">Plans</span>
     </h2>
-    <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-10 rounded-full shadow-lg"></div>
+    <div class="w-24 h-1 bg-gradient-to-r from-[#47C6A2] to-[#2F9E7F] mx-auto mb-10 rounded-full shadow-lg"></div>
 
     <p class="text-gray-300 mb-12 max-w-3xl mx-auto">
-      Year-End Sale: Get <span class="font-semibold text-cyan-400">Flat 50% OFF</span> on all plans & services.
+      Year-End Sale: Get <span class="font-semibold text-[#47C6A2]">Flat 50% OFF</span> on all plans & services.
     </p>
 
     <!-- Plans Grid -->
@@ -32,9 +32,9 @@ import { plans } from "../data/plans";
           <div
             key={plan.name}
             class={`plan-card group relative p-8 rounded-2xl flex flex-col justify-between transition-all duration-300
-                    bg-white/5 backdrop-blur-lg border border-white/10 hover:border-cyan-400/60 
-                    hover:shadow-[0_0_25px_rgba(0,255,204,0.4)] hover:scale-105
-                    ${isPro ? "border-2 border-cyan-400 shadow-[0_0_30px_rgba(0,255,204,0.6)]" : ""}`}
+                    bg-white/5 backdrop-blur-lg border border-white/10 
+                    hover:border-[#47C6A2]/70 hover:shadow-[0_0_25px_rgba(71,198,162,0.5)] hover:scale-105
+                    ${isPro ? "border-2 border-[#47C6A2] shadow-[0_0_30px_rgba(71,198,162,0.6)]" : ""}`}
             data-aos="fade-up"
             data-aos-delay={i * 100}
           >
@@ -44,13 +44,13 @@ import { plans } from "../data/plans";
             </span>
 
             {isPro && (
-              <span class="absolute -top-3 left-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-black text-xs font-bold px-3 py-1 rounded-full shadow-md">
+              <span class="absolute -top-3 left-4 bg-gradient-to-r from-[#47C6A2] to-[#2F9E7F] text-black text-xs font-bold px-3 py-1 rounded-full shadow-md">
                 Best Value
               </span>
             )}
 
             <!-- Plan Title -->
-            <h3 class="text-2xl font-semibold mb-2 text-white group-hover:text-cyan-300 transition-colors">
+            <h3 class="text-2xl font-semibold mb-2 text-white group-hover:text-[#47C6A2] transition-colors">
               {plan.name}
             </h3>
 
@@ -58,17 +58,16 @@ import { plans } from "../data/plans";
             {plan.originalPrice ? (
               <div class="mb-4">
                 <p class="text-lg text-gray-400 line-through">{plan.originalPrice}</p>
-                <p class="text-2xl font-bold text-cyan-400">{plan.price}</p>
+                <p class="text-2xl font-bold text-[#47C6A2]">{plan.price}</p>
               </div>
             ) : (
-              <p class="text-xl font-bold text-cyan-400 mb-4">{plan.price}</p>
+              <p class="text-xl font-bold text-[#47C6A2] mb-4">{plan.price}</p>
             )}
 
             <!-- Features -->
             <ul class="text-gray-300 space-y-3 mb-6 text-left">
               {plan.features.map((feature) => {
                 if (isIndividual) {
-                  // Format discounted service string if present
                   const match = feature.match(/^(.*?)→\s*~?₹([\d,.]+)\s*\((\$[\d,.]+)\)~?\s*₹([\d,.]+)\s*\((\$[\d,.]+)\)/);
                   if (match) {
                     const [ , name, oldPriceINR, oldPriceUSD, newPriceINR, newPriceUSD ] = match;
@@ -79,7 +78,7 @@ import { plans } from "../data/plans";
                           <span class="text-sm text-gray-500 line-through">
                             ₹{oldPriceINR} ({oldPriceUSD})
                           </span>
-                          <span class="text-cyan-400 font-semibold">
+                          <span class="text-[#47C6A2] font-semibold">
                             ₹{newPriceINR} ({newPriceUSD})
                           </span>
                         </div>
@@ -89,7 +88,7 @@ import { plans } from "../data/plans";
                 }
                 return (
                   <li class="flex items-start">
-                    <svg class="w-5 h-5 text-cyan-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 text-[#47C6A2] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                     <span>{feature}</span>
@@ -120,13 +119,13 @@ import { plans } from "../data/plans";
     .glass-btn {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #00ffcc;
+      color: #47C6A2;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
     }
     .glass-btn:hover {
-      background: rgba(0, 255, 204, 0.15);
-      box-shadow: 0 0 20px #00ffcc;
+      background: rgba(71, 198, 162, 0.15);
+      box-shadow: 0 0 20px #47C6A2;
       color: #fff;
       transform: scale(1.05);
     }
