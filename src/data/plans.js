@@ -36,20 +36,22 @@ export const plans = [
       "Ongoing Reputation Monitoring",
     ],
   },
-  {
-    name: "Individual Services",
-    price: "Flexible",
-    features: [
-      "ATS Resume Crafting ~₹599 ($8)~ ₹299 ($4)",
-      "Naukri Optimization ~₹599 ($8)~ ₹299 ($4)",
-      "Indeed Optimization ~₹599 ($8)~ ₹299 ($4)",
-      "GitHub Optimization ~₹599 ($8)~ ₹299 ($4)",
-      "LinkedIn Optimization ~₹799 ($10)~ ₹399 ($5)",
-      "Portfolio Website ~₹1,999 ($25)~ ₹999 ($14)",
-      "Fiverr Optimization ~₹2,999 ($35)~ ₹1,499 ($17)",
-      "Upwork Optimization ~₹3,499 ($39)~ ₹1,899 ($19)",
-      "Toptal Optimization ~₹4,999 ($59)~ ₹2,499 ($29)",
-      "Personal Branding ~₹29,990 ($339)~ ₹14,999 ($169)",
-    ],
-  },
+  
+      {
+  name: "Individual Services",
+  price: "Flexible",
+  features: [
+    { name: "ATS Resume Crafting", oldPrice: "₹599 ($8)", newPrice: "₹299 ($4)" },
+    { name: "Naukri Optimization", oldPrice: "₹599 ($8)", newPrice: "₹299 ($4)" },
+    { name: "Indeed Optimization", oldPrice: "₹599 ($8)", newPrice: "₹299 ($4)" },
+    { name: "GitHub Optimization", oldPrice: "₹599 ($8)", newPrice: "₹299 ($4)" },
+    { name: "LinkedIn Optimization", oldPrice: "₹799 ($9)", newPrice: "₹399 ($5)" },
+    { name: "Portfolio Website", oldPrice: "₹1,999 ($25)", newPrice: "₹999 ($15)" },
+    { name: "Fiverr Optimization", oldPrice: "₹2,999 ($35)", newPrice: "₹1,499 ($17)" },
+    { name: "Upwork Optimization", oldPrice: "₹3,799 ($39)", newPrice: "₹1,899 ($19)" },
+    { name: "Toptal Optimization", oldPrice: "₹4,999 ($59)", newPrice: "₹2,499 ($29)" },
+    { name: "Personal Branding", oldPrice: "₹29,990 ($339)", newPrice: "₹14,999 ($169)" }
+  ],
+}
+  
 ];
