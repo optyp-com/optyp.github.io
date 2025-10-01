@@ -9,8 +9,8 @@
   /* Core */
   --bg-900: #050406;
   --bg-800: #0b0b0c;
-  --panel: rgba(255,255,255,0.03);
-  --panel-2: rgba(255,255,255,0.045);
+  /* --panel: rgba(255,255,255,0.03);
+  --panel-2: rgba(255,255,255,0.045); */
   --glass-border: rgba(255,255,255,0.06);
 
   /* Accents (unique identity) */
@@ -129,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Glass CTA (neon) */
-.glass-btn {
+/* .glass-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -142,7 +142,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   backdrop-filter: blur(6px);
   transition: all .22s ease;
-}
+} */
 .glass-btn:hover {
   background: rgba(0,255,204,0.06);
   box-shadow: 0 0 28px rgba(0,255,204,0.14);
@@ -172,13 +172,13 @@ h1, h2, h3, h4, h5, h6 {
 .hover-underline:hover::after { width: 100%; }
 
 /* Cards - dark default */
-.card {
+/* .card {
   background: rgba(255,255,255,0.02);
   padding: 1.25rem;
   border-radius: 1rem;
   box-shadow: 0 6px 24px rgba(0,0,0,0.6);
   transition: transform .2s ease, box-shadow .2s ease;
-}
+} */
 .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.7); }
 
 /* FAQ tweaks */
