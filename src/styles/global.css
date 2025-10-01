@@ -97,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 /* -----------------------
    Glass / Panel utilities
    ----------------------- */
-.glass {
+/* .glass {
   background: var(--panel);
   border: 1px solid var(--glass-border);
   border-radius: 1rem;
@@ -112,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(255,255,255,0.05);
   border-radius: 1rem;
   backdrop-filter: blur(8px);
-}
+} */
 
 /* A slightly stronger glass card variant */
 .glass-card {
