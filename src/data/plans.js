@@ -2,8 +2,8 @@
 export const plans = [
   {
     name: "Essentials",
-    originalPrice: "₹1,999 ($24.99)",
-    price: "₹999 ($12.99)",
+    originalPrice: "₹1,999 ($25)",
+    price: "₹999 ($12)",
     features: [
       "ATS Resume",
       "LinkedIn Optimization",
@@ -13,10 +13,10 @@ export const plans = [
   },
   {
     name: "Freelancer Pro",
-    originalPrice: "₹9,998 ($119.99)",
-    price: "₹4,999 ($56.99)",
+    originalPrice: "₹9,999 ($119)",
+    price: "₹4,999 ($59)",
     features: [
-      "Everything in the Job Seeker Essentials Plan",
+      "Essentials plan +",
       "GitHub Optimization",
       "Upwork Optimization",
       "Fiverr Optimization",
@@ -25,10 +25,10 @@ export const plans = [
   },
   {
     name: "Personal Branding",
-    originalPrice: "₹29,990 ($338.99)",
-    price: "₹14,999 ($169.99)",
+    originalPrice: "₹29,999 ($339)",
+    price: "₹14,999 ($169)",
     features: [
-      "Everything in the Freelancer Pro Plan",
+      "Freelancer Pro plan +",
       "Toptal Optimization",
       "Full Social Media Optimization",
       "30 Days Content Calendar",
@@ -40,16 +40,16 @@ export const plans = [
     name: "Individual Services",
     price: "Flexible",
     features: [
-      "ATS Resume Crafting → ~₹599 ($7.99)~ ₹299 ($3.99)",
-      "Naukri Optimization → ~₹599 ($7.99)~ ₹299 ($3.99)",
-      "Indeed Optimization → ~₹599 ($7.99)~ ₹299 ($3.99)",
-      "GitHub Optimization → ~₹599 ($7.99)~ ₹299 ($3.99)",
-      "LinkedIn Optimization → ~₹799 ($9.99)~ ₹399 ($4.99)",
-      "Portfolio Website → ~₹1,999 ($24.99)~ ₹999 ($12.99)",
-      "Fiverr Optimization → ~₹2,999 ($37.99)~ ₹1,499 ($18.99)",
-      "Upwork Optimization → ~₹3,799 ($46.99)~ ₹1,899 ($23.99)",
-      "Toptal Optimization → ~₹4,999 ($59.99)~ ₹2,499 ($29.99)",
-      "Personal Branding → ~₹29,990 ($338.99)~ ₹14,999 ($169.99)",
+      "ATS Resume Crafting ~₹599 ($8)~ ₹299 ($4)",
+      "Naukri Optimization ~₹599 ($8)~ ₹299 ($4)",
+      "Indeed Optimization ~₹599 ($8)~ ₹299 ($4)",
+      "GitHub Optimization ~₹599 ($8)~ ₹299 ($4)",
+      "LinkedIn Optimization ~₹799 ($10)~ ₹399 ($5)",
+      "Portfolio Website ~₹1,999 ($25)~ ₹999 ($14)",
+      "Fiverr Optimization ~₹2,999 ($35)~ ₹1,499 ($17)",
+      "Upwork Optimization ~₹3,499 ($39)~ ₹1,899 ($19)",
+      "Toptal Optimization ~₹4,999 ($59)~ ₹2,499 ($29)",
+      "Personal Branding ~₹29,990 ($339)~ ₹14,999 ($169)",
     ],
   },
 ];
