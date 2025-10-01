@@ -115,13 +115,13 @@ h1, h2, h3, h4, h5, h6 {
 } */
 
 /* A slightly stronger glass card variant */
-.glass-card {
+/* .glass-card {
   background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 1rem;
   padding: 1.25rem;
   transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
-}
+} */
 .glass-card:hover {
   border-color: rgba(0,255,204,0.12);
   transform: translateY(-6px);
