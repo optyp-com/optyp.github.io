@@ -50,7 +50,6 @@ export const plans = [
     { name: "Fiverr Optimization", oldPrice: "₹2,999 ($35)", newPrice: "₹1,499 ($17)" },
     { name: "Upwork Optimization", oldPrice: "₹3,799 ($39)", newPrice: "₹1,899 ($19)" },
     { name: "Toptal Optimization", oldPrice: "₹4,999 ($59)", newPrice: "₹2,499 ($29)" },
-    { name: "Personal Branding", oldPrice: "₹29,990 ($339)", newPrice: "₹14,999 ($169)" }
   ],
 }
   

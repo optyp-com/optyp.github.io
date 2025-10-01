@@ -4,18 +4,25 @@ import { plans } from "../data/plans";
 
 <section id="plans" class="py-20 bg-gradient-to-br from-black via-gray-900 to-black text-white">
   <div class="container mx-auto px-6">
+    
     <!-- Header -->
-    <div class="text-center mb-16">
-      <h2 class="text-4xl sm:text-5xl font-extrabold mb-4">Choose Your Plan</h2>
-      <p class="text-lg text-gray-400">Flexible options tailored to your career goals</p>
-      <div class="w-20 h-1 bg-gradient-to-r from-teal-400 to-green-500 mx-auto mt-6 rounded-full"></div>
+    <div class="text-center mb-12">
+      <h2 class="text-4xl sm:text-5xl font-extrabold mb-4">
+        Our <span class="text-teal-400">Plans</span>
+      </h2>
+      <p class="text-lg text-gray-300">Flexible options tailored to your career goals</p>
+      <div class="w-24 h-1 bg-gradient-to-r from-teal-400 to-green-500 mx-auto mt-6 rounded-full"></div>
+      <!-- Offer Banner -->
+      <div class="mt-6 inline-block bg-teal-500/10 border border-teal-400 text-teal-300 px-4 py-2 rounded-lg font-semibold text-sm animate-pulse">
+        🎉 Flat 50% OFF on all plans — Limited Time!
+      </div>
     </div>
 
     <!-- Top 3 Plans -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
       {plans.slice(0, 3).map((plan, idx) => (
-        <div class={`glass-box rounded-xl p-8 flex flex-col justify-between hover:scale-105 transition duration-300 shadow-lg relative ${idx === 2 ? "border border-teal-400" : ""}`}>
-          {idx === 2 && (
+        <div class={`glass-box rounded-xl p-8 flex flex-col justify-between hover:scale-105 transition duration-300 shadow-lg relative ${idx === 1 ? "border border-teal-400" : ""}`}>
+          {idx === 1 && (
             <span class="absolute top-4 right-4 bg-teal-500 text-black text-xs font-bold px-3 py-1 rounded-full shadow-md">
               Best Value
             </span>
@@ -33,10 +40,12 @@ import { plans } from "../data/plans";
               ))}
             </ul>
           </div>
-          <div class="mt-6">
+          <div class="mt-6 text-center">
             <p class="text-gray-400 text-sm line-through">{plan.originalPrice}</p>
             <p class="text-2xl font-extrabold text-white">{plan.price}</p>
-            <button class="mt-6 w-full bg-teal-500 hover:bg-teal-400 text-black font-semibold py-3 rounded-lg shadow-md transition duration-300">
+            <button 
+              onclick="openContactForm()" 
+              class="mt-6 w-full bg-teal-500 hover:bg-teal-400 text-black font-semibold py-3 rounded-lg shadow-md transition duration-300 hover:scale-105">
               Get Started
             </button>
           </div>
@@ -49,12 +58,19 @@ import { plans } from "../data/plans";
       <h3 class="text-2xl font-bold text-teal-300 mb-6 text-center">Individual Services</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {plans[3].features.map((service) => (
-          <div class="flex flex-col bg-black/30 p-4 rounded-lg border border-white/10 hover:border-teal-400 transition">
-            <span class="text-gray-200 font-medium">{service.name}</span>
-            <div class="mt-2 text-sm">
-              <span class="line-through text-gray-500">{service.oldPrice}</span>
-              <span class="ml-2 text-teal-400 font-semibold">{service.newPrice}</span>
+          <div class="flex flex-col justify-between bg-black/30 p-4 rounded-lg border border-white/10 hover:border-teal-400 transition hover:scale-105">
+            <div>
+              <span class="text-gray-200 font-medium">{service.name}</span>
+              <div class="mt-2 text-sm">
+                <span class="line-through text-gray-500">{service.oldPrice}</span>
+                <span class="ml-2 text-teal-400 font-semibold">{service.newPrice}</span>
+              </div>
             </div>
+            <button 
+              onclick="openContactForm()" 
+              class="mt-4 bg-teal-500 hover:bg-teal-400 text-black font-semibold py-2 rounded-md shadow-md transition duration-300 hover:scale-105">
+              Get Started
+            </button>
           </div>
         ))}
       </div>
