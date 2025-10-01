@@ -1,10 +1,88 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Leave Feedback – OptyP">
-  <main id="main-content" class="container mx-auto px-4 py-16">
-    <h1 class="text-3xl font-heading font-bold mb-6">We Value Your Feedback</h1>
-    <iframe src="https://forms.gle/iiotXL2Vzjuxf1tAA" width="100%" height="800" frameborder="0">Loading…</iframe>
-    <p class="mt-4">Or email us at <a href="mailto:info@optyp.com" class="text-primary-600">info@optyp.com</a>.</p>
-  </main>
+
+<Layout 
+  title="Leave Feedback – OPTYP" 
+  description="Share your experience with OPTYP. We value your feedback to improve our professional resume and profile optimization services."
+>
+  <section class="relative py-20 px-6 bg-gradient-to-br from-black via-gray-900 to-black text-white">
+    <div class="container mx-auto max-w-4xl font-body">
+
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 text-white">
+          We Value Your Feedback
+        </h1>
+        <div class="w-20 h-1 bg-gradient-to-r from-teal-400 to-green-500 mx-auto mb-8 rounded-full"></div>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+          Help us improve OPTYP by sharing your thoughts and experience. Your feedback makes our services better.
+        </p>
+      </div>
+
+      <!-- Feedback Form -->
+      <div class="glass-box p-6 rounded-xl shadow-xl">
+        <iframe 
+          src="https://forms.gle/iiotXL2Vzjuxf1tAA" 
+          width="100%" 
+          height="800" 
+          frameborder="0"
+          class="rounded-lg"
+          aria-label="Feedback Form"
+        >
+          Loading…
+        </iframe>
+      </div>
+
+      <!-- Contact Alternative -->
+      <p class="mt-6 text-center text-gray-300">
+        Prefer email? Reach us at 
+        <a href="mailto:info@optyp.com" class="text-teal-400 hover:underline font-semibold">
+          info@optyp.com
+        </a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Feedback",
+    "url": "https://optyp.github.io/feedback/",
+    "description": "Leave your feedback about OPTYP resume and profile optimization services.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "OPTYP",
+      "url": "https://optyp.github.io",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://optyp.github.io/images/logo.svg"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@optyp.com",
+        "contactType": "customer support",
+        "availableLanguage": ["English"]
+      }
+    }
+  }
+  </script>
+
+  <!-- Styles -->
+  <style>
+    .glass-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(20,184,166,0.3); /* teal accent */
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      transition: all 0.3s ease;
+    }
+    .glass-box:hover {
+      border-color: rgba(20,184,166,0.6);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.7);
+    }
+  </style>
 </Layout>
