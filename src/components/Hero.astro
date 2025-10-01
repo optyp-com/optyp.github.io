@@ -20,11 +20,14 @@
           <h1 
             id="hero-heading"
             role="heading" aria-level="1"
-            class="animate-fadeInUp [animation-delay:0.1s] text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold leading-tight text-white drop-shadow-lg"
+            class="animate-fadeInUp [animation-delay:0.1s] text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold leading-tight drop-shadow-lg"
           >
-            Optimize Your <span class="text-primary-100">Professionalism</span>
+            <span class="text-white">Optimize Your</span> 
+            <span class="bg-[#47C6A2] text-white px-3 py-1 rounded-lg shadow-md inline-block">
+              Professionalism
+            </span>
           </h1>
-          <p class="animate-fadeInUp [animation-delay:0.3s] mt-4 text-lg sm:text-xl text-white/90">
+          <p class="animate-fadeInUp [animation-delay:0.3s] mt-4 text-lg sm:text-xl text-white">
             Get resume, LinkedIn, Naukri, and portfolio optimization that makes you stand out worldwide.
           </p>
 
@@ -51,7 +54,7 @@
       </div>
 
       <!-- Right Side (Image or Illustration) -->
-      <div class="flex justify-center md:justify-end animate-fadeInUp [animation-delay:0.7s] floating">
+      <div class="flex justify-center md:justify-end animate-fadeInUp [animation-delay:0.7s] float-sway">
         <img
           src="/images/illu.svg"
           alt="Illustration of career growth and professional success"
@@ -80,12 +83,14 @@
     }
     .animate-gradient-x { background-size: 200% 200%; animation: gradient-x 10s ease infinite; }
 
-    /* Floating */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+    /* Floating + Sway animation for illustration */
+    @keyframes float-sway {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      25% { transform: translateY(-10px) translateX(6px); }
+      50% { transform: translateY(-15px) translateX(0); }
+      75% { transform: translateY(-10px) translateX(-6px); }
     }
-    .floating { animation: float 6s ease-in-out infinite; }
+    .float-sway { animation: float-sway 6s ease-in-out infinite; }
 
     /* Fade-in stagger */
     @keyframes fadeInUp {
