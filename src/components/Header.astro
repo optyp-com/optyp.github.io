@@ -33,40 +33,48 @@
       <a href="/#testimonials" class="nav-link" data-section="testimonials">Testimonials</a>
       <a href="/#contact" class="nav-link" data-section="contact">Contact</a>
 
-      <!-- 🔽 NEW Explore Dropdown -->
+      <!-- 🔽 Explore Dropdown (desktop) -->
       <div class="relative group">
-        <button class="nav-link flex items-center gap-1">
+        <button class="nav-link flex items-center gap-1" aria-haspopup="true" aria-expanded="false" aria-controls="explore-dropdown">
           Explore
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z" /></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7l5 5 5-5H5z" /></svg>
         </button>
-        <div class="absolute right-0 mt-2 hidden group-hover:block bg-black/90 text-white rounded-md shadow-lg w-56">
+
+        <div id="explore-dropdown" class="absolute right-0 mt-2 hidden group-hover:block bg-black/90 text-white rounded-md shadow-lg w-56 z-50" role="menu" aria-label="Explore menu">
           <ul class="py-2">
-            <li><a href="/explore/ats-resume" class="block px-4 py-2 hover:bg-white/10">ATS Resume</a></li>
-            <li><a href="/explore/linkedin" class="block px-4 py-2 hover:bg-white/10">LinkedIn Optimization</a></li>
-            <li class="relative group">
-              <button class="w-full text-left px-4 py-2 hover:bg-white/10 flex items-center justify-between">
+            <li role="none"><a role="menuitem" href="/explore/ats-resume" class="block px-4 py-2 hover:bg-white/10">ATS Resume</a></li>
+            <li role="none"><a role="menuitem" href="/explore/linkedin" class="block px-4 py-2 hover:bg-white/10">LinkedIn Optimization</a></li>
+
+            <!-- Job Portals (child menu) -->
+            <li class="relative group" role="none">
+              <button class="w-full text-left px-4 py-2 hover:bg-white/10 flex items-center justify-between" aria-haspopup="true" aria-expanded="false">
                 Job Portals
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7 5l5 5-5 5V5z"/></svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5l5 5-5 5V5z"/></svg>
               </button>
-              <ul class="absolute top-0 left-full mt-0 hidden group-hover:block bg-black/90 rounded-md shadow-lg w-48">
-                <li><a href="/explore/job-portals/naukri" class="block px-4 py-2 hover:bg-white/10">Naukri</a></li>
-                <li><a href="/explore/job-portals/indeed" class="block px-4 py-2 hover:bg-white/10">Indeed</a></li>
+
+              <ul class="absolute left-full top-0 mt-0 hidden group-hover:block bg-black/90 rounded-md shadow-lg w-48 z-50" role="menu" aria-label="Job portals">
+                <li role="none"><a role="menuitem" href="/explore/job-portals/naukri" class="block px-4 py-2 hover:bg-white/10">Naukri</a></li>
+                <li role="none"><a role="menuitem" href="/explore/job-portals/indeed" class="block px-4 py-2 hover:bg-white/10">Indeed</a></li>
               </ul>
             </li>
-            <li class="relative group">
-              <button class="w-full text-left px-4 py-2 hover:bg-white/10 flex items-center justify-between">
+
+            <!-- Freelancing (child menu) -->
+            <li class="relative group" role="none">
+              <button class="w-full text-left px-4 py-2 hover:bg-white/10 flex items-center justify-between" aria-haspopup="true" aria-expanded="false">
                 Freelancing
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7 5l5 5-5 5V5z"/></svg>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5l5 5-5 5V5z"/></svg>
               </button>
-              <ul class="absolute top-0 left-full mt-0 hidden group-hover:block bg-black/90 rounded-md shadow-lg w-48">
-                <li><a href="/explore/freelancing/fiverr" class="block px-4 py-2 hover:bg-white/10">Fiverr</a></li>
-                <li><a href="/explore/freelancing/upwork" class="block px-4 py-2 hover:bg-white/10">Upwork</a></li>
-                <li><a href="/explore/freelancing/toptal" class="block px-4 py-2 hover:bg-white/10">Toptal</a></li>
+
+              <ul class="absolute left-full top-0 mt-0 hidden group-hover:block bg-black/90 rounded-md shadow-lg w-48 z-50" role="menu" aria-label="Freelancing">
+                <li role="none"><a role="menuitem" href="/explore/freelancing/fiverr" class="block px-4 py-2 hover:bg-white/10">Fiverr</a></li>
+                <li role="none"><a role="menuitem" href="/explore/freelancing/upwork" class="block px-4 py-2 hover:bg-white/10">Upwork</a></li>
+                <li role="none"><a role="menuitem" href="/explore/freelancing/toptal" class="block px-4 py-2 hover:bg-white/10">Toptal</a></li>
               </ul>
             </li>
-            <li><a href="/explore/github" class="block px-4 py-2 hover:bg-white/10">GitHub Optimization</a></li>
-            <li><a href="/explore/portfolio-site" class="block px-4 py-2 hover:bg-white/10">Portfolio Website</a></li>
-            <li><a href="/explore/personal-branding" class="block px-4 py-2 hover:bg-white/10">Personal Branding</a></li>
+
+            <li role="none"><a role="menuitem" href="/explore/github" class="block px-4 py-2 hover:bg-white/10">GitHub Optimization</a></li>
+            <li role="none"><a role="menuitem" href="/explore/portfolio-site" class="block px-4 py-2 hover:bg-white/10">Portfolio Website</a></li>
+            <li role="none"><a role="menuitem" href="/explore/personal-branding" class="block px-4 py-2 hover:bg-white/10">Personal Branding</a></li>
           </ul>
         </div>
       </div>
@@ -96,7 +104,7 @@
     <a href="/#testimonials" class="nav-link block py-2 px-3 rounded-md">Testimonials</a>
     <a href="/#contact" class="nav-link block py-2 px-3 rounded-md">Contact</a>
 
-    <!-- 🔽 NEW Explore Mobile Collapsible -->
+    <!-- 🔽 Explore Mobile Collapsible -->
     <details class="px-3 py-2 rounded-md bg-white/5">
       <summary class="cursor-pointer">Explore</summary>
       <ul class="ml-4 mt-2 space-y-1">
@@ -132,7 +140,6 @@
     </button>
   </nav>
 
-  <!-- ✅ Your FULL existing script (unchanged) -->
   <script is:inline>
     // Elements
     const button = document.getElementById('mobile-menu-button');
@@ -288,7 +295,6 @@
     });
   </script>
 
-  <!-- ✅ Your FULL existing styles (unchanged) -->
   <style>
     /* Basic nav link styling + neon hover */
     .nav-link {
