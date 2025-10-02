@@ -39,16 +39,9 @@ import Layout from "../../layouts/Layout.astro";
       Transform your resume into an ATS-friendly, recruiter-ready document.
     </p>
 
-    <!-- Hero Actions -->
-    <div class="mt-6 flex items-center justify-center space-x-4">
-      <a href="/#contact" class="glass-btn px-6 py-3 rounded-lg font-semibold">🚀 Get Started</a>
-      <a href="#pricing" class="px-6 py-3 rounded-lg border border-white/10 text-sm hover:bg-white/5">See Pricing</a>
-      <a href="#faq" class="px-4 py-2 rounded-lg text-sm text-gray-300 hover:text-[#47C6A2]">View FAQ</a>
-    </div>
-
     <!-- Hero Image Placeholder -->
     <div class="mt-8">
-      <!-- Replace src with your 1200x630 OG banner or any ATS image -->
+      <!-- Replace src with your ATS Resume image -->
       <img src="/assets/ats-resume-preview.jpg" alt="ATS Resume Optimization Service" class="rounded-xl shadow-lg mx-auto max-w-2xl border border-white/10" />
     </div>
   </section>
@@ -90,72 +83,6 @@ import Layout from "../../layouts/Layout.astro";
     </ul>
   </section>
 
-  <!-- Results -->
-  <section class="bg-white/5 py-12 rounded-xl backdrop-blur-md max-w-5xl mx-auto px-6">
-    <h2 class="text-2xl font-bold text-[#47C6A2] mb-4">🎯 Measurable Results You Can Expect</h2>
-    <ul class="list-disc list-inside space-y-3">
-      <li><strong>Career Growth:</strong> 67% higher interview success rates</li>
-      <li><strong>Faster Hiring:</strong> 68% hired within 90 days of using our service</li>
-      <li><strong>Higher Earnings:</strong> 7% increase in starting salaries</li>
-      <li><strong>Peace of Mind:</strong> Resume guaranteed to pass ATS scans</li>
-    </ul>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="max-w-5xl mx-auto px-6 py-12 text-gray-300">
-    <h2 class="text-2xl font-bold text-[#47C6A2] mb-6">📢 Real Client Success Stories</h2>
-    <blockquote class="bg-white/5 p-4 rounded-lg mb-4">
-      💬 “Within a month of updating my resume, I landed multiple interviews and secured a managerial role at a top company.” – <strong>Mark T.</strong>
-    </blockquote>
-    <blockquote class="bg-white/5 p-4 rounded-lg mb-4">
-      💬 “After optimization, I started receiving tech interviews and got hired as a project manager at a startup.” – <strong>Sarah K.</strong>
-    </blockquote>
-    <ul class="list-disc list-inside space-y-2">
-      <li><strong>98.4%</strong> interview rate with optimized resumes</li>
-      <li><strong>86.1%</strong> recruiters confirm faster hiring</li>
-      <li><strong>79%</strong> recruiters say professional resumes improve quality</li>
-    </ul>
-  </section>
-
-  <!-- Features -->
-  <section class="bg-white/5 py-12 rounded-xl backdrop-blur-md max-w-5xl mx-auto px-6">
-    <h2 class="text-2xl font-bold text-[#47C6A2] mb-6">⚡ Why Choose OPTYP’s ATS Resume Service?</h2>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div>
-        <h3 class="font-semibold text-white">Keyword Research</h3>
-        <ul class="list-disc list-inside">
-          <li>Analyze 50+ job postings</li>
-          <li>Primary + long-tail variations</li>
-          <li>Strategic keyword placement</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-semibold text-white">Resume Content</h3>
-        <ul class="list-disc list-inside">
-          <li>Quantified achievements</li>
-          <li>Industry-specific certifications</li>
-          <li>Powerful professional summary</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-semibold text-white">Technical Optimization</h3>
-        <ul class="list-disc list-inside">
-          <li>ATS-approved fonts & layouts</li>
-          <li>Clean, single-column design</li>
-          <li>Recognized section headers</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="font-semibold text-white">Our Guarantee</h3>
-        <ul class="list-disc list-inside">
-          <li>90+ ATS score or free revision</li>
-          <li>48–72 hour delivery (rush available)</li>
-          <li>Unlimited revisions for 30 days</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   <!-- Pricing Section -->
   <section id="pricing" class="bg-gradient-to-r from-[#47C6A2]/20 to-white/10 py-12 mt-10 rounded-xl max-w-5xl mx-auto px-6 text-center">
     <h2 class="text-3xl font-bold text-white mb-4">💰 Affordable ATS Resume Pricing</h2>
@@ -166,62 +93,15 @@ import Layout from "../../layouts/Layout.astro";
       <p class="text-3xl font-extrabold text-white mb-2">₹299 ($3.99)</p>
       <p class="text-sm text-gray-300 mb-4">One-time fee. Unlimited revisions for 30 days.</p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="/#contact" class="glass-btn px-6 py-3 rounded-lg font-semibold">🔥 Get Started</a>
-        <a href="#faq" class="px-6 py-3 rounded-lg border border-white/10 text-sm hover:bg-white/5">Read FAQ</a>
+        <a href="/#contact" 
+           class="glass-btn px-8 py-3 rounded-lg font-semibold transition transform hover:scale-110 hover:shadow-[0_0_30px_#47C6A2]">
+          🔥 Get Started
+        </a>
+        <a href="/faq" 
+           class="px-6 py-3 rounded-lg border border-white/10 text-sm text-gray-300 hover:text-[#47C6A2] hover:bg-white/5 transition">
+          FAQ →
+        </a>
       </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section id="faq" class="bg-white/5 py-10 mt-10 rounded-xl backdrop-blur-md max-w-5xl mx-auto px-6">
-    <h2 class="text-2xl font-bold text-[#47C6A2] mb-6">❓ Frequently Asked Questions (FAQ)</h2>
-
-    <div class="space-y-4">
-      <details class="bg-white/6 rounded-lg p-4">
-        <summary class="cursor-pointer font-semibold text-white">What is an ATS and why does it matter?</summary>
-        <p class="mt-2 text-gray-300">
-          ATS (Applicant Tracking System) is software recruiters use to screen resumes. If your resume isn't formatted or keyword-optimized, it may be filtered out before a human sees it.
-        </p>
-      </details>
-
-      <details class="bg-white/6 rounded-lg p-4">
-        <summary class="cursor-pointer font-semibold text-white">How long does it take to get my optimized resume?</summary>
-        <p class="mt-2 text-gray-300">
-          Standard delivery is <strong>48–72 hours</strong>. Rush delivery is available on request.
-        </p>
-      </details>
-
-      <details class="bg-white/6 rounded-lg p-4">
-        <summary class="cursor-pointer font-semibold text-white">Will this work for my industry (IT, marketing, finance, etc.)?</summary>
-        <p class="mt-2 text-gray-300">
-          Yes. We tailor language, keywords, and certifications to your specific industry and role for the best ATS & recruiter match.
-        </p>
-      </details>
-
-      <details class="bg-white/6 rounded-lg p-4">
-        <summary class="cursor-pointer font-semibold text-white">What file formats do I receive?</summary>
-        <p class="mt-2 text-gray-300">
-          You will receive both <strong>.docx</strong> (editable) and <strong>PDF</strong> (print-ready) formats for maximum compatibility.
-        </p>
-      </details>
-
-      <details class="bg-white/6 rounded-lg p-4">
-        <summary class="cursor-pointer font-semibold text-white">What if I need revisions?</summary>
-        <p class="mt-2 text-gray-300">
-          Unlimited revisions for 30 days are included — and we offer a free revision if your ATS score is not 90+.
-        </p>
-      </details>
-
-      <details class="bg-white/6 rounded-lg p-4">
-        <summary class="cursor-pointer font-semibold text-white">Do you offer refunds?</summary>
-        <p class="mt-2 text-gray-300">
-          We prioritize satisfaction. If you're not satisfied after revisions, contact support so we can find a solution. (Specific refund policy can be adjusted as per your business rules.)
-        </p>
-      </details>
-    </div>
-
-    <div class="text-center mt-6">
-      <a href="/#contact" class="glass-btn px-6 py-3 rounded-lg font-semibold">Get Started — Improve My Resume</a>
     </div>
   </section>
 
@@ -243,12 +123,12 @@ import Layout from "../../layouts/Layout.astro";
       Join the 67% of professionals landing more interviews with ATS-optimized resumes.  
       <strong>Being qualified isn’t enough—you need to be found.</strong>
     </p>
-    <div class="flex justify-center gap-4">
-      <a href="/#contact" class="glass-btn px-8 py-3 rounded-lg font-semibold">Get Started</a>
-      <a href="#pricing" class="px-6 py-3 rounded-lg border border-white/10 text-sm hover:bg-white/5">See Pricing</a>
-    </div>
+    <a href="/#contact" 
+       class="glass-btn px-10 py-4 rounded-lg font-semibold text-lg transition transform hover:scale-110 hover:shadow-[0_0_40px_#47C6A2]">
+      ✨ Get Started Today
+    </a>
 
-    <ul class="mt-4 text-gray-400 text-sm space-y-1 max-w-md mx-auto">
+    <ul class="mt-6 text-gray-400 text-sm space-y-1 max-w-md mx-auto">
       <li>✓ 90+ ATS Compatibility Score Guaranteed</li>
       <li>✓ 48-Hour Professional Delivery</li>
       <li>✓ Unlimited Revisions for 30 Days</li>
@@ -265,28 +145,15 @@ import Layout from "../../layouts/Layout.astro";
     </div>
   </section>
 
-  <!-- Small inline script for UX niceties (optional) -->
+  <!-- Small inline script for feedback -->
   <script>
-    // Simple feedback toggle to show a subtle confirmation (no analytics)
-    document.getElementById('like-yes')?.addEventListener('click', function(e) {
+    document.getElementById('like-yes')?.addEventListener('click', function() {
       this.textContent = 'Thanks! 👍';
       this.classList.add('bg-[#47C6A2]/20');
     });
-    document.getElementById('like-no')?.addEventListener('click', function(e) {
+    document.getElementById('like-no')?.addEventListener('click', function() {
       this.textContent = 'Thanks for feedback';
       this.classList.add('bg-red-400/20');
-    });
-
-    // Smooth scroll for anchor links on this page
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        const id = this.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(el){
-          e.preventDefault();
-          el.scrollIntoView({behavior:'smooth', block:'start'});
-        }
-      });
     });
   </script>
 </Layout>
