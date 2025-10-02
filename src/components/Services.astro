@@ -1,5 +1,19 @@
 ---
 const { services } = Astro.props;
+
+// Map service titles to correct /explore routes
+const serviceLinks = {
+  "ATS Resume": "/explore/ats-resume",
+  "LinkedIn Optimization": "/explore/linkedin",
+  "Naukri Optimization": "/explore/job-portals/naukri",
+  "Indeed Optimization": "/explore/job-portals/indeed",
+  "GitHub Enhancement": "/explore/github",
+  "Portfolio Creation": "/explore/portfolio-site",
+  "Upwork Profile Setup": "/explore/freelancing/upwork",
+  "Fiverr Profile Setup": "/explore/freelancing/fiverr",
+  "Toptal Profile Setup": "/explore/freelancing/toptal",
+  "Personal Branding": "/explore/personal-branding",
+};
 ---
 
 <section id="services" class="relative py-20 lg:py-28 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
@@ -49,10 +63,31 @@ const { services } = Astro.props;
             {service.title}
           </h3>
 
-          <!-- Description -->
-          <p class="text-gray-300">
+          <!-- Description + SEO Link -->
+          <p class="text-gray-300 mb-6">
             {service.description}
+            {serviceLinks[service.title] && (
+              <>
+                {" "}
+                <a 
+                  href={serviceLinks[service.title]} 
+                  class="underline text-[#47C6A2] hover:text-[#2F9E7F]"
+                >
+                  Learn more about {service.title}
+                </a>
+              </>
+            )}
           </p>
+
+          <!-- See More Button -->
+          {serviceLinks[service.title] && (
+            <a 
+              href={serviceLinks[service.title]}
+              class="inline-block mt-2 px-4 py-2 text-sm font-semibold rounded-md bg-[#47C6A2] text-black hover:bg-[#2F9E7F] transition-colors"
+            >
+              See More
+            </a>
+          )}
         </div>
       ))}
     </div>

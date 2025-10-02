@@ -1,5 +1,5 @@
 ---
----
+--- 
 <nav class="fixed inset-x-0 top-0 z-50 bg-white/30 backdrop-blur-lg border-b border-white/40 shadow-sm">
   <div class="container mx-auto flex items-center justify-between px-4 py-3">
     <!-- Logo -->
@@ -9,7 +9,7 @@
     </a>
 
     <!-- Desktop Menu -->
-    <ul class="hidden md:flex space-x-8 text-gray-800 font-medium">
+    <ul class="hidden md:flex space-x-8 text-gray-800 font-medium items-center">
       {["Home","About","Services","Plans","Testimonials","Contact"].map((item) => (
         <li>
           <a 
@@ -20,6 +20,44 @@
           </a>
         </li>
       ))}
+
+      <!-- 🔽 NEW Explore Dropdown -->
+      <li class="relative group">
+        <button class="flex items-center gap-1 hover:text-primary-600">
+          Explore
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z" /></svg>
+        </button>
+        <div class="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded-md w-56 z-50">
+          <ul class="py-2">
+            <li><a href="/explore/ats-resume" class="block px-4 py-2 hover:bg-gray-100">ATS Resume</a></li>
+            <li><a href="/explore/linkedin" class="block px-4 py-2 hover:bg-gray-100">LinkedIn Optimization</a></li>
+            <li class="relative group">
+              <button class="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center justify-between">
+                Job Portals
+                <svg class="w-4 h-4"><path d="M7 5l5 5-5 5V5z"/></svg>
+              </button>
+              <ul class="absolute top-0 left-full hidden group-hover:block bg-white rounded-md shadow-lg w-48">
+                <li><a href="/explore/job-portals/naukri" class="block px-4 py-2 hover:bg-gray-100">Naukri</a></li>
+                <li><a href="/explore/job-portals/indeed" class="block px-4 py-2 hover:bg-gray-100">Indeed</a></li>
+              </ul>
+            </li>
+            <li class="relative group">
+              <button class="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center justify-between">
+                Freelancing
+                <svg class="w-4 h-4"><path d="M7 5l5 5-5 5V5z"/></svg>
+              </button>
+              <ul class="absolute top-0 left-full hidden group-hover:block bg-white rounded-md shadow-lg w-48">
+                <li><a href="/explore/freelancing/fiverr" class="block px-4 py-2 hover:bg-gray-100">Fiverr</a></li>
+                <li><a href="/explore/freelancing/upwork" class="block px-4 py-2 hover:bg-gray-100">Upwork</a></li>
+                <li><a href="/explore/freelancing/toptal" class="block px-4 py-2 hover:bg-gray-100">Toptal</a></li>
+              </ul>
+            </li>
+            <li><a href="/explore/github" class="block px-4 py-2 hover:bg-gray-100">GitHub Optimization</a></li>
+            <li><a href="/explore/portfolio-site" class="block px-4 py-2 hover:bg-gray-100">Portfolio Website</a></li>
+            <li><a href="/explore/personal-branding" class="block px-4 py-2 hover:bg-gray-100">Personal Branding</a></li>
+          </ul>
+        </div>
+      </li>
     </ul>
 
     <!-- Mobile Hamburger -->
@@ -45,6 +83,40 @@
       <li><a href="#services" class="block py-2 hover:text-primary-600 transition-colors">Services</a></li>
       <li><a href="#plans" class="block py-2 hover:text-primary-600 transition-colors">Plans</a></li>
       <li><a href="#testimonials" class="block py-2 hover:text-primary-600 transition-colors">Testimonials</a></li>
+      
+      <!-- 🔽 NEW Explore in Mobile -->
+      <li>
+        <details>
+          <summary class="cursor-pointer py-2">Explore</summary>
+          <ul class="ml-4 mt-2 space-y-1">
+            <li><a href="/explore/ats-resume" class="block">ATS Resume</a></li>
+            <li><a href="/explore/linkedin" class="block">LinkedIn Optimization</a></li>
+            <li>
+              <details>
+                <summary>Job Portals</summary>
+                <ul class="ml-4 mt-1 space-y-1">
+                  <li><a href="/explore/job-portals/naukri" class="block">Naukri</a></li>
+                  <li><a href="/explore/job-portals/indeed" class="block">Indeed</a></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>Freelancing</summary>
+                <ul class="ml-4 mt-1 space-y-1">
+                  <li><a href="/explore/freelancing/fiverr" class="block">Fiverr</a></li>
+                  <li><a href="/explore/freelancing/upwork" class="block">Upwork</a></li>
+                  <li><a href="/explore/freelancing/toptal" class="block">Toptal</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a href="/explore/github" class="block">GitHub Optimization</a></li>
+            <li><a href="/explore/portfolio-site" class="block">Portfolio Website</a></li>
+            <li><a href="/explore/personal-branding" class="block">Personal Branding</a></li>
+          </ul>
+        </details>
+      </li>
+
       <li>
         <button
           class="flex items-center space-x-2 py-2 w-full text-left hover:text-primary-600 transition-colors"
