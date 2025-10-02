@@ -39,13 +39,17 @@ import Layout from "../../layouts/Layout.astro";
       Transform your resume into an ATS-friendly, recruiter-ready document.
     </p>
 
-    <!-- Hero Image Placeholder -->
-    <div class="mt-8">
-      <img src="/assets/ats-resume-preview.jpg" alt="ATS Resume Optimization Service" class="rounded-xl shadow-lg mx-auto max-w-2xl border border-white/10" />
+    <!-- Hero Actions -->
+    <div class="mt-6 flex items-center justify-center space-x-4">
+      <a href="/#contact" class="glass-btn px-6 py-3 rounded-lg font-semibold">🚀 Get Started</a>
+      <a href="#pricing" class="px-6 py-3 rounded-lg border border-white/10 text-sm hover:bg-white/5">See Pricing</a>
+      <a href="#faq" class="px-4 py-2 rounded-lg text-sm text-gray-300 hover:text-[#47C6A2]">View FAQ</a>
     </div>
 
-    <div class="mt-6">
-      <a href="/#contact" class="glass-btn px-8 py-3 rounded-lg font-semibold">✨ Optimize My Resume Now</a>
+    <!-- Hero Image Placeholder -->
+    <div class="mt-8">
+      <!-- Replace src with your 1200x630 OG banner or any ATS image -->
+      <img src="/assets/ats-resume-preview.jpg" alt="ATS Resume Optimization Service" class="rounded-xl shadow-lg mx-auto max-w-2xl border border-white/10" />
     </div>
   </section>
 
@@ -153,7 +157,7 @@ import Layout from "../../layouts/Layout.astro";
   </section>
 
   <!-- Pricing Section -->
-  <section class="bg-gradient-to-r from-[#47C6A2]/20 to-white/10 py-12 mt-10 rounded-xl max-w-5xl mx-auto px-6 text-center">
+  <section id="pricing" class="bg-gradient-to-r from-[#47C6A2]/20 to-white/10 py-12 mt-10 rounded-xl max-w-5xl mx-auto px-6 text-center">
     <h2 class="text-3xl font-bold text-white mb-4">💰 Affordable ATS Resume Pricing</h2>
     <p class="text-gray-300 mb-6">Invest in your career with a service designed for job seekers.</p>
     <div class="bg-white/10 rounded-xl p-6 max-w-md mx-auto">
@@ -161,7 +165,63 @@ import Layout from "../../layouts/Layout.astro";
       <p class="text-gray-400 line-through">~₹599 ($7.99)~</p>
       <p class="text-3xl font-extrabold text-white mb-2">₹299 ($3.99)</p>
       <p class="text-sm text-gray-300 mb-4">One-time fee. Unlimited revisions for 30 days.</p>
-      <a href="/#contact" class="glass-btn px-8 py-3 rounded-lg font-semibold">🔥 Get Optimized Now</a>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/#contact" class="glass-btn px-6 py-3 rounded-lg font-semibold">🔥 Get Started</a>
+        <a href="#faq" class="px-6 py-3 rounded-lg border border-white/10 text-sm hover:bg-white/5">Read FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="bg-white/5 py-10 mt-10 rounded-xl backdrop-blur-md max-w-5xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-[#47C6A2] mb-6">❓ Frequently Asked Questions (FAQ)</h2>
+
+    <div class="space-y-4">
+      <details class="bg-white/6 rounded-lg p-4">
+        <summary class="cursor-pointer font-semibold text-white">What is an ATS and why does it matter?</summary>
+        <p class="mt-2 text-gray-300">
+          ATS (Applicant Tracking System) is software recruiters use to screen resumes. If your resume isn't formatted or keyword-optimized, it may be filtered out before a human sees it.
+        </p>
+      </details>
+
+      <details class="bg-white/6 rounded-lg p-4">
+        <summary class="cursor-pointer font-semibold text-white">How long does it take to get my optimized resume?</summary>
+        <p class="mt-2 text-gray-300">
+          Standard delivery is <strong>48–72 hours</strong>. Rush delivery is available on request.
+        </p>
+      </details>
+
+      <details class="bg-white/6 rounded-lg p-4">
+        <summary class="cursor-pointer font-semibold text-white">Will this work for my industry (IT, marketing, finance, etc.)?</summary>
+        <p class="mt-2 text-gray-300">
+          Yes. We tailor language, keywords, and certifications to your specific industry and role for the best ATS & recruiter match.
+        </p>
+      </details>
+
+      <details class="bg-white/6 rounded-lg p-4">
+        <summary class="cursor-pointer font-semibold text-white">What file formats do I receive?</summary>
+        <p class="mt-2 text-gray-300">
+          You will receive both <strong>.docx</strong> (editable) and <strong>PDF</strong> (print-ready) formats for maximum compatibility.
+        </p>
+      </details>
+
+      <details class="bg-white/6 rounded-lg p-4">
+        <summary class="cursor-pointer font-semibold text-white">What if I need revisions?</summary>
+        <p class="mt-2 text-gray-300">
+          Unlimited revisions for 30 days are included — and we offer a free revision if your ATS score is not 90+.
+        </p>
+      </details>
+
+      <details class="bg-white/6 rounded-lg p-4">
+        <summary class="cursor-pointer font-semibold text-white">Do you offer refunds?</summary>
+        <p class="mt-2 text-gray-300">
+          We prioritize satisfaction. If you're not satisfied after revisions, contact support so we can find a solution. (Specific refund policy can be adjusted as per your business rules.)
+        </p>
+      </details>
+    </div>
+
+    <div class="text-center mt-6">
+      <a href="/#contact" class="glass-btn px-6 py-3 rounded-lg font-semibold">Get Started — Improve My Resume</a>
     </div>
   </section>
 
@@ -176,17 +236,19 @@ import Layout from "../../layouts/Layout.astro";
     </ul>
   </section>
 
-  <!-- Call to Action -->
+  <!-- Final Call to Action -->
   <section class="text-center py-12">
     <h2 class="text-3xl font-bold text-white mb-4">🚀 Ready to End Your Job Search Struggles?</h2>
     <p class="text-gray-300 max-w-2xl mx-auto mb-6">
       Join the 67% of professionals landing more interviews with ATS-optimized resumes.  
       <strong>Being qualified isn’t enough—you need to be found.</strong>
     </p>
-    <a href="/#contact" class="glass-btn px-8 py-3 rounded-lg font-semibold">
-      Get Your ATS-Optimized Resume Now
-    </a>
-    <ul class="mt-4 text-gray-400 text-sm space-y-1">
+    <div class="flex justify-center gap-4">
+      <a href="/#contact" class="glass-btn px-8 py-3 rounded-lg font-semibold">Get Started</a>
+      <a href="#pricing" class="px-6 py-3 rounded-lg border border-white/10 text-sm hover:bg-white/5">See Pricing</a>
+    </div>
+
+    <ul class="mt-4 text-gray-400 text-sm space-y-1 max-w-md mx-auto">
       <li>✓ 90+ ATS Compatibility Score Guaranteed</li>
       <li>✓ 48-Hour Professional Delivery</li>
       <li>✓ Unlimited Revisions for 30 Days</li>
@@ -198,8 +260,33 @@ import Layout from "../../layouts/Layout.astro";
   <section class="text-center py-10">
     <p class="text-gray-400 mb-4">Was this page helpful?</p>
     <div class="flex justify-center space-x-4">
-      <button class="px-4 py-2 bg-white/10 rounded-lg hover:bg-[#47C6A2]/20">👍 Yes</button>
-      <button class="px-4 py-2 bg-white/10 rounded-lg hover:bg-red-400/20">👎 No</button>
+      <button id="like-yes" class="px-4 py-2 bg-white/10 rounded-lg hover:bg-[#47C6A2]/20">👍 Yes</button>
+      <button id="like-no" class="px-4 py-2 bg-white/10 rounded-lg hover:bg-red-400/20">👎 No</button>
     </div>
   </section>
+
+  <!-- Small inline script for UX niceties (optional) -->
+  <script>
+    // Simple feedback toggle to show a subtle confirmation (no analytics)
+    document.getElementById('like-yes')?.addEventListener('click', function(e) {
+      this.textContent = 'Thanks! 👍';
+      this.classList.add('bg-[#47C6A2]/20');
+    });
+    document.getElementById('like-no')?.addEventListener('click', function(e) {
+      this.textContent = 'Thanks for feedback';
+      this.classList.add('bg-red-400/20');
+    });
+
+    // Smooth scroll for anchor links on this page
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const id = this.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+  </script>
 </Layout>
