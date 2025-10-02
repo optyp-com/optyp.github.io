@@ -1,5 +1,5 @@
 ---
---- 
+---
 <nav class="fixed inset-x-0 top-0 z-50 bg-white/30 backdrop-blur-lg border-b border-white/40 shadow-sm">
   <div class="container mx-auto flex items-center justify-between px-4 py-3">
     <!-- Logo -->
@@ -10,35 +10,36 @@
 
     <!-- Desktop Menu -->
     <ul class="hidden md:flex space-x-8 text-gray-800 font-medium items-center">
-      {["Home","About","Services","Plans","Testimonials","Contact"].map((item) => (
-        <li>
-          <a 
-            href={`#${item.toLowerCase()}`} 
-            class="relative hover:text-primary-600 transition-colors after:block after:h-[2px] after:w-0 after:bg-primary-600 after:transition-all after:duration-300 hover:after:w-full after:absolute after:-bottom-1 after:left-0"
-          >
-            {item}
-          </a>
-        </li>
-      ))}
+      <li><a href="#hero" class="relative hover:text-primary-600">Home</a></li>
+      <li><a href="#about" class="relative hover:text-primary-600">About</a></li>
+      <li><a href="#services" class="relative hover:text-primary-600">Services</a></li>
+      <li><a href="#contact" class="relative hover:text-primary-600">Contact</a></li>
 
       <!-- 🔽 Explore Dropdown -->
-      <li class="relative group">
-        <button class="flex items-center gap-1 hover:text-primary-600">
+      <li class="relative list-none">
+        <button 
+          id="explore-toggle-nav"
+          class="flex items-center gap-1 hover:text-primary-600"
+          aria-haspopup="true" aria-expanded="false"
+        >
           Explore
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M5 7l5 5 5-5H5z" /></svg>
         </button>
-        <div class="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded-md w-56 z-50">
+        <div 
+          id="explore-menu-nav"
+          class="absolute left-0 mt-2 hidden bg-white shadow-lg rounded-md w-56 z-50 transition-all duration-300 ease-out transform opacity-0 -translate-y-2"
+        >
           <ul class="py-2">
             <li><a href="/explore/ats-resume" class="block px-4 py-2 hover:bg-gray-100">ATS Resume</a></li>
             <li><a href="/explore/linkedin" class="block px-4 py-2 hover:bg-gray-100">LinkedIn Optimization</a></li>
-            
+
             <!-- Job Portals submenu -->
             <li class="relative">
-              <button class="peer w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center justify-between">
+              <button class="submenu-toggle-nav w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center justify-between">
                 Job Portals
                 <svg class="w-4 h-4"><path d="M7 5l5 5-5 5V5z"/></svg>
               </button>
-              <ul class="absolute top-0 left-full hidden peer-hover:block peer-focus:block bg-white rounded-md shadow-lg w-48">
+              <ul class="submenu-nav hidden bg-white rounded-md shadow-lg w-48 ml-2 mt-1 transition-all duration-300 ease-out transform opacity-0 -translate-y-2">
                 <li><a href="/explore/job-portals/naukri" class="block px-4 py-2 hover:bg-gray-100">Naukri</a></li>
                 <li><a href="/explore/job-portals/indeed" class="block px-4 py-2 hover:bg-gray-100">Indeed</a></li>
               </ul>
@@ -46,11 +47,11 @@
 
             <!-- Freelancing submenu -->
             <li class="relative">
-              <button class="peer w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center justify-between">
+              <button class="submenu-toggle-nav w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center justify-between">
                 Freelancing
                 <svg class="w-4 h-4"><path d="M7 5l5 5-5 5V5z"/></svg>
               </button>
-              <ul class="absolute top-0 left-full hidden peer-hover:block peer-focus:block bg-white rounded-md shadow-lg w-48">
+              <ul class="submenu-nav hidden bg-white rounded-md shadow-lg w-48 ml-2 mt-1 transition-all duration-300 ease-out transform opacity-0 -translate-y-2">
                 <li><a href="/explore/freelancing/fiverr" class="block px-4 py-2 hover:bg-gray-100">Fiverr</a></li>
                 <li><a href="/explore/freelancing/upwork" class="block px-4 py-2 hover:bg-gray-100">Upwork</a></li>
                 <li><a href="/explore/freelancing/toptal" class="block px-4 py-2 hover:bg-gray-100">Toptal</a></li>
@@ -86,8 +87,7 @@
       <li><a href="#hero" class="block py-2 hover:text-primary-600 transition-colors">Home</a></li>
       <li><a href="#about" class="block py-2 hover:text-primary-600 transition-colors">About</a></li>
       <li><a href="#services" class="block py-2 hover:text-primary-600 transition-colors">Services</a></li>
-      <li><a href="#plans" class="block py-2 hover:text-primary-600 transition-colors">Plans</a></li>
-      <li><a href="#testimonials" class="block py-2 hover:text-primary-600 transition-colors">Testimonials</a></li>
+      <li><a href="#contact" class="block py-2 hover:text-primary-600 transition-colors">Contact</a></li>
 
       <!-- Explore collapsible -->
       <li>
@@ -169,5 +169,47 @@
         setTimeout(() => menu.classList.add("hidden"), 500);
       }
     }
+
+    // Explore dropdown toggle (desktop)
+    const exploreToggleNav = document.getElementById("explore-toggle-nav");
+    const exploreMenuNav = document.getElementById("explore-menu-nav");
+    exploreToggleNav?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = exploreMenuNav.classList.contains("block");
+      document.querySelectorAll("#explore-menu-nav").forEach(m => m.classList.add("hidden","opacity-0","-translate-y-2"));
+      if (!isOpen) {
+        exploreMenuNav.classList.remove("hidden","opacity-0","-translate-y-2");
+        exploreMenuNav.classList.add("block","opacity-100","translate-y-0");
+        exploreToggleNav.setAttribute("aria-expanded", "true");
+      } else {
+        exploreMenuNav.classList.add("hidden","opacity-0","-translate-y-2");
+        exploreMenuNav.classList.remove("block","opacity-100","translate-y-0");
+        exploreToggleNav.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("click", (e) => {
+      if (!exploreMenuNav.contains(e.target) && !exploreToggleNav.contains(e.target)) {
+        exploreMenuNav.classList.add("hidden","opacity-0","-translate-y-2");
+        exploreMenuNav.classList.remove("block","opacity-100","translate-y-0");
+        exploreToggleNav.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Submenu toggles with animation
+    document.querySelectorAll(".submenu-toggle-nav").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const submenu = btn.nextElementSibling;
+        const isOpen = submenu.classList.contains("block");
+        document.querySelectorAll(".submenu-nav").forEach(s => s.classList.add("hidden","opacity-0","-translate-y-2"));
+        if (!isOpen) {
+          submenu.classList.remove("hidden","opacity-0","-translate-y-2");
+          submenu.classList.add("block","opacity-100","translate-y-0");
+        } else {
+          submenu.classList.add("hidden","opacity-0","-translate-y-2");
+          submenu.classList.remove("block","opacity-100","translate-y-0");
+        }
+      });
+    });
   </script>
 </nav>
