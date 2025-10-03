@@ -2,40 +2,205 @@
 import Layout from "../../../layouts/Layout.astro";
 ---
 
-<Layout title="Toptal Profile Setup | OPTYP">
-  <nav class="text-sm text-gray-400 mb-6">
+<Layout 
+  title="Toptal Profile Optimization Service | OPTYP"
+  description="Join the Top 3% on Toptal with our professional profile optimization service. Get 3× more client invitations, 200% more proposals, and secure high-value contracts faster."
+  keywords="Toptal profile optimization, freelance success, Toptal setup, elite freelancer, Toptal acceptance, freelancing services, profile optimization, secure high-value projects, premium freelancing, OPTYP"
+>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Toptal Profile Optimization",
+    "provider": {
+      "@type": "Organization",
+      "name": "OPTYP",
+      "url": "https://optyp.com",
+      "logo": "https://optyp.com/images/logo.png"
+    },
+    "areaServed": "Worldwide",
+    "description": "Professional Toptal profile optimization service designed to help freelancers join the top 3% and secure high-value projects 3× faster.",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://optyp.com/explore/freelancing/toptal",
+      "priceCurrency": "USD",
+      "price": "499",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+
+  <!-- FAQ JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does Toptal profile optimization help me?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our service boosts your profile visibility, increases client invitations by up to 3×, and positions you to secure high-value projects faster."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to optimize my Toptal profile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer a 48-hour turnaround for urgent profile enhancements and full optimization within 5 business days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What results can I expect?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most clients see 200% more proposal views, 3× more direct invitations, and higher-paying contracts within 30 days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide ongoing support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we include proposal templates, analytics setup, and monthly performance reports to ensure long-term success."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Breadcrumb -->
+  <nav class="text-sm text-gray-400 mb-6 px-6">
     <a href="/" class="hover:text-[#47C6A2]">Home</a> › 
     <a href="/explore" class="hover:text-[#47C6A2]">Explore</a> › 
     <a href="/explore/freelancing" class="hover:text-[#47C6A2]">Freelancing</a> › 
-    <span class="text-white">Toptal</span>
+    <span class="text-white">Toptal Profile Optimization</span>
   </nav>
 
-  <section class="text-center py-12">
-    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Toptal Profile Setup</h1>
+  <!-- Hero Section -->
+  <section class="text-center py-12 px-6">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+      Toptal Profile Optimization Service
+    </h1>
     <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-      Optimize your Toptal profile and portfolio to increase your chances of passing their screening process.
+      Join the Top 3% of Talent and Secure High-Value Projects 3× Faster. Transform your Toptal profile into a magnet for premier clients with proven optimization strategies.
+    </p>
+
+    <!-- Hero Image Placeholder -->
+    <div class="relative max-w-4xl mx-auto mt-8">
+      <img src="/images/toptal.png" alt="Toptal Profile Optimization" 
+           class="w-full max-h-96 object-contain rounded-2xl shadow-lg border border-white/10" />
+    </div>
+  </section>
+
+  <!-- Hidden Problem -->
+  <section class="max-w-4xl mx-auto px-6 py-12 text-gray-300">
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-4">The Hidden Problem Elite Freelancers Face</h2>
+    <p class="mb-4">
+      Toptal accepts only the <strong>top 3% of talent</strong> from over 100,000 applicants every year. But even after getting in, most profiles fail to capture attention.
+    </p>
+    <p class="mb-4">
+      Clients skim profiles in just <strong>6–8 seconds</strong> before deciding who gets an interview. If your profile doesn’t instantly communicate elite expertise, it disappears into the background.
+    </p>
+    <p class="font-semibold text-white">👉 Your skills aren’t the problem. Your <span class="text-[#47C6A2]">profile strategy</span> is.</p>
+  </section>
+
+  <!-- Pain -->
+  <section class="bg-white/5 py-12 px-6 mt-10 rounded-xl backdrop-blur-md max-w-4xl mx-auto text-gray-300">
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-4">The Pain That Keeps You Awake at Night</h2>
+    <ul class="list-disc list-inside space-y-3">
+      <li>❌ Missed premium contracts paying 2–5× higher than market rates</li>
+      <li>❌ Longer gaps between projects, leading to unstable income</li>
+      <li>❌ Low visibility in client searches despite Toptal’s curated client base</li>
+    </ul>
+    <p class="mt-4">
+      Meanwhile, optimized freelancers command <strong>$100–$300/hr</strong> and secure <strong>3× faster client invitations</strong>. Don’t let poor positioning hold you back.
     </p>
   </section>
 
+  <!-- Solution -->
   <section class="max-w-4xl mx-auto px-6 py-12 text-gray-300">
-    <h2 class="text-2xl font-bold text-[#47C6A2] mb-4">Features</h2>
-    <ul class="list-disc list-inside space-y-2 mb-6">
-      <li>Portfolio structuring for credibility</li>
-      <li>Optimized skills & experience alignment</li>
-      <li>Interview prep & guidance</li>
-      <li>Professional project writeups</li>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Solution: Expert Toptal Profile Optimization</h2>
+    <ul class="space-y-3">
+      <li>✅ <strong>Headline & Skill Tag Mastery</strong> – Boost profile visibility by 150% with precision-targeted tags</li>
+      <li>✅ <strong>Elite-Level Overview Construction</strong> – Double interview invites with client-impact storytelling</li>
+      <li>✅ <strong>Portfolio Curation</strong> – Improve hire rates 2× with curated case studies & metrics</li>
+      <li>✅ <strong>Client-Focused Narratives</strong> – Transform resumes into ROI-driven client success stories</li>
+      <li>✅ <strong>Technical & Cultural Fit Showcase</strong> – Highlight collaboration + advanced expertise for premium clients</li>
+      <li>✅ <strong>Profile Photo & Branding Excellence</strong> – Build instant trust with optimized branding & imagery</li>
     </ul>
   </section>
 
+  <!-- Outcomes -->
+  <section class="bg-white/5 py-12 mt-10 rounded-xl backdrop-blur-md max-w-4xl mx-auto px-6 text-gray-300">
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">What’s In It For You: Measurable Elite Outcomes</h2>
+    <h3 class="text-xl font-semibold text-white mb-2">🚀 Accelerated Client Engagement</h3>
+    <ul class="list-disc list-inside mb-4">
+      <li>200% more proposal views in 30 days</li>
+      <li>3× more direct client invitations</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-white mb-2">💰 Higher-Value Contracts</h3>
+    <ul class="list-disc list-inside mb-4">
+      <li>Bill at 2–5× market rates</li>
+      <li>60% faster project acquisition</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold text-white mb-2">😌 Emotional Relief & Reputation Boost</h3>
+    <ul class="list-disc list-inside">
+      <li>Top-tier client trust & repeat partnerships</li>
+      <li>Confidence and peace of mind with elite branding</li>
+    </ul>
+  </section>
+
+  <!-- Features -->
+  <section class="max-w-4xl mx-auto px-6 py-12 text-gray-300">
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Our Toptal Profile Optimization Features</h2>
+    <h3 class="text-xl font-semibold text-white mb-2">🔎 Deep Profile Audit</h3>
+    <p class="mb-4">In-depth gap analysis vs. elite benchmarks with competitor insights.</p>
+
+    <h3 class="text-xl font-semibold text-white mb-2">✍️ Strategic Content Development</h3>
+    <p class="mb-4">SEO-driven headlines, summaries, and ROI-focused project descriptions.</p>
+
+    <h3 class="text-xl font-semibold text-white mb-2">🎨 Technical & Visual Enhancements</h3>
+    <p class="mb-4">Professional headshots, portfolio formatting, and branding upgrades.</p>
+
+    <h3 class="text-xl font-semibold text-white mb-2">📊 Ongoing Performance Management</h3>
+    <p>Proposal templates, analytics setup, and monthly performance tracking.</p>
+  </section>
+
+  <!-- Related Services -->
   <section class="bg-white/5 py-10 mt-10 rounded-xl backdrop-blur-md max-w-4xl mx-auto px-6">
-    <h3 class="text-xl font-bold text-[#47C6A2] mb-4">Related Services</h3>
+    <h3 class="text-xl font-bold text-[#47C6A2] mb-4">Related Services to Amplify Your Success</h3>
     <ul class="space-y-2">
-      <li><a href="/explore/freelancing/upwork" class="hover:text-[#47C6A2]">Upwork Profile Setup</a></li>
+      <li><a href="/explore/freelancing/upwork" class="hover:text-[#47C6A2]">Upwork Profile Optimization</a></li>
       <li><a href="/explore/personal-branding" class="hover:text-[#47C6A2]">Personal Branding</a></li>
+      <li><a href="/explore/linkedin" class="hover:text-[#47C6A2]">LinkedIn Profile Optimization</a></li>
+      <li><a href="/explore/portfolio" class="hover:text-[#47C6A2]">Portfolio Website Optimization</a></li>
+      <li><a href="/explore/interview-coaching" class="hover:text-[#47C6A2]">Executive Interview Coaching</a></li>
     </ul>
   </section>
 
+  <!-- CTA -->
   <section class="text-center py-12">
-    <a href="/#contact" class="glass-btn px-6 py-3 rounded-lg font-semibold">Get Started</a>
+    <a href="/#contact" 
+       class="px-8 py-4 rounded-xl font-bold text-white text-lg 
+              border-2 border-[#47C6A2] 
+              bg-[#47C6A2]/20 backdrop-blur-lg 
+              hover:bg-[#47C6A2] hover:text-black hover:scale-105 
+              transition-all duration-300 shadow-lg">
+      🚀 Get Your Toptal Profile Optimized Now
+    </a>
   </section>
+
+  <!-- FAQ -->
+  <section class="text-center py-6">
+    <a href="/faq" class="text-[#47C6A2] hover:underline font-semibold">Read FAQs →</a>
+  </section>
+
 </Layout>
