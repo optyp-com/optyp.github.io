@@ -1,40 +1,149 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+
+// Replace with your actual GitHub service image, or leave as placeholder
+const heroImage = "/images/github-hero.png";
 ---
 
 <Layout title="GitHub Optimization | OPTYP">
-  <nav class="text-sm text-gray-400 mb-6">
-    <a href="/" class="hover:text-[#47C6A2]">Home</a> › 
-    <a href="/explore" class="hover:text-[#47C6A2]">Explore</a> › 
-    <span class="text-white">GitHub</span>
+  <!-- Breadcrumbs -->
+  <nav class="text-sm text-gray-400 mb-6 px-4 sm:px-6">
+    <a href="/" class="hover:text-[#47C6A2] transition-colors">Home</a> › 
+    <a href="/explore" class="hover:text-[#47C6A2] transition-colors">Explore</a> › 
+    <span class="text-white">GitHub Optimization</span>
   </nav>
 
-  <section class="text-center py-12">
-    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">GitHub Optimization</h1>
-    <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-      Showcase your best projects and skills with a polished, recruiter-friendly GitHub profile.
+  <!-- Hero Section -->
+  <section class="text-center py-12 px-4">
+    <h1 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">
+      GitHub Profile Optimization Service
+    </h1>
+    <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+      Transform Your Code Portfolio Into a Recruiter Magnet and Land 50% More Developer Jobs.
+      Professional optimization delivers 
+      <span class="text-[#47C6A2] font-semibold">300% more profile visibility</span> 
+      and <span class="text-[#47C6A2] font-semibold">2x higher recruiter engagement</span> within 30 days.
+    </p>
+
+     <!-- Hero Image (Responsive & Sharp) -->
+    <div class="relative max-w-4xl mx-auto mb-8">
+      <img 
+        src="/images/github-page.png" 
+        alt="Indeed Profile Optimization"
+        class="w-full max-h-96 object-contain rounded-2xl shadow-lg border border-white/10"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
+    </div>
+
+  <!-- Problem Section -->
+  <section class="max-w-4xl mx-auto px-6 py-12 text-gray-300 space-y-6">
+    <h2 class="text-2xl font-bold text-[#47C6A2]">The Career-Killing GitHub Mistake 87% of Developers Make</h2>
+    <p>
+      Your GitHub profile is costing you dream job opportunities without you realizing it. 
+      <strong>100 million developers</strong> compete on GitHub, yet most recruiters spend only 
+      <strong>6 seconds</strong> reviewing profiles before deciding to engage.
+    </p>
+    <p>
+      With <strong>87% of hiring managers</strong> checking GitHub profiles during evaluation, 
+      your unoptimized presence is actively sabotaging your career prospects. 
+      Only <strong>13% of profiles</strong> are professionally optimized — the rest disappear into the void.
     </p>
   </section>
 
+  <!-- Pain Section -->
+  <section class="glass max-w-4xl mx-auto px-6 py-12 text-gray-300 rounded-2xl my-10">
+    <h2 class="text-2xl font-bold text-[#47C6A2] mb-4">The Hidden Cost of an Invisible GitHub Profile</h2>
+    <p class="mb-4">
+      You’re a talented developer. Your code is solid. But opportunities keep slipping away 
+      to competitors who understand the GitHub visibility game.
+    </p>
+    <ul class="list-disc list-inside space-y-2">
+      <li>Every unoptimized day costs you career momentum.</li>
+      <li>Open-source contributions increase job landing chances by <strong>50%</strong>.</li>
+      <li>Premium roles pay <strong>30–50% more</strong> — but only if recruiters can find you.</li>
+    </ul>
+    <p class="mt-4 font-semibold text-white">Your technical skills mean nothing if recruiters can’t find or understand your work.</p>
+  </section>
+
+  <!-- Solution Section -->
   <section class="max-w-4xl mx-auto px-6 py-12 text-gray-300">
-    <h2 class="text-2xl font-bold text-[#47C6A2] mb-4">Features</h2>
-    <ul class="list-disc list-inside space-y-2 mb-6">
-      <li>Curated pinned repositories</li>
-      <li>Professional README.md setup</li>
-      <li>Project documentation polishing</li>
-      <li>Highlighting tech stack & contributions</li>
+    <h2 class="text-2xl font-bold text-[#47C6A2] mb-6">The Solution: Strategic GitHub Profile Optimization</h2>
+    <ul class="space-y-3 text-base sm:text-lg">
+      <li> <strong>Professional Profile README</strong> – Tell your story in the critical 6-second review</li>
+      <li> <strong>Strategic Repository Curation</strong> – Pin & organize your top 6 projects</li>
+      <li> <strong>Contribution Graph Optimization</strong> – Demonstrate consistent coding habits</li>
+      <li> <strong>Documentation Enhancement</strong> – Turn READMEs into full project showcases</li>
+      <li> <strong>Skills Visibility Maximization</strong> – Position your stack for 10x discoverability</li>
+      <li> <strong>Open-Source Contribution Guidance</strong> – Boost hiring chances by 50%</li>
     </ul>
   </section>
 
-  <section class="bg-white/5 py-10 mt-10 rounded-xl backdrop-blur-md max-w-4xl mx-auto px-6">
-    <h3 class="text-xl font-bold text-[#47C6A2] mb-4">Related Services</h3>
-    <ul class="space-y-2">
-      <li><a href="/explore/portfolio-site" class="hover:text-[#47C6A2]">Portfolio Website</a></li>
-      <li><a href="/explore/personal-branding" class="hover:text-[#47C6A2]">Personal Branding</a></li>
+  <!-- Measurable Results -->
+  <section class="glass max-w-4xl mx-auto px-6 py-12 text-gray-300 rounded-2xl my-10">
+    <h2 class="text-2xl font-bold text-[#47C6A2] mb-6">What’s In It For You: Measurable Career Acceleration</h2>
+    <div class="space-y-6">
+      <div>
+        <h3 class="text-xl font-semibold text-white"> Transformation</h3>
+        <p>300% more profile visits, 2x recruiter engagement, and faster interview scheduling.</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold text-white"> Financial Impact</h3>
+        <p>30–50% higher salaries, access to hidden job markets, and premium global roles.</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold text-white"> Emotional Relief</h3>
+        <p>Confidence, clarity, and peace of mind knowing recruiters finally get your value.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof Section -->
+  <section class="max-w-4xl mx-auto px-6 py-12 text-gray-300">
+    <h2 class="text-2xl font-bold text-[#47C6A2] mb-6">Proof: Real Results from Real Developers</h2>
+    <blockquote class="border-l-4 border-[#47C6A2] pl-4 italic mb-4">
+      “Within 2 weeks of optimization, I received 3 recruiter messages — before this, my GitHub was silent.”  
+      <span class="text-sm text-gray-400">— Amit, Full-Stack Developer</span>
+    </blockquote>
+    <blockquote class="border-l-4 border-[#47C6A2] pl-4 italic">
+      “I landed a remote role at 40% higher pay, directly through GitHub discovery.”  
+      <span class="text-sm text-gray-400">— Sana, Cloud Engineer</span>
+    </blockquote>
+    <p class="mt-6 text-sm text-gray-400">📊 3,500+ profiles optimized · 📈 90% recruiter engagement success rate</p>
+  </section>
+
+  <!-- Related Services -->
+  <section class="bg-white/5 py-10 mt-10 rounded-2xl backdrop-blur-md max-w-4xl mx-auto px-6 shadow-lg">
+    <h3 class="text-xl font-bold text-[#47C6A2] mb-6">Related Services</h3>
+    <ul class="space-y-3 text-base sm:text-lg">
+      <li><a href="https://optyp.com/explore/freelancing/fiverr/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">Fiverr Optimization</a></li>
+      <li><a href="https://optyp.com/explore/linkedin/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">LinkedIn Optimization</a></li>
+      <li><a href="https://optyp.com/explore/freelancing/upwork/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">upwork Optimization</a></li>
+      <li><a href="https://optyp.com/explore/portfolio-site/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">portfolio-site Optimization</a></li>
     </ul>
   </section>
 
+  <!-- CTA -->
   <section class="text-center py-12">
-    <a href="/#contact" class="glass-btn px-6 py-3 rounded-lg font-semibold">Get Started</a>
+    <a 
+      href="/#contact" 
+      class="relative inline-block px-8 py-4 font-semibold text-white text-lg rounded-full 
+      bg-gradient-to-r from-[#47C6A2] to-[#2dd4bf] shadow-lg backdrop-blur-md transition-all duration-300 
+      hover:scale-105 hover:shadow-[0_0_25px_#47C6A2] hover:from-[#2dd4bf] hover:to-[#47C6A2]">
+      <span class="relative z-10"> Get Your GitHub Optimized Now </span>
+    </a>
+    <p class="text-gray-400 mt-4 text-sm">
+      ✓ 300% Profile Visibility Increase Guaranteed • ✓ Professional Repository Curation • ✓ 48–72 Hour Delivery
+    </p>
   </section>
 </Layout>
+
+<style>
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+</style>
