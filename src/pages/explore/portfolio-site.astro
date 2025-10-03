@@ -1,40 +1,220 @@
----
-import Layout from "../../layouts/Layout.astro";
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Website Optimization Service | OPTYP</title>
+  <meta name="description" content="Boost visibility by 500% and get 300% more opportunities with our Portfolio Website Optimization service. SEO-rich, conversion-focused, mobile-friendly design." />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Glassmorphism */
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
 
-<Layout title="Portfolio Website | OPTYP">
-  <nav class="text-sm text-gray-400 mb-6">
-    <a href="/" class="hover:text-[#47C6A2]">Home</a> › 
-    <a href="/explore" class="hover:text-[#47C6A2]">Explore</a> › 
-    <span class="text-white">Portfolio Website</span>
-  </nav>
+    /* CTA Button Effects */
+    .cta-btn {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      font-weight: 700;
+      padding: 1rem 2rem;
+      border-radius: 9999px;
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-  <section class="text-center py-12">
-    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Portfolio Website</h1>
-    <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-      Create a polished online portfolio that highlights your projects, skills, and expertise in a modern design.
+    .cta-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 35px rgba(139, 92, 246, 0.6);
+    }
+
+    .cta-btn::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3), transparent 70%);
+      transform: rotate(25deg);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .cta-btn:hover::before {
+      opacity: 1;
+      animation: shine 1.2s infinite linear;
+    }
+
+    @keyframes shine {
+      from { transform: translateX(-100%) rotate(25deg); }
+      to { transform: translateX(100%) rotate(25deg); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white font-sans">
+
+  <!-- Hero Section -->
+  <section class="text-center py-12 px-6">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+      Portfolio Website Optimization Service
+    </h1>
+    <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-gray-300">
+      Transform Your Portfolio Into a Client Magnet and Increase Job Opportunities by <span class="font-bold text-indigo-400">300%</span>.
     </p>
+    <!-- Image Placeholder -->
+    <div class="relative max-w-4xl mx-auto mb-8">
+      <img src="/images/portfolio-placeholder.png" alt="Portfolio Website Optimization" 
+           class="w-full max-h-96 object-contain rounded-2xl shadow-xl border border-white/10" />
+    </div>
+    <a href="#cta" class="cta-btn inline-block">🚀 Get Your Portfolio Optimized Now</a>
   </section>
 
-  <section class="max-w-4xl mx-auto px-6 py-12 text-gray-300">
-    <h2 class="text-2xl font-bold text-[#47C6A2] mb-4">Features</h2>
-    <ul class="list-disc list-inside space-y-2 mb-6">
-      <li>Custom responsive design</li>
-      <li>Case study & project showcase</li>
-      <li>SEO optimization</li>
-      <li>Integration with GitHub & LinkedIn</li>
-    </ul>
-  </section>
+  <!-- Glassmorphism Content -->
+  <section class="max-w-5xl mx-auto px-6 space-y-12">
+    
+    <!-- Hidden Problem -->
+    <div class="glass p-8">
+      <h2 class="text-3xl font-bold mb-4">🚨 The Hidden Problem Professionals Face</h2>
+      <p class="text-gray-200 mb-4">Your portfolio is supposed to be your most powerful career tool — but instead, it may be sabotaging your success.</p>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>Only <strong>7% of professionals</strong> even have a portfolio website.</li>
+        <li><strong>56% of employers</strong> say they are more impressed by personal websites than any other branding tool.</li>
+        <li>The <strong>average portfolio conversion rate</strong> is just 2–3%, while optimized sites reach 5%+.</li>
+      </ul>
+      <p class="mt-4 font-semibold text-indigo-300">👉 The truth: Your skills aren’t the problem. Your portfolio performance is.</p>
+    </div>
 
-  <section class="bg-white/5 py-10 mt-10 rounded-xl backdrop-blur-md max-w-4xl mx-auto px-6">
-    <h3 class="text-xl font-bold text-[#47C6A2] mb-4">Related Services</h3>
-    <ul class="space-y-2">
-      <li><a href="/explore/github" class="hover:text-[#47C6A2]">GitHub Optimization</a></li>
-      <li><a href="/explore/personal-branding" class="hover:text-[#47C6A2]">Personal Branding</a></li>
-    </ul>
-  </section>
+    <!-- The Pain -->
+    <div class="glass p-8">
+      <h2 class="text-3xl font-bold mb-4">💔 The Pain That’s Costing You Opportunities</h2>
+      <p class="text-gray-200 mb-4">You’re skilled. You’ve delivered great work. But…</p>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>Opportunities keep slipping to competitors with optimized portfolios.</li>
+        <li>Recruiters and clients can’t see your value in under 10 seconds.</li>
+        <li>Slow websites and poor design make people click away.</li>
+        <li>Each missed project or dream job = losing <strong>tens of thousands</strong> in potential earnings.</li>
+      </ul>
+    </div>
 
-  <section class="text-center py-12">
-    <a href="/#contact" class="glass-btn px-6 py-3 rounded-lg font-semibold">Get Started</a>
+    <!-- Solution -->
+    <div class="glass p-8">
+      <h2 class="text-3xl font-bold mb-4">✅ The Solution: Data-Driven Portfolio Website Optimization</h2>
+      <p class="text-gray-200 mb-4">We transform invisible portfolios into client-winning career tools:</p>
+      <ul class="space-y-2 text-gray-300">
+        <li>✅ <strong>Professional Visual Storytelling</strong> – Hook visitors within 6 seconds</li>
+        <li>✅ <strong>Strategic Content Architecture</strong> – Showcase achievements that convert</li>
+        <li>✅ <strong>Conversion-Focused Design</strong> – Get 5%+ conversion rates</li>
+        <li>✅ <strong>SEO Optimization Excellence</strong> – Rank on Google’s first page</li>
+        <li>✅ <strong>Mobile-First Performance</strong> – Perfect display across all devices</li>
+        <li>✅ <strong>Lead Generation Systems</strong> – Capture opportunities 24/7</li>
+      </ul>
+    </div>
+
+    <!-- Measurable Results -->
+    <div class="glass p-8">
+      <h2 class="text-3xl font-bold mb-4">📊 What’s In It for You: Measurable Career Acceleration</h2>
+      <h3 class="text-2xl text-indigo-300 mt-2">🚀 Dramatic Visibility Gains</h3>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>500% more portfolio views in 60 days</li>
+        <li>300% increase in opportunities</li>
+        <li>First-page Google rankings</li>
+      </ul>
+      <h3 class="text-2xl text-indigo-300 mt-4">💰 Tangible Financial Impact</h3>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>5%+ conversion rates (vs. industry 2–3%)</li>
+        <li>Higher-paying clients & opportunities</li>
+        <li>24/7 passive lead generation</li>
+      </ul>
+      <h3 class="text-2xl text-indigo-300 mt-4">😌 Emotional Relief</h3>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>Confidence knowing your portfolio works for you</li>
+        <li>Peace of mind with tracking & measurable success</li>
+      </ul>
+    </div>
+
+    <!-- Proof -->
+    <div class="glass p-8">
+      <h2 class="text-3xl font-bold mb-4">📢 Proof: Real Results from Real Clients</h2>
+      <blockquote class="italic text-gray-300">“Within 2 weeks, I had 3 recruiters reach out — my portfolio had never worked like this before.”</blockquote>
+      <blockquote class="italic text-gray-300 mt-2">“My freelance portfolio went from 1–2 leads a month to 12 qualified inquiries in 30 days.”</blockquote>
+      <p class="mt-4 font-semibold text-indigo-300">✔ 4,200+ portfolios optimized across 40+ industries</p>
+    </div>
+
+    <!-- Features -->
+    <div class="glass p-8 space-y-6">
+      <h2 class="text-3xl font-bold">🛠️ Our Portfolio Website Optimization Features</h2>
+      <div>
+        <h3 class="text-2xl text-indigo-300">Complete Visual Transformation</h3>
+        <ul class="list-disc list-inside text-gray-300">
+          <li>Professional design overhaul</li>
+          <li>Curated showcase of 6–8 projects</li>
+          <li>High-impact multimedia visuals</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl text-indigo-300">Content Strategy Development</h3>
+        <ul class="list-disc list-inside text-gray-300">
+          <li>Compelling case studies & project results</li>
+          <li>Professional bio/About page</li>
+          <li>Unique value propositions</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl text-indigo-300">Technical Performance Optimization</h3>
+        <ul class="list-disc list-inside text-gray-300">
+          <li>Fast loading speeds</li>
+          <li>SEO-rich optimization</li>
+          <li>Mobile responsiveness</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl text-indigo-300">Lead Generation & Tracking</h3>
+        <ul class="list-disc list-inside text-gray-300">
+          <li>Contact & inquiry forms</li>
+          <li>Booking system setup</li>
+          <li>Analytics integration</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Related Services -->
+    <div class="glass p-8">
+      <h2 class="text-3xl font-bold mb-4">🔗 Related Services to Maximize Your Success</h2>
+      <ul class="list-disc list-inside text-gray-300">
+        <li><a href="/explore/job-portals/linkedin" class="hover:text-indigo-400">LinkedIn Profile Optimization</a></li>
+        <li><a href="/explore/branding/personal" class="hover:text-indigo-400">Personal Branding Strategy</a></li>
+        <li><a href="/explore/media/photography" class="hover:text-indigo-400">Professional Photography</a></li>
+      </ul>
+    </div>
+
+    <!-- Why Choose Us -->
+    <div class="glass p-8">
+      <h2 class="text-3xl font-bold mb-4">🌟 Why Choose Us for Portfolio Website Optimization</h2>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>✔ Certified specialists with conversion expertise</li>
+        <li>✔ 4,200+ success stories across 40+ industries</li>
+        <li>✔ Guaranteed 500% visibility boost</li>
+        <li>✔ 72-hour urgent delivery available</li>
+        <li>✔ Unlimited revisions + tracking setup</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div id="cta" class="text-center py-12">
+      <h2 class="text-3xl font-bold mb-4">🚀 Ready to Transform Your Portfolio into a Career Magnet?</h2>
+      <p class="text-gray-300 mb-6">Join the top 7% of professionals with optimized portfolios and unlock 300% more opportunities. Your next career breakthrough is one step away.</p>
+      <a href="/contact" class="cta-btn">🔥 Get Your Portfolio Website Optimized Now</a>
+      <p class="mt-4 text-sm text-gray-400">✓ 500% Visibility Increase Guarantee · ✓ 5%+ Conversion Rate · ✓ 72-Hour Delivery · ✓ Certified Specialists</p>
+    </div>
+
   </section>
-</Layout>
+</body>
+</html>
