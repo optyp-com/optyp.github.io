@@ -2,8 +2,19 @@
 export interface Props {
   title: string;
   description?: string;
+  keywords?: string;
+  ogImage?: string;
+  jsonLd?: Record<string, any>; // Page-specific JSON-LD injection
 }
-const { title, description = 'OPTYP - Optimize Your Professionalism' } = Astro.props;
+
+const {
+  title,
+  description = 'OPTYP - Optimize Your Professionalism',
+  keywords = 'career optimization, resume service, LinkedIn optimization, Naukri profile, Upwork profile, Fiverr profile, portfolio optimization, OPTYP',
+  ogImage = 'https://optyp.github.io/images/og-banner.png',
+  jsonLd
+} = Astro.props;
+
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingContactIcon from '../components/FloatingContactIcon.astro';
@@ -14,45 +25,55 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- Title & Description -->
+    <!-- Title & SEO Description -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="OPTYP" />
+
+    <!-- Robots / Crawling -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- Mobile Optimization -->
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://optyp.github.io" />
 
-    <!-- Open Graph (Social Preview) -->
+    <!-- Open Graph (Facebook/LinkedIn Preview) -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OPTYP" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://optyp.github.io/images/og-banner.png" />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:url" content="https://optyp.github.io" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@optyp" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://optyp.github.io/images/og-banner.png" />
+    <meta name="twitter:image" content={ogImage} />
 
-    <!-- Author -->
-    <meta name="author" content="OPTYP" />
-
-    <!-- Color scheme & theme -->
-    <meta name="color-scheme" content="dark" />
+    <!-- Theme / Color -->
+    <meta name="color-scheme" content="dark light" />
     <meta name="theme-color" content="#00ffd1" />
 
-    <!-- Fonts: preconnect + stylesheet (keeps your original font selection) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" />
 
-    <!-- Favicon + Manifest -->
+    <!-- Favicon / Manifest -->
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/icons/icon-192.png" />
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Design tokens (CSS variables fallback for non-Tailwind places) -->
+    <!-- Global Design Tokens -->
     <style>
       :root{
         --bg-900: #050406;
@@ -64,7 +85,6 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
         --text-1: #f4f7f7;
         --muted: #9ca3af;
       }
-      /* Prefer reduced motion: quick opt-out (only for first paint) */
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
       }
@@ -73,7 +93,7 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     <!-- Global CSS -->
     <link rel="stylesheet" href="/styles/global.css" />
 
-    <!-- Structured Data (SEO JSON-LD) -->
+    <!-- Default Structured Data (Organization + Plans) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -87,8 +107,7 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
               "https://linkedin.com/company/optyp",
               "https://instagram.com/optyp",
               "https://facebook.com/optyp",
-              "https://twitter.com/optyp",
-              "https://naukri.com/optyp"
+              "https://twitter.com/optyp"
             ],
             "contactPoint": {
               "@type": "ContactPoint",
@@ -138,10 +157,17 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
         ]
       }
     </script>
+
+    <!-- Page-Specific JSON-LD (Injectable via props) -->
+    {jsonLd && (
+      <script type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </script>
+    )}
   </head>
 
   <body class="bg-[linear-gradient(180deg,var(--bg-900),var(--bg-800))] text-white font-body leading-relaxed antialiased transition-colors duration-300">
-    <!-- Skip link (visible on focus) -->
+    <!-- Accessibility: Skip link -->
     <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-[color:var(--accent-1)] text-black rounded-md shadow-lg">
       Skip to main content
     </a>
@@ -149,23 +175,23 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     <!-- Header -->
     <Header />
 
-    <!-- Main content wrapper (keeps same max width as before) -->
+    <!-- Main content -->
     <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="main">
       <slot />
     </main>
 
-    <!-- Footer & floating contact -->
+    <!-- Footer & Floating contact -->
     <Footer />
     <FloatingContactIcon />
 
-    <!-- Global Animation Styles (kept, but animation classes are in global.css) -->
+    <!-- Animation Styles -->
     <style>
       @keyframes fadeInUp {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
       }
-      .animate-fadeInUp { animation: fadeInUp 0.8s ease-out both; opacity: 0; }
-      .animate-fadeInUp.visible { opacity: 1; }
+      .animate-fadeInUp { opacity: 0; }
+      .animate-fadeInUp.visible { opacity: 1; animation: fadeInUp 0.8s ease-out both; }
     </style>
 
     <!-- Scroll Reveal Script -->
@@ -173,7 +199,6 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
       (function () {
         const revealEls = document.querySelectorAll(".animate-fadeInUp");
         if (!('IntersectionObserver' in window)) {
-          // If IO not supported, simply show all
           revealEls.forEach(el => el.classList.add('visible'));
           return;
         }
@@ -191,11 +216,5 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
         revealEls.forEach((el) => revealObserver.observe(el));
       }());
     </script>
-
-    <!-- Keep the small CSS that toggles visibility after reveal -->
-    <style>
-      .animate-fadeInUp { opacity: 0; }
-      .animate-fadeInUp.visible { opacity: 1; animation: fadeInUp 0.8s ease-out both; }
-    </style>
   </body>
 </html>
