@@ -11,62 +11,86 @@ const image = "/images/Upwork5.svg";
 const price = 999;
 const currency = "INR";
 const provider = "OPTYP";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      serviceType: "Upwork Profile Optimization",
+      name: "Upwork Profile Optimization Service",
+      description:
+        "Professional Upwork optimization to win 3× more interviews, 250% more proposal views, and increase freelance earnings.",
+      provider: {
+        "@type": "Organization",
+        name: provider,
+        url: "https://optyp.com",
+        logo: "https://optyp.com/images/logo.png",
+      },
+      areaServed: "Worldwide",
+      offers: {
+        "@type": "Offer",
+        url: canonical,
+        priceCurrency: currency,
+        price: String(price),
+        availability: "https://schema.org/InStock",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How does Upwork profile optimization help me?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Our Upwork optimization service increases your profile visibility, attracts 3× more clients, and improves conversion rates for your proposals.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How long does Upwork optimization take?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Standard delivery is within 48–72 hours. Express delivery options are available for urgent projects.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What kind of results can I expect?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Most clients see 250% more proposal views, 3× interview invites, and increased Upwork revenue within 30 days.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you offer revisions or ongoing support?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes! Unlimited revisions for 30 days, along with performance tips and client acquisition guidance.",
+          },
+        },
+      ],
+    },
+  ],
+};
 ---
 
-<Layout title={title}>
-  <head>
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="canonical" href={canonical} />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="OPTYP" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        serviceType: "Upwork Profile Optimization",
-        name: "Upwork Profile Optimization Service",
-        description:
-          "Professional Upwork optimization to win 3× more interviews, 250% more proposal views, and increase freelance earnings.",
-        provider: {
-          "@type": "Organization",
-          name: provider,
-          url: "https://optyp.com",
-        },
-        areaServed: "IN",
-        offers: {
-          "@type": "Offer",
-          url: canonical,
-          priceCurrency: currency,
-          price: String(price),
-          availability: "https://schema.org/InStock",
-        },
-      })}
-    </script>
-  </head>
+<Layout
+  title={title}
+  description={description}
+  keywords={keywords}
+  ogImage={image}
+  jsonLd={jsonLd}
+>
 
   <!-- Breadcrumb -->
   <nav class="text-sm text-gray-400 mb-6 px-6">
     <a href="/" class="hover:text-[#47C6A2]">Home</a> › 
     <a href="/explore" class="hover:text-[#47C6A2]">Explore</a> › 
     <a href="/explore/freelancing" class="hover:text-[#47C6A2]">Freelancing</a> › 
-    <span class="text-white">Upwork</span>
+    <span class="text-white">Upwork Profile Optimization</span>
   </nav>
 
   <!-- Hero Section -->
@@ -80,14 +104,21 @@ const provider = "OPTYP";
       <span class="text-[#47C6A2] font-semibold">250% more proposal views</span> within 30 days.
     </p>
     <div class="relative max-w-4xl mx-auto mt-8">
-      <img src={image} alt="Upwork Profile Optimization" loading="lazy" decoding="async"
-           class="w-full max-h-96 object-contain rounded-2xl shadow-lg border border-white/10" />
+      <img
+        src={image}
+        alt="Upwork Profile Optimization"
+        class="w-full max-h-96 object-contain rounded-2xl shadow-lg border border-white/10"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   </section>
 
   <!-- Problem -->
   <section class="max-w-4xl mx-auto px-6 py-12 bg-white/5 rounded-xl backdrop-blur-md mb-10">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-4">The Invisible Freelancer Problem on Upwork</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-4">
+      The Invisible Freelancer Problem on Upwork
+    </h2>
     <p class="text-gray-300 mb-4">
       With over <span class="font-semibold">30 million freelancers</span> competing on Upwork, your unoptimized profile gets buried. Clients spend just 
       <span class="font-semibold">5–7 seconds</span> scanning profiles before deciding whom to invite.
@@ -100,7 +131,9 @@ const provider = "OPTYP";
 
   <!-- Pain -->
   <section class="max-w-4xl mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-4">The Daily Cost of a Poorly Optimized Profile</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-4">
+      The Daily Cost of a Poorly Optimized Profile
+    </h2>
     <p class="text-gray-300 mb-6">
       You have the skills and experience, yet your proposals go unanswered. Every day without optimization means:
     </p>
@@ -117,7 +150,9 @@ const provider = "OPTYP";
 
   <!-- Solution -->
   <section class="max-w-4xl mx-auto px-6 py-12 bg-white/5 rounded-xl backdrop-blur-md mb-10">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Solution: Data-Driven Upwork Profile Optimization</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      The Solution: Data-Driven Upwork Profile Optimization
+    </h2>
     <ul class="space-y-3 text-gray-300">
       <li><strong>Headline & Title Mastery</strong> – Boost clicks by 80%.</li>
       <li><strong>Professional Overview Reconstruction</strong> – Increase engagement by 60%.</li>
@@ -130,7 +165,9 @@ const provider = "OPTYP";
 
   <!-- Results -->
   <section class="max-w-4xl mx-auto px-6 py-12 text-gray-300">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">What’s In It For You: Measurable Results</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      What’s In It For You: Measurable Results
+    </h2>
     <div class="space-y-6">
       <div>
         <h3 class="text-xl font-semibold text-white">Enhanced Visibility & Engagement</h3>
@@ -147,9 +184,11 @@ const provider = "OPTYP";
     </div>
   </section>
 
-  <!-- Why Choose Us -->
+  <!-- Why Choose -->
   <section class="max-w-4xl mx-auto px-6 py-12 bg-white/5 rounded-xl backdrop-blur-md mb-10">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Why Choose OPTYP’s Upwork Profile Optimization?</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      Why Choose OPTYP’s Upwork Profile Optimization?
+    </h2>
     <ul class="space-y-4 text-gray-300">
       <li><strong>Certified Upwork Specialists:</strong> 200+ profiles optimized successfully.</li>
       <li><strong>Guaranteed Results:</strong> 250% more views or free revision.</li>
@@ -158,9 +197,11 @@ const provider = "OPTYP";
     </ul>
   </section>
 
-  <!-- Related Services -->
+  <!-- Related -->
   <section class="bg-white/5 py-10 mt-10 rounded-xl backdrop-blur-md max-w-4xl mx-auto px-6">
-    <h3 class="text-xl font-bold text-[#47C6A2] mb-4">Related Services to Accelerate Success</h3>
+    <h3 class="text-xl font-bold text-[#47C6A2] mb-4">
+      Related Services to Accelerate Success
+    </h3>
     <ul class="space-y-2 text-gray-300">
       <li><a href="/explore/linkedin" class="hover:text-[#47C6A2]">LinkedIn Profile Optimization</a></li>
       <li><a href="/explore/freelancing/fiverr" class="hover:text-[#47C6A2]">Fiverr Profile Optimization</a></li>
@@ -171,7 +212,9 @@ const provider = "OPTYP";
 
   <!-- CTA -->
   <section class="text-center py-16">
-    <h2 class="text-3xl font-bold text-white mb-4">Ready to Dominate Upwork?</h2>
+    <h2 class="text-3xl font-bold text-white mb-4">
+      Ready to Dominate Upwork?
+    </h2>
     <p class="text-gray-300 mb-6">
       Stop letting an invisible profile cost you high-paying opportunities. With 
       <span class="text-[#47C6A2] font-semibold">30 million freelancers competing</span>, optimization isn’t optional — it’s essential.
@@ -182,14 +225,13 @@ const provider = "OPTYP";
              bg-[#47C6A2]/20 backdrop-blur-md border border-[#47C6A2] shadow-lg 
              hover:scale-105 hover:shadow-[#47C6A2]/50 hover:border-white 
              before:absolute before:inset-0 before:rounded-2xl before:animate-pulse 
-             before:border-2 before:border-[#47C6A2]/50">
+             before:border-2 before:border-[#47C6A2]/50"
+    >
       Get Started
     </a>
-
     <p class="text-sm text-gray-400 mt-4">
       ✓ 250% More Proposal Views · ✓ 48–72 Hour Delivery · ✓ Unlimited Revisions
     </p>
-
     <div class="mt-8">
       <a
         href="/faq"

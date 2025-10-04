@@ -11,55 +11,37 @@ const currency = "INR";
 const providerName = "OPTYP";
 const publishedDate = "2025-10-05";
 const modifiedDate = "2025-10-05";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "ATS Resume Optimization",
+  name: "ATS Resume Optimization Service",
+  description:
+    "Make your resume pass ATS filters and land more interviews with keyword-rich, recruiter-friendly resumes.",
+  provider: {
+    "@type": "Organization",
+    name: providerName,
+    url: "https://optyp.com",
+  },
+  areaServed: "IN",
+  offers: {
+    "@type": "Offer",
+    url: canonicalUrl,
+    priceCurrency: currency,
+    price: String(priceNumeric),
+    availability: "https://schema.org/InStock",
+  },
+};
 ---
 
-<Layout title={pageTitle}>
-  <head>
-    <title>{pageTitle}</title>
-    <meta name="description" content={pageDescription} />
-    <meta name="keywords" content={pageKeywords} />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="canonical" href={canonicalUrl} />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={pageDescription} />
-    <meta property="og:image" content={pageImage} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content="OPTYP" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={pageDescription} />
-    <meta name="twitter:image" content={pageImage} />
-
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        serviceType: "ATS Resume Optimization",
-        name: "ATS Resume Optimization Service",
-        description: "Make your resume pass ATS filters and land more interviews with keyword-rich, recruiter-friendly resumes.",
-        provider: {
-          "@type": "Organization",
-          name: providerName,
-          url: "https://optyp.com"
-        },
-        areaServed: "IN",
-        offers: {
-          "@type": "Offer",
-          url: canonicalUrl,
-          priceCurrency: currency,
-          price: String(priceNumeric),
-          availability: "https://schema.org/InStock"
-        }
-      })}
-    </script>
-  </head>
-
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  keywords={pageKeywords}
+  ogImage={pageImage}
+  jsonLd={jsonLd}
+>
   <!-- Breadcrumb -->
   <nav class="text-xs sm:text-sm text-gray-400 mb-6 px-4">
     <a href="/" class="hover:text-[#47C6A2]">Home</a> › 
@@ -73,7 +55,8 @@ const modifiedDate = "2025-10-05";
       ATS Resume Optimization Service
     </h1>
     <p class="text-lg text-gray-300 max-w-xl mx-auto mb-4">
-      Get past automated filters and land <span class="text-[#47C6A2] font-semibold">67% more interviews</span>.  
+      Get past automated filters and land 
+      <span class="text-[#47C6A2] font-semibold">67% more interviews</span>.  
       Transform your resume into an ATS-friendly, recruiter-ready document.
     </p>
     <img
@@ -220,7 +203,9 @@ const modifiedDate = "2025-10-05";
   <!-- Floating Sticky CTA -->
   <a id="sticky-cta" href="/#contact"
      class="fixed right-6 bottom-6 z-50 rounded-2xl p-3 px-4 backdrop-blur bg-white/8 border border-white/10 shadow-lg flex items-center gap-3 hover:scale-105 transition">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+    </svg>
     <span class="font-medium">Get Started</span>
   </a>
 

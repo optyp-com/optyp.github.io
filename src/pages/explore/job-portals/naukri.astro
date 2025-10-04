@@ -13,55 +13,37 @@ const provider = "OPTYP";
 const currency = "INR";
 const publishedDate = "2025-10-05";
 const modifiedDate = "2025-10-05";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Naukri Profile Optimization",
+  name: "Naukri Profile Optimization Service",
+  description:
+    "Increase Naukri visibility, get 10x more interview calls, and achieve 4–5 star profile ratings with OPTYP.",
+  provider: {
+    "@type": "Organization",
+    name: provider,
+    url: "https://optyp.com",
+  },
+  areaServed: "IN",
+  offers: {
+    "@type": "Offer",
+    url: canonical,
+    priceCurrency: currency,
+    price: String(price),
+    availability: "https://schema.org/InStock",
+  },
+};
 ---
 
-<Layout title={title}>
-  <head>
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="canonical" href={canonical} />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:site_name" content="OPTYP" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
-
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        serviceType: "Naukri Profile Optimization",
-        name: "Naukri Profile Optimization Service",
-        description:
-          "Increase Naukri visibility, get 10x more interview calls, and achieve 4–5 star profile ratings with OPTYP.",
-        provider: {
-          "@type": "Organization",
-          name: provider,
-          url: "https://optyp.com"
-        },
-        areaServed: "IN",
-        offers: {
-          "@type": "Offer",
-          url: canonical,
-          priceCurrency: currency,
-          price: String(price),
-          availability: "https://schema.org/InStock"
-        }
-      })}
-    </script>
-  </head>
+<Layout
+  title={title}
+  description={description}
+  keywords={keywords}
+  ogImage={image}
+  jsonLd={jsonLd}
+>
 
   <!-- Breadcrumb -->
   <nav class="text-sm text-gray-400 mb-6 px-6">
