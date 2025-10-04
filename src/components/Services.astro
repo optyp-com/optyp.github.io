@@ -63,27 +63,19 @@ const serviceLinks = {
             {service.title}
           </h3>
 
-          <!-- Description + SEO Link -->
+          <!-- Description -->
           <p class="text-gray-300 mb-6">
             {service.description}
-            {serviceLinks[service.title] && (
-              <>
-                {" "}
-                <a 
-                  href={serviceLinks[service.title]} 
-                  class="underline text-[#47C6A2] hover:text-[#2F9E7F]"
-                >
-                  Learn more about {service.title}
-                </a>
-              </>
-            )}
           </p>
 
-          <!-- See More Button -->
+          <!-- See More Button (Glassmorphism Enhanced) -->
           {serviceLinks[service.title] && (
             <a 
               href={serviceLinks[service.title]}
-              class="inline-block mt-2 px-4 py-2 text-sm font-semibold rounded-md bg-[#47C6A2] text-black hover:bg-[#2F9E7F] transition-colors"
+              class="inline-block mt-2 px-4 py-2 text-sm font-semibold rounded-md 
+                     bg-[#47C6A2]/80 backdrop-blur-md border border-white/10 
+                     text-black hover:bg-[#2F9E7F]/90 hover:shadow-[0_0_20px_rgba(71,198,162,0.5)] 
+                     transition-all duration-300"
             >
               See More
             </a>
