@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 const title = "Personal Branding | OPTYP";
 const description = "Transform your professional identity with OPTYP's Personal Branding Service — 300% higher visibility, 5× more high-value engagements, 2-week brand launch, and 6 months of support.";
-const canonical = "https://optyp.com/explore/personal-branding";
+const canonical = "https://yourdomain.com/explore/personal-branding";
 const keywords = "personal branding, personal brand, personal brand strategy, LinkedIn optimization, thought leadership, personal website, PR outreach, brand identity, executive branding, career growth";
 const imagePlaceholder = "/images/personal-branding-placeholder.png"; // replace with your HD image path
 const publishedDate = "2025-10-04";
@@ -34,17 +34,17 @@ const modifiedDate = "2025-10-04";
       "@graph": [
         {
           "@type": "Organization",
-          "@id": "https://optyp.com/#organization",
+          "@id": "https://yourdomain.com/#organization",
           "name": "OPTYPO (OPTYPE?)",
-          "url": "https://optyp.com/",
-          "logo": "https://optyp.com/images/logo.png"
+          "url": "https://yourdomain.com/",
+          "logo": "https://yourdomain.com/images/logo.png"
         },
         {
           "@type": "Service",
           "@id": canonical + "#service",
           "name": "Personal Branding Service",
           "description": "Strategic personal branding to increase visibility, credibility and high-value opportunities. Guaranteed 300% visibility increase, 2-week brand launch and 6 months of support.",
-          "provider": { "@id": "https://optyp.com/#organization" },
+          "provider": { "@id": "https://yourdomain.com/#organization" },
           "areaServed": "Global",
           "url": canonical
         },
@@ -194,6 +194,17 @@ const modifiedDate = "2025-10-04";
         <img src={images/personal.jpg} alt="Personal branding placeholder" class="w-full h-auto max-h-56 object-contain rounded-lg" />
       </div>
 
+      <!-- CTA row -->
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 items-center justify-center">
+        <a href="/#contact" class="glass-btn cta-stroke pulse" aria-label="Get started with personal branding">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M5 5v14"/></svg>
+          Get Your Personal Brand Optimized Now
+        </a>
+        <a href="/faq#personal-branding" class="text-sm text-gray-300 hover:text-white underline">FAQ</a>
+      </div>
+
+      <p class="text-xs text-gray-400 mt-3">✓ 300% Visibility Increase Guaranteed • ✓ 2-Week Brand Launch • ✓ 6-Month Support</p>
+    </div>
   </section>
 
   <!-- Hidden Problem -->
