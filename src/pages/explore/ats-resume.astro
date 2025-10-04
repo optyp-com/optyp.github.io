@@ -1,23 +1,48 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import SEO from "../../components/SEO.astro";
+
+// Page-specific SEO values (edit if you want custom values)
+const pageTitle = "ATS Resume Optimization Service | OPTYP";
+const pageDescription = "ATS Resume Optimization Service to land more interviews. Beat Applicant Tracking Systems (ATS), pass recruiter filters, and get hired faster with keyword-rich, recruiter-friendly resumes. Starting at ₹299.";
+const pageKeywords = "ATS resume optimization, resume writing service, job search help, beat ATS, resume keywords, resume formatting, professional resume service, resume for interview, resume upgrade service";
+const pageImage = "/images/services/ats-resume-hero.jpg" || "/images/about-resume.svg"; // replace with your preferred OG image path
+const canonicalUrl = `${Astro.site?.origin || ""}/explore/ats-resume`;
+const priceNumeric = 299;
+const currency = "INR";
+const providerName = "OPTYP";
+
+/*
+  Notes:
+  - SEO is injected via the SEO component below.
+  - I preserved your page content and scripts; added minor accessibility + lazy-loading for the image.
+  - I added the missing #sticky-cta element so the script doesn't error.
+*/
 ---
 
-<Layout title="ATS Resume Optimization Service | OPTYP">
-  <head>
-    <!-- Meta SEO -->
-    <meta name="description" content="ATS Resume Optimization Service to land more interviews. Beat Applicant Tracking Systems (ATS), pass recruiter filters, and get hired faster with keyword-rich, recruiter-friendly resumes. Starting at ₹299.">
-    <meta name="keywords" content="ATS resume optimization, resume writing service, job search help, beat ATS, resume keywords, resume formatting, professional resume service, resume for interview, resume upgrade service">
-  </head>
+<Layout title={pageTitle}>
+
+  <!-- Inject full SEO head (meta tags, OG, Twitter card, JSON-LD) -->
+  <SEO
+    title={pageTitle}
+    description={pageDescription}
+    keywords={pageKeywords}
+    image={pageImage}
+    url={canonicalUrl}
+    type="service"
+    author={providerName}
+    publishedDate={new Date().toISOString()}
+  />
 
   <!-- Breadcrumb -->
-  <nav class="text-xs sm:text-sm text-gray-400 mb-4 sm:mb-6 px-4">
+  <nav class="text-xs sm:text-sm text-gray-400 mb-4 sm:mb-6 px-4" aria-label="Breadcrumb">
     <a href="/" class="hover:text-[#47C6A2]">Home</a> › 
     <a href="/explore" class="hover:text-[#47C6A2]">Explore</a> › 
-    <span class="text-white">ATS Resume Optimization</span>
+    <span class="text-white" aria-current="page">ATS Resume Optimization</span>
   </nav>
 
   <!-- Hero Section -->
-  <section class="text-center px-4 py-8 sm:py-12">
+  <section class="text-center px-4 py-8 sm:py-12" id="hero">
     <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4">
       ATS Resume to Land More Interviews 
     </h1>
@@ -26,15 +51,20 @@ import Layout from "../../layouts/Layout.astro";
       Transform your resume into an ATS-friendly, recruiter-ready document.
     </p>
 
-    <!-- Hero Image -->
+    <!-- Hero Image (lazy load + alt kept) -->
     <div class="mt-6 sm:mt-8">
-      <img src="/images/about-resume.svg" alt="ATS Resume Optimization Service"
-        class="rounded-xl shadow-lg mx-auto w-full max-w-md sm:max-w-2xl border border-white/10" />
+      <img
+        src="/images/about-resume.svg"
+        alt="ATS Resume Optimization Service"
+        class="rounded-xl shadow-lg mx-auto w-full max-w-md sm:max-w-2xl border border-white/10"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   </section>
 
   <!-- The Problem -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 text-gray-300">
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 text-gray-300" id="problem">
     <h2 class="text-xl sm:text-2xl font-bold text-[#47C6A2] mb-4 sm:mb-6">Why Most Resumes Fail ATS Screening</h2>
     <p class="mb-4">
       <strong>99% of Fortune 500 companies</strong> use ATS to scan resumes in just <strong>7.4 seconds</strong>.  
@@ -44,11 +74,11 @@ import Layout from "../../layouts/Layout.astro";
       <li><strong>75%</strong> of resumes are auto-rejected.</li>
       <li><strong>88%</strong> of employers miss top candidates due to poor ATS formatting.</li>
     </ul>
-    <p class="font-semibold text-red-400">👉 Your skills aren’t the problem. Your resume format is.</p>
+    <p class="font-semibold text-red-400">Your skills aren’t the problem. Your resume format is.</p>
   </section>
 
   <!-- Pain -->
-  <section class="bg-white/5 py-8 sm:py-10 rounded-xl backdrop-blur-md max-w-5xl mx-auto px-4 sm:px-6">
+  <section class="bg-white/5 py-8 sm:py-10 rounded-xl backdrop-blur-md max-w-5xl mx-auto px-4 sm:px-6" id="pain">
     <h2 class="text-xl sm:text-2xl font-bold text-[#47C6A2] mb-4">💔 The Cost of an Unoptimized Resume</h2>
     <p class="mb-4">You spend hours perfecting your resume, but it never reaches recruiters. Less qualified candidates move ahead while you’re stuck waiting.</p>
     <ul class="list-disc list-inside space-y-2">
@@ -58,7 +88,7 @@ import Layout from "../../layouts/Layout.astro";
   </section>
 
   <!-- Solution -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 text-gray-300">
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 text-gray-300" id="solution">
     <h2 class="text-xl sm:text-2xl font-bold text-[#47C6A2] mb-4 sm:mb-6">The ATS Resume Optimization Solution</h2>
     <ul class="list-disc list-inside space-y-2 mb-6">
       <li><strong>Keyword Integration</strong> – 85–90% match from job descriptions</li>
@@ -70,9 +100,9 @@ import Layout from "../../layouts/Layout.astro";
   </section>
 
   <!-- Measurable Results -->
-  <section class="bg-white/5 py-8 sm:py-12 mt-6 sm:mt-10 rounded-xl backdrop-blur-md max-w-5xl mx-auto px-4 sm:px-6 text-gray-300">
+  <section class="bg-white/5 py-8 sm:py-12 mt-6 sm:mt-10 rounded-xl backdrop-blur-md max-w-5xl mx-auto px-4 sm:px-6 text-gray-300" id="results">
     <h2 class="text-xl sm:text-2xl font-bold text-[#47C6A2] mb-4 sm:mb-6 flex items-center">
-    Measurable Results You Can Expect
+      Measurable Results You Can Expect
     </h2>
     <ul class="list-disc list-inside space-y-3">
       <li><strong>Career Growth:</strong> 67% higher interview success rates</li>
@@ -83,9 +113,9 @@ import Layout from "../../layouts/Layout.astro";
   </section>
 
   <!-- Why Choose OPTYP -->
-  <section class="bg-white/5 py-8 sm:py-12 mt-6 sm:mt-10 rounded-xl backdrop-blur-md max-w-5xl mx-auto px-4 sm:px-6 text-gray-300">
+  <section class="bg-white/5 py-8 sm:py-12 mt-6 sm:mt-10 rounded-xl backdrop-blur-md max-w-5xl mx-auto px-4 sm:px-6 text-gray-300" id="why">
     <h2 class="text-xl sm:text-2xl font-bold text-[#47C6A2] mb-4 sm:mb-6 flex items-center">
-    Why Choose OPTYP’s ATS Resume Service?
+      Why Choose OPTYP’s ATS Resume Service?
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
       <div class="hover:bg-white/10 p-4 rounded-lg transition">
@@ -134,11 +164,13 @@ import Layout from "../../layouts/Layout.astro";
       <p class="text-xs sm:text-sm text-gray-300 mb-4">One-time fee. Unlimited revisions for 30 days.</p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a href="/#contact" 
-           class="glass-btn border border-[#47C6A2] w-full sm:w-auto px-6 py-3 rounded-lg font-semibold transition transform hover:scale-105 hover:shadow-[0_0_20px_#47C6A2]">
-          🔥 Get Started
+           class="glass-btn border border-[#47C6A2] w-full sm:w-auto px-6 py-3 rounded-lg font-semibold transition transform hover:scale-105 hover:shadow-[0_0_20px_#47C6A2]" 
+           aria-label="Get started with ATS resume">
+          Get Started
         </a>
         <a href="/faq" 
-           class="w-full sm:w-auto px-6 py-3 rounded-lg border border-white/10 text-sm text-gray-300 hover:text-[#47C6A2] hover:bg-white/5 transition">
+           class="w-full sm:w-auto px-6 py-3 rounded-lg border border-white/10 text-sm text-gray-300 hover:text-[#47C6A2] hover:bg-white/5 transition" 
+           aria-label="Read FAQ">
           FAQ →
         </a>
       </div>
@@ -157,18 +189,19 @@ import Layout from "../../layouts/Layout.astro";
   </section>
 
   <!-- Final Call to Action -->
-  <section id="final-cta" class="text-center py-8 sm:py-12 px-4">
-    <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Ready to End Your Job Search Struggles?</h2>
+  <section id="final-cta" class="text-center py-8 sm:py-12 px-4" aria-labelledby="final-cta-heading">
+    <h2 id="final-cta-heading" class="text-2xl sm:text-3xl font-bold text-white mb-4">Ready to End Your Job Search Struggles?</h2>
     <p class="text-base sm:text-lg text-gray-300 max-w-xl mx-auto mb-6">
       Join the 67% of professionals landing more interviews with ATS-optimized resumes.  
       <strong>Being qualified isn’t enough—you need to be found.</strong>
     </p>
     <a href="/#contact" 
-       class="glass-btn border border-[#47C6A2] block sm:inline-block px-8 py-4 rounded-lg font-semibold text-base sm:text-lg transition transform hover:scale-105 hover:shadow-[0_0_30px_#47C6A2] mx-auto">
+       class="glass-btn border border-[#47C6A2] block sm:inline-block px-8 py-4 rounded-lg font-semibold text-base sm:text-lg transition transform hover:scale-105 hover:shadow-[0_0_30px_#47C6A2] mx-auto"
+       aria-label="Get Started Today">
       Get Started Today
     </a>
 
-    <ul class="mt-6 text-gray-400 text-sm space-y-1 max-w-md mx-auto text-left sm:text-center">
+    <ul class="mt-6 text-gray-400 text-sm space-y-1 max-w-md mx-auto text-left sm:text-center" aria-hidden="false">
       <li>✓ 90+ ATS Compatibility Score Guaranteed</li>
       <li>✓ 48-Hour Professional Delivery</li>
       <li>✓ Unlimited Revisions for 30 Days</li>
@@ -179,29 +212,63 @@ import Layout from "../../layouts/Layout.astro";
   <!-- Like & Share -->
   <section class="text-center py-8 sm:py-10">
     <p class="text-gray-400 mb-4">Was this page helpful?</p>
-    <div class="flex flex-col sm:flex-row justify-center gap-3">
-      <button id="like-yes" class="px-4 py-2 bg-white/10 rounded-lg hover:bg-[#47C6A2]/20">👍 Yes</button>
-      <button id="like-no" class="px-4 py-2 bg-white/10 rounded-lg hover:bg-red-400/20">👎 No</button>
+    <div class="flex flex-col sm:flex-row justify-center gap-3" role="status" aria-live="polite">
+      <button id="like-yes" class="px-4 py-2 bg-white/10 rounded-lg hover:bg-[#47C6A2]/20" aria-pressed="false">👍 Yes</button>
+      <button id="like-no" class="px-4 py-2 bg-white/10 rounded-lg hover:bg-red-400/20" aria-pressed="false">👎 No</button>
     </div>
   </section>
 
+  <!-- Floating sticky CTA (added to prevent JS errors and to keep same UX) -->
+  <a id="sticky-cta" href="/#contact"
+     class="fixed right-6 bottom-6 z-50 rounded-2xl p-3 px-4 backdrop-blur bg-white/8 border border-white/10 shadow-lg flex items-center gap-3 transform transition hover:scale-105 active:scale-95"
+     aria-label="Get started (sticky)">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+    <span class="font-medium">Get started</span>
+  </a>
+
+  <!-- JSON-LD: Service + Offer (helps rich results) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "ATS Resume Optimization",
+      "name": "ATS Resume Optimization Service",
+      "description": "Make your resume pass ATS filters and land more interviews with keyword-rich, recruiter-friendly resumes.",
+      "provider": {
+        "@type": "Organization",
+        "name": "OPTYP",
+        "url": "<?= " + JSON.stringify(Astro.site?.origin || "") + " ?>"
+      },
+      "areaServed": "IN",
+      "offers": {
+        "@type": "Offer",
+        "url": "<?= " + JSON.stringify(canonicalUrl) + " ?>",
+        "priceCurrency": "INR",
+        "price": "<?= " + JSON.stringify(String(priceNumeric)) + " ?>",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  </script>
 
   <script>
-    // Like feedback
+    // Like feedback (keeps your original behavior, with small accessibility tweaks)
     document.getElementById('like-yes')?.addEventListener('click', function() {
       this.textContent = 'Thanks! 👍';
       this.classList.add('bg-[#47C6A2]/20');
+      this.setAttribute('aria-pressed', 'true');
     });
     document.getElementById('like-no')?.addEventListener('click', function() {
       this.textContent = 'Thanks for feedback';
       this.classList.add('bg-red-400/20');
+      this.setAttribute('aria-pressed', 'true');
     });
 
-    // Sticky CTA hide when final CTA visible
+    // Sticky CTA hide when final CTA visible (safe guards added)
     const stickyCTA = document.getElementById("sticky-cta");
     const finalCTA = document.getElementById("final-cta");
 
     function checkCTA() {
+      if (!stickyCTA || !finalCTA) return;
       const rect = finalCTA.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom >= 0) {
         stickyCTA.classList.add("translate-y-full");
@@ -210,8 +277,9 @@ import Layout from "../../layouts/Layout.astro";
       }
     }
 
-    document.addEventListener("scroll", checkCTA);
+    document.addEventListener("scroll", checkCTA, { passive: true });
     window.addEventListener("resize", checkCTA);
     window.addEventListener("load", checkCTA);
   </script>
+
 </Layout>
