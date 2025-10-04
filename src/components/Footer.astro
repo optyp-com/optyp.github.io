@@ -21,6 +21,9 @@ import CookiePreferences from '../components/CookiePreferences.astro';
              class="text-[#47C6A2] hover:text-[#36a787] transition-colors duration-200">
             info@optyp.com
           </a>
+          <p class="text-sm text-gray-400 mt-2">
+            Bengaluru, Karnataka, India
+          </p>
         </div>
 
         <!-- Social Icons -->
@@ -118,6 +121,20 @@ import CookiePreferences from '../components/CookiePreferences.astro';
     </div>
   </div>
 
+  <!-- Floating Manage Cookies Icon -->
+  <button 
+    id="manageCookiesBtn"
+    aria-label="Manage Cookies"
+    title="Manage Cookies"
+    class="fixed bottom-4 right-4 sm:right-6
+           bg-gradient-to-br from-[#47C6A2]/80 to-[#1E9B7A]/80 
+           border border-teal-400/50 text-white w-10 h-10 rounded-full 
+           flex items-center justify-center shadow-lg backdrop-blur-md 
+           hover:scale-105 hover:shadow-teal-400/30 transition-all duration-300 z-50"
+  >
+    🍪
+  </button>
+
   <!-- Back to Top -->
   <button 
     id="backToTop" 
@@ -143,20 +160,13 @@ import CookiePreferences from '../components/CookiePreferences.astro';
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
       const backToTop = document.getElementById('backToTop');
-      const modal = document.getElementById('contact-modal');
+      const manageCookiesBtn = document.getElementById('manageCookiesBtn');
 
       function updateBackToTopVisibility() {
-        if (modal && !modal.classList.contains('hidden')) {
-          backToTop.classList.add('opacity-0', 'pointer-events-none');
-          return;
-        }
         const scrollY = window.scrollY || window.pageYOffset;
         const halfPage = (document.documentElement.scrollHeight || document.body.scrollHeight) / 2;
-        if (scrollY > halfPage) {
-          backToTop.classList.remove('opacity-0', 'pointer-events-none');
-        } else {
-          backToTop.classList.add('opacity-0', 'pointer-events-none');
-        }
+        if (scrollY > halfPage) backToTop.classList.remove('opacity-0', 'pointer-events-none');
+        else backToTop.classList.add('opacity-0', 'pointer-events-none');
       }
 
       function scrollTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
@@ -167,55 +177,52 @@ import CookiePreferences from '../components/CookiePreferences.astro';
       window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
       window.addEventListener('resize', updateBackToTopVisibility);
       updateBackToTopVisibility();
+
+      // Floating Manage Cookies Button: Open Cookie Preferences Modal
+      if (manageCookiesBtn) {
+        manageCookiesBtn.addEventListener('click', () => {
+          const openEvent = new CustomEvent('openCookieModal');
+          window.dispatchEvent(openEvent);
+        });
+      }
+
+      // Additionally, ensure global event opens modal if modal exists (fallback)
+      window.addEventListener('openCookieModal', () => {
+        const modal = document.querySelector('#cookie-preferences-modal');
+        if (modal) modal.classList.remove('hidden');
+      });
     })();
   </script>
 
-  <!-- JSON-LD Structured Data with themeColor -->
+  <!-- JSON-LD Structured Data with Address -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "name": "OPTYP",
-        "url": "https://optyp.github.io",
-        "logo": "https://optyp.github.io/images/logo.svg",
-        "sameAs": [
-          "https://linkedin.com/company/optyp",
-          "https://instagram.com/optyp",
-          "https://facebook.com/optyp",
-          "https://twitter.com/optyp"
-        ],
-        "brand": {
-          "@type": "Brand",
-          "name": "OPTYP",
-          "logo": "https://optyp.github.io/images/logo.svg",
-          "themeColor": "#47C6A2"
-        }
-      },
-      {
-        "@type": "SiteNavigationElement",
-        "name": ["Home","About","Plans","Contact","Feedback","FAQ","Privacy Policy","Terms & Conditions","Refund Policy","Disclaimer","Cookies Policy"],
-        "url": [
-          "https://optyp.github.io/",
-          "https://optyp.github.io/#about",
-          "https://optyp.github.io/#plans",
-          "https://optyp.github.io/#contact",
-          "https://optyp.github.io/feedback/",
-          "https://optyp.github.io/faq",
-          "https://optyp.github.io/privacy/",
-          "https://optyp.github.io/terms/",
-          "https://optyp.github.io/refund/",
-          "https://optyp.github.io/disclaimer/",
-          "https://optyp.github.io/cookies/"
-        ]
-      }
-    ]
+    "@type": "Organization",
+    "name": "OPTYP",
+    "url": "https://optyp.github.io",
+    "logo": "https://optyp.github.io/images/logo.svg",
+    "sameAs": [
+      "https://linkedin.com/company/optyp",
+      "https://instagram.com/optyp",
+      "https://facebook.com/optyp",
+      "https://twitter.com/optyp"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bengaluru",
+      "addressRegion": "Karnataka",
+      "addressCountry": "India"
+    },
+    "brand": {
+      "@type": "Brand",
+      "name": "OPTYP",
+      "themeColor": "#47C6A2"
+    }
   }
   </script>
 
   <style>
-    /* social icon hover glow */
     .social-icon svg { transition: transform .18s ease, filter .18s ease; }
     .social-icon:hover svg { transform: translateY(-3px); filter: drop-shadow(0 6px 14px rgba(71,198,162,0.25)); }
 

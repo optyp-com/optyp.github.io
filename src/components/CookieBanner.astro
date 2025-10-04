@@ -1,0 +1,128 @@
+---
+/**
+ * OPTYP Cookie Banner Component
+ * Global Privacy-Compliant (GDPR / CCPA / DPDP)
+ * Integrates with CookiePreferences.astro
+ */
+---
+
+<div id="cookie-banner" 
+     class="fixed bottom-0 left-0 right-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white border-t border-teal-400/40 py-4 px-6 shadow-lg z-50 hidden sm:flex items-center justify-between flex-wrap font-body">
+  
+  <!-- Message -->
+  <p class="text-sm sm:text-base max-w-2xl leading-relaxed mb-3 sm:mb-0">
+    🍪 We use cookies to improve your experience, analyze traffic, and personalize content. 
+    By clicking <strong>“Accept”</strong>, you consent to our use of cookies as described in our 
+    <a href="/cookies/" class="text-teal-400 underline hover:text-green-400">Cookies Policy</a>.
+  </p>
+
+  <!-- Actions -->
+  <div class="flex space-x-3 shrink-0">
+    <button id="cookieAcceptBtn"
+            class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
+      Accept
+    </button>
+    <button id="cookieRejectBtn"
+            class="bg-gray-700 hover:bg-gray-800 text-gray-200 px-4 py-2 rounded-lg text-sm font-semibold transition">
+      Reject
+    </button>
+    <button id="cookieManageBtn"
+            class="bg-transparent text-teal-400 underline hover:text-green-400 text-sm font-semibold transition">
+      Manage
+    </button>
+  </div>
+</div>
+
+<!-- Mobile fallback (simplified banner) -->
+<div id="cookie-banner-mobile" 
+     class="fixed bottom-0 left-0 right-0 bg-black/90 text-white border-t border-teal-400/40 py-4 px-4 shadow-lg z-50 sm:hidden hidden">
+  <p class="text-sm leading-relaxed">
+    We use cookies to improve your experience. 
+    <a href="/cookies/" class="text-teal-400 underline hover:text-green-400">Learn more</a>.
+  </p>
+  <div class="mt-3 flex justify-end space-x-3">
+    <button id="cookieAcceptBtnMobile"
+            class="bg-teal-500 hover:bg-teal-600 text-white px-3 py-1 rounded-lg text-sm font-semibold transition">Accept</button>
+    <button id="cookieRejectBtnMobile"
+            class="bg-gray-700 hover:bg-gray-800 text-gray-200 px-3 py-1 rounded-lg text-sm font-semibold transition">Reject</button>
+  </div>
+</div>
+
+<script is:inline>
+(function() {
+  const banner = document.getElementById('cookie-banner');
+  const bannerMobile = document.getElementById('cookie-banner-mobile');
+  const acceptBtn = document.getElementById('cookieAcceptBtn');
+  const rejectBtn = document.getElementById('cookieRejectBtn');
+  const manageBtn = document.getElementById('cookieManageBtn');
+  const acceptBtnMobile = document.getElementById('cookieAcceptBtnMobile');
+  const rejectBtnMobile = document.getElementById('cookieRejectBtnMobile');
+
+  function hasConsent() {
+    return localStorage.getItem('cookieConsent') !== null;
+  }
+
+  function showBanner() {
+    if (!banner || !bannerMobile) return;
+    banner.classList.remove('hidden');
+    bannerMobile.classList.remove('hidden');
+  }
+
+  function hideBanner() {
+    if (!banner || !bannerMobile) return;
+    banner.classList.add('hidden');
+    bannerMobile.classList.add('hidden');
+  }
+
+  function saveConsent(status) {
+    localStorage.setItem('cookieConsent', status);
+    if (status === 'accepted') {
+      // Also set default preferences
+      const prefs = { essential: true, analytics: true, marketing: true };
+      localStorage.setItem('cookiePreferences', JSON.stringify(prefs));
+
+      // Dispatch custom event for analytics loaders
+      window.dispatchEvent(new CustomEvent('cookiePreferencesSaved', { detail: prefs }));
+    } else if (status === 'rejected') {
+      const prefs = { essential: true, analytics: false, marketing: false };
+      localStorage.setItem('cookiePreferences', JSON.stringify(prefs));
+    } else {
+      localStorage.setItem('cookiePreferences', JSON.stringify({ essential: true }));
+    }
+  }
+
+  function handleAccept() {
+    saveConsent('accepted');
+    hideBanner();
+  }
+
+  function handleReject() {
+    saveConsent('rejected');
+    hideBanner();
+  }
+
+  function handleManage() {
+    hideBanner();
+    window.dispatchEvent(new CustomEvent('openCookieModal'));
+  }
+
+  // Attach listeners
+  if (acceptBtn) acceptBtn.addEventListener('click', handleAccept);
+  if (rejectBtn) rejectBtn.addEventListener('click', handleReject);
+  if (manageBtn) manageBtn.addEventListener('click', handleManage);
+  if (acceptBtnMobile) acceptBtnMobile.addEventListener('click', handleAccept);
+  if (rejectBtnMobile) rejectBtnMobile.addEventListener('click', handleReject);
+
+  // Show on first visit
+  if (!hasConsent()) {
+    showBanner();
+  }
+
+  // Re-show banner if user clears storage (optional recheck)
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'cookieConsent' && e.newValue === null) {
+      showBanner();
+    }
+  });
+})();
+</script>

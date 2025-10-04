@@ -1,0 +1,198 @@
+---
+/**
+ * OPTYP - Cookie Preferences Modal
+ * Works with CookieBanner.astro and Footer.astro
+ * GDPR / CCPA / DPDP compliant
+ */
+---
+
+<!-- Inline Manage Cookies button (appears in footer Legal section) -->
+<button
+  id="manageCookiesInlineBtn"
+  class="text-sm text-teal-400 underline hover:text-green-400 focus:outline-none transition"
+  type="button"
+  aria-haspopup="dialog"
+>
+  Manage Cookies
+</button>
+
+<!-- Modal (hidden by default) -->
+<div
+  id="cookie-preferences-modal"
+  class="hidden fixed inset-0 z-50 flex items-center justify-center px-4"
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+  <!-- Modal Box -->
+  <div
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cookie-modal-title"
+    class="relative bg-gradient-to-br from-gray-900 to-black border border-teal-400/40 rounded-2xl p-6 max-w-lg w-full text-white shadow-2xl"
+  >
+    <h2 id="cookie-modal-title" class="text-2xl font-bold mb-4 text-teal-300">
+      Cookie Preferences
+    </h2>
+
+    <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+      Choose which types of cookies you want to allow. You can update your preferences anytime.
+      For details, visit our
+      <a
+        href="/cookies/"
+        class="text-teal-400 underline hover:text-green-400"
+        >Cookies Policy</a
+      >.
+    </p>
+
+    <!-- Options -->
+    <div class="space-y-5">
+      <!-- Essential -->
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="font-semibold">Essential Cookies</p>
+          <p class="text-sm text-gray-400">
+            Required for site functionality and cannot be disabled.
+          </p>
+        </div>
+        <input
+          id="cookieEssential"
+          type="checkbox"
+          checked
+          disabled
+          class="w-5 h-5 accent-teal-500 cursor-not-allowed"
+        />
+      </div>
+
+      <!-- Analytics -->
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="font-semibold">Analytics Cookies</p>
+          <p class="text-sm text-gray-400">
+            Help us analyze website performance and improve services.
+          </p>
+        </div>
+        <input
+          id="cookieAnalytics"
+          type="checkbox"
+          class="w-5 h-5 accent-teal-500 cursor-pointer"
+        />
+      </div>
+
+      <!-- Marketing -->
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="font-semibold">Marketing Cookies</p>
+          <p class="text-sm text-gray-400">
+            Used to personalize ads and measure effectiveness.
+          </p>
+        </div>
+        <input
+          id="cookieMarketing"
+          type="checkbox"
+          class="w-5 h-5 accent-teal-500 cursor-pointer"
+        />
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="mt-6 flex justify-end gap-3">
+      <button
+        id="cookiePrefCancelBtn"
+        class="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-800 text-gray-200 transition"
+      >
+        Cancel
+      </button>
+      <button
+        id="cookiePrefSaveBtn"
+        class="px-4 py-2 rounded-lg bg-teal-500 hover:bg-teal-600 text-white font-semibold transition"
+      >
+        Save Preferences
+      </button>
+    </div>
+
+    <!-- Close Button -->
+    <button
+      id="cookiePrefCloseBtn"
+      aria-label="Close cookie preferences"
+      class="absolute top-4 right-4 text-gray-400 hover:text-teal-300 text-xl font-bold"
+    >
+      ✕
+    </button>
+  </div>
+</div>
+
+<!-- JavaScript Logic -->
+<script is:inline>
+(function () {
+  const modal = document.getElementById('cookie-preferences-modal');
+  const openBtn = document.getElementById('manageCookiesInlineBtn');
+  const closeBtn = document.getElementById('cookiePrefCloseBtn');
+  const cancelBtn = document.getElementById('cookiePrefCancelBtn');
+  const saveBtn = document.getElementById('cookiePrefSaveBtn');
+  const analyticsBox = document.getElementById('cookieAnalytics');
+  const marketingBox = document.getElementById('cookieMarketing');
+
+  function openModal() {
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    loadSavedPreferences();
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.add('hidden');
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  }
+
+  function loadSavedPreferences() {
+    try {
+      const prefs = JSON.parse(localStorage.getItem('cookiePreferences')) || {};
+      analyticsBox.checked = !!prefs.analytics;
+      marketingBox.checked = !!prefs.marketing;
+    } catch {
+      analyticsBox.checked = false;
+      marketingBox.checked = false;
+    }
+  }
+
+  function savePreferences() {
+    const prefs = {
+      essential: true,
+      analytics: analyticsBox.checked,
+      marketing: marketingBox.checked
+    };
+    try {
+      localStorage.setItem('cookiePreferences', JSON.stringify(prefs));
+      localStorage.setItem('cookieConsent', 'customized');
+    } catch {}
+    window.dispatchEvent(new CustomEvent('cookiePreferencesSaved', { detail: prefs }));
+    closeModal();
+  }
+
+  // Event bindings
+  openBtn?.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+  cancelBtn?.addEventListener('click', closeModal);
+  saveBtn?.addEventListener('click', savePreferences);
+
+  // Click outside modal to close
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Keyboard Esc to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+  });
+
+  // Global event listener (used by floating cookie icon)
+  window.addEventListener('openCookieModal', openModal);
+
+  // Optional helper (so scripts can trigger openModal programmatically)
+  window.openCookiePreferences = openModal;
+})();
+</script>
