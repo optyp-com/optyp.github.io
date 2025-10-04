@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout 
   title="Privacy Policy - OPTYP" 
-  description="Comprehensive Privacy Policy for OPTYP, covering data collection, usage, and protection.">
+  description="Comprehensive and transparent Privacy Policy for OPTYP, outlining data collection, usage, protection, and user rights in compliance with GDPR and CCPA.">
 
   <section class="relative py-20 px-6 bg-gradient-to-br from-black via-gray-900 to-black text-white">
     <div class="container mx-auto max-w-4xl">
@@ -16,7 +16,7 @@ import Layout from '../layouts/Layout.astro';
         </h1>
         <div class="w-20 h-1 bg-gradient-to-r from-teal-400 to-green-500 mx-auto mb-8 rounded-full shadow-sm"></div>
         <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-          At OPTYP, your privacy is paramount. This Privacy Policy details how we collect, use, and protect your personal information.
+          At OPTYP, your privacy is paramount. This Privacy Policy explains how we collect, use, and protect your personal data in line with global data protection standards.
         </p>
         <p class="mt-4 text-sm text-gray-400">
           Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -29,50 +29,69 @@ import Layout from '../layouts/Layout.astro';
         <section class="mb-10">
           <h2 class="text-teal-400 font-bold text-2xl mb-4">Information We Collect</h2>
           <ul class="space-y-2 list-disc list-inside">
-            <li><strong>Personal Identification:</strong> names, contact details including email and phone number.</li>
-            <li><strong>Profile Data:</strong> resume content, LinkedIn and other profile details needed for optimization.</li>
-            <li><strong>Usage Information:</strong> website interactions and analytics collected via cookies and similar technologies.</li>
-            <li><strong>Communications:</strong> correspondence and feedback you provide through email, chat, or forms.</li>
+            <li><strong>Personal Identification:</strong> name, email, phone number, and contact details.</li>
+            <li><strong>Profile Data:</strong> resume details, LinkedIn links, and professional content for optimization purposes.</li>
+            <li><strong>Usage Information:</strong> website analytics, cookies, and interaction data.</li>
+            <li><strong>Communications:</strong> feedback, inquiries, and correspondence you share with us.</li>
+            <li><strong>Device Information:</strong> browser type, IP address, and session data for security analysis.</li>
           </ul>
         </section>
 
         <section class="mb-10">
           <h2 class="text-teal-400 font-bold text-2xl mb-4">How We Use Your Information</h2>
           <ul class="space-y-2 list-disc list-inside">
-            <li>Deliver and tailor resume and profile optimization services.</li>
-            <li>Communicate project details and provide customer support.</li>
-            <li>Process payments securely and issue invoices.</li>
-            <li>Analyze service usage to enhance our offerings.</li>
-            <li>Comply with legal requirements and prevent fraudulent activities.</li>
+            <li>Provide and personalize resume and profile optimization services.</li>
+            <li>Communicate updates, offers, and support regarding your services.</li>
+            <li>Process transactions securely and issue receipts or invoices.</li>
+            <li>Enhance website functionality and user experience through analytics.</li>
+            <li>Prevent fraudulent, unauthorized, or illegal activities.</li>
+            <li>Comply with applicable laws and respond to lawful requests.</li>
           </ul>
           <div class="mt-6 glass-box p-4 rounded-xl text-green-300 font-semibold border border-green-500/40">
-            We do not sell or share your personal data with third parties for marketing without your explicit consent.
+            We never sell or rent your personal data to third parties for marketing purposes without your explicit consent.
           </div>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="text-teal-400 font-bold text-2xl mb-4">Third-Party Services</h2>
+          <p>
+            We may use trusted third-party tools such as Google Analytics, Stripe, or similar platforms to process data securely.
+            These partners adhere to strict data protection standards and are only granted access necessary for their specific functions.
+          </p>
+          <p class="mt-3 text-gray-400 text-sm">
+            You can review how these services handle data by visiting their respective privacy policies.
+          </p>
         </section>
 
         <section class="mb-10">
           <h2 class="text-teal-400 font-bold text-2xl mb-4">Data Security</h2>
           <ul class="space-y-2 list-disc list-inside">
-            <li>SSL/TLS encryption for all data transmissions.</li>
-            <li>Secure storage with controlled access.</li>
-            <li>Routine audits and system updates.</li>
-            <li>Access restricted to authorized personnel only.</li>
+            <li>End-to-end encryption via SSL/TLS for all data transfers.</li>
+            <li>Encrypted databases and secure backups.</li>
+            <li>Regular system audits and real-time monitoring for vulnerabilities.</li>
+            <li>Access limited to authorized personnel under strict confidentiality agreements.</li>
           </ul>
+          <p class="mt-3 text-gray-400 text-sm">
+            While we use advanced security measures, no digital platform is completely immune from risks. We continuously strive to enhance security protocols.
+          </p>
         </section>
 
         <section class="mb-10">
           <h2 class="text-teal-400 font-bold text-2xl mb-4">Data Retention</h2>
-          <p>We retain your information only as long as necessary to fulfill service obligations, maintain legal compliance, and resolve disputes.</p>
+          <p>
+            We retain your data only for as long as required to deliver services, comply with legal obligations, or resolve disputes. Upon request, we will delete or anonymize your data when retention is no longer necessary.
+          </p>
         </section>
 
         <section class="mb-10">
           <h2 class="text-teal-400 font-bold text-2xl mb-4">Your Rights</h2>
           <ul class="space-y-2 list-disc list-inside">
-            <li><strong>Access:</strong> Request copies of your data.</li>
-            <li><strong>Correction:</strong> Require amendments to inaccurate information.</li>
-            <li><strong>Deletion:</strong> Request removal of your personal data.</li>
-            <li><strong>Portability:</strong> Obtain data for use with other services.</li>
-            <li><strong>Consent Withdrawal:</strong> Revoke permission for personal data processing.</li>
+            <li><strong>Access:</strong> Obtain a copy of your personal data.</li>
+            <li><strong>Correction:</strong> Request corrections to inaccurate or outdated information.</li>
+            <li><strong>Deletion:</strong> Request deletion of your personal data (“Right to be Forgotten”).</li>
+            <li><strong>Restriction:</strong> Limit certain types of processing.</li>
+            <li><strong>Data Portability:</strong> Receive your data in a structured, machine-readable format.</li>
+            <li><strong>Withdraw Consent:</strong> Opt out of data processing at any time.</li>
           </ul>
           <p class="mt-4">
             To exercise these rights, contact us at 
@@ -82,18 +101,52 @@ import Layout from '../layouts/Layout.astro';
 
         <section class="mb-10">
           <h2 class="text-teal-400 font-bold text-2xl mb-4">Cookies and Tracking</h2>
-          <p>Our website uses cookies and similar technologies to improve your experience. You can manage cookie preferences via your browser settings.</p>
+          <p>
+            We use cookies and similar technologies to enhance user experience and analyze website traffic. You can modify your browser settings to disable or manage cookies at any time.
+          </p>
+          <p class="mt-2 text-sm text-gray-400">
+            Some cookies are essential for the website’s operation. Disabling them may affect your browsing experience.
+          </p>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="text-teal-400 font-bold text-2xl mb-4">International Data Transfers</h2>
+          <p>
+            Your data may be processed in countries other than your own. We ensure that any cross-border data transfers comply with applicable privacy regulations and maintain adequate safeguards.
+          </p>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="text-teal-400 font-bold text-2xl mb-4">Children’s Privacy</h2>
+          <p>
+            Our services are not directed toward individuals under the age of 16. We do not knowingly collect data from children. If you believe a minor has provided us with personal information, please contact us to have it removed.
+          </p>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="text-teal-400 font-bold text-2xl mb-4">Legal Basis (For EU & GDPR Users)</h2>
+          <p>
+            We process your personal information under one or more of the following lawful bases:
+          </p>
+          <ul class="space-y-2 list-disc list-inside">
+            <li>Your explicit consent.</li>
+            <li>Contractual necessity for providing services.</li>
+            <li>Legal obligations or regulatory compliance.</li>
+            <li>Legitimate interests pursued by OPTYP (e.g., improving services).</li>
+          </ul>
         </section>
 
         <section class="mb-10">
           <h2 class="text-teal-400 font-bold text-2xl mb-4">Changes to This Policy</h2>
-          <p>We may update this Privacy Policy to reflect changes in laws or our operations. Significant updates will be posted on our website.</p>
+          <p>
+            We may revise this Privacy Policy periodically. Updates will be reflected on this page with an updated “Last Updated” date. We encourage users to review it frequently.
+          </p>
         </section>
 
         <!-- CTA Section -->
         <section class="bg-gradient-to-r from-teal-500 to-green-500 text-white p-8 rounded-xl text-center shadow-xl">
           <h2 class="text-2xl font-bold mb-4">Questions About Our Privacy Policy?</h2>
-          <p class="mb-6">Reach out anytime with your concerns or inquiries regarding our data practices.</p>
+          <p class="mb-6">We’re here to help. Contact us with any questions, clarifications, or concerns about your data.</p>
           <p><strong>Email:</strong> <a href="mailto:info@optyp.com" class="underline hover:text-gray-200">info@optyp.com</a></p>
           <p><strong>Contact Page:</strong> <a href="/contact/" class="underline hover:text-gray-200">Visit our Contact Page</a></p>
         </section>
@@ -109,7 +162,14 @@ import Layout from '../layouts/Layout.astro';
     "@type": "WebPage",
     "name": "Privacy Policy",
     "url": "https://optyp.github.io/privacy/",
+    "description": "Comprehensive Privacy Policy of OPTYP outlining data handling, security, and GDPR/CCPA compliance.",
     "about": "Privacy Policy of OPTYP",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "OPTYP",
+      "url": "https://optyp.github.io"
+    },
     "publisher": {
       "@type": "Organization",
       "name": "OPTYP",
@@ -137,10 +197,23 @@ import Layout from '../layouts/Layout.astro';
   <style>
     .glass-box {
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(20,184,166,0.4); /* teal border */
+      border: 1px solid rgba(20,184,166,0.4);
       border-radius: 1rem;
       backdrop-filter: blur(10px);
       box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    }
+    article a {
+      color: #5eead4;
+      transition: color 0.3s ease;
+    }
+    article a:hover {
+      color: #86efac;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0ms !important;
+        transition-duration: 0ms !important;
+      }
     }
   </style>
 </Layout>

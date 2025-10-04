@@ -1,3 +1,7 @@
+---
+import CookiePreferences from '../components/CookiePreferences.astro';
+---
+
 <footer class="bg-black text-white py-12 font-body relative">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -94,7 +98,14 @@
           <li><a href="/privacy/" class="hover:text-[#47C6A2] transition-colors">Privacy Policy</a></li>
           <li><a href="/terms/" class="hover:text-[#47C6A2] transition-colors">Terms &amp; Conditions</a></li>
           <li><a href="/refund/" class="hover:text-[#47C6A2] transition-colors">Refund Policy</a></li>
+          <li><a href="/disclaimer/" class="hover:text-[#47C6A2] transition-colors">Disclaimer</a></li>
+          <li><a href="/cookies/" class="hover:text-[#47C6A2] transition-colors">Cookies Policy</a></li>
         </ul>
+
+        <!-- Manage Cookies Button -->
+        <div class="mt-4">
+          <CookiePreferences />
+        </div>
       </div>
     </div>
 
@@ -184,14 +195,19 @@
       },
       {
         "@type": "SiteNavigationElement",
-        "name": ["Home","About","Plans","Contact","Feedback","FAQ"],
+        "name": ["Home","About","Plans","Contact","Feedback","FAQ","Privacy Policy","Terms & Conditions","Refund Policy","Disclaimer","Cookies Policy"],
         "url": [
           "https://optyp.github.io/",
           "https://optyp.github.io/#about",
           "https://optyp.github.io/#plans",
           "https://optyp.github.io/#contact",
           "https://optyp.github.io/feedback/",
-          "https://optyp.github.io/faq"
+          "https://optyp.github.io/faq",
+          "https://optyp.github.io/privacy/",
+          "https://optyp.github.io/terms/",
+          "https://optyp.github.io/refund/",
+          "https://optyp.github.io/disclaimer/",
+          "https://optyp.github.io/cookies/"
         ]
       }
     ]
