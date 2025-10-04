@@ -1,17 +1,144 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+
+const title = "Portfolio Website Optimization Service | OPTYP";
+const description =
+  "Transform your portfolio website into a client magnet. OPTYP’s Portfolio Website Optimization boosts visibility by 500%, improves conversion rates, and increases opportunities by 300% within 60 days.";
+const keywords =
+  "portfolio website optimization, portfolio SEO, personal website optimization, creative portfolio, UX design portfolio, online portfolio improvement, professional portfolio service, web optimization for freelancers";
+const canonical = "https://optyp.com/explore/portfolio-site";
+const ogImage = "/images/portfolio-site5.jpg";
+const publishedDate = "2025-10-05";
+const modifiedDate = "2025-10-05";
 ---
 
-<Layout title="Portfolio Website Optimization Service | OPTYP">
+<!-- ✅ SEO + Meta Tags -->
+<head>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://optyp.com/#organization",
+          "name": "OPTYP",
+          "url": "https://optyp.com/",
+          "logo": "https://optyp.com/images/logo.png",
+          "sameAs": [
+            "https://www.linkedin.com/company/optyp",
+            "https://www.instagram.com/optyp"
+          ]
+        },
+        {
+          "@type": "Service",
+          "@id": canonical + "#service",
+          "name": "Portfolio Website Optimization Service",
+          "description": description,
+          "provider": { "@id": "https://optyp.com/#organization" },
+          "serviceType": "Portfolio Optimization",
+          "areaServed": "Global",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "INR",
+            "price": "1499",
+            "availability": "https://schema.org/InStock",
+            "url": canonical
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How fast will I see portfolio results?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can expect noticeable portfolio visibility improvements within 14 days and full performance gains within 60 days after optimization."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you redesign or optimize existing websites?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We perform complete optimization — design improvements, structure fixes, SEO tuning, and performance enhancements on your current portfolio."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the service suitable for creative professionals?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. It’s designed for designers, developers, freelancers, and consultants who want to convert portfolio visitors into high-value clients."
+              }
+            }
+          ]
+        }
+      ]
+    })}
+  </script>
+
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-btn {
+      background: linear-gradient(to right, #47c6a2, #22d3ee);
+      border-radius: 9999px;
+      color: #fff;
+      font-weight: 700;
+      padding: 1.25rem 2.5rem;
+      display: inline-block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hero-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(71, 198, 162, 0.6);
+    }
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out both;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<!-- ✅ Full Layout Page -->
+<Layout title={title}>
   <!-- Breadcrumb -->
-  <nav class="text-sm text-gray-400 mb-6 px-6">
+  <nav class="text-sm text-gray-400 mb-6 px-6 fade-in">
     <a href="/" class="hover:text-[#47C6A2]">Home</a> › 
     <a href="/explore" class="hover:text-[#47C6A2]">Explore</a> › 
     <span class="text-white">Portfolio Website Optimization</span>
   </nav>
 
   <!-- Hero Section -->
-  <section class="text-center py-12 px-6">
+  <section class="text-center py-12 px-6 fade-in" id="hero">
     <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4 leading-tight">
       Portfolio Website Optimization
     </h1>
@@ -22,15 +149,20 @@ import Layout from "../../layouts/Layout.astro";
       and <span class="font-bold text-[#47C6A2]">10x higher client conversions</span> within 60 days.
     </p>
 
-    <!-- Image Placeholder -->
     <div class="relative max-w-4xl mx-auto mb-8">
-      <img src="/images/portfolio-site5.jpg" alt="Portfolio Website Optimization" 
-           class="w-full max-h-96 object-contain rounded-2xl shadow-xl border border-white/10" />
+      <img
+        src="/images/portfolio-site5.jpg"
+        alt="Portfolio Website Optimization"
+        loading="lazy"
+        decoding="async"
+        class="w-full max-h-96 object-contain rounded-2xl shadow-xl border border-white/10"
+      />
+      <div class="absolute inset-0 bg-black/30 rounded-2xl" aria-hidden="true"></div>
     </div>
   </section>
 
   <!-- Problem Section -->
-  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl">
+  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl fade-in" id="problem">
     <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Portfolio Problem That's Killing Your Career</h2>
     <p class="mb-4">Your portfolio website is sabotaging your growth without you realizing it.</p>
     <div class="space-y-2 text-gray-300">
@@ -44,7 +176,7 @@ import Layout from "../../layouts/Layout.astro";
   </section>
 
   <!-- Pain Section -->
-  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl">
+  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl fade-in" id="pain">
     <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">💔 The Hidden Cost of an Invisible Portfolio</h2>
     <p class="mb-4">You’re talented. Your work speaks for itself. But opportunities keep slipping away:</p>
     <div class="space-y-2 text-gray-300">
@@ -55,80 +187,82 @@ import Layout from "../../layouts/Layout.astro";
   </section>
 
   <!-- Solution Section -->
-  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl">
+  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl fade-in" id="solution">
     <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Solution: Data-Driven Portfolio Website Optimization</h2>
     <p class="mb-6">We transform invisible portfolios into client-winning career tools:</p>
-    <div class="space-y-3 text-gray-300">
-      <p><strong>Professional Visual Storytelling</strong> – Hook visitors within 6 seconds</p>
-      <p><strong>Strategic Content Architecture</strong> – Organize projects to guide engagement</p>
-      <p><strong>Conversion-Focused Design</strong> – Achieve 5%+ conversion rates</p>
-      <p><strong>SEO Optimization Excellence</strong> – Rank on Google for your keywords</p>
-      <p><strong>Mobile-First Responsiveness</strong> – Perfect across all devices</p>
-      <p><strong>Lead Generation Systems</strong> – Capture opportunities 24/7</p>
-    </div>
+    <ul class="space-y-3 text-gray-300">
+      <li><strong>Professional Visual Storytelling</strong> – Hook visitors within 6 seconds</li>
+      <li><strong>Strategic Content Architecture</strong> – Organize projects to guide engagement</li>
+      <li><strong>Conversion-Focused Design</strong> – Achieve 5%+ conversion rates</li>
+      <li><strong>SEO Optimization Excellence</strong> – Rank on Google for your keywords</li>
+      <li><strong>Mobile-First Responsiveness</strong> – Perfect across all devices</li>
+      <li><strong>Lead Generation Systems</strong> – Capture opportunities 24/7</li>
+    </ul>
   </section>
 
   <!-- Measurable Results -->
-  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl">
+  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl fade-in" id="results">
     <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">What’s In It for You: Measurable Career Acceleration</h2>
     <h3 class="text-xl font-semibold mb-2">Dramatic Visibility Gains</h3>
-    <div class="mb-4 text-gray-300 space-y-2">
-      <p>500% more portfolio views in 60 days</p>
-      <p>300% more professional opportunities</p>
-      <p>First-page Google rankings</p>
-    </div>
+    <ul class="text-gray-300 mb-4 space-y-2">
+      <li>500% more portfolio views in 60 days</li>
+      <li>300% more professional opportunities</li>
+      <li>First-page Google rankings</li>
+    </ul>
+
     <h3 class="text-xl font-semibold mb-2">Tangible Financial Impact</h3>
-    <div class="mb-4 text-gray-300 space-y-2">
-      <p>5%+ conversion rates vs. industry average of 2–3%</p>
-      <p>Premium clients and higher-paying projects</p>
-      <p>24/7 passive lead generation</p>
-    </div>
+    <ul class="text-gray-300 mb-4 space-y-2">
+      <li>5%+ conversion rates vs. industry average of 2–3%</li>
+      <li>Premium clients and higher-paying projects</li>
+      <li>24/7 passive lead generation</li>
+    </ul>
+
     <h3 class="text-xl font-semibold mb-2">Emotional Relief</h3>
-    <div class="text-gray-300 space-y-2">
-      <p>Confidence knowing your portfolio works for you</p>
-      <p>Peace of mind with measurable tracking</p>
-    </div>
+    <ul class="text-gray-300 space-y-2">
+      <li>Confidence knowing your portfolio works for you</li>
+      <li>Peace of mind with measurable tracking</li>
+    </ul>
   </section>
 
   <!-- Features -->
-  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl space-y-6">
+  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl space-y-6 fade-in" id="features">
     <h2 class="text-3xl font-bold text-[#47C6A2]">Our Portfolio Website Optimization Features</h2>
     <div>
       <h3 class="text-xl font-semibold">Complete Visual Transformation</h3>
-      <div class="text-gray-300 space-y-1">
-        <p>Professional design overhaul</p>
-        <p>Curated showcase of 6–8 projects</p>
-        <p>High-impact multimedia visuals</p>
-      </div>
+      <ul class="text-gray-300 space-y-1 list-disc list-inside">
+        <li>Professional design overhaul</li>
+        <li>Curated showcase of 6–8 projects</li>
+        <li>High-impact multimedia visuals</li>
+      </ul>
     </div>
     <div>
       <h3 class="text-xl font-semibold">Content Strategy Development</h3>
-      <div class="text-gray-300 space-y-1">
-        <p>Compelling case studies & project results</p>
-        <p>Professional About/Bio page</p>
-        <p>Unique value propositions</p>
-      </div>
+      <ul class="text-gray-300 space-y-1 list-disc list-inside">
+        <li>Compelling case studies & project results</li>
+        <li>Professional About/Bio page</li>
+        <li>Unique value propositions</li>
+      </ul>
     </div>
     <div>
       <h3 class="text-xl font-semibold">Technical Performance Optimization</h3>
-      <div class="text-gray-300 space-y-1">
-        <p>Fast loading speeds</p>
-        <p>SEO-rich optimization</p>
-        <p>Mobile responsiveness</p>
-      </div>
+      <ul class="text-gray-300 space-y-1 list-disc list-inside">
+        <li>Fast loading speeds</li>
+        <li>SEO-rich optimization</li>
+        <li>Mobile responsiveness</li>
+      </ul>
     </div>
     <div>
       <h3 class="text-xl font-semibold">Lead Generation & Tracking</h3>
-      <div class="text-gray-300 space-y-1">
-        <p>Smart contact & inquiry forms</p>
-        <p>Booking system setup</p>
-        <p>Analytics integration</p>
-      </div>
+      <ul class="text-gray-300 space-y-1 list-disc list-inside">
+        <li>Smart contact & inquiry forms</li>
+        <li>Booking system setup</li>
+        <li>Analytics integration</li>
+      </ul>
     </div>
   </section>
 
   <!-- Related Services -->
-  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl">
+  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl fade-in" id="related">
     <h3 class="text-2xl font-bold text-[#47C6A2] mb-4">Related Services to Maximize Your Success</h3>
     <div class="space-y-2 text-gray-300">
       <p><a href="/explore/linkedin" class="hover:text-[#47C6A2]">LinkedIn Optimization</a></p>
@@ -139,41 +273,32 @@ import Layout from "../../layouts/Layout.astro";
   </section>
 
   <!-- Why Choose Us -->
-  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl">
+  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl fade-in" id="why">
     <h2 class="text-3xl font-bold text-[#47C6A2] mb-4">Why Choose Us for Portfolio Website Optimization</h2>
-    <div class="text-gray-300 space-y-2">
-      <p>Certified specialists with conversion expertise</p>
-      <p>4,200+ success stories across 40+ industries</p>
-      <p>Guaranteed 500% visibility boost</p>
-      <p>72-hour urgent delivery available</p>
-      <p>Unlimited revisions + tracking setup</p>
-    </div>
+    <ul class="text-gray-300 space-y-2 list-disc list-inside">
+      <li>Certified specialists with conversion expertise</li>
+      <li>4,200+ success stories across 40+ industries</li>
+      <li>Guaranteed 500% visibility boost</li>
+      <li>72-hour urgent delivery available</li>
+      <li>Unlimited revisions + tracking setup</li>
+    </ul>
   </section>
 
   <!-- Final CTA -->
-  <section class="text-center py-16">
+  <section class="text-center py-16 fade-in" id="final-cta">
     <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-white">Ready to Transform Your Portfolio into a Career Magnet?</h2>
     <p class="text-gray-300 mb-8 max-w-3xl mx-auto">
       Join the top 7% of professionals with optimized portfolios and unlock 300% more opportunities. 
       Your next career breakthrough is just one optimized portfolio away.
     </p>
-    <a href="/#contact" 
-       class="relative inline-block px-10 py-5 rounded-full font-bold text-white 
-              bg-gradient-to-r from-[#47C6A2] to-[#22D3EE] 
-              shadow-xl overflow-hidden transition-transform transform hover:scale-110">
-      <span class="relative z-10">Get Your Portfolio Website Optimized Now</span>
-      <span class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 
-                   hover:opacity-100 transition-opacity duration-500"></span>
-    </a>
-    <p class="mt-6 text-sm text-gray-400">✓ 500% Visibility Increase · ✓ 5%+ Conversion Rate · ✓ 72-Hour Delivery · ✓ Certified Specialists</p>
+    <a href="/#contact" class="hero-btn">Get Your Portfolio Website Optimized Now</a>
+    <p class="mt-6 text-sm text-gray-400">
+      ✓ 500% Visibility Increase · ✓ 5%+ Conversion Rate · ✓ 72-Hour Delivery · ✓ Certified Specialists
+    </p>
   </section>
 
-  <style>
-    .glass {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-  </style>
+  <footer class="text-center text-xs text-gray-500 py-8">
+    <p>Published: {publishedDate} • Updated: {modifiedDate}</p>
+    <p class="mt-1">© {new Date().getFullYear()} OPTYP. All rights reserved.</p>
+  </footer>
 </Layout>

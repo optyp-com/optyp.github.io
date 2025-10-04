@@ -1,208 +1,266 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+
+const title = "LinkedIn Profile Optimization Service | OPTYP";
+const description =
+  "Professional LinkedIn Profile Optimization that boosts your visibility, delivers 132% more profile views, and helps you get 40× more job opportunities in 90 days.";
+const keywords =
+  "LinkedIn profile optimization, LinkedIn visibility, LinkedIn branding, recruiter engagement, LinkedIn SEO, job search LinkedIn, professional networking, LinkedIn headline, LinkedIn summary, LinkedIn rewrite service";
+const canonical = "https://optyp.com/explore/linkedin";
+const image = "/images/Linkedin-page6.jpg";
+const provider = "OPTYP";
+const price = "799";
+const publishedDate = "2025-10-05";
+const modifiedDate = "2025-10-05";
 ---
 
-<Layout title="LinkedIn Profile Optimization Service | OPTYP">
+<!-- HEAD + SEO -->
+<head>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={image} />
+  <meta property="og:site_name" content="OPTYP" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image} />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://optyp.com/#organization",
+          "name": provider,
+          "url": "https://optyp.com/",
+          "logo": "https://optyp.com/images/logo.png"
+        },
+        {
+          "@type": "Service",
+          "@id": canonical + "#service",
+          "serviceType": "LinkedIn Profile Optimization",
+          "name": "LinkedIn Profile Optimization Service",
+          "description": description,
+          "provider": { "@id": "https://optyp.com/#organization" },
+          "areaServed": "IN",
+          "offers": {
+            "@type": "Offer",
+            "url": canonical,
+            "priceCurrency": "INR",
+            "price": price,
+            "availability": "https://schema.org/InStock"
+          },
+          "datePublished": publishedDate,
+          "dateModified": modifiedDate
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long does LinkedIn Optimization take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standard delivery is 48–72 hours with unlimited revisions for 30 days."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will it increase my recruiter visibility?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, our clients experience 132% more profile views and 2× recruiter engagement within 90 days."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you guarantee results?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We provide a 30-day performance guarantee — if you don't see improvement, we refine until you do."
+              }
+            }
+          ]
+        }
+      ]
+    })}
+  </script>
+
+  <style>
+    :root {
+      --accent: #47c6a2;
+      --glass-bg: rgba(255,255,255,0.05);
+      --glass-border: rgba(255,255,255,0.1);
+    }
+    .glass-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 1rem;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .glass-card:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(71,198,162,0.2); }
+    .glass-btn {
+      display:inline-block;
+      background: rgba(71,198,162,0.15);
+      border: 1px solid var(--accent);
+      color:#fff;
+      border-radius: .75rem;
+      padding:.9rem 1.5rem;
+      font-weight:600;
+      backdrop-filter: blur(10px);
+      transition:all .25s ease;
+    }
+    .glass-btn:hover {
+      background: var(--accent);
+      color:#050406;
+      box-shadow:0 0 20px rgba(71,198,162,0.4);
+      transform:scale(1.05);
+    }
+  </style>
+</head>
+
+<Layout title={title}>
   <!-- Breadcrumb -->
-  <nav class="text-sm text-gray-400 mb-6 px-4 sm:px-6">
+  <nav class="text-sm text-gray-400 mb-6 px-4 sm:px-6" aria-label="Breadcrumb">
     <a href="/" class="hover:text-[#47C6A2]">Home</a> › 
     <a href="/explore" class="hover:text-[#47C6A2]">Explore</a> › 
-    <span class="text-white">LinkedIn Profile Optimization</span>
+    <span class="text-white" aria-current="page">LinkedIn Profile Optimization</span>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="text-center py-8 sm:py-12 px-4 sm:px-6">
-    <h1 class="text-3xl sm:text-5xl font-extrabold text-white mb-3 sm:mb-4">
-      LinkedIn Profile Optimization Service
-    </h1>
-    <h2 class="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto mb-3 sm:mb-4">
-      Boost Your Visibility & Get 40x More Job Opportunities — Turn Your LinkedIn Into a Recruiter Magnet
-    </h2>
-    <p class="text-sm sm:text-lg text-gray-400 max-w-3xl mx-auto mb-6">
-      Professional LinkedIn optimization that delivers 132% more profile views and 2x more interviews in 90 days.
+  <!-- HERO -->
+  <section class="text-center py-10 sm:py-14 px-4 sm:px-6" id="hero">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-3">LinkedIn Profile Optimization Service</h1>
+    <p class="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto mb-5">
+      Boost your visibility &amp; get <strong>40× more job opportunities</strong> — turn your LinkedIn into a recruiter magnet.
     </p>
-    <img 
-      src="/images/Linkedin-page6.jpg" 
-      alt="LinkedIn Profile Optimization" 
-      class="mx-auto rounded-2xl shadow-lg mb-6 sm:mb-8 w-full max-w-4xl object-cover" 
-    />
+    <p class="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto mb-8">
+      Delivering <strong>132% more profile views</strong> and <strong>2× interview calls</strong> in just 90 days.
+    </p>
+    <div class="relative max-w-4xl mx-auto mb-8">
+      <img src={image} alt="LinkedIn Profile Optimization" 
+           class="w-full max-h-96 object-cover rounded-2xl shadow-lg border border-white/10" 
+           loading="lazy" decoding="async" />
+      <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
+    </div>
   </section>
 
-  <!-- Problem + Agitate -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 text-gray-300 leading-relaxed">
-    <h2 class="text-xl sm:text-2xl font-bold text-[#47C6A2] mb-4">The Silent Career Killer You Can’t See</h2>
-    <p class="mb-4">Your LinkedIn profile is sabotaging your career without you knowing it.</p>
-    <p class="mb-4">97% of recruiters use LinkedIn as their primary candidate source and dismiss incomplete, badly written profiles immediately. With over 930 million professionals competing for attention, your profile has just seconds to make an impression.</p>
-    <p class="mb-4">Here's the brutal truth: 75% of professionals have LinkedIn profiles that never get found. Even worse—recruiters spend only 6-8 seconds scanning each profile before deciding to engage or move on.</p>
-
-    <h3 class="text-lg sm:text-xl font-semibold text-white mb-3">The Hidden Pain Costing You Thousands</h3>
-    <p class="mb-4">You're qualified. You have the experience. But opportunities keep slipping away to competitors who understand the LinkedIn game.</p>
-    <p class="mb-4">Every day your profile stays unoptimized costs you money. Missing job opportunities means lost salary negotiations, delayed promotions, and watching less qualified candidates land roles you deserve.</p>
-    <p class="mb-4">The average salary increase from a strategic career move is 15-20%. If you're earning $60,000, that's $9,000-$12,000 annually. Miss one opportunity due to poor LinkedIn visibility, and you've lost more than most people spend on professional development in a lifetime.</p>
-    <p class="mb-4">You're not just losing jobs—you're losing your career momentum.</p>
-  </section>
-
-  <!-- Solution / Features -->
-  <section class="bg-white/5 rounded-2xl backdrop-blur-md max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 shadow-lg hover:shadow-[#47C6A2]/20 transition">
-    <h2 class="text-xl sm:text-2xl font-bold text-[#47C6A2] mb-6">The Solution: Strategic LinkedIn Optimization That Works</h2>
-    <ul class="grid sm:grid-cols-2 gap-4 text-gray-300 text-sm sm:text-base">
-      <li class="glass-card p-4 rounded-xl hover:scale-[1.02] transition">✅ Strategic Keyword Integration – 80-90% keyword match rates</li>
-      <li class="glass-card p-4 rounded-xl hover:scale-[1.02] transition">✅ Compelling Professional Headlines – Recruiter-click worthy</li>
-      <li class="glass-card p-4 rounded-xl hover:scale-[1.02] transition">✅ Engaging Summary Optimization – Showcase unique value</li>
-      <li class="glass-card p-4 rounded-xl hover:scale-[1.02] transition">✅ Achievement-Focused Experience Sections</li>
-      <li class="glass-card p-4 rounded-xl hover:scale-[1.02] transition">✅ Industry-Specific Skills Placement — 13x visibility boost</li>
-      <li class="glass-card p-4 rounded-xl hover:scale-[1.02] transition">✅ Professional Visual Branding — 14x more profile views</li>
-    </ul>
-  </section>
-
-  <!-- Benefits -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-    <h2 class="text-xl sm:text-2xl font-bold text-[#47C6A2] mb-6">What’s In It For You: Measurable Career Acceleration</h2>
-
-    <h3 class="text-lg sm:text-xl font-semibold text-white mb-3">Dramatic Visibility Increases:</h3>
-    <ul class="list-disc list-inside mb-6 space-y-2">
-      <li>132% increase in profile views within 30 days</li>
-      <li>40x more likely to receive recruiter opportunities</li>
-      <li>45-65% increase in profile views after optimization</li>
-    </ul>
-
-    <h3 class="text-lg sm:text-xl font-semibold text-white mb-3">Career Advancement Results:</h3>
-    <ul class="list-disc list-inside mb-6 space-y-2">
-      <li>50-80% more recruiter outreach in 90 days</li>
-      <li>Reduce job search time by 4-6 weeks</li>
-      <li>15-25% monthly connection growth</li>
-    </ul>
-
-    <h3 class="text-lg sm:text-xl font-semibold text-white mb-3">Financial Impact:</h3>
+  <!-- PROBLEM -->
+  <section class="max-w-5xl mx-auto px-6 py-12 text-gray-300 leading-relaxed" id="problem">
+    <h2 class="text-2xl font-bold text-[#47C6A2] mb-4">The Silent Career Killer You Can’t See</h2>
+    <p>97% of recruiters use LinkedIn to source talent. Bad or incomplete profiles are skipped in under 8 seconds.</p>
+    <p class="mt-3">With 930 million professionals competing, your profile needs to stand out instantly—or disappear.</p>
+    <h3 class="text-lg font-semibold text-white mt-6 mb-3">The Hidden Cost:</h3>
     <ul class="list-disc list-inside space-y-2">
-      <li>Higher salary negotiations & premium opportunities</li>
-      <li>Access hidden job market (80% of roles never posted)</li>
+      <li>Lost salary negotiations and slower promotions.</li>
+      <li>Missed roles you’re qualified for due to poor visibility.</li>
+      <li>Weeks of extra job-search time and lost income.</li>
     </ul>
   </section>
 
-  <!-- Proof Stats -->
-  <section class="bg-white/5 rounded-2xl backdrop-blur-md max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 shadow-lg hover:shadow-[#47C6A2]/20 transition">
-    <h2 class="text-xl sm:text-2xl font-bold text-[#47C6A2] mb-6">Performance Statistics</h2>
-    <ul class="space-y-3 text-gray-300 text-sm sm:text-base">
-      <li>📈 68% of our clients receive recruiter outreach within 60 days</li>
-      <li>📊 200-300% improvement in content engagement</li>
-      <li>🔗 76% of professionals found roles via LinkedIn connections</li>
+  <!-- SOLUTION -->
+  <section class="glass-card max-w-5xl mx-auto px-6 py-12 my-10" id="solution">
+    <h2 class="text-2xl font-bold text-[#47C6A2] mb-6">The Solution: Strategic LinkedIn Optimization</h2>
+    <ul class="grid sm:grid-cols-2 gap-4 text-gray-300 text-base">
+      <li>✅ Keyword Integration — 80–90% match to target jobs</li>
+      <li>✅ Compelling Headlines — recruiter-click worthy</li>
+      <li>✅ Engaging Summaries — story-driven &amp; achievement-focused</li>
+      <li>✅ Visual Branding — banner, photo &amp; color strategy</li>
+      <li>✅ Skills Placement — 13× visibility improvement</li>
+      <li>✅ Analytics &amp; Guidance — monthly performance tracking</li>
     </ul>
   </section>
 
-  <!-- Features 2 -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 text-sm sm:text-base">
-    <h2 class="text-xl sm:text-2xl font-bold text-[#47C6A2] mb-6">Our LinkedIn Optimization Features</h2>
-
-    <h3 class="text-lg sm:text-xl font-semibold text-white mb-3">Comprehensive Profile Analysis:</h3>
-    <ul class="list-disc list-inside mb-6 space-y-2">
-      <li>25+ profile checks covering critical elements</li>
-      <li>Keyword gap analysis vs target jobs</li>
-      <li>Competitor benchmarking</li>
-    </ul>
-
-    <h3 class="text-lg sm:text-xl font-semibold text-white mb-3">Professional Content Development:</h3>
-    <ul class="list-disc list-inside mb-6 space-y-2">
-      <li>Unique, keyword-rich headlines</li>
-      <li>Compelling career story summaries</li>
-      <li>Achievement-driven experience details</li>
-    </ul>
-
-    <h3 class="text-lg sm:text-xl font-semibold text-white mb-3">Strategic Visibility Enhancement:</h3>
-    <ul class="list-disc list-inside mb-6 space-y-2">
-      <li>Industry keyword optimization</li>
-      <li>Skills positioning (13x discoverability)</li>
-      <li>Photo & visual branding improvements</li>
-    </ul>
-
-    <h3 class="text-lg sm:text-xl font-semibold text-white mb-3">Performance Tracking:</h3>
-    <ul class="list-disc list-inside space-y-2">
-      <li>LinkedIn analytics setup & guidance</li>
-      <li>Monthly reporting with insights</li>
-      <li>Ongoing optimization suggestions</li>
-    </ul>
-  </section>
-
-  <!-- Related Services -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-    <h2 class="text-xl sm:text-2xl font-bold text-[#47C6A2] mb-6">Related Services to Maximize Your Success</h2>
-    <ul class="grid sm:grid-cols-2 gap-4 text-sm sm:text-base">
-      <li><a href="https://optyp.com/explore/ats-resume/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">ATS Resume Optimization</a></li>
-      <li><a href="https://optyp.com/explore/job-portals/naukri/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">naukri Optimization</a></li>
-      <li><a href="https://optyp.com/explore/job-portals/indeed/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">indeed Optimization</a></li>
-      <li><a href="https://optyp.com/explore/portfolio-site/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">portfolio-site Optimization</a></li>
-    </ul>
-  </section>
-
-  <!-- Industry-Specific -->
-  <section class="bg-white/5 rounded-2xl backdrop-blur-md max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 shadow-lg hover:shadow-[#47C6A2]/20 transition text-sm sm:text-base">
-    <h2 class="text-xl sm:text-2xl font-bold text-[#47C6A2] mb-6">Industry-Specific LinkedIn Optimization</h2>
-    <div class="grid sm:grid-cols-2 gap-6 text-gray-300">
+  <!-- RESULTS -->
+  <section class="glass-card max-w-5xl mx-auto px-6 py-12 my-10" id="results">
+    <h2 class="text-2xl font-bold text-[#47C6A2] mb-6">What’s In It For You: Measured Career Growth</h2>
+    <div class="grid sm:grid-cols-3 gap-6 text-gray-200">
       <div>
-        <h3 class="text-lg font-semibold text-white">Technology Professionals</h3>
-        <ul class="list-disc list-inside space-y-1">
-          <li>Certifications & project portfolios</li>
-          <li>Open-source contributions</li>
-          <li>Networking & thought leadership</li>
+        <h3 class="font-semibold text-lg">Visibility</h3>
+        <ul class="list-disc list-inside mt-2 space-y-1">
+          <li>132% more profile views</li>
+          <li>40× more recruiter reach</li>
         </ul>
       </div>
       <div>
-        <h3 class="text-lg font-semibold text-white">Sales & Marketing</h3>
-        <ul class="list-disc list-inside space-y-1">
-          <li>Revenue & client success metrics</li>
-          <li>Case studies & awards</li>
+        <h3 class="font-semibold text-lg">Career Impact</h3>
+        <ul class="list-disc list-inside mt-2 space-y-1">
+          <li>4–6 weeks faster hiring</li>
+          <li>50–80% more recruiter messages</li>
         </ul>
       </div>
       <div>
-        <h3 class="text-lg font-semibold text-white">Healthcare & Medical</h3>
-        <ul class="list-disc list-inside space-y-1">
-          <li>Licenses & certifications</li>
-          <li>Patient outcomes & training</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-white">Finance & Consulting</h3>
-        <ul class="list-disc list-inside space-y-1">
-          <li>Portfolio results</li>
-          <li>Certifications & market insights</li>
+        <h3 class="font-semibold text-lg">Financial Return</h3>
+        <ul class="list-disc list-inside mt-2 space-y-1">
+          <li>Higher starting offers</li>
+          <li>Access to hidden premium roles</li>
         </ul>
       </div>
     </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="glass-card max-w-5xl mx-auto px-6 py-12 my-10" id="industry">
+    <h2 class="text-2xl font-bold text-[#47C6A2] mb-6">Industry-Specific Optimization</h2>
+    <div class="grid sm:grid-cols-2 gap-6 text-gray-300">
+      <div>
+        <h3 class="font-semibold text-white">Technology</h3>
+        <ul class="list-disc list-inside"><li>GitHub &amp; project linking</li><li>Certifications highlight</li></ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white">Sales &amp; Marketing</h3>
+        <ul class="list-disc list-inside"><li>Revenue metrics</li><li>Client success proofs</li></ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white">Healthcare</h3>
+        <ul class="list-disc list-inside"><li>Licenses &amp; training</li><li>Patient outcomes</li></ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white">Finance &amp; Consulting</h3>
+        <ul class="list-disc list-inside"><li>Portfolio results</li><li>Market insights</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="glass-card max-w-5xl mx-auto px-6 py-12 my-10" id="related">
+    <h2 class="text-2xl font-bold text-[#47C6A2] mb-6">Related Services</h2>
+    <ul class="grid sm:grid-cols-2 gap-4 text-gray-300">
+      <li><a href="/explore/ats-resume" class="hover:text-[#47C6A2]">ATS Resume Optimization</a></li>
+      <li><a href="/explore/job-portals/naukri" class="hover:text-[#47C6A2]">Naukri Profile Optimization</a></li>
+      <li><a href="/explore/job-portals/indeed" class="hover:text-[#47C6A2]">Indeed Optimization</a></li>
+      <li><a href="/explore/portfolio-site" class="hover:text-[#47C6A2]">Portfolio Site Optimization</a></li>
+    </ul>
   </section>
 
   <!-- CTA -->
-  <section class="text-center py-8 sm:py-12 px-4 sm:px-6">
-    <a href="/#contact" class="glass-btn px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg shadow-md hover:scale-[1.05] transition">
-      Get Your LinkedIn Optimized Now
-    </a>
-    <p class="text-xs sm:text-sm text-gray-400 mt-4">✓ 132% Profile View Increase · ✓ 48-72 Hour Delivery · ✓ 30-Day Guarantee</p>
-
-    <!-- FAQ Button -->
+  <section class="text-center py-14 px-4" id="cta">
+    <h2 class="text-3xl font-bold text-white mb-4">Ready to Transform Your LinkedIn?</h2>
+    <p class="text-gray-300 max-w-2xl mx-auto mb-6">Join 1,000+ professionals who gained visibility, recruiter trust, and better offers in just weeks.</p>
+    <a href="/#contact" class="glass-btn text-lg font-semibold">Get Your LinkedIn Optimized Now</a>
+    <p class="text-xs text-gray-400 mt-4">✓ 132% Profile View Increase · ✓ 48–72 hr Delivery · ✓ 30-Day Guarantee</p>
     <div class="mt-6">
-      <a href="/faq" class="glass-btn px-5 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:scale-[1.05] transition">
-        View All FAQs
-      </a>
+      <a href="/faq#linkedin" class="glass-btn text-sm">View All FAQs</a>
     </div>
   </section>
-</Layout>
 
-<style>
-  .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease-in-out;
-  }
-  .glass-btn {
-    background: rgba(71, 198, 162, 0.15);
-    border: 1px solid #47C6A2;
-    color: #fff;
-    backdrop-filter: blur(12px);
-    transition: all 0.3s ease-in-out;
-  }
-  .glass-btn:hover {
-    background: #47C6A2;
-    color: #050406;
-    box-shadow: 0 0 20px rgba(71, 198, 162, 0.4);
-  }
-</style>
+  <!-- FOOTNOTE -->
+  <footer class="max-w-5xl mx-auto px-6 py-6 text-xs text-gray-500">
+    <p>Published: {publishedDate} • Updated: {modifiedDate}</p>
+    <p class="mt-2">© {new Date().getFullYear()} OPTYP — Results may vary. All percentages represent average verified client improvements.</p>
+  </footer>
+</Layout>

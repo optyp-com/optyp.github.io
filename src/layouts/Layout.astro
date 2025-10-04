@@ -11,7 +11,7 @@ const {
   title,
   description = 'OPTYP - Optimize Your Professionalism',
   keywords = 'career optimization, resume service, LinkedIn optimization, Naukri profile, Upwork profile, Fiverr profile, portfolio optimization, OPTYP',
-  ogImage = 'https://optyp.github.io/images/og-banner.png',
+  ogImage = 'https://optyp.com/images/og-banner.png',
   jsonLd
 } = Astro.props;
 
@@ -19,6 +19,10 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import FloatingContactIcon from '../components/FloatingContactIcon.astro';
+
+const canonicalUrl = Astro.url.origin + Astro.url.pathname;
+const siteUrl = 'https://optyp.com';
+const siteName = 'OPTYP';
 ---
 
 <!DOCTYPE html>
@@ -28,74 +32,83 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- SEO Essentials -->
+    <!-- =================== SEO Essentials =================== -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="author" content="OPTYP" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="google-site-verification" content="YOUR-GOOGLE-VERIFICATION-CODE" />
 
-    <!-- Mobile Optimization -->
+    <!-- =================== Mobile Optimization =================== -->
     <meta name="HandheldFriendly" content="true" />
     <meta name="MobileOptimized" content="320" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://optyp.github.io" />
+    <!-- =================== Canonical & Language =================== -->
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:locale" content="en_IN" />
 
-    <!-- Open Graph -->
+    <!-- =================== Open Graph =================== -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="OPTYP" />
+    <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:url" content="https://optyp.github.io" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:updated_time" content={new Date().toISOString()} />
 
-    <!-- Twitter -->
+    <!-- =================== Twitter =================== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@optyp" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Theme / Colors -->
+    <!-- =================== Colors & Theme =================== -->
     <meta name="color-scheme" content="dark light" />
-    <meta name="theme-color" content="#00ffd1" />
+    <meta name="theme-color" content="#47C6A2" />
 
-    <!-- Fonts -->
+    <!-- =================== Preconnect & Fonts =================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
     />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
-    <!-- Favicon / Manifest -->
+    <!-- =================== Icons / Manifest =================== -->
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/icons/icon-192.png" />
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Global Design Tokens -->
+    <!-- =================== Global Design Tokens =================== -->
     <style>
       :root {
         --bg-900: #050406;
         --bg-800: #0b0b0c;
-        --panel: rgba(255,255,255,0.03);
-        --accent-1: #00ffd1;
+        --panel: rgba(255, 255, 255, 0.03);
+        --accent-1: #47C6A2;
         --accent-2: #ff7a6b;
         --accent-3: #6ed0ff;
         --text-1: #f4f7f7;
         --muted: #9ca3af;
       }
+
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
       }
     </style>
 
-    <!-- Global CSS -->
+    <!-- =================== Global CSS =================== -->
     <link rel="stylesheet" href="/styles/global.css" />
 
-    <!-- Default Structured Data -->
+    <!-- =================== Default Structured Data =================== -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -103,8 +116,8 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
           {
             "@type": "Organization",
             "name": "OPTYP",
-            "url": "https://optyp.github.io",
-            "logo": "https://optyp.github.io/images/logo.svg",
+            "url": "https://optyp.com",
+            "logo": "https://optyp.com/images/logo.svg",
             "sameAs": [
               "https://linkedin.com/company/optyp",
               "https://instagram.com/optyp",
@@ -124,6 +137,16 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
             }
           },
           {
+            "@type": "WebSite",
+            "url": "https://optyp.com",
+            "name": "OPTYP - Optimize Your Professionalism",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://optyp.com/?s={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
             "@type": "Product",
             "name": "Essentials Plan",
             "description": "ATS Resume, LinkedIn & Naukri optimization to kickstart your career.",
@@ -133,7 +156,7 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
               "price": "499",
               "priceCurrency": "INR",
               "availability": "https://schema.org/InStock",
-              "url": "https://optyp.github.io/#plans"
+              "url": "https://optyp.com/#plans"
             }
           },
           {
@@ -146,7 +169,7 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
               "price": "749",
               "priceCurrency": "INR",
               "availability": "https://schema.org/InStock",
-              "url": "https://optyp.github.io/#plans"
+              "url": "https://optyp.com/#plans"
             }
           },
           {
@@ -159,14 +182,14 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
               "price": "999",
               "priceCurrency": "INR",
               "availability": "https://schema.org/InStock",
-              "url": "https://optyp.github.io/#plans"
+              "url": "https://optyp.com/#plans"
             }
           }
         ]
       }
     </script>
 
-    <!-- Page-Specific JSON-LD -->
+    <!-- =================== Page-Specific JSON-LD =================== -->
     {jsonLd && (
       <script type="application/ld+json">
         {JSON.stringify(jsonLd)}
@@ -179,22 +202,22 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
       Skip to main content
     </a>
 
-    <!-- Header -->
+    <!-- =================== Header =================== -->
     <Header />
 
-    <!-- Main content -->
+    <!-- =================== Main Content =================== -->
     <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="main">
       <slot />
     </main>
 
-    <!-- Global Cookie Banner -->
+    <!-- =================== Global Cookie Banner =================== -->
     <CookieBanner />
 
-    <!-- Footer & Floating Contact -->
+    <!-- =================== Footer & Floating Contact =================== -->
     <Footer />
     <FloatingContactIcon />
 
-    <!-- Animation Styles -->
+    <!-- =================== Animation Styles =================== -->
     <style>
       @keyframes fadeInUp {
         from { opacity: 0; transform: translateY(20px); }
@@ -204,7 +227,7 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
       .animate-fadeInUp.visible { opacity: 1; animation: fadeInUp 0.8s ease-out both; }
     </style>
 
-    <!-- Scroll Reveal -->
+    <!-- =================== Scroll Reveal =================== -->
     <script is:inline>
       (function () {
         const revealEls = document.querySelectorAll(".animate-fadeInUp");
@@ -227,7 +250,7 @@ import FloatingContactIcon from '../components/FloatingContactIcon.astro';
       }());
     </script>
 
-    <!-- Cookie Consent Integration (Global Event for Analytics) -->
+    <!-- =================== Cookie Consent (Google Analytics) =================== -->
     <script is:inline>
       window.addEventListener('cookiePreferencesSaved', (e) => {
         if (e.detail.analytics) {

@@ -1,29 +1,64 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 
-const meta = {
-  title: "Upwork Profile Optimization Service | OPTYP",
-  description: "Boost your freelance career with OPTYP’s Upwork Profile Optimization. Win 3× more interviews, get 250% more proposal views, and increase your earnings by 2.5× with expert-driven profile enhancements.",
-  keywords: "Upwork profile optimization, Upwork freelancer tips, Upwork profile setup, freelance profile optimization, boost Upwork earnings, get more Upwork clients, OPTYP freelancing services",
-  url: "https://optyp.com/explore/freelancing/upwork",
-  image: "/images/upwork-placeholder.png"
-};
+const title = "Upwork Profile Optimization Service | OPTYP";
+const description =
+  "Boost your freelance career with OPTYP’s Upwork Profile Optimization. Win 3× more interviews, get 250% more proposal views, and increase your earnings by 2.5× with expert-driven profile enhancements.";
+const keywords =
+  "Upwork profile optimization, Upwork freelancer tips, Upwork profile setup, freelance profile optimization, boost Upwork earnings, get more Upwork clients, OPTYP freelancing services";
+const canonical = "https://optyp.com/explore/freelancing/upwork";
+const image = "/images/Upwork5.svg";
+const price = 999;
+const currency = "INR";
+const provider = "OPTYP";
 ---
 
-<Layout title={meta.title}>
-  <!-- Meta Tags -->
+<Layout title={title}>
   <head>
-    <meta name="description" content={meta.description} />
-    <meta name="keywords" content={meta.keywords} />
-    <meta property="og:title" content={meta.title} />
-    <meta property="og:description" content={meta.description} />
-    <meta property="og:image" content={meta.image} />
-    <meta property="og:url" content={meta.url} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OPTYP" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={meta.title} />
-    <meta name="twitter:description" content={meta.description} />
-    <meta name="twitter:image" content={meta.image} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: "Upwork Profile Optimization",
+        name: "Upwork Profile Optimization Service",
+        description:
+          "Professional Upwork optimization to win 3× more interviews, 250% more proposal views, and increase freelance earnings.",
+        provider: {
+          "@type": "Organization",
+          name: provider,
+          url: "https://optyp.com",
+        },
+        areaServed: "IN",
+        offers: {
+          "@type": "Offer",
+          url: canonical,
+          priceCurrency: currency,
+          price: String(price),
+          availability: "https://schema.org/InStock",
+        },
+      })}
+    </script>
   </head>
 
   <!-- Breadcrumb -->
@@ -40,22 +75,27 @@ const meta = {
       Upwork Profile Optimization Service
     </h1>
     <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-      Win More Contracts & Boost Your Freelance Earnings by 250%. Transform your Upwork profile into a client-winning machine. Our expert optimization delivers <span class="text-[#47C6A2] font-semibold">3× more interview invites</span> and <span class="text-[#47C6A2] font-semibold">250% more proposal views</span> within 30 days.
+      Win More Contracts & Boost Your Freelance Earnings by 250%. Transform your Upwork profile into a client-winning machine. Our expert optimization delivers 
+      <span class="text-[#47C6A2] font-semibold">3× more interview invites</span> and 
+      <span class="text-[#47C6A2] font-semibold">250% more proposal views</span> within 30 days.
     </p>
-    <!-- Hero Image -->
     <div class="relative max-w-4xl mx-auto mt-8">
-      <img src="/images/Upwork5.svg" alt="Upwork Profile Optimization"
-        class="w-full max-h-96 object-contain rounded-2xl shadow-lg border border-white/10" />
+      <img src={image} alt="Upwork Profile Optimization" loading="lazy" decoding="async"
+           class="w-full max-h-96 object-contain rounded-2xl shadow-lg border border-white/10" />
     </div>
   </section>
 
-  <!-- Hidden Problem -->
+  <!-- Problem -->
   <section class="max-w-4xl mx-auto px-6 py-12 bg-white/5 rounded-xl backdrop-blur-md mb-10">
     <h2 class="text-3xl font-bold text-[#47C6A2] mb-4">The Invisible Freelancer Problem on Upwork</h2>
     <p class="text-gray-300 mb-4">
-      With over <span class="font-semibold">30 million freelancers</span> competing on Upwork, your unoptimized profile gets lost in a sea of talent. Clients spend just <span class="font-semibold">5–7 seconds</span> scanning profiles before deciding whom to invite. If your profile fails to showcase expertise and credibility in that brief window, you won’t get the invites you deserve.
+      With over <span class="font-semibold">30 million freelancers</span> competing on Upwork, your unoptimized profile gets buried. Clients spend just 
+      <span class="font-semibold">5–7 seconds</span> scanning profiles before deciding whom to invite.
     </p>
-    <p class="text-gray-300 font-medium"> Your skills aren’t the problem. Your <span class="text-[#47C6A2]">profile positioning & strategy</span> is.</p>
+    <p class="text-gray-300 font-medium">
+      Your skills aren’t the problem — your 
+      <span class="text-[#47C6A2]">profile positioning & strategy</span> is.
+    </p>
   </section>
 
   <!-- Pain -->
@@ -65,12 +105,13 @@ const meta = {
       You have the skills and experience, yet your proposals go unanswered. Every day without optimization means:
     </p>
     <ul class="list-disc list-inside text-gray-300 space-y-2">
-      <li> Lost revenue from missed projects</li>
-      <li> Longer sales cycles and wasted time</li>
-      <li> Lower Job Success Scores holding you back</li>
+      <li>Lost revenue from missed projects</li>
+      <li>Longer sales cycles and wasted time</li>
+      <li>Lower Job Success Scores holding you back</li>
     </ul>
     <p class="text-gray-300 mt-4">
-      Top-rated freelancers earn <span class="font-semibold">3× more</span>, and optimized profiles secure <span class="font-semibold">2.5× more contracts</span>. Don’t leave thousands on the table.
+      Top-rated freelancers earn <span class="font-semibold">3× more</span>, and optimized profiles secure 
+      <span class="font-semibold">2.5× more contracts</span>.
     </p>
   </section>
 
@@ -78,76 +119,42 @@ const meta = {
   <section class="max-w-4xl mx-auto px-6 py-12 bg-white/5 rounded-xl backdrop-blur-md mb-10">
     <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Solution: Data-Driven Upwork Profile Optimization</h2>
     <ul class="space-y-3 text-gray-300">
-      <li> <strong>Headline & Title Mastery</strong> – Craft keyword-rich titles that boost clicks by 80%.</li>
-      <li> <strong>Professional Overview Reconstruction</strong> – Client-focused summaries increasing engagement by 60%.</li>
-      <li> <strong>Portfolio Excellence</strong> – Showcase case studies & visuals raising hire rates by 70%.</li>
-      <li> <strong>Skill & Certification Alignment</strong> – Positioning skills for 4× better discoverability.</li>
-      <li> <strong>Profile Photo & Branding</strong> – Build instant trust with optimized visuals.</li>
-      <li> <strong>Specialized Service Packages</strong> – Tiered offers boosting contract values by 35%.</li>
+      <li><strong>Headline & Title Mastery</strong> – Boost clicks by 80%.</li>
+      <li><strong>Professional Overview Reconstruction</strong> – Increase engagement by 60%.</li>
+      <li><strong>Portfolio Excellence</strong> – Raise hire rates by 70%.</li>
+      <li><strong>Skill & Certification Alignment</strong> – 4× better discoverability.</li>
+      <li><strong>Profile Photo & Branding</strong> – Build instant trust.</li>
+      <li><strong>Specialized Packages</strong> – 35% higher contract value.</li>
     </ul>
   </section>
 
-  <!-- Measurable Results -->
-  <section class="max-w-4xl mx-auto px-6 py-12">
+  <!-- Results -->
+  <section class="max-w-4xl mx-auto px-6 py-12 text-gray-300">
     <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">What’s In It For You: Measurable Results</h2>
-    <div class="space-y-6 text-gray-300">
+    <div class="space-y-6">
       <div>
-        <h3 class="text-xl font-semibold text-white"> Enhanced Visibility & Engagement</h3>
-        <p>✔ 250% more proposal views in 30 days<br/>✔ 3× more interview invitations</p>
+        <h3 class="text-xl font-semibold text-white">Enhanced Visibility & Engagement</h3>
+        <p>✔ 250% more proposal views in 30 days<br/>✔ 3× more interview invites</p>
       </div>
       <div>
-        <h3 class="text-xl font-semibold text-white"> Higher Earnings & Success</h3>
+        <h3 class="text-xl font-semibold text-white">Higher Earnings & Success</h3>
         <p>✔ 2.5× more contracts won<br/>✔ Top-rated freelancers earn up to 3× more</p>
       </div>
       <div>
-        <h3 class="text-xl font-semibold text-white"> Emotional Relief & Confidence</h3>
+        <h3 class="text-xl font-semibold text-white">Emotional Relief & Confidence</h3>
         <p>✔ 20% higher Job Success Scores<br/>✔ 50% more repeat clients</p>
       </div>
     </div>
-  </section>
-
-  <!-- Features -->
-  <section class="max-w-4xl mx-auto px-6 py-12 bg-white/5 rounded-xl backdrop-blur-md mb-10">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Our Upwork Optimization Features</h2>
-    <div class="space-y-6 text-gray-300">
-      <div>
-        <h3 class="text-xl font-semibold text-white"> Comprehensive Research & Audit</h3>
-        <p>Performance analysis vs. top-rated benchmarks + gap identification.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-white"> Strategic Content Development</h3>
-        <p>SEO-driven headlines, overviews, and client-focused case studies with ROI metrics.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-white"> Technical & Visual Enhancements</h3>
-        <p>Photo optimization, branding guidelines, and portfolio formatting for impact.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-white"> Ongoing Performance Management</h3>
-        <p>Proposal templates, analytics setup, and monthly performance reports.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Industry-Specific -->
-  <section class="max-w-4xl mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Industry-Specific Upwork Optimization</h2>
-    <ul class="list-disc list-inside text-gray-300 space-y-2">
-      <li><strong>Web & Mobile Development</strong> – Highlight frameworks, code samples, and case studies.</li>
-      <li><strong>Graphic & UX Design</strong> – Showcase mood boards, design process, and deliverables.</li>
-      <li><strong>Writing & Translation</strong> – Present niche samples and tone variations.</li>
-      <li><strong>Digital Marketing & SEO</strong> – Demonstrate campaign metrics & conversions.</li>
-    </ul>
   </section>
 
   <!-- Why Choose Us -->
   <section class="max-w-4xl mx-auto px-6 py-12 bg-white/5 rounded-xl backdrop-blur-md mb-10">
     <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Why Choose OPTYP’s Upwork Profile Optimization?</h2>
     <ul class="space-y-4 text-gray-300">
-      <li> <strong>Certified Upwork Specialists</strong> – 200+ profiles optimized with proven success.</li>
-      <li> <strong>Guaranteed Outcomes</strong> – 250% more proposal views or unlimited revisions.</li>
-      <li> <strong>Fast Delivery</strong> – 48–72 hour turnaround for urgent launches.</li>
-      <li> <strong>Unlimited Revisions</strong> – Within 30 days of delivery.</li>
+      <li><strong>Certified Upwork Specialists:</strong> 200+ profiles optimized successfully.</li>
+      <li><strong>Guaranteed Results:</strong> 250% more views or free revision.</li>
+      <li><strong>Fast Delivery:</strong> 48–72 hours turnaround.</li>
+      <li><strong>Unlimited Revisions:</strong> 30-day support window.</li>
     </ul>
   </section>
 
@@ -155,39 +162,57 @@ const meta = {
   <section class="bg-white/5 py-10 mt-10 rounded-xl backdrop-blur-md max-w-4xl mx-auto px-6">
     <h3 class="text-xl font-bold text-[#47C6A2] mb-4">Related Services to Accelerate Success</h3>
     <ul class="space-y-2 text-gray-300">
-      <li><a href="https://optyp.com/explore/linkedin/" class="hover:text-[#47C6A2]">LinkedIn Profile Optimization</a></li>
-      <li><a href="https://optyp.com/explore/freelancing/fiverr/" class="hover:text-[#47C6A2]">Fiverr Profile Optimization</a></li>
-      <li><a href="https://optyp.com/explore/freelancing/toptal/" class="hover:text-[#47C6A2]">Toptal Profile Optimization</a></li>
-      <li><a href="https://optyp.com/explore/portfolio-site/" class="hover:text-[#47C6A2]">Portfolio Website Optimization</a></li>
-
+      <li><a href="/explore/linkedin" class="hover:text-[#47C6A2]">LinkedIn Profile Optimization</a></li>
+      <li><a href="/explore/freelancing/fiverr" class="hover:text-[#47C6A2]">Fiverr Profile Optimization</a></li>
+      <li><a href="/explore/freelancing/toptal" class="hover:text-[#47C6A2]">Toptal Profile Optimization</a></li>
+      <li><a href="/explore/portfolio-site" class="hover:text-[#47C6A2]">Portfolio Website Optimization</a></li>
     </ul>
   </section>
 
   <!-- CTA -->
   <section class="text-center py-16">
     <h2 class="text-3xl font-bold text-white mb-4">Ready to Dominate Upwork?</h2>
-    <p class="text-gray-300 mb-6">Stop letting an invisible profile cost you high-paying opportunities. With <span class="text-[#47C6A2] font-semibold">30 million freelancers competing</span>, professional optimization isn’t optional—it’s essential.</p>
-    
-    <!-- Get Started -->
-    <a href="/#contact" 
-       class="relative inline-block px-8 py-4 font-bold text-lg rounded-2xl text-white transition-all duration-300 
-              bg-[#47C6A2]/20 backdrop-blur-md border border-[#47C6A2] shadow-lg 
-              hover:scale-105 hover:shadow-[#47C6A2]/50 hover:border-white 
-              before:absolute before:inset-0 before:rounded-2xl before:animate-pulse 
-              before:border-2 before:border-[#47C6A2]/50">
+    <p class="text-gray-300 mb-6">
+      Stop letting an invisible profile cost you high-paying opportunities. With 
+      <span class="text-[#47C6A2] font-semibold">30 million freelancers competing</span>, optimization isn’t optional — it’s essential.
+    </p>
+    <a
+      href="/#contact"
+      class="relative inline-block px-8 py-4 font-bold text-lg rounded-2xl text-white transition-all duration-300 
+             bg-[#47C6A2]/20 backdrop-blur-md border border-[#47C6A2] shadow-lg 
+             hover:scale-105 hover:shadow-[#47C6A2]/50 hover:border-white 
+             before:absolute before:inset-0 before:rounded-2xl before:animate-pulse 
+             before:border-2 before:border-[#47C6A2]/50">
       Get Started
     </a>
 
-    <p class="text-sm text-gray-400 mt-4">✓ 250% More Proposal Views Guaranteed · ✓ 48–72 Hour Delivery · ✓ Unlimited Revisions</p>
+    <p class="text-sm text-gray-400 mt-4">
+      ✓ 250% More Proposal Views · ✓ 48–72 Hour Delivery · ✓ Unlimited Revisions
+    </p>
 
-    <!-- FAQ -->
     <div class="mt-8">
-      <a href="/faq" 
-         class="inline-block px-6 py-3 rounded-lg font-semibold text-white border border-[#47C6A2] 
-                bg-[#47C6A2]/20 backdrop-blur-md shadow-md transition-all 
-                hover:bg-[#47C6A2]/40 hover:scale-105 hover:shadow-[#47C6A2]/50">
+      <a
+        href="/faq"
+        class="inline-block px-6 py-3 rounded-lg font-semibold text-white border border-[#47C6A2] 
+               bg-[#47C6A2]/20 backdrop-blur-md shadow-md transition-all 
+               hover:bg-[#47C6A2]/40 hover:scale-105 hover:shadow-[#47C6A2]/50">
         View FAQs
       </a>
     </div>
   </section>
+
+  <style>
+    .glass-btn {
+      background: rgba(71, 198, 162, 0.15);
+      border: 1px solid #47C6A2;
+      color: #fff;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+    .glass-btn:hover {
+      background: #47C6A2;
+      color: #050406;
+      box-shadow: 0 0 20px rgba(71, 198, 162, 0.4);
+    }
+  </style>
 </Layout>

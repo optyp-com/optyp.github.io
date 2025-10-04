@@ -1,8 +1,67 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+
+const title = "Indeed Profile Optimization Service | OPTYP";
+const description =
+  "Indeed Profile Optimization Service — Get 45% more job applications and 3× higher recruiter visibility. Transform your Indeed profile into a recruiter magnet with professional optimization by OPTYP.";
+const keywords =
+  "Indeed profile optimization, job search India, recruiter visibility, job portal profile optimization, resume visibility, career growth, profile SEO, Indeed job applications";
+const canonical = "https://optyp.com/explore/job-portals/indeed";
+const image = "/images/indeed-page2.svg";
+const price = 699;
+const provider = "OPTYP";
+const currency = "INR";
+const publishedDate = "2025-10-05";
 ---
 
-<Layout title="Indeed Profile Optimization | OPTYP">
+<Layout title={title}>
+  <head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="OPTYP" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Schema (JSON-LD) -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: "Indeed Profile Optimization",
+        name: "Indeed Profile Optimization Service",
+        description:
+          "Professional Indeed optimization to boost recruiter visibility, profile engagement, and job offers.",
+        provider: {
+          "@type": "Organization",
+          name: provider,
+          url: "https://optyp.com",
+        },
+        areaServed: "IN",
+        offers: {
+          "@type": "Offer",
+          url: canonical,
+          priceCurrency: currency,
+          price: String(price),
+          availability: "https://schema.org/InStock",
+        },
+      })}
+    </script>
+  </head>
+
   <!-- Breadcrumb -->
   <nav class="text-sm text-gray-400 mb-6 px-4 sm:px-8">
     <a href="/" class="hover:text-[#47C6A2]">Home</a> › 
@@ -18,180 +77,156 @@ import Layout from "../../../layouts/Layout.astro";
     </h1>
     <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-6">
       Transform your Indeed profile into a recruiter magnet. Professional optimization delivers 
-      <strong>45% more job applications</strong> and <strong>3x higher recruiter visibility</strong> within 30 days.
+      <strong>45% more job applications</strong> and 
+      <strong>3× higher recruiter visibility</strong> within 30 days.
     </p>
 
-    <!-- Hero Image (Responsive & Sharp) -->
     <div class="relative max-w-4xl mx-auto mb-8">
-      <img 
-        src="/images/indeed-page2.svg" 
+      <img
+        src={image}
         alt="Indeed Profile Optimization"
         class="w-full max-h-96 object-contain rounded-2xl shadow-lg border border-white/10"
         loading="lazy"
+        decoding="async"
       />
       <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
     </div>
 
-    <!-- CTA Button -->
-    <a href="/#contact" 
-       class="glass-btn px-8 py-3 rounded-lg font-semibold transition-all duration-300 
-              border border-[#47C6A2] text-white shadow-md hover:shadow-[#47C6A2]/50 
-              hover:bg-[#47C6A2]/20 hover:scale-105">
+    <a
+      href="/#contact"
+      class="glass-btn px-8 py-3 rounded-lg font-semibold transition-all duration-300 
+             border border-[#47C6A2] text-white shadow-md hover:shadow-[#47C6A2]/50 
+             hover:bg-[#47C6A2]/20 hover:scale-105">
       Get Your Indeed Profile Optimized Now
     </a>
   </section>
 
-  <!-- Pain Section -->
+  <!-- Pain -->
   <section class="max-w-4xl mx-auto px-6 py-12 text-gray-300">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Silent Application Killer You Can’t See</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      The Silent Application Killer You Can’t See
+    </h2>
     <p class="mb-4">
-      Your Indeed profile is sabotaging your job search without you knowing it. With over 
-      <strong>250 million monthly visitors</strong> and <strong>295 million resumes</strong> in the database, 
-      an unoptimized profile simply disappears in the crowd.
+      Your Indeed profile is sabotaging your job search without you realizing it.
+      With over <strong>250M monthly visitors</strong> and 
+      <strong>295M resumes</strong> competing, an unoptimized profile vanishes fast.
     </p>
     <p>
-      Here’s the brutal reality: Only <strong>2–5% of job applications</strong> on Indeed get positive responses. 
-      Recruiters scan profiles for just <strong>6–8 seconds</strong> before deciding whether to engage.
+      Only <strong>2–5%</strong> of job applications get responses. Recruiters decide in 
+      <strong>6–8 seconds</strong> whether to contact you — optimization is non-negotiable.
     </p>
   </section>
 
   <!-- Hidden Cost -->
   <section class="bg-white/5 backdrop-blur-md rounded-xl max-w-4xl mx-auto px-6 py-12 my-10 text-gray-300">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Hidden Cost of Being Invisible</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      The Hidden Cost of Being Invisible
+    </h2>
     <p class="mb-4">
-      You’re qualified. You’ve got the right experience. But your applications vanish while less 
-      qualified candidates get interview calls.
+      You’re talented, but less qualified candidates get calls because recruiters never see your profile.
     </p>
     <p class="mb-4">
-      Every day your profile stays unoptimized costs you opportunities. The average job search 
-      drags on <strong>5–6 months</strong> without help. Miss one recruiter call, and you could lose 
-      <strong>tens of thousands in potential earnings</strong>.
+      Every unoptimized day means missed opportunities and longer job searches —
+      costing you <strong>lakhs in potential earnings</strong>.
     </p>
-    <p>Your career momentum dies when recruiters can’t find you among 295 million profiles.</p>
+    <p>
+      Your career momentum stops when your profile isn’t optimized to stand out.
+    </p>
   </section>
 
   <!-- Solution -->
   <section class="max-w-4xl mx-auto px-6 py-12 text-gray-300">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Solution: Strategic Indeed Profile Optimization</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      The Solution: Strategic Indeed Profile Optimization
+    </h2>
     <ul class="space-y-3">
-      <li>Complete Profile Enhancement – 100% profile completion prioritized by Indeed’s algorithm</li>
-      <li>Recruiter-Focused Keywords – Get discovered 10x more often with exact search terms</li>
-      <li>Professional Summary Optimization – Compel recruiters to stop scrolling</li>
-      <li>Skills Section Mastery – Align with Indeed’s Smart Sourcing tech</li>
-      <li>Experience Section Transformation – Achievements over duties with measurable results</li>
-      <li>Indeed Apply Integration – Generate 45% more application starts</li>
+      <li><strong>Complete Profile Enhancement:</strong> 100% completion and recruiter-friendly structure.</li>
+      <li><strong>Keyword Optimization:</strong> 10× more discovery using Indeed’s search intent model.</li>
+      <li><strong>Professional Summary Optimization:</strong> Hooks recruiters instantly.</li>
+      <li><strong>Skills Alignment:</strong> Mapped to Smart Sourcing tech.</li>
+      <li><strong>Experience Section Overhaul:</strong> Achievement-focused, not duty lists.</li>
+      <li><strong>Indeed Apply Integration:</strong> Boosts application starts by 45%.</li>
     </ul>
   </section>
 
   <!-- Benefits -->
   <section class="bg-white/5 backdrop-blur-md rounded-xl max-w-5xl mx-auto px-6 py-12 my-10 text-gray-300">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">What’s In It For You: Measurable Career Acceleration</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      What’s In It For You: Measurable Career Acceleration
+    </h2>
     <div class="grid gap-8 sm:grid-cols-3">
-      <div class="glassmorphism p-6 rounded-xl hover:scale-105 transition-transform">
-        <h3 class="font-bold text-xl text-white mb-2">Dramatic Visibility Increases</h3>
-        <p>45% more application opportunities, 3x recruiter engagement, 50% faster job search.</p>
+      <div class="glass p-6 rounded-xl hover:scale-105 transition">
+        <h3 class="font-bold text-xl mb-2 text-white">Visibility Boost</h3>
+        <p>45% more job applications, 3× recruiter engagement, faster job search.</p>
       </div>
-      <div class="glassmorphism p-6 rounded-xl hover:scale-105 transition-transform">
-        <h3 class="font-bold text-xl text-white mb-2">Application Success Rates</h3>
-        <p>20–25% higher response rates, hidden job opportunities, multiple interview calls.</p>
+      <div class="glass p-6 rounded-xl hover:scale-105 transition">
+        <h3 class="font-bold text-xl mb-2 text-white">Application Success</h3>
+        <p>25% higher responses, hidden job access, consistent interview calls.</p>
       </div>
-      <div class="glassmorphism p-6 rounded-xl hover:scale-105 transition-transform">
-        <h3 class="font-bold text-xl text-white mb-2">areer & Emotional Relief</h3>
-        <p>Direct recruiter outreach, higher salary leverage, less job search stress.</p>
+      <div class="glass p-6 rounded-xl hover:scale-105 transition">
+        <h3 class="font-bold text-xl mb-2 text-white">Career Growth</h3>
+        <p>Recruiter outreach, better salaries, peace of mind during job hunts.</p>
       </div>
     </div>
   </section>
 
   <!-- Proof -->
   <section class="max-w-4xl mx-auto px-6 py-12 text-gray-300">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Proof: Real Results from Real Clients</h2>
-    <p class="mb-4">📈 “Within 2 weeks, recruiters started reaching out for roles I’d been targeting for months.”</p>
-    <p class="mb-4">📈 “I landed 3 interviews in 10 days after my profile was optimized.”</p>
-    <p>We’ve optimized <strong>2,500+ profiles</strong> across <strong>25+ industries</strong> with measurable success.</p>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      Proof: Real Results from Real Clients
+    </h2>
+    <p class="mb-3">📈 “Got 3 interviews in 10 days after optimization.”</p>
+    <p class="mb-3">📈 “Recruiters started contacting me within 2 weeks!”</p>
+    <p>We’ve optimized <strong>2,500+ profiles</strong> across <strong>25+ industries</strong> successfully.</p>
   </section>
 
-  <!-- Features -->
-  <section class="bg-white/5 backdrop-blur-md rounded-xl max-w-5xl mx-auto px-6 py-12 my-10">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Our Indeed Optimization Features</h2>
-    <div class="grid gap-8 sm:grid-cols-2 text-gray-300">
-      <div>
-        <h3 class="text-xl font-semibold text-white mb-3">🔍 Comprehensive Profile Overhaul</h3>
-        <p>100% completion, mobile-friendly formatting, recruiter-first summaries.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-white mb-3">📝 Strategic Content Development</h3>
-        <p>Optimized headlines, quantified achievements, skills aligned to Smart Sourcing.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-white mb-3">⚙️ Technical Optimization</h3>
-        <p>Indeed Apply compatibility, ATS-proof formatting, recruiter targeting setup.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-white mb-3">📊 Performance Enhancement</h3>
-        <p>Profile freshness, screener prep (50% higher chance), analytics tracking.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Industry Specific -->
-  <section class="max-w-5xl mx-auto px-6 py-12 text-gray-300">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Industry-Specific Indeed Optimization</h2>
-    <div class="grid gap-8 sm:grid-cols-2">
-      <div>
-        <h3 class="text-xl font-semibold text-white mb-3">💻 Technology & IT</h3>
-        <p>Programming skills, certifications, portfolios, and open-source highlights.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-white mb-3">🏥 Healthcare & Medical</h3>
-        <p>Licenses, certifications, patient care metrics, specialization keywords.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-white mb-3">📈 Sales & Marketing</h3>
-        <p>Revenue achievements, client success stories, digital tool certifications.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-white mb-3">💵 Finance & Banking</h3>
-        <p>Portfolio metrics, CPA/CFA certifications, compliance and risk expertise.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us -->
-  <section class="bg-white/5 backdrop-blur-md rounded-xl max-w-5xl mx-auto px-6 py-12 my-10 text-gray-300">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Why Choose Our Indeed Profile Optimization?</h2>
-    <ul class="space-y-3">
-      <li><strong>Certified Specialists:</strong> 2,500+ profiles, 25+ industries, Smart Sourcing expertise.</li>
-      <li><strong>Guaranteed Results:</strong> 45% more opportunities or free revision, 48–72 hr delivery.</li>
-      <li><strong>Comprehensive Support:</strong> Unlimited revisions, Indeed Apply setup, recruiter analytics.</li>
-    </ul>
-  </section>
-
-  <!-- Related Services -->
-  <section class="bg-white/5 py-10 mt-10 rounded-xl backdrop-blur-md max-w-4xl mx-auto px-6">
+  <!-- Related -->
+  <section class="glass max-w-4xl mx-auto px-6 py-12 rounded-xl">
     <h3 class="text-xl font-bold text-[#47C6A2] mb-4">Related Services</h3>
-    <ul class="space-y-2">
-      <li><a href="https://optyp.com/explore/ats-resume/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">ATS Resume Optimization</a></li>
-      <li><a href="https://optyp.com/explore/linkedin/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">LinkedIn Optimization</a></li>
-      <li><a href="https://optyp.com/explore/github/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">GitHub Optimization</a></li>
-      <li><a href="https://optyp.com/explore/portfolio-site/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">Portfolio-site Optimization</a></li>
+    <ul class="space-y-3">
+      <li><a href="/explore/ats-resume" class="hover:text-[#47C6A2]">ATS Resume Optimization</a></li>
+      <li><a href="/explore/linkedin" class="hover:text-[#47C6A2]">LinkedIn Optimization</a></li>
+      <li><a href="/explore/github" class="hover:text-[#47C6A2]">GitHub Optimization</a></li>
+      <li><a href="/explore/portfolio-site" class="hover:text-[#47C6A2]">Portfolio Optimization</a></li>
     </ul>
   </section>
 
   <!-- CTA -->
-  <section class="text-center py-16">
-    <h2 class="text-3xl font-extrabold text-white mb-4">Ready to Transform Your Indeed Presence?</h2>
+  <section class="text-center py-16 px-6">
+    <h2 class="text-3xl font-extrabold text-white mb-4">
+      Ready to Transform Your Indeed Presence?
+    </h2>
     <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
-      Stop being invisible in a sea of 295M resumes. One optimized profile can unlock recruiter calls, 
-      premium opportunities, and faster job offers.
+      Stop blending in with 295M other profiles. Get recruiter attention and land premium opportunities faster.
     </p>
-    <a href="/#contact" 
-       class="glass-btn px-8 py-3 rounded-lg font-semibold transition-all duration-300 
-              border border-[#47C6A2] text-white shadow-md hover:shadow-[#47C6A2]/50 
-              hover:bg-[#47C6A2]/20 hover:scale-105">
+    <a
+      href="/#contact"
+      class="glass-btn px-8 py-3 rounded-lg font-semibold border border-[#47C6A2] text-white shadow-md hover:shadow-[#47C6A2]/50 hover:bg-[#47C6A2]/20 hover:scale-105 transition"
+    >
       Get Your Indeed Optimized Now
     </a>
     <p class="text-gray-400 mt-4 text-sm">
-      ✓ 45% More Opportunities • ✓ 48–72 Hour Delivery • ✓ Certified Indeed Specialists
+      ✓ 45% More Opportunities • ✓ 3× Recruiter Reach • ✓ 48–72 Hour Delivery • ✓ Certified Specialists
     </p>
   </section>
+
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .glass-btn {
+      background: rgba(71, 198, 162, 0.15);
+      border: 1px solid #47C6A2;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    .glass-btn:hover {
+      background: #47C6A2;
+      color: #050406;
+      box-shadow: 0 0 20px rgba(71, 198, 162, 0.4);
+    }
+  </style>
 </Layout>

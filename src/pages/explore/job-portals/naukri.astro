@@ -1,8 +1,68 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+
+const title = "Naukri Profile Optimization Service | OPTYP";
+const description =
+  "Naukri Profile Optimization Service to increase visibility by 200% and get 10x more interview calls. Transform your Naukri profile into a recruiter magnet. Guaranteed 4–5 star ratings and 48-hour delivery.";
+const keywords =
+  "Naukri profile optimization, Naukri profile rating, job portal optimization, recruiter engagement, career growth, job search India, professional profile optimization";
+const canonical = "https://optyp.com/explore/job-portals/naukri";
+const image = "/images/naukri-page3.png";
+const price = 599;
+const provider = "OPTYP";
+const currency = "INR";
+const publishedDate = "2025-10-05";
+const modifiedDate = "2025-10-05";
 ---
 
-<Layout title="Naukri Profile Optimization | OPTYP">
+<Layout title={title}>
+  <head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="OPTYP" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: "Naukri Profile Optimization",
+        name: "Naukri Profile Optimization Service",
+        description:
+          "Increase Naukri visibility, get 10x more interview calls, and achieve 4–5 star profile ratings with OPTYP.",
+        provider: {
+          "@type": "Organization",
+          name: provider,
+          url: "https://optyp.com"
+        },
+        areaServed: "IN",
+        offers: {
+          "@type": "Offer",
+          url: canonical,
+          priceCurrency: currency,
+          price: String(price),
+          availability: "https://schema.org/InStock"
+        }
+      })}
+    </script>
+  </head>
+
   <!-- Breadcrumb -->
   <nav class="text-sm text-gray-400 mb-6 px-6">
     <a href="/" class="hover:text-[#47C6A2] transition">Home</a> › 
@@ -11,180 +71,179 @@ import Layout from "../../../layouts/Layout.astro";
     <span class="text-white">Naukri Profile Optimization</span>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="text-center py-12 px-6">
     <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">
       Naukri Profile Optimization Service
     </h1>
-    
-    <!-- Hero Image (Responsive & Sharp) -->
-<div class="relative max-w-4xl mx-auto mb-6">
-  <img src="/images/naukri-page3.png" alt="Naukri Profile Optimization"
-       class="w-full max-h-96 object-contain rounded-2xl shadow-lg border border-white/10" />
-  <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
-</div>
 
+    <div class="relative max-w-4xl mx-auto mb-6">
+      <img
+        src={image}
+        alt="Naukri Profile Optimization"
+        class="w-full max-h-96 object-contain rounded-2xl shadow-lg border border-white/10"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
+    </div>
 
     <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-      Increase Your Profile Visibility by <span class="text-[#47C6A2] font-semibold">200%</span> 
-      and Get <span class="text-[#47C6A2] font-semibold">10x More Interview Calls</span>.
-      Transform your Naukri profile into a recruiter magnet with expert-driven optimization.
+      Increase your Naukri visibility by
+      <span class="text-[#47C6A2] font-semibold">200%</span> and get
+      <span class="text-[#47C6A2] font-semibold">10× more interview calls</span>.
+      Transform your profile into a recruiter magnet with data-driven optimization.
     </p>
   </section>
 
-  <!-- The Invisible Problem -->
+  <!-- Invisible Problem -->
   <section class="max-w-5xl mx-auto px-6 py-12 glass rounded-xl">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Invisible Profile Problem Killing Your Career</h2>
-    <p class="mb-4">Your Naukri profile is silently sabotaging your job search:</p>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      The Invisible Profile Problem Killing Your Career
+    </h2>
+    <p class="mb-4 text-gray-300">
+      Your Naukri profile is silently sabotaging your job search:
+    </p>
     <ul class="list-disc list-inside space-y-2 text-gray-300">
       <li>Only <strong>4–5 star profiles</strong> appear in recruiter searches.</li>
-      <li>With over <strong>75 million job seekers</strong>, incomplete profiles get buried instantly.</li>
-      <li>Recruiters spend just <strong>6–8 seconds</strong> scanning a profile before deciding to engage.</li>
+      <li>With <strong>75M+</strong> job seekers, incomplete profiles get buried instantly.</li>
+      <li>Recruiters spend only <strong>6–8 seconds</strong> scanning each profile.</li>
     </ul>
-    <p class="mt-4 font-semibold">Your skills aren’t the problem. Your profile visibility is.</p>
+    <p class="mt-4 font-semibold text-white">
+      Your skills aren’t the problem — your visibility is.
+    </p>
   </section>
 
-  <!-- Pain Section -->
+  <!-- Pain -->
   <section class="max-w-5xl mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Daily Cost of an Unoptimized Profile</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      The Daily Cost of an Unoptimized Profile
+    </h2>
     <p class="mb-4">
-      You’re qualified. You have the experience. But your applications vanish into a black hole while 
-      less qualified candidates get interview calls.
+      You’re qualified. You have the experience. Yet, your applications disappear while
+      others get interview calls.
     </p>
     <ul class="list-disc list-inside space-y-2">
       <li>Every unoptimized day = <strong>missed job opportunities</strong>.</li>
-      <li>Average salary hike from a job change in India is <strong>20–40%</strong>.</li>
-      <li>One missed opportunity could cost you <strong>lakhs in lost income</strong>.</li>
+      <li>Average job change = <strong>20–40% salary hike</strong>.</li>
+      <li>One missed offer can cost you <strong>lakhs in lost income</strong>.</li>
     </ul>
-    <p class="mt-4 font-semibold">Your career momentum stops when recruiters can’t find you.</p>
+    <p class="mt-4 font-semibold">
+      Your career momentum stops when recruiters can’t find you.
+    </p>
   </section>
 
-  <!-- Solution Section -->
+  <!-- Solution -->
   <section class="max-w-5xl mx-auto px-6 py-12 glass rounded-xl">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Solution: Data-Driven Naukri Profile Optimization</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      The Solution: Data-Driven Naukri Profile Optimization
+    </h2>
     <ul class="space-y-3 text-gray-300">
-      <li> <strong>100% Profile Completion</strong> – Maximize recruiter visibility.</li>
-      <li> <strong>Keyword Optimization</strong> – Industry-specific keywords for 10x discoverability.</li>
-      <li> <strong>Magnetic Headlines</strong> – Catch recruiter attention instantly.</li>
-      <li> <strong>ATS-Resume Alignment</strong> – Ensure consistency across CV & profile.</li>
-      <li> <strong>Star Rating Boost</strong> – Achieve 4–5 star ratings guaranteed.</li>
-      <li> <strong>Activity Hacks</strong> – Daily updates for 200% profile freshness.</li>
+      <li><strong>100% Profile Completion</strong> — Maximize recruiter visibility</li>
+      <li><strong>Keyword Optimization</strong> — 10× discoverability boost</li>
+      <li><strong>Magnetic Headlines</strong> — Instantly catch attention</li>
+      <li><strong>ATS Alignment</strong> — Consistent profile & resume strategy</li>
+      <li><strong>Star Rating Boost</strong> — Achieve guaranteed 4–5 stars</li>
+      <li><strong>Activity Hacks</strong> — Daily updates for 200% freshness</li>
     </ul>
   </section>
 
-  <!-- Results Section -->
+  <!-- Results -->
   <section class="max-w-5xl mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">What’s In It for You: Measurable Results</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      What’s In It For You: Measurable Results
+    </h2>
     <div class="grid md:grid-cols-3 gap-8">
       <div class="glass p-6 rounded-xl">
-        <h3 class="text-xl font-semibold mb-2 text-[#47C6A2]">Visibility</h3>
+        <h3 class="text-xl font-semibold text-[#47C6A2] mb-2">Visibility</h3>
         <ul class="space-y-2">
-          <li>200%+ increase in searches within 7 days</li>
+          <li>200% more recruiter searches</li>
           <li>67% more profile views</li>
-          <li>10x recruiter visibility</li>
+          <li>10× better visibility</li>
         </ul>
       </div>
       <div class="glass p-6 rounded-xl">
-        <h3 class="text-xl font-semibold mb-2 text-[#47C6A2]">Interview Calls</h3>
+        <h3 class="text-xl font-semibold text-[#47C6A2] mb-2">Interview Calls</h3>
         <ul class="space-y-2">
           <li>300% more recruiter outreach</li>
           <li>Daily calls from top companies</li>
-          <li>50% faster job search</li>
+          <li>50% faster job placement</li>
         </ul>
       </div>
       <div class="glass p-6 rounded-xl">
-        <h3 class="text-xl font-semibold mb-2 text-[#47C6A2]">Career Growth</h3>
+        <h3 class="text-xl font-semibold text-[#47C6A2] mb-2">Career Growth</h3>
         <ul class="space-y-2">
-          <li>Access premium opportunities</li>
-          <li>Higher salary negotiations</li>
-          <li>Multiple offers to choose from</li>
+          <li>Access premium job roles</li>
+          <li>Higher salary offers</li>
+          <li>Multiple offers in pipeline</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
+  <!-- Features -->
   <section class="max-w-5xl mx-auto px-6 py-12 glass rounded-xl">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Our Naukri Profile Optimization Features</h2>
-    <div class="space-y-6">
-      <div>
-        <h3 class="text-xl font-semibold mb-2">🔍 Comprehensive Profile Overhaul</h3>
-        <p>100% completion, recruiter-ready formatting, and mobile-friendly design.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">✍ Strategic Content Development</h3>
-        <p>Magnetic headlines, powerful summaries, and ATS-friendly experience sections.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">⚙ Technical Optimization</h3>
-        <p>4–5 star rating enhancement, keyword-rich skills, and optimized availability settings.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">🔄 Ongoing Visibility Management</h3>
-        <p>Daily update strategies, freshness techniques, and performance tracking.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Related Services -->
-  <section class="bg-white/5 py-10 mt-10 rounded-xl backdrop-blur-md max-w-5xl mx-auto px-6">
-    <h3 class="text-2xl font-bold text-[#47C6A2] mb-4">Related Services to Accelerate Your Success</h3>
-    <ul class="space-y-2">
-      <li><a href="https://optyp.com/explore/ats-resume/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">ATS Resume Optimization</a></li>
-      <li><a href="https://optyp.com/explore/linkedin/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">LinkedIn Optimization</a></li>
-      <li><a href="https://optyp.com/explore/job-portals/indeed/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">indeed Optimization</a></li>
-      <li><a href="https://optyp.com/explore/portfolio-site/" class="glass-card p-4 block rounded-xl hover:text-[#47C6A2] hover:scale-[1.02] transition">portfolio-site Optimization</a></li>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      Our Naukri Profile Optimization Features
+    </h2>
+    <ul class="space-y-3 text-gray-300">
+      <li><strong>Comprehensive Profile Overhaul</strong> – Recruiter-ready formatting</li>
+      <li><strong>Strategic Content Development</strong> – Summaries & Experience optimization</li>
+      <li><strong>Technical Optimization</strong> – 4–5 Star Boost + Keywords</li>
+      <li><strong>Ongoing Management</strong> – Daily update strategies</li>
     </ul>
   </section>
 
-  <!-- Industry Specific -->
-  <section class="max-w-5xl mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Industry-Specific Naukri Optimization</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="glass p-6 rounded-xl">
-        <h3 class="font-semibold mb-2">IT & Technology</h3>
-        <p>Highlight certifications, project metrics, and portfolio work.</p>
-      </div>
-      <div class="glass p-6 rounded-xl">
-        <h3 class="font-semibold mb-2">Sales & Marketing</h3>
-        <p>Showcase revenue results, client success metrics, and certifications.</p>
-      </div>
-      <div class="glass p-6 rounded-xl">
-        <h3 class="font-semibold mb-2">Finance & Banking</h3>
-        <p>Emphasize audits, CA/CFA credentials, and compliance expertise.</p>
-      </div>
-      <div class="glass p-6 rounded-xl">
-        <h3 class="font-semibold mb-2">Healthcare & Pharma</h3>
-        <p>Present clinical results, publications, and licenses.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us -->
-  <section class="max-w-5xl mx-auto px-6 py-12 glass rounded-xl">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Why Choose Our Naukri Profile Optimization</h2>
+  <!-- Related -->
+  <section class="glass max-w-5xl mx-auto px-6 py-12 rounded-xl">
+    <h3 class="text-2xl font-bold text-[#47C6A2] mb-4">
+      Related Services to Accelerate Your Success
+    </h3>
     <ul class="space-y-3">
-      <li>Certified specialists with deep knowledge of Naukri’s algorithm</li>
-      <li>Guaranteed 4–5 star rating & 200%+ visibility boost</li>
-      <li>Fast delivery in 48–72 hours</li>
-      <li>Unlimited revisions within 30 days</li>
-      <li>Daily activity guidance & performance tracking</li>
+      <li><a href="/explore/ats-resume" class="hover:text-[#47C6A2]">ATS Resume Optimization</a></li>
+      <li><a href="/explore/linkedin" class="hover:text-[#47C6A2]">LinkedIn Optimization</a></li>
+      <li><a href="/explore/job-portals/indeed" class="hover:text-[#47C6A2]">Indeed Optimization</a></li>
+      <li><a href="/explore/portfolio-site" class="hover:text-[#47C6A2]">Portfolio Optimization</a></li>
     </ul>
   </section>
 
   <!-- CTA -->
-  <section class="text-center py-12">
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">Ready to Transform Your Naukri Presence?</h2>
-    <p class="text-gray-300 max-w-2xl mx-auto mb-6">
-      Stop letting an invisible profile cost you career opportunities. Join the 97% of our clients who 
-      receive more recruiter calls within weeks.
+  <section class="text-center py-12 px-6">
+    <h2 class="text-3xl font-bold text-white mb-4">
+      Ready to Transform Your Naukri Presence?
+    </h2>
+    <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
+      Stop losing opportunities. Join 97% of professionals who get more recruiter calls within weeks.
     </p>
-    <a href="/#contact" 
-       class="px-8 py-4 rounded-lg font-semibold text-white border-2 border-[#47C6A2] hover:bg-[#47C6A2]/20 hover:scale-105 transition shadow-lg">
-       Get Your Naukri Optimized Now
+    <a
+      href="/#contact"
+      class="glass-btn border border-[#47C6A2] px-8 py-4 rounded-lg font-semibold text-white hover:scale-105 transition"
+    >
+      Get Your Naukri Optimized Now
     </a>
-    <div class="mt-4 text-gray-400 text-sm">
-      ✓ 200% Visibility Boost Guaranteed • ✓ 4–5 Star Rating • ✓ 48–72 Hour Delivery • ✓ Industry-Certified Specialists
-    </div>
+    <p class="mt-4 text-gray-400 text-sm">
+      ✓ 200% Visibility Boost • ✓ 4–5 Star Rating • ✓ 48–72 Hour Delivery • ✓ Certified Experts
+    </p>
   </section>
+
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glass-btn {
+      background: rgba(71, 198, 162, 0.15);
+      border: 1px solid #47C6A2;
+      color: #fff;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .glass-btn:hover {
+      background: #47C6A2;
+      color: #050406;
+      box-shadow: 0 0 20px rgba(71, 198, 162, 0.4);
+    }
+  </style>
 </Layout>

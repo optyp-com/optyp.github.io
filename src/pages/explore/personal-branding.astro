@@ -8,6 +8,7 @@ const imagePlaceholder = "/images/personal.jpg"; // updated to your requested im
 const publishedDate = "2025-10-04";
 const modifiedDate = "2025-10-04";
 ---
+
 <!-- Page-level meta + JSON-LD -->
 <head>
   <title>{title}</title>
@@ -173,14 +174,14 @@ const modifiedDate = "2025-10-04";
 
 <Layout title={title}>
   <!-- Breadcrumbs -->
-  <nav class="text-sm text-gray-400 mb-6 px-4 sm:px-0">
+  <nav class="text-sm text-gray-400 mb-6 px-4 sm:px-0" aria-label="Breadcrumb">
     <a href="/" class="hover:text-[#47C6A2]">Home</a> › 
     <a href="/explore" class="hover:text-[#47C6A2]">Explore</a> › 
     <span class="text-white">Personal Branding</span>
   </nav>
 
   <!-- HERO -->
-  <section class="text-center py-12 px-4 sm:px-0">
+  <section class="text-center py-12 px-4 sm:px-0" id="hero">
     <div class="max-w-4xl mx-auto">
       <h1 class="section-hero text-4xl sm:text-5xl font-extrabold text-white mb-4">
         Elevate Your Professional Identity, Unlock 5× More Opportunities
@@ -189,19 +190,22 @@ const modifiedDate = "2025-10-04";
         Transform your personal brand into a magnet for career and business growth. Our Personal Branding service delivers <strong>300% higher visibility</strong> and <strong>5× more high-value engagements</strong> within 60 days.
       </p>
 
-       <!-- Hero Image (Responsive & Sharp) -->
-    <div class="relative max-w-4xl mx-auto mb-8">
-      <img 
-        src="/images/personal.jpg" 
-        alt="Personal Branding"
-        class="w-full max-h-96 object-contain rounded-2xl shadow-lg border border-white/10"
-        loading="lazy"
-      />
-      <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
+      <!-- Hero Image (Responsive & Sharp) -->
+      <div class="relative max-w-4xl mx-auto mb-8">
+        <img 
+          src={imagePlaceholder} 
+          alt="Personal Branding"
+          class="w-full max-h-96 object-contain rounded-2xl shadow-lg border border-white/10"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-black/30 rounded-2xl" aria-hidden="true"></div>
+      </div>
     </div>
+  </section>
 
   <!-- Hidden Problem -->
-  <section class="max-w-4xl mx-auto px-6 py-10 text-gray-300">
+  <section class="max-w-4xl mx-auto px-6 py-10 text-gray-300" id="problem">
     <h2 class="text-2xl font-bold text-[#47C6A2] mb-3">The Invisible You Problem</h2>
     <p class="mb-4">
       In today’s crowded digital landscape, <strong>82% of recruiters and clients</strong> research personal brands online before initiating contact. Without a cohesive, compelling brand you blend into the noise and miss the high-impact opportunities you deserve.
@@ -212,7 +216,7 @@ const modifiedDate = "2025-10-04";
   </section>
 
   <!-- Pain -->
-  <section class="bg-white/4 glass-card max-w-4xl mx-auto px-6 py-8 rounded-xl text-gray-200">
+  <section class="bg-white/4 glass-card max-w-4xl mx-auto px-6 py-8 rounded-xl text-gray-200" id="pain">
     <h3 class="text-xl font-bold text-[#47C6A2] mb-3">The Pain That Keeps You Awake at Night</h3>
     <p class="mb-4">
       You have the expertise, yet you struggle to secure speaking engagements, land media features, attract premium clients, or advance your career. That missed visibility is missed revenue, missed partnerships, and wasted time.
@@ -223,7 +227,7 @@ const modifiedDate = "2025-10-04";
   </section>
 
   <!-- Solution / Features quick bullets -->
-  <section class="max-w-4xl mx-auto px-6 py-10 text-gray-300">
+  <section class="max-w-4xl mx-auto px-6 py-10 text-gray-300" id="solution">
     <h3 class="text-2xl font-bold text-[#47C6A2] mb-4">The Solution: Strategic Personal Branding That Works</h3>
 
     <ul class="space-y-3">
@@ -272,7 +276,7 @@ const modifiedDate = "2025-10-04";
   </section>
 
   <!-- What's in it for you -->
-  <section class="bg-gradient-to-r from-[#06292A]/30 to-transparent glass-card max-w-4xl mx-auto p-6 rounded-xl text-gray-200 mt-8">
+  <section class="bg-gradient-to-r from-[#06292A]/30 to-transparent glass-card max-w-4xl mx-auto p-6 rounded-xl text-gray-200 mt-8" id="benefitsoverview">
     <h3 class="text-2xl font-bold text-[#47C6A2] mb-4">What’s In It For You: Measurable Brand Impact</h3>
 
     <div class="grid two-col grid-cols-3 gap-6">
@@ -313,7 +317,7 @@ const modifiedDate = "2025-10-04";
   </section>
 
   <!-- Detailed Features -->
-  <section class="max-w-4xl mx-auto px-6 py-10 text-gray-300">
+  <section class="max-w-4xl mx-auto px-6 py-10 text-gray-300" id="details">
     <h3 class="text-2xl font-bold text-[#47C6A2] mb-4">Our Personal Branding Features — Deep Dive</h3>
 
     <div class="space-y-6">
@@ -340,18 +344,18 @@ const modifiedDate = "2025-10-04";
   </section>
 
   <!-- Related Services -->
-  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl">
+  <section class="glass max-w-5xl mx-auto px-6 py-12 mb-10 rounded-2xl" id="related">
     <h3 class="text-2xl font-bold text-[#47C6A2] mb-4">Related Services to Maximize Your Success</h3>
     <div class="space-y-2 text-gray-300">
       <p><a href="/explore/linkedin" class="hover:text-[#47C6A2]">LinkedIn Optimization</a></p>
       <p><a href="/explore/freelancing/upwork" class="hover:text-[#47C6A2]">Upwork Optimization</a></p>
       <p><a href="/explore/freelancing/fiverr" class="hover:text-[#47C6A2]">Fiverr Optimization</a></p>
-      <p><a href="https://optyp.com/explore/portfolio-site/" class="hover:text-[#47C6A2]">portfolio-site Optimization</a></p>
+      <p><a href="https://optyp.com/explore/portfolio-site/" class="hover:text-[#47C6A2]">Portfolio Site Optimization</a></p>
     </div>
   </section>
 
   <!-- Industry-specific -->
-  <section class="max-w-4xl mx-auto px-6 py-10 text-gray-300">
+  <section class="max-w-4xl mx-auto px-6 py-10 text-gray-300" id="industry">
     <h3 class="text-2xl font-bold text-[#47C6A2] mb-4">Industry-Specific Branding Solutions</h3>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -378,7 +382,7 @@ const modifiedDate = "2025-10-04";
   </section>
 
   <!-- Why choose us -->
-  <section class="bg-gradient-to-r from-transparent to-[#06292A]/20 glass-card max-w-4xl mx-auto p-6 rounded-xl mt-8 text-gray-200">
+  <section class="bg-gradient-to-r from-transparent to-[#06292A]/20 glass-card max-w-4xl mx-auto p-6 rounded-xl mt-8 text-gray-200" id="why-choose">
     <h3 class="text-2xl font-bold text-[#47C6A2] mb-4">Why Choose Our Personal Branding Service</h3>
 
     <ul class="space-y-3">
@@ -389,12 +393,12 @@ const modifiedDate = "2025-10-04";
   </section>
 
   <!-- Final CTA -->
-  <section class="text-center py-12 px-4 sm:px-0">
+  <section class="text-center py-12 px-4 sm:px-0" id="final-cta">
     <div class="max-w-3xl mx-auto">
       <h3 class="text-2xl font-bold text-white mb-3">Ready to Stand Out and Be Chosen?</h3>
       <p class="text-gray-300 mb-5">Join professionals who achieve <strong>5× more high-value engagements</strong> and <strong>3× faster growth</strong> through strategic personal branding. Your next breakthrough opportunity is one brand transformation away.</p>
 
-      <a href="/#contact" class="glass-btn cta-stroke pulse text-white" style="font-size:1.05rem;">
+      <a href="/#contact" class="glass-btn cta-stroke pulse text-white" style="font-size:1.05rem;" aria-label="Start your brand launch">
         Start Your Brand Launch
       </a>
 
@@ -403,7 +407,7 @@ const modifiedDate = "2025-10-04";
   </section>
 
   <!-- FAQ Button (prominent block) -->
-  <section class="max-w-4xl mx-auto px-6 py-8">
+  <section class="max-w-4xl mx-auto px-6 py-8" id="faq-block">
     <div class="flex flex-col sm:flex-row gap-4 items-center justify-between glass-card p-4 rounded-lg">
       <div>
         <h4 class="text-lg font-semibold text-[#47C6A2]">Have questions?</h4>
@@ -416,8 +420,80 @@ const modifiedDate = "2025-10-04";
   </section>
 
   <!-- Meta / small print -->
-  <footer class="max-w-4xl mx-auto px-6 py-6 text-xs text-gray-500">
+  <footer class="max-w-4xl mx-auto px-6 py-6 text-xs text-gray-500" id="page-footer">
     <p>Published: {publishedDate} • Last updated: {modifiedDate}</p>
     <p class="mt-2">Disclaimer: Results vary by individual. Statistics quoted (300% visibility, 5× engagement, 82% recruiter research) are used to illustrate typical outcomes achieved by our clients and aggregated from our internal case studies and industry data.</p>
   </footer>
+
+  <!-- Floating sticky CTA to maintain UX and avoid JS errors if scripts reference it -->
+  <a id="sticky-cta" href="/#contact"
+     class="fixed right-6 bottom-6 z-50 rounded-2xl p-3 px-4 backdrop-blur bg-white/8 border border-white/10 shadow-lg flex items-center gap-3 transform transition hover:scale-105 active:scale-95"
+     aria-label="Get started (sticky)">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+    <span class="font-medium">Get started</span>
+  </a>
+
+  <!-- JSON-LD (repeat of head JSON-LD for maximum compatibility) -->
+  <script type="application/ld+json" id="json-ld-service">
+    {
+      "@context":"https://schema.org",
+      "@type":"Service",
+      "serviceType":"Personal Branding",
+      "name":"Personal Branding Service",
+      "description":"Strategic personal branding with 300% visibility, 5× engagements, 2-week launch, and 6-month support.",
+      "provider":{
+        "@type":"Organization",
+        "name":"OPTYP",
+        "url":"<?= " + JSON.stringify((Astro.site?.origin || "https://yourdomain.com")) + " ?>"
+      },
+      "areaServed":"Global",
+      "offers":{
+        "@type":"Offer",
+        "priceCurrency":"INR",
+        "price":"<?= " + JSON.stringify(String(2499)) + " ?>",
+        "availability":"https://schema.org/InStock",
+        "url":"<?= " + JSON.stringify(canonical) + " ?>"
+      }
+    }
+  </script>
+
+  <!-- Optional: small feedback script and sticky CTA hide logic -->
+  <script>
+    (function() {
+      // Like feedback (re-usable for other pages)
+      function safeGet(id) { return document.getElementById(id); }
+
+      // Attach delegated listeners if elements exist
+      const faqLink = document.querySelector('a[href="/faq#personal-branding"]');
+      if (faqLink) {
+        faqLink.addEventListener('click', function() {
+          // analytics or local feedback can be added here
+          try { window.dataLayer && window.dataLayer.push({ event: 'open_faq', page: 'personal-branding' }); } catch(e) {}
+        });
+      }
+
+      // Sticky CTA hide when final CTA visible
+      const stickyCTA = safeGet("sticky-cta");
+      const finalCTA = safeGet("final-cta") || safeGet("final-cta") || safeGet("page-footer") || document.querySelector('#final-cta') || document.querySelector('#final-cta');
+      function checkCTA() {
+        if (!stickyCTA || !finalCTA) return;
+        const rect = finalCTA.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          stickyCTA.classList.add("translate-y-full");
+        } else {
+          stickyCTA.classList.remove("translate-y-full");
+        }
+      }
+      document.addEventListener("scroll", checkCTA, { passive: true });
+      window.addEventListener("resize", checkCTA);
+      window.addEventListener("load", checkCTA);
+
+      // Small improvement: keyboard focus for glass-btn anchors
+      document.querySelectorAll('.glass-btn').forEach(function(el){
+        el.addEventListener('keydown', function(e){
+          if (e.key === 'Enter' || e.key === ' ') el.click();
+        });
+      });
+    })();
+  </script>
 </Layout>

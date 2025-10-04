@@ -1,19 +1,105 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+
+const title = "Fiverr Profile Optimization Service | OPTYP";
+const description =
+  "Boost Fiverr orders with expert profile optimization. Rank on page 1, increase gig visibility by 300%, and grow your freelance income.";
+const keywords =
+  "Fiverr profile optimization service, Fiverr gig SEO, Fiverr gig ranking service, Fiverr profile SEO expert, Fiverr profile optimization for freelancers, Fiverr profile visibility boost, Fiverr algorithm optimization, Fiverr click-through rate increase, Get more Fiverr orders, Fiverr success strategy";
+const canonical = "https://optyp.com/explore/freelancing/fiverr";
+const image = "/images/fiverr-placeholder.png";
+const price = 499;
+const currency = "USD";
+const provider = "OPTYP";
 ---
 
-<Layout title="Fiverr Profile Optimization Service | OPTYP">
+<Layout title={title}>
   <head>
-    <!--  SEO Meta Tags -->
-    <title>Fiverr Profile Optimization Service | Rank Higher & Get More Orders</title>
-    <meta name="description" content="Boost Fiverr orders with expert profile optimization. Rank on page 1, increase gig visibility by 300%, and grow your freelance income.">
-    <meta name="keywords" content="Fiverr profile optimization service, Fiverr gig SEO, Fiverr gig ranking service, Fiverr profile SEO expert, Fiverr profile optimization for freelancers, Fiverr profile visibility boost, Fiverr algorithm optimization, Fiverr click-through rate increase, Get more Fiverr orders, Fiverr success strategy">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Fiverr Profile Optimization Service | OPTYP">
-    <meta property="og:description" content="Turn your Fiverr profile into an order-generating machine. Get 50% higher click-through rates and 300% more visibility in 30 days.">
-    <meta property="og:image" content="/images/fiverr-placeholder.png">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OPTYP" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Structured Data (Service + FAQ) -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: "Fiverr Profile Optimization",
+        provider: {
+          "@type": "Organization",
+          name: provider,
+          url: "https://optyp.com",
+          logo: "https://optyp.com/images/logo.png",
+        },
+        areaServed: "Worldwide",
+        description:
+          "Professional Fiverr profile optimization service to rank higher, get 300% more gig visibility, and increase freelance income.",
+        offers: {
+          "@type": "Offer",
+          url: canonical,
+          priceCurrency: currency,
+          price: String(price),
+          availability: "https://schema.org/InStock",
+        },
+      })}
+    </script>
+
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "How does Fiverr profile optimization help me?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Our Fiverr optimization increases gig visibility, boosts rankings, and drives more client orders through SEO and content improvements.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How long does Fiverr optimization take?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Most Fiverr profile optimizations are completed within 48–72 hours, with express delivery options available.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What kind of results can I expect?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Clients typically see 50% higher click-through rates, 300% more impressions, and first-page ranking in 30 days.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Do you offer ongoing support?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes, we offer unlimited revisions for 30 days and provide guidance for gig performance tracking and updates.",
+            },
+          },
+        ],
+      })}
+    </script>
   </head>
 
   <!-- Breadcrumbs -->
@@ -27,159 +113,114 @@ import Layout from "../../../layouts/Layout.astro";
   <!-- Hero Section -->
   <section class="text-center py-12 px-6">
     <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
-      Fiverr Profile Optimization
+      Fiverr Profile Optimization Service
     </h1>
     <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-6">
       Transform your Fiverr profile into a high-converting, order-generating machine. Rank higher, attract more buyers, and grow your freelance income with expert optimization.
     </p>
 
-    <!-- Hero Image Placeholder -->
     <div class="relative max-w-3xl mx-auto mb-8">
-      <img src="/images/Fiverr-page2.webp" alt="Fiverr Profile Optimization" 
-           class="w-full max-h-96 object-contain rounded-2xl shadow-2xl border border-white/20 backdrop-blur-md" />
+      <img
+        src="/images/Fiverr-page2.webp"
+        alt="Fiverr Profile Optimization"
+        class="w-full max-h-96 object-contain rounded-2xl shadow-2xl border border-white/20 backdrop-blur-md"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   </section>
 
-  <!-- Problem Section -->
+  <!-- Problem -->
   <section class="glass-card max-w-5xl mx-auto px-6 py-12 mb-10">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Hidden Problem Freelancers Face on Fiverr</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      The Hidden Problem Freelancers Face on Fiverr
+    </h2>
     <p class="mb-4">
-      Fiverr has <strong>4 million active sellers</strong>, yet only the <strong>top 3%</strong> consistently secure regular orders. Buyers spend just <strong>6–8 seconds</strong> scanning gigs, which means your unoptimized profile is likely buried under thousands of competitors.
+      Fiverr has <strong>4 million active sellers</strong>, yet only the <strong>top 3%</strong> consistently secure regular orders. Buyers spend just <strong>6–8 seconds</strong> scanning gigs—your unoptimized profile likely gets buried.
     </p>
     <p>
-      Here’s the brutal reality: Most freelancers struggle to rank their gigs and remain invisible to potential clients. <strong>Your skills aren’t the problem—your Fiverr strategy is.</strong>
+      Most freelancers struggle to rank their gigs. <strong>Your skills aren’t the problem—your Fiverr strategy is.</strong>
     </p>
   </section>
 
-  <!-- Pain Section -->
+  <!-- Pain -->
   <section class="glass-card max-w-5xl mx-auto px-6 py-12 mb-10">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Pain That Keeps You Awake at Night</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      The Pain That Keeps You Awake at Night
+    </h2>
     <ul class="list-disc list-inside space-y-3 mb-6">
-      <li>Inconsistent or no orders despite high-quality work</li>
-      <li>Gigs buried deep in search results where buyers never look</li>
-      <li>Competitors with less talent winning projects and clients</li>
-      <li>Lost income—hundreds or even thousands of dollars monthly</li>
+      <li>Inconsistent or no orders despite quality work</li>
+      <li>Gigs buried in search results</li>
+      <li>Competitors with less talent winning clients</li>
+      <li>Lost income—hundreds of dollars monthly</li>
     </ul>
     <p>
-      <strong>Fiverr success isn’t about talent alone—it’s about visibility.</strong> Until clients can find you, they can’t hire you.
+      <strong>Fiverr success isn’t about talent—it’s about visibility.</strong> Until clients can find you, they can’t hire you.
     </p>
   </section>
 
-  <!-- Solution Section -->
+  <!-- Solution -->
   <section class="glass-card max-w-5xl mx-auto px-6 py-12 mb-10">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">The Solution: Data-Driven Fiverr Profile Optimization</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      The Solution: Data-Driven Fiverr Profile Optimization
+    </h2>
     <ul class="space-y-3 text-gray-200">
-      <li> <strong>Strategic Gig Title Optimization</strong> – Increase CTR by 50% with keyword-rich titles</li>
-      <li> <strong>Compelling Gig Descriptions</strong> – Persuasive copy that boosts conversions by 30%</li>
-      <li> <strong>Professional Visual Branding</strong> – Images & videos designed to boost engagement by 200%</li>
-      <li> <strong>Algorithm-Friendly SEO</strong> – Long-tail keywords for 50% more visibility</li>
-      <li> <strong>Success Score Enhancement</strong> – Improve all 6 Fiverr ranking factors</li>
-      <li> <strong>Competitive Pricing Strategy</strong> – Attract more first-time buyers</li>
+      <li><strong>Strategic Gig Title Optimization</strong> – 50% higher CTR</li>
+      <li><strong>Compelling Gig Descriptions</strong> – 30% more conversions</li>
+      <li><strong>Professional Visual Branding</strong> – 200% engagement growth</li>
+      <li><strong>Algorithm-Friendly SEO</strong> – 50% visibility boost</li>
+      <li><strong>Success Score Enhancement</strong> – Improve all 6 Fiverr ranking factors</li>
+      <li><strong>Competitive Pricing Strategy</strong> – Attract first-time buyers</li>
     </ul>
   </section>
 
-  <!-- Results Section -->
+  <!-- Results -->
   <section class="glass-card max-w-5xl mx-auto px-6 py-12 mb-10">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">What’s In It For You: Measurable Freelance Success</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      Measurable Freelance Success
+    </h2>
     <div class="space-y-6">
       <div>
-        <h3 class="text-xl font-semibold text-white mb-2"> Transformation</h3>
+        <h3 class="text-xl font-semibold text-white mb-2">Transformation</h3>
         <p>300% more impressions in 30 days, first-page ranking, and boosted trust.</p>
       </div>
       <div>
-        <h3 class="text-xl font-semibold text-white mb-2"> Financial Impact</h3>
-        <p>35% more orders, 20% revenue growth, and access to premium projects.</p>
+        <h3 class="text-xl font-semibold text-white mb-2">Financial Impact</h3>
+        <p>35% more orders, 20% higher revenue, access to premium projects.</p>
       </div>
       <div>
-        <h3 class="text-xl font-semibold text-white mb-2"> Emotional Relief</h3>
-        <p>Confidence, clarity, and peace of mind knowing buyers will finally see you.</p>
+        <h3 class="text-xl font-semibold text-white mb-2">Emotional Relief</h3>
+        <p>Confidence and peace of mind knowing buyers will finally see you.</p>
       </div>
     </div>
-    <blockquote class="mt-8 italic text-gray-400 border-l-4 border-[#47C6A2] pl-4">
-      “I landed my biggest freelance contract within weeks of optimization—something I struggled to achieve for months before.”
-    </blockquote>
-  </section>
-
-  <!-- Features Section -->
-  <section class="glass-card max-w-5xl mx-auto px-6 py-12 mb-10">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Our Fiverr Profile Optimization Features</h2>
-
-    <h3 class="text-xl font-semibold text-white mb-3"> Comprehensive Research</h3>
-    <p class="mb-4">In-depth keyword research, competitor benchmarking, and custom strategies tailored to your niche.</p>
-
-    <h3 class="text-xl font-semibold text-white mb-3"> Professional Development</h3>
-    <p class="mb-4">Profile bio revamp, strategic gig creation, and high-converting gig descriptions that speak directly to buyer needs.</p>
-
-    <h3 class="text-xl font-semibold text-white mb-3"> Technical Optimization</h3>
-    <p class="mb-4">Fiverr Analytics integration, Success Score optimization, and response time improvements to increase ranking.</p>
-
-    <h3 class="text-xl font-semibold text-white mb-3"> Visual Branding Excellence</h3>
-    <p class="mb-4">Custom gig images, professional gig videos, and consistent branding across all gigs to maximize credibility.</p>
-
-    <h3 class="text-xl font-semibold text-white mb-3"> Quality Assurance</h3>
-    <p>Guaranteed results with unlimited revisions for 30 days, expert-backed strategies, and compliance with Fiverr’s best practices.</p>
-  </section>
-
-  <!-- Industry Specific Section -->
-  <section class="glass-card max-w-5xl mx-auto px-6 py-12 mb-10">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Industry-Specific Fiverr Optimization</h2>
-    <ul class="space-y-4">
-      <li><strong> Graphic Design & Creative:</strong> Portfolio showcase & process highlights.</li>
-      <li><strong> Writing & Translation:</strong> Sample work galleries & niche positioning.</li>
-      <li><strong> Digital Marketing:</strong> ROI-driven case studies & certification displays.</li>
-      <li><strong> Programming & Tech:</strong> Skill matrices & code quality assurance.</li>
-    </ul>
   </section>
 
   <!-- Why Choose Us -->
   <section class="glass-card max-w-5xl mx-auto px-6 py-12 mb-10">
-    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">Why Choose OPTYP’s Fiverr Profile Optimization</h2>
+    <h2 class="text-3xl font-bold text-[#47C6A2] mb-6">
+      Why Choose OPTYP’s Fiverr Profile Optimization
+    </h2>
     <ul class="space-y-4">
-      <li><strong> Certified Specialists:</strong> 5,800+ profiles optimized successfully.</li>
-      <li><strong> Guaranteed Results:</strong> 50% visibility increase or a full revision free.</li>
-      <li><strong> Fast Delivery:</strong> 48–72 hours turnaround for urgent launches.</li>
-      <li><strong> Ongoing Support:</strong> Unlimited revisions for 30 days post-delivery.</li>
+      <li><strong>Certified Specialists:</strong> 5,800+ profiles optimized.</li>
+      <li><strong>Guaranteed Results:</strong> 50% visibility increase or free revision.</li>
+      <li><strong>Fast Delivery:</strong> 48–72 hours turnaround.</li>
+      <li><strong>Ongoing Support:</strong> Unlimited revisions for 30 days.</li>
     </ul>
-  </section>
-
-  <!-- Related Services -->
-  <section class="glass-card max-w-5xl mx-auto px-6 py-12 mb-10">
-    <h3 class="text-2xl font-bold text-[#47C6A2] mb-4">Related Services</h3>
-    <ul class="space-y-2">
-      <li><a href="/explore/freelancing/upwork" class="hover:text-[#47C6A2]">Upwork Profile Optimization</a></li>
-      <li><a href="/explore/freelancing/toptal" class="hover:text-[#47C6A2]">Toptal Profile Setup</a></li>
-      <li><a href="/explore/personal-branding" class="hover:text-[#47C6A2]">Personal Branding Strategy</a></li>
-      <li><a href="https://optyp.com/explore/linkedin/" class="hover:text-[#47C6A2]">LinkedIn Profile Setup</a></li>
-
-    </ul>
-  </section>
-
-  <!-- FAQ Redirect -->
-  <section class="glass-card text-center max-w-5xl mx-auto px-6 py-12 mb-10">
-    <h3 class="text-2xl font-bold text-white mb-4">Have Questions?</h3>
-    <p class="text-gray-300 mb-6">Find answers to the most common questions about Fiverr profile optimization.</p>
-    <a href="/faq" 
-       class="px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#47C6A2] to-[#2EA080] 
-              border-2 border-[#47C6A2] shadow-lg transition transform hover:scale-105 hover:shadow-2xl hover:from-[#2EA080] hover:to-[#47C6A2]">
-      Go to FAQ Page
-    </a>
   </section>
 
   <!-- CTA -->
   <section class="text-center py-16">
-    <a href="/#contact" 
-       class="px-10 py-4 rounded-2xl font-bold text-white text-xl shadow-xl 
-              bg-gradient-to-r from-[#47C6A2] to-[#2EA080] 
-              border-2 border-[#47C6A2]
-              backdrop-blur-md transition transform 
-              hover:scale-110 hover:shadow-2xl hover:from-[#2EA080] hover:to-[#47C6A2]
-              animate-pulse">
-       Get Your Fiverr Optimized Now
+    <a
+      href="/#contact"
+      class="px-10 py-4 rounded-2xl font-bold text-white text-xl shadow-xl bg-gradient-to-r from-[#47C6A2] to-[#2EA080] border-2 border-[#47C6A2] backdrop-blur-md transition transform hover:scale-110 hover:shadow-2xl hover:from-[#2EA080] hover:to-[#47C6A2]"
+    >
+      Get Your Fiverr Optimized Now
     </a>
-    <p class="text-gray-400 mt-4 text-sm">✓ 50% Higher CTR Guarantee · ✓ First-Page Ranking · ✓ 48–72hr Expert Delivery</p>
+    <p class="text-gray-400 mt-4 text-sm">
+      ✓ 50% Higher CTR Guarantee · ✓ First-Page Ranking · ✓ 48–72hr Expert Delivery
+    </p>
   </section>
 
-  <!-- Glassmorphism Utility -->
   <style>
     .glass-card {
       background: rgba(255, 255, 255, 0.05);

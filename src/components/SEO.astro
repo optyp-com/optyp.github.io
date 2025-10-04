@@ -1,0 +1,78 @@
+---
+// src/components/SEO.astro
+// Reusable SEO + JSON-LD component.
+// Props:
+//  - title (string) required
+//  - description (string) required
+//  - keywords (string) optional
+//  - image (string) absolute or site-relative URL
+//  - url (string) canonical URL
+//  - author (string) optional
+//  - publishedDate (string) optional, ISO 8601
+//  - modifiedDate (string) optional, ISO 8601
+//  - type (string) "website" or "article" or "service"
+const {
+  title,
+  description,
+  keywords = "OPTYP, resume, linkedin, career services",
+  image = "/og-default.png",
+  url = "",
+  author = "OPTYP",
+  publishedDate = null,
+  modifiedDate = null,
+  type = "website"
+} = Astro.props;
+const siteName = "OPTYP - Optimize Your Professionalism";
+const twitterHandle = "@YourTwitterHandle"; // replace with your twitter handle
+const locale = "en_IN";
+const siteLanguage = "en";
+const canonical = url || Astro.site?.origin || "";
+const structured = {
+  "@context": "https://schema.org",
+  "@type": type === "service" ? "Service" : (type === "article" ? "Article" : "WebSite"),
+  "name": title,
+  "description": description,
+  "url": canonical,
+  "publisher": {
+    "@type": "Organization",
+    "name": siteName,
+    "url": Astro.site?.origin || "/"
+  },
+  ...(image ? { "image": image } : {}),
+  ...(author ? { "author": { "@type": "Organization", "name": author } } : {}),
+  ...(publishedDate ? { "datePublished": publishedDate } : {}),
+  ...(modifiedDate ? { "dateModified": modifiedDate } : {})
+};
+---
+<head>
+  <title>{title} | {siteName}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <meta name="author" content={author} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content={locale} />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:type" content={type === "article" ? "article" : "website"} />
+  <meta property="og:title" content={`${title} | ${siteName}`} />
+  <meta property="og:description" content={description} />
+  {image && <meta property="og:image" content={image} />}
+  {canonical && <meta property="og:url" content={canonical} />}
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content={twitterHandle} />
+  <meta name="twitter:title" content={`${title} | ${siteName}`} />
+  <meta name="twitter:description" content={description} />
+  {image && <meta name="twitter:image" content={image} />}
+
+  <!-- Mobile / theme -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Language" content={siteLanguage} />
+  <meta name="theme-color" content="#0ea5a4" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">{JSON.stringify(structured)}</script>
+</head>
