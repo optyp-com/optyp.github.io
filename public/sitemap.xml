@@ -13,36 +13,6 @@
 
   <!-- ===================== Core Services ===================== -->
   <url>
-    <loc><?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- ===================== Homepage ===================== -->
-  <url>
-    <loc>https://optyp.com/</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.00</priority>
-  </url>
-
-  <!-- ===================== Core Services ===================== -->
-  <url>
-    <loc><?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- ===================== Homepage ===================== -->
-  <url>
-    <loc>https://optyp.com/</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.00</priority>
-  </url>
-
-  <!-- ===================== Core Services ===================== -->
-  <url>
     <loc>https://optyp.com/explore/ats-resume/</loc>
     <lastmod>2025-10-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -63,7 +33,7 @@
     <priority>0.95</priority>
   </url>
 
-<url>
+  <url>
     <loc>https://optyp.com/explore/job-portals/indeed/</loc>
     <lastmod>2025-10-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -91,13 +61,12 @@
     <priority>0.95</priority>
   </url>
 
-<url>
+  <url>
     <loc>https://optyp.com/explore/freelancing/upwork/</loc>
     <lastmod>2025-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
-
 
   <url>
     <loc>https://optyp.com/explore/freelancer</loc>
@@ -127,8 +96,6 @@
     <priority>0.90</priority>
   </url>
 
-
-
   <!-- ===================== Plans & Pricing ===================== -->
   <url>
     <loc>https://optyp.com/#plans</loc>
@@ -152,7 +119,7 @@
     <priority>0.80</priority>
   </url>
 
-  <!-- ===================== Blog (if you have one) ===================== -->
+  <!-- ===================== Blog ===================== -->
   <url>
     <loc>https://optyp.com/blog</loc>
     <lastmod>2025-10-05</lastmod>
@@ -195,4 +162,5 @@
     <changefreq>yearly</changefreq>
     <priority>0.60</priority>
   </url>
+
 </urlset>
