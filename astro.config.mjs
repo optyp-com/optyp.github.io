@@ -2,14 +2,26 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
+  // 🌐 Your production domain
   site: 'https://optyp.com',
-  base: '/', // Root site
-  integrations: [tailwind()],
+
+  // Root path for the site
+  base: '/',
+
+  // Output mode: fully static build (perfect for GitHub Pages)
   output: 'static',
+
+  // Integrations
+  integrations: [tailwind()],
+
+  // ⚙️ Ensure Astro knows where to find and copy public assets
+  publicDir: 'public',
+  outDir: 'dist',
+
   vite: {
     resolve: {
       alias: {
-        '@': '/src', // allow imports like @/components, @/data
+        '@': '/src', // allows imports like @/components, @/data, etc.
       },
     },
     build: {
