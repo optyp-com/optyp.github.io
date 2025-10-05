@@ -1,18 +1,18 @@
 ---
 export interface Props {
-  title: string;
-  description?: string;
-  keywords?: string;
-  ogImage?: string;
-  jsonLd?: Record<string, any>;
+  title: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  jsonLd?: Record<string, any>;
 }
 
 const {
-  title,
-  description = 'OPTYP - Optimize Your Professionalism',
-  keywords = 'career optimization, resume service, LinkedIn optimization, Naukri profile, Upwork profile, Fiverr profile, portfolio optimization, OPTYP',
-  ogImage = 'https://optyp.com/images/og-banner.png',
-  jsonLd
+  title,
+  description = 'OPTYP - Optimize Your Professionalism',
+  keywords = 'career optimization, resume service, LinkedIn optimization, Naukri profile, Upwork profile, Fiverr profile, portfolio optimization, OPTYP',
+  ogImage = 'https://optyp.com/images/og-banner.png',
+  jsonLd
 } = Astro.props;
 
 import Header from '../components/Header.astro';
@@ -27,224 +27,255 @@ const siteName = 'OPTYP';
 
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
-    <meta name="author" content="OPTYP" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="google-site-verification" content="YOUR-GOOGLE-VERIFICATION-CODE" />
+    <!-- =================== SEO Essentials =================== -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="OPTYP" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="google-site-verification" content="YOUR-GOOGLE-VERIFICATION-CODE" />
 
-        <meta name="HandheldFriendly" content="true" />
-    <meta name="MobileOptimized" content="320" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- =================== Canonical & Locale =================== -->
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:locale" content="en_IN" />
 
-        <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:locale" content="en_IN" />
+    <!-- =================== Open Graph =================== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:updated_time" content={new Date().toISOString()} />
 
-        <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={siteName} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:updated_time" content={new Date().toISOString()} />
+    <!-- =================== Twitter =================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@optyp" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
-        <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@optyp" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <!-- =================== Mobile Optimization =================== -->
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-        <meta name="color-scheme" content="dark light" />
-    <meta name="theme-color" content="#47C6A2" />
+    <!-- =================== Colors & Theme =================== -->
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#47C6A2" />
+    <meta name="msapplication-TileColor" content="#47C6A2" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
-    />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <!-- =================== Resource Hints =================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preload" as="image" href="/images/logo.svg" />
 
-        <link rel="icon" href="/icons/favcon.ico" />
-    <link rel="apple-touch-icon" href="/images/logo.svg" />
-    <link rel="manifest" href="/manifest.json" />
+    <!-- =================== Fonts =================== -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+    />
 
-        <style>
-      :root {
-        --bg-900: #050406;
-        --bg-800: #0b0b0c;
-        --panel: rgba(255, 255, 255, 0.03);
-        --accent-1: #47C6A2;
-        --accent-2: #ff7a6b;
-        --accent-3: #6ed0ff;
-        --text-1: #f4f7f7;
-        --muted: #9ca3af;
-      }
+    <!-- =================== Favicons / Manifest =================== -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-      @media (prefers-reduced-motion: reduce) {
-        html { scroll-behavior: auto; }
-      }
-    </style>
+    <!-- =================== Robots & Sitemap =================== -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <meta name="robots" content="index, follow" />
 
-        <link rel="stylesheet" href="/styles/global.css" />
+    <!-- =================== Global Design Tokens =================== -->
+    <style>
+      :root {
+        --bg-900: #050406;
+        --bg-800: #0b0b0c;
+        --panel: rgba(255, 255, 255, 0.03);
+        --accent-1: #47C6A2;
+        --accent-2: #ff7a6b;
+        --accent-3: #6ed0ff;
+        --text-1: #f4f7f7;
+        --muted: #9ca3af;
+      }
 
-        <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "name": "OPTYP",
-            "url": "https://optyp.com",
-            "logo": "https://optyp.com/images/logo.svg",
-            "sameAs": [
-              "https://linkedin.com/company/optyp",
-              "https://instagram.com/optyp",
-              "https://facebook.com/optyp",
-              "https://twitter.com/optyp"
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+91-9848934274",
-              "contactType": "customer service"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Bengaluru",
-              "addressRegion": "Karnataka",
-              "addressCountry": "India"
-            }
-          },
-          {
-            "@type": "WebSite",
-            "url": "https://optyp.com",
-            "name": "OPTYP - Optimize Your Professionalism",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://optyp.com/?s={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
-          },
-          {
-            "@type": "Product",
-            "name": "Essentials Plan",
-            "description": "ATS Resume, LinkedIn & Naukri optimization to kickstart your career.",
-            "brand": { "@type": "Organization", "name": "OPTYP" },
-            "offers": {
-              "@type": "Offer",
-              "price": "999",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://optyp.com/#plans"
-            }
-          },
-          {
-            "@type": "Product",
-            "name": "Professional Plan",
-            "description": "Complete career profile optimization with advanced resume + LinkedIn.",
-            "brand": { "@type": "Organization", "name": "OPTYP" },
-            "offers": {
-              "@type": "Offer",
-              "price": "4,999",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://optyp.com/#plans"
-            }
-          },
-          {
-            "@type": "Product",
-            "name": "Elite Plan",
-            "description": "Premium optimization + portfolio website for standout professionals.",
-            "brand": { "@type": "Organization", "name": "OPTYP" },
-            "offers": {
-              "@type": "Offer",
-              "price": "24,999",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://optyp.com/#plans"
-            }
-          }
-        ]
-      }
-    </script>
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+    </style>
 
-        {jsonLd && (
-      <script type="application/ld+json">
-        {JSON.stringify(jsonLd)}
-      </script>
-    )}
-  </head>
+    <!-- =================== Global CSS =================== -->
+    <link rel="stylesheet" href="/styles/global.css" />
 
-  <body class="bg-[linear-gradient(180deg,var(--bg-900),var(--bg-800))] text-white font-body leading-relaxed antialiased transition-colors duration-300">
-    <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-[color:var(--accent-1)] text-black rounded-md shadow-lg">
-      Skip to main content
-    </a>
+    <!-- =================== Default Structured Data =================== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "OPTYP",
+            "url": "https://optyp.com",
+            "logo": "https://optyp.com/images/logo.svg",
+            "sameAs": [
+              "https://linkedin.com/company/optyp",
+              "https://instagram.com/optyp",
+              "https://facebook.com/optyp",
+              "https://twitter.com/optyp"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-9848934274",
+              "contactType": "customer service"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bengaluru",
+              "addressRegion": "Karnataka",
+              "addressCountry": "India"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "url": "https://optyp.com",
+            "name": "OPTYP - Optimize Your Professionalism",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://optyp.com/?s={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "Essentials Plan",
+            "description": "ATS Resume, LinkedIn & Naukri optimization to kickstart your career.",
+            "brand": { "@type": "Organization", "name": "OPTYP" },
+            "offers": {
+              "@type": "Offer",
+              "price": "999",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://optyp.com/#plans"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "Professional Plan",
+            "description": "Complete career profile optimization with advanced resume + LinkedIn.",
+            "brand": { "@type": "Organization", "name": "OPTYP" },
+            "offers": {
+              "@type": "Offer",
+              "price": "6,999",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://optyp.com/#plans"
+            }
+          },
+          {
+            "@type": "Product",
+            "name": "Elite Plan",
+            "description": "Premium optimization + portfolio website for standout professionals.",
+            "brand": { "@type": "Organization", "name": "OPTYP" },
+            "offers": {
+              "@type": "Offer",
+              "price": "29,999",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://optyp.com/#plans"
+            }
+          }
+        ]
+      }
+    </script>
 
-        <Header />
+    <!-- =================== Page-Specific JSON-LD =================== -->
+    {jsonLd && (
+      <script type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </script>
+    )}
+  </head>
 
-        <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="main">
-      <slot />
-    </main>
+  <body class="bg-[linear-gradient(180deg,var(--bg-900),var(--bg-800))] text-white font-body leading-relaxed antialiased transition-colors duration-300">
+    <a href="#main-content" class="sr-only focus:not-sr-only p-2 bg-[color:var(--accent-1)] text-black rounded-md shadow-lg">
+      Skip to main content
+    </a>
 
-        <CookieBanner />
+    <!-- =================== Header =================== -->
+    <Header />
 
-        <Footer />
-    <FloatingContactIcon />
+    <!-- =================== Main Content =================== -->
+    <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="main">
+      <slot />
+    </main>
 
-        <style>
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-fadeInUp { opacity: 0; }
-      .animate-fadeInUp.visible { opacity: 1; animation: fadeInUp 0.8s ease-out both; }
-    </style>
+    <!-- =================== Global Cookie Banner =================== -->
+    <CookieBanner />
 
-        <script is:inline>
-      (function () {
-        const revealEls = document.querySelectorAll(".animate-fadeInUp");
-        if (!('IntersectionObserver' in window)) {
-          revealEls.forEach(el => el.classList.add('visible'));
-          return;
-        }
-        const revealObserver = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.18 }
-        );
-        revealEls.forEach((el) => revealObserver.observe(el));
-      }());
-    </script>
+    <!-- =================== Footer & Floating Contact =================== -->
+    <Footer />
+    <FloatingContactIcon />
 
-        <script is:inline>
-      window.addEventListener('cookiePreferencesSaved', (e) => {
-        if (e.detail.analytics) {
-          const s = document.createElement('script');
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
-          s.async = true;
-          document.head.appendChild(s);
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-  _          gtag('config', 'G-XXXXXXX');
-        }
-      });
-    </script>
-  </body>
+    <!-- =================== Animation Styles =================== -->
+    <style>
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fadeInUp { opacity: 0; }
+      .animate-fadeInUp.visible { opacity: 1; animation: fadeInUp 0.8s ease-out both; }
+    </style>
+
+    <!-- =================== Scroll Reveal =================== -->
+    <script is:inline>
+      (function () {
+        const revealEls = document.querySelectorAll(".animate-fadeInUp");
+        if (!('IntersectionObserver' in window)) {
+          revealEls.forEach(el => el.classList.add('visible'));
+          return;
+        }
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.18 }
+        );
+        revealEls.forEach((el) => revealObserver.observe(el));
+      }());
+    </script>
+
+    <!-- =================== Cookie Consent (Google Analytics) =================== -->
+    <script is:inline>
+      window.addEventListener('cookiePreferencesSaved', (e) => {
+        if (e.detail.analytics) {
+          const s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
+          s.async = true;
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XXXXXXX');
+        }
+      });
+    </script>
+  </body>
 </html>
