@@ -13,8 +13,8 @@ export const plans = [
   },
   {
     name: "Freelancer Pro",
-    originalPrice: "₹9,999 ($119)",
-    price: "₹4,999 ($59)",
+    originalPrice: "₹14,999 ($169)",
+    price: "₹6,999 ($79)",
     features: [
       "Essentials plan +",
       "GitHub Optimization",
@@ -25,8 +25,8 @@ export const plans = [
   },
   {
     name: "Personal Branding",
-    originalPrice: "₹29,999 ($339)",
-    price: "₹14,999 ($169)",
+    originalPrice: "₹59,999 ($676)",
+    price: "₹29,999 ($339)",
     features: [
       "Freelancer Pro plan +",
       "Toptal Optimization",
@@ -45,11 +45,11 @@ export const plans = [
     { name: "Naukri Optimization", oldPrice: "₹599 ($8)", newPrice: "₹299 ($4)" },
     { name: "Indeed Optimization", oldPrice: "₹599 ($8)", newPrice: "₹299 ($4)" },
     { name: "GitHub Optimization", oldPrice: "₹599 ($8)", newPrice: "₹299 ($4)" },
-    { name: "LinkedIn Optimization", oldPrice: "₹799 ($9)", newPrice: "₹399 ($5)" },
-    { name: "Portfolio Website", oldPrice: "₹1,999 ($25)", newPrice: "₹999 ($15)" },
-    { name: "Fiverr Optimization", oldPrice: "₹2,999 ($35)", newPrice: "₹1,499 ($17)" },
-    { name: "Upwork Optimization", oldPrice: "₹3,799 ($39)", newPrice: "₹1,899 ($19)" },
-    { name: "Toptal Optimization", oldPrice: "₹4,999 ($59)", newPrice: "₹2,499 ($29)" },
+    { name: "LinkedIn Optimization", oldPrice: "₹1,599 ($19)", newPrice: "₹799 ($9)" },
+    { name: "Portfolio Website", oldPrice: "₹3,999 ($45)", newPrice: "₹1,999 ($23)" },
+    { name: "Fiverr Optimization", oldPrice: "₹4,999 ($57)", newPrice: "₹2,499 ($29)" },
+    { name: "Upwork Optimization", oldPrice: "₹5,999 ($68)", newPrice: "₹2,999 ($34)" },
+    { name: "Toptal Optimization", oldPrice: "₹14,999 ($169)", newPrice: "₹6,999 ($79)" },
   ],
 }
   
