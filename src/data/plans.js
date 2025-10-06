@@ -24,13 +24,14 @@ export const plans = [
     ],
   },
   {
-    name: "Personal Branding",
+    name: "Elite",
     originalPrice: "₹59,999 ($676)",
     price: "₹29,999 ($339)",
     features: [
       "Freelancer Pro plan +",
       "Toptal Optimization",
-      "Full Social Media Optimization",
+      "Personal Branding",
+      "Social Media Optimization",
       "30 Days Content Calendar",
       "100 Days Profile Analytics",
       "Ongoing Reputation Monitoring",
