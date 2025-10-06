@@ -1,5 +1,9 @@
-# ✅ /netlify.toml
-# Configuration for deploying Astro + Netlify Functions
+# ✅ Final Netlify Config (Node functions only)
+
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["netlify/functions/**"]
+  external_node_modules = ["@google/generative-ai"]
 
 [build]
   command = "npm run build"

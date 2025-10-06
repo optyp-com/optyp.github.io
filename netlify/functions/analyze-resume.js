@@ -1,9 +1,8 @@
 // ✅ /netlify/functions/analyze-resume.js
-// Function: Analyzes resume (with or without job description) using Google Gemini API
+// Purpose: Evaluate resume content with or without job description using Gemini AI
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// Netlify Function Entry Point
 export async function handler(event) {
   try {
     const { resumeText, jobDescription } = JSON.parse(event.body || "{}");
@@ -11,41 +10,30 @@ export async function handler(event) {
     if (!resumeText) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: "Missing resume text." }),
+        body: JSON.stringify({ error: "Missing resume text" }),
       };
     }
 
-    // ✅ Initialize Gemini
+    // ✅ Initialize Gemini API
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    // ✅ Prompt for Gemini
+    // ✅ Prompt for analysis
     const prompt = `
-You are an ATS (Applicant Tracking System) expert and professional career analyst.
+You are an advanced ATS (Applicant Tracking System) evaluator.
+Analyze the following resume${jobDescription ? ` for this job description: ${jobDescription}` : ""}.
+Provide:
+1. ATS Score (0–100)
+2. Missing keywords or weak areas
+3. Key recommendations to improve shortlisting chances
+4. Professional tone improvements if needed
 
-Evaluate the following resume ${
-      jobDescription
-        ? "based on this job description for relevance and match quality."
-        : "in general for its ATS compatibility and structure."
-    }
-
-Provide your response in the following format:
-1. ATS Score: (number between 0–100)
-2. Key Missing Sections
-3. Weak Keywords (if any)
-4. Suggestions / Recommendations for improvement
-
----
-${jobDescription ? `Job Description:\n${jobDescription}` : ""}
----
-Resume Content:
+Resume content:
 ${resumeText}
     `;
 
-    // ✅ Generate content using Gemini
+    // ✅ Generate AI response
     const result = await model.generateContent(prompt);
-
-    // ✅ Extract text output
     const aiText = result.response.text();
 
     return {
@@ -53,7 +41,7 @@ ${resumeText}
       body: JSON.stringify({ result: aiText }),
     };
   } catch (error) {
-    console.error("Error in analyze-resume:", error);
+    console.error("❌ Error in analyze-resume:", error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "Internal server error" }),
