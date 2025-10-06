@@ -7,7 +7,7 @@ import Plans from '../components/Plans.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Contact from '../components/Contact.astro';
 import FAQHome from '../components/FAQHome.astro';
-
+import AiAnalyzer from '../components/ai-analyzer.astro';  // ✅ Added
 import { services } from '../data/services.js';
 import { plans } from '../data/plans.js';
 import { testimonials } from '../data/testimonials.js';
@@ -18,7 +18,7 @@ import { testimonials } from '../data/testimonials.js';
   description="Premium resume, LinkedIn, Naukri, and portfolio optimization services to help professionals get hired faster globally."
 >
   <main class="bg-[linear-gradient(180deg,var(--bg-900),var(--bg-800))] text-gray-100">
-    <!-- Hero (landmark + accessible) -->
+    <!-- Hero -->
     <section id="hero" class="scroll-mt-20" role="region" aria-labelledby="hero-heading">
       <Hero />
     </section>
@@ -51,7 +51,15 @@ import { testimonials } from '../data/testimonials.js';
       </div>
     </section>
 
-    <!-- FAQ (home) -->
+    <!-- ✅ NEW SECTION: AI ANALYZER -->
+    <section id="ai-analyzer" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="ai-heading">
+      <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 id="ai-heading" class="sr-only">AI Resume & LinkedIn Analyzer</h2>
+        <AiAnalyzer />  <!-- ✅ New Component -->
+      </div>
+    </section>
+
+    <!-- FAQ -->
     <section id="faq" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="faq-heading">
       <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <FAQHome />
@@ -91,16 +99,13 @@ import { testimonials } from '../data/testimonials.js';
     }
   </style>
 
-  <!-- Ensure any anchor to #contact opens the modal if contact component is available -->
+  <!-- Contact link scroll/modal logic -->
   <script is:inline>
-    // Intercept any internal clicks to links that target #contact to open the modal (progressive)
     document.addEventListener('click', function (ev) {
       const a = ev.target.closest && ev.target.closest('a[href*="#contact"]');
       if (!a) return;
-      // If href is purposely external (contains full origin), don't intercept
       try {
         const href = a.getAttribute('href') || '';
-        // If pathname includes host, treat as external -> allow default
         if (href.indexOf('http') === 0 && !href.includes(location.hostname)) return;
       } catch (e) { /* ignore */ }
 
@@ -113,7 +118,6 @@ import { testimonials } from '../data/testimonials.js';
       }
     }, { passive: false });
 
-    // Ensure deep links (URL contains #contact) open modal on load
     document.addEventListener('DOMContentLoaded', function () {
       if (location.hash === '#contact') {
         if (typeof openContactForm === 'function') {
