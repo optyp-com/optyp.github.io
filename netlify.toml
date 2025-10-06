@@ -14,4 +14,4 @@
 
 # (Optional) Set environment variables for clarity
 [template.environment]
-  GEMINI_API_KEY = "gen-lang-client-0061973069"  # 🔑 Replace this in Netlify Dashboard, not here
+  GEMINI_API_KEY = gen-lang-client-0061973069  # 🔑 Replace this in Netlify Dashboard, not here
