@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
-// ✅ Final Astro configuration for Netlify deployment (no experimental flags)
+// ✅ Final Astro configuration for Netlify deployment
 export default defineConfig({
   // 🌐 Your live production domain (non-www root domain)
   site: 'https://optyp.com',
@@ -19,9 +19,9 @@ export default defineConfig({
   publicDir: 'public',
   outDir: 'dist',
 
-  // ✅ Build settings for clean URLs
+  // ✅ Clean URLs like /about instead of /about.html
   build: {
-    format: 'directory', // /about → /about/index.html
+    format: 'directory',
   },
 
   // ✅ Vite configuration for bundling, aliasing, and asset handling
@@ -32,7 +32,7 @@ export default defineConfig({
       },
     },
     build: {
-      cssCodeSplit: false, // Ensures all CSS is bundled together
+      cssCodeSplit: false, // Ensures all CSS inlined properly
       rollupOptions: {
         output: {
           assetFileNames: 'assets/[name].[hash][extname]',
