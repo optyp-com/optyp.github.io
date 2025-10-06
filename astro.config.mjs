@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 // ✅ Final Astro configuration for Netlify deployment
 export default defineConfig({
-  // 🌐 Your live production domain
+  // 🌐 Your live production domain (non-www root domain)
   site: 'https://optyp.com',
 
   // Root path for the site (custom domain root)
@@ -15,24 +15,24 @@ export default defineConfig({
   // ✅ Integrate TailwindCSS
   integrations: [tailwind()],
 
-  // ✅ Public & output directories
+  // ✅ Directory structure
   publicDir: 'public',
   outDir: 'dist',
 
-  // ✅ Ensures clean routes like /about, /services, /contact
+  // ✅ Clean URLs like /about instead of /about.html
   build: {
-    format: 'directory', // creates /about/index.html instead of /about.html
+    format: 'directory',
   },
 
-  // ✅ Vite configuration for bundling, asset handling, and aliasing
+  // ✅ Vite configuration for bundling, aliasing, and asset handling
   vite: {
     resolve: {
       alias: {
-        '@': '/src', // allows @/components, @/data, etc.
+        '@': '/src', // allows @/components, @/data, @/layouts, etc.
       },
     },
     build: {
-      cssCodeSplit: false,
+      cssCodeSplit: false, // Ensures all CSS inlined properly
       rollupOptions: {
         output: {
           assetFileNames: 'assets/[name].[hash][extname]',
