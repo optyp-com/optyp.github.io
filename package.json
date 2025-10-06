@@ -7,8 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "predeploy": "npm run build && echo 'optyp.com' > dist/CNAME",
-    "deploy": "gh-pages -d dist"
+    "start": "astro preview"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
@@ -20,8 +19,7 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.19",
-    "@types/node": "^20.0.0",
-    "gh-pages": "^6.3.0"
+    "@types/node": "^20.0.0"
   },
   "keywords": [
     "astro",

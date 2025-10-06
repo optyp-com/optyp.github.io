@@ -1,0 +1,13 @@
+# ✅ Netlify build configuration for Astro
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# ✅ Handles clean routes (no 404 on refresh)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

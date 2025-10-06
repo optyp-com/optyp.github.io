@@ -1,33 +1,34 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
+// ✅ Final Astro configuration for Netlify deployment
 export default defineConfig({
-  // 🌐 Your live domain
+  // 🌐 Your live production domain
   site: 'https://optyp.com',
 
-  // Root path for the site (since you’re using a custom domain)
+  // Root path for the site (custom domain root)
   base: '/',
 
-  // ✅ Output mode for static hosting (GitHub Pages / Netlify)
+  // ✅ Output as a static site (Astro default, perfect for Netlify)
   output: 'static',
 
-  // ✅ Use TailwindCSS integration
+  // ✅ Integrate TailwindCSS
   integrations: [tailwind()],
 
-  // ✅ Public asset and build directories
+  // ✅ Public & output directories
   publicDir: 'public',
   outDir: 'dist',
 
-  // ✅ Critical: ensures /about/, /services/, /contact/ work properly
+  // ✅ Ensures clean routes like /about, /services, /contact
   build: {
-    format: 'directory', // generates about/index.html instead of about.html
+    format: 'directory', // creates /about/index.html instead of /about.html
   },
 
-  // ✅ Vite configuration for asset bundling
+  // ✅ Vite configuration for bundling, asset handling, and aliasing
   vite: {
     resolve: {
       alias: {
-        '@': '/src', // allows imports like @/components or @/data
+        '@': '/src', // allows @/components, @/data, etc.
       },
     },
     build: {
