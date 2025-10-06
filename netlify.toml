@@ -5,9 +5,8 @@ publish = "dist"
 
 [build.environment]
 NODE_VERSION = "20"
-NPM_FLAGS = "--legacy-peer-deps"
 
-# Redirect all requests to index.html (for client-side routing)
+# Redirect all routes to index.html for SPA behavior
 [[redirects]]
 from = "/*"
 to = "/index.html"
