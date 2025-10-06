@@ -1,4 +1,4 @@
-# Netlify build configuration for Astro
+# ✅ Netlify build configuration for Astro (static site)
 [build]
 command = "npm run build"
 publish = "dist"
@@ -6,8 +6,23 @@ publish = "dist"
 [build.environment]
 NODE_VERSION = "20"
 
-# Redirect all routes to index.html for SPA behavior
+# ✅ Redirect all routes to index.html (no infinite redirect loop)
 [[redirects]]
 from = "/*"
 to = "/index.html"
 status = 200
+force = true
+
+# ✅ Enforce HTTPS and remove duplicate redirect behavior
+[[redirects]]
+from = "http://optyp.com/*"
+to = "https://optyp.com/:splat"
+status = 301
+force = true
+
+# Optional: redirect www to non-www (or reverse, if you prefer)
+[[redirects]]
+from = "https://www.optyp.com/*"
+to = "https://optyp.com/:splat"
+status = 301
+force = true
