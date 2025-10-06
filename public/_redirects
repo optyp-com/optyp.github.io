@@ -1,5 +1,5 @@
-# Force root (non-www) to www
+# Redirect root to www
 https://optyp.com/*    https://www.optyp.com/:splat    301!
 
-# SPA fallback (for Astro single-page routes)
+# SPA Fallback
 /*    /index.html    200
