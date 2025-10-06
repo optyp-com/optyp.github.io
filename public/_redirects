@@ -1,2 +1,7 @@
-# ✅ Redirect www to non-www to prevent redirect loops
-https://www.optyp.com/*  https://optyp.com/:splat 301!
+# Force HTTPS and non-www
+http://optyp.com/*       https://optyp.com/:splat     301!
+http://www.optyp.com/*   https://optyp.com/:splat     301!
+https://www.optyp.com/*  https://optyp.com/:splat     301!
+
+# Handle Astro routes
+/*   /index.html   200

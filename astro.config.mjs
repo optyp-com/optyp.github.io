@@ -19,9 +19,9 @@ export default defineConfig({
   publicDir: 'public',
   outDir: 'dist',
 
-  // ✅ Clean URLs like /about instead of /about.html
+  // ✅ Build settings for clean URLs
   build: {
-    format: 'directory',
+    format: 'directory', // /about → /about/index.html
   },
 
   // ✅ Vite configuration for bundling, aliasing, and asset handling
@@ -32,12 +32,18 @@ export default defineConfig({
       },
     },
     build: {
-      cssCodeSplit: false, // Ensures all CSS inlined properly
+      cssCodeSplit: false, // Ensures all CSS is bundled together
       rollupOptions: {
         output: {
           assetFileNames: 'assets/[name].[hash][extname]',
         },
       },
     },
+  },
+
+  // ✅ Netlify optimization hint for HTTPS redirects
+  experimental: {
+    // Forces canonical URLs and helps prevent redirect loops
+    canonicalBase: 'https://optyp.com',
   },
 });
