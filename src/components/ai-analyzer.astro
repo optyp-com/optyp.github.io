@@ -158,7 +158,17 @@ import "../styles/ai-analyzer.css";
     renderResult("linkedin-result", data.result);
   }
 
-  // === EVENT LISTENERS ===
-  document.getElementById("resume-form").addEventListener("submit", handleResume);
-  document.getElementById("linkedin-form").addEventListener("submit", handleLinkedIn);
+    // === EVENT LISTENERS (Fixed for Astro hydration) ===
+  document.addEventListener("DOMContentLoaded", () => {
+    const resumeForm = document.getElementById("resume-form");
+    const linkedinForm = document.getElementById("linkedin-form");
+
+    if (resumeForm) {
+      resumeForm.addEventListener("submit", handleResume);
+    }
+
+    if (linkedinForm) {
+      linkedinForm.addEventListener("submit", handleLinkedIn);
+    }
+  });
 </script>
