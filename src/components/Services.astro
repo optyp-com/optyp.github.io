@@ -1,5 +1,5 @@
 ---
-const { services } = Astro.props;
+const { services = [] } = Astro.props; // ✅ Safe fallback so build never crashes
 
 // Map service titles to correct /explore routes
 const serviceLinks = {
@@ -14,6 +14,18 @@ const serviceLinks = {
   "Toptal Profile Setup": "/explore/freelancing/toptal",
   "Personal Branding": "/explore/personal-branding",
 };
+
+// ✅ Optional backup data (if parent forgets to pass)
+const defaultServices = [
+  { title: "ATS Resume", description: "Optimize your resume for ATS systems." },
+  { title: "LinkedIn Optimization", description: "Enhance your professional presence." },
+  { title: "Naukri Optimization", description: "Get noticed on job portals." },
+  { title: "GitHub Enhancement", description: "Showcase your projects effectively." },
+  { title: "Portfolio Creation", description: "Build a personal brand website." },
+  { title: "Personal Branding", description: "Boost your visibility with tailored strategy." },
+];
+
+const data = services.length ? services : defaultServices;
 ---
 
 <section id="services" class="relative py-20 lg:py-28 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
@@ -32,7 +44,7 @@ const serviceLinks = {
 
     <!-- Services Grid -->
     <div class="grid gap-8 sm:gap-10 sm:grid-cols-2 lg:grid-cols-3">
-      {services.map((service, i) => (
+      {data.map((service, i) => (
         <div
           key={service.title}
           class="service-card group relative p-8 rounded-2xl transition-all duration-300 
@@ -68,7 +80,7 @@ const serviceLinks = {
             {service.description}
           </p>
 
-          <!-- See More Button (Glassmorphism Enhanced) -->
+          <!-- See More Button -->
           {serviceLinks[service.title] && (
             <a 
               href={serviceLinks[service.title]}

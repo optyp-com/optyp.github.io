@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Services from "../components/Services.astro";
+import { services } from "../data/services"; // ✅ new — centralized data import
 
 const title = "Our Services | OPTYP";
 const description = "Explore OPTYP services – ATS Resume, LinkedIn Optimization, Job Portal Profile Enhancement, and more.";
@@ -16,8 +17,8 @@ const keywords = "optyp services, resume optimization, linkedin profile services
         across multiple platforms.
       </p>
 
-      <!-- Reuse Services component -->
-      <Services />
+      <!-- ✅ Pass services as prop -->
+      <Services services={services} />
     </section>
   </main>
 </Layout>
