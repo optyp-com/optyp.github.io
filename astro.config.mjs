@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
-// ✅ Final Astro configuration for Netlify deployment
+// ✅ Final Astro configuration for Netlify deployment (no experimental flags)
 export default defineConfig({
   // 🌐 Your live production domain (non-www root domain)
   site: 'https://optyp.com',
@@ -39,11 +39,5 @@ export default defineConfig({
         },
       },
     },
-  },
-
-  // ✅ Netlify optimization hint for HTTPS redirects
-  experimental: {
-    // Forces canonical URLs and helps prevent redirect loops
-    canonicalBase: 'https://optyp.com',
   },
 });
