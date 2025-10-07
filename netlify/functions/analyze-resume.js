@@ -1,4 +1,5 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { DiscussServiceClient } from "@google-ai/generativelanguage";
+import { GoogleAuth } from "google-auth-library";
 
 console.log("🔍 GEMINI_API_KEY:", process.env.GEMINI_API_KEY ? "FOUND ✅" : "MISSING ❌");
 
@@ -9,27 +10,44 @@ export async function handler(event) {
       return { statusCode: 400, body: JSON.stringify({ error: "Missing resume text" }) };
     }
 
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const client = new DiscussServiceClient({
+      auth: new GoogleAuth().fromAPIKey(process.env.GEMINI_API_KEY),
+    });
 
     const prompt = `
-You are an ATS evaluator.
+You are an expert ATS evaluator.
 Analyze this resume${jobDescription ? ` for this job description: ${jobDescription}` : ""}.
 Return:
-1. ATS score (0–100)
-2. Missing or weak skills
+1. ATS Score (0–100)
+2. Missing keywords / skills
 3. Top 5 recommendations
-4. Formatting suggestions
+4. Formatting / readability suggestions
 
 Resume:
 ${resumeText}`;
 
-    const result = await model.generateContent(prompt);
-    const text = result.response.text();
+    const [response] = await client.generateMessage({
+      model: "models/gemini-1.5-flash",
+      prompt: {
+        messages: [
+          {
+            content: prompt,
+          },
+        ],
+      },
+    });
 
-    return { statusCode: 200, body: JSON.stringify({ result: text }) };
+    const resultText = response.candidates?.[0]?.content || "";
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ result: resultText }),
+    };
   } catch (err) {
     console.error("❌ analyze-resume error:", err);
-    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: err.message }),
+    };
   }
 }
