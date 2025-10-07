@@ -5,9 +5,21 @@ console.log("🔍 GEMINI_API_KEY:", process.env.GEMINI_API_KEY ? "FOUND ✅" : "
 
 export async function handler(event) {
   try {
-    const { resumeText, jobDescription } = JSON.parse(event.body || "{}");
+    let { resumeText, jobDescription } = JSON.parse(event.body || "{}");
     if (!resumeText)
       return { statusCode: 400, body: JSON.stringify({ error: "Missing resume text" }) };
+
+    // Automatically switch models based on resume length
+    const modelName =
+      resumeText.length > 18000
+        ? "models/gemini-1.5-pro"
+        : "models/gemini-1.5-flash";
+
+    if (resumeText.length > 190000) {
+      resumeText =
+        resumeText.slice(0, 190000) +
+        "\n\n[Resume truncated due to size limit for Gemini API]";
+    }
 
     const client = new DiscussServiceClient({
       authClient: new GoogleAuth().fromAPIKey(process.env.GEMINI_API_KEY),
@@ -26,7 +38,7 @@ Resume:
 ${resumeText}`;
 
     const [result] = await client.generateMessage({
-      model: "models/gemini-1.5-flash",
+      model: modelName,
       prompt: { messages: [{ content: prompt }] },
     });
 
