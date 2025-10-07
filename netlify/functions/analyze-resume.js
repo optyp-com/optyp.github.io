@@ -6,48 +6,38 @@ console.log("🔍 GEMINI_API_KEY:", process.env.GEMINI_API_KEY ? "FOUND ✅" : "
 export async function handler(event) {
   try {
     const { resumeText, jobDescription } = JSON.parse(event.body || "{}");
-    if (!resumeText) {
+    if (!resumeText)
       return { statusCode: 400, body: JSON.stringify({ error: "Missing resume text" }) };
-    }
 
     const client = new DiscussServiceClient({
-      auth: new GoogleAuth().fromAPIKey(process.env.GEMINI_API_KEY),
+      authClient: new GoogleAuth().fromAPIKey(process.env.GEMINI_API_KEY),
     });
 
     const prompt = `
-You are an expert ATS evaluator.
+You are an ATS evaluator.
 Analyze this resume${jobDescription ? ` for this job description: ${jobDescription}` : ""}.
 Return:
 1. ATS Score (0–100)
-2. Missing keywords / skills
+2. Missing or weak skills
 3. Top 5 recommendations
-4. Formatting / readability suggestions
+4. Formatting suggestions
 
 Resume:
 ${resumeText}`;
 
-    const [response] = await client.generateMessage({
+    const [result] = await client.generateMessage({
       model: "models/gemini-1.5-flash",
-      prompt: {
-        messages: [
-          {
-            content: prompt,
-          },
-        ],
-      },
+      prompt: { messages: [{ content: prompt }] },
     });
 
-    const resultText = response.candidates?.[0]?.content || "";
+    const responseText = result?.candidates?.[0]?.content || "No response";
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ result: resultText }),
+      body: JSON.stringify({ result: responseText }),
     };
   } catch (err) {
     console.error("❌ analyze-resume error:", err);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: err.message }),
-    };
+    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
   }
 }
