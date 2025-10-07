@@ -6,19 +6,23 @@ console.log("🔍 GEMINI_API_KEY:", process.env.GEMINI_API_KEY ? "FOUND ✅" : "
 export async function handler(event) {
   try {
     let { resumeText, jobDescription } = JSON.parse(event.body || "{}");
-    if (!resumeText)
+
+    if (!resumeText) {
       return { statusCode: 400, body: JSON.stringify({ error: "Missing resume text" }) };
+    }
 
-    // Automatically switch models based on resume length
-    const modelName =
-      resumeText.length > 18000
-        ? "models/gemini-1.5-pro"
-        : "models/gemini-1.5-flash";
+    // === SMART MODEL SWITCH ===
+    let modelName = "models/gemini-1.5-flash";
+    if (resumeText.length > 18000) {
+      modelName = "models/gemini-1.5-pro";
+    }
 
+    console.log(`🚀 Using Gemini model: ${modelName} (text length = ${resumeText.length})`);
+
+    // === HARD LIMIT (Gemini Pro limit ≈ 200k chars) ===
     if (resumeText.length > 190000) {
       resumeText =
-        resumeText.slice(0, 190000) +
-        "\n\n[Resume truncated due to size limit for Gemini API]";
+        resumeText.slice(0, 190000) + "\n\n[Resume truncated to fit Gemini input limit]";
     }
 
     const client = new DiscussServiceClient({
