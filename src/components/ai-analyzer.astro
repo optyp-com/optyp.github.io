@@ -27,6 +27,7 @@ import "../styles/ai-analyzer.css";
         <button type="submit" class="btn-primary">Analyze Resume</button>
       </form>
 
+      <div id="resume-status" class="status-msg"></div>
       <div id="resume-result" class="result-box"></div>
     </div>
 
@@ -43,13 +44,14 @@ import "../styles/ai-analyzer.css";
         <button type="submit" class="btn-secondary">Analyze Profile</button>
       </form>
 
+      <div id="linkedin-status" class="status-msg"></div>
       <div id="linkedin-result" class="result-box"></div>
     </div>
   </div>
 </section>
 
 <script>
-  // === 🌀 SHOW LOADING SPINNER ===
+  // === 🌀 LOADING SPINNER ===
   function showLoading(targetId) {
     const container = document.getElementById(targetId);
     container.innerHTML = `
@@ -60,14 +62,14 @@ import "../styles/ai-analyzer.css";
     `;
   }
 
-  // === 🧠 EXTRACT SCORE FROM AI TEXT ===
+  // === 🧠 EXTRACT SCORE ===
   function extractScore(text) {
     const match = text.match(/(\d{1,3})\s*\/\s*100|score[:\s]*(\d{1,3})/i);
     const score = match ? parseInt(match[1] || match[2]) : null;
     return Math.min(Math.max(score || 0, 0), 100);
   }
 
-  // === ✨ EXTRACT RECOMMENDATIONS FROM AI TEXT ===
+  // === ✨ EXTRACT RECOMMENDATIONS ===
   function extractRecommendations(text) {
     const sectionRegex = /(recommendations|suggestions|tips|improvements)[:\s]*([\s\S]*)/i;
     const match = text.match(sectionRegex);
@@ -81,13 +83,13 @@ import "../styles/ai-analyzer.css";
     return recommendationsText;
   }
 
-  // === 💎 RENDER RESULT (SCORE + BULLETS + FULL TEXT) ===
+  // === 💎 RENDER RESULT ===
   function renderResult(targetId, text) {
     const container = document.getElementById(targetId);
     container.innerHTML = "";
 
     const score = extractScore(text);
-    const recommendations = extractRecommendations(text);
+    const recs = extractRecommendations(text);
 
     if (score) {
       const label =
@@ -104,10 +106,8 @@ import "../styles/ai-analyzer.css";
       `;
     }
 
-    if (recommendations && recommendations.length > 0) {
-      const formatted = recommendations
-        .map(item => `✅ ${item.charAt(0).toUpperCase() + item.slice(1)}`)
-        .join("<br>");
+    if (recs && recs.length > 0) {
+      const formatted = recs.map(r => `✅ ${r.charAt(0).toUpperCase() + r.slice(1)}`).join("<br>");
       container.innerHTML += `
         <div class="recommendations-section">
           <h4 class="rec-title">Recommendations</h4>
@@ -126,54 +126,111 @@ import "../styles/ai-analyzer.css";
     `;
   }
 
+  // === ⚠️ SHOW ERROR WITH RETRY ===
+  function showError(targetId, message, retryCallback) {
+    const container = document.getElementById(targetId);
+    container.innerHTML = `
+      <div class="error-box">
+        <p>⚠️ ${message}</p>
+        <button class="retry-btn">Retry</button>
+      </div>
+    `;
+    container.querySelector(".retry-btn").addEventListener("click", retryCallback);
+  }
+
   // === 🧾 HANDLE RESUME ANALYSIS ===
   async function handleResume(e) {
     e.preventDefault();
+    const status = document.getElementById("resume-status");
+    const result = document.getElementById("resume-result");
     const file = document.getElementById("resume-upload").files[0];
-    if (!file) return alert("Please upload a resume file.");
-    const text = await file.text();
     const jobDesc = document.getElementById("job-description").value;
 
-    showLoading("resume-result");
-    const res = await fetch("/.netlify/functions/analyze-resume", {
-      method: "POST",
-      body: JSON.stringify({ resumeText: text, jobDescription: jobDesc }),
-    });
-    const data = await res.json();
-    renderResult("resume-result", data.result);
+    try {
+      if (!file) throw new Error("Please upload a resume file.");
+
+      status.textContent = "⏳ Uploading & analyzing resume...";
+      showLoading("resume-result");
+
+      const text = await file.text();
+      const res = await fetch("/.netlify/functions/analyze-resume", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ resumeText: text, jobDescription: jobDesc }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.result) throw new Error(data.error || "Internal Server Error");
+      renderResult("resume-result", data.result);
+      status.textContent = "✅ Analysis complete!";
+    } catch (err) {
+      console.error("Resume analysis failed:", err);
+      status.textContent = "⚠️ Something went wrong.";
+      showError("resume-result", err.message, () => handleResume(e));
+    }
   }
 
   // === 🔗 HANDLE LINKEDIN ANALYSIS ===
   async function handleLinkedIn(e) {
     e.preventDefault();
+    const status = document.getElementById("linkedin-status");
+    const result = document.getElementById("linkedin-result");
     const url = document.getElementById("linkedin-url").value;
-    if (!url) return alert("Please enter your LinkedIn URL.");
 
-    showLoading("linkedin-result");
-    const res = await fetch("/.netlify/functions/analyze-linkedin", {
-      method: "POST",
-      body: JSON.stringify({ profileUrl: url }),
-    });
-    const data = await res.json();
-    renderResult("linkedin-result", data.result);
+    try {
+      if (!url) throw new Error("Please enter your LinkedIn URL.");
+
+      status.textContent = "⏳ Checking LinkedIn profile...";
+      showLoading("linkedin-result");
+
+      const res = await fetch("/.netlify/functions/analyze-linkedin", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ profileUrl: url }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.result) throw new Error(data.error || "Internal Server Error");
+      renderResult("linkedin-result", data.result);
+      status.textContent = "✅ Analysis complete!";
+    } catch (err) {
+      console.error("LinkedIn analysis failed:", err);
+      status.textContent = "⚠️ Something went wrong.";
+      showError("linkedin-result", err.message, () => handleLinkedIn(e));
+    }
   }
 
-    // === EVENT LISTENERS ===
-document.addEventListener("astro:page-load", attachListeners);
-document.addEventListener("DOMContentLoaded", attachListeners);
+  // === EVENT LISTENERS ===
+  document.addEventListener("astro:page-load", attachListeners);
+  document.addEventListener("DOMContentLoaded", attachListeners);
 
-function attachListeners() {
-  const resumeForm = document.getElementById("resume-form");
-  const linkedinForm = document.getElementById("linkedin-form");
+  function attachListeners() {
+    const resumeForm = document.getElementById("resume-form");
+    const linkedinForm = document.getElementById("linkedin-form");
 
-  if (resumeForm && !resumeForm.dataset.bound) {
-    resumeForm.dataset.bound = "true";
-    resumeForm.addEventListener("submit", handleResume);
+    if (resumeForm && !resumeForm.dataset.bound) {
+      resumeForm.dataset.bound = "true";
+      resumeForm.addEventListener("submit", handleResume);
+    }
+    if (linkedinForm && !linkedinForm.dataset.bound) {
+      linkedinForm.dataset.bound = "true";
+      linkedinForm.addEventListener("submit", handleLinkedIn);
+    }
   }
-
-  if (linkedinForm && !linkedinForm.dataset.bound) {
-    linkedinForm.dataset.bound = "true";
-    linkedinForm.addEventListener("submit", handleLinkedIn);
-  }
-}
 </script>
+
+<style>
+.status-msg { color: #aaa; margin-top: 0.5rem; font-size: 0.9rem; }
+.error-box { margin-top: 1rem; padding: 1rem; border-radius: 0.75rem; background: rgba(255, 0, 0, 0.08); border: 1px solid rgba(255, 0, 0, 0.2); color: #ff6b6b; }
+.retry-btn {
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, #00ffc6, #0091ff);
+  color: black;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.retry-btn:hover { opacity: 0.85; transform: scale(1.02); }
+</style>
