@@ -6,6 +6,14 @@
   node_bundler = "esbuild"
   external_node_modules = ["@google/generative-ai"]
 
+[functions."analyze-resume"]
+  node_bundler = "esbuild"
+  included_files = ["netlify/functions/analyze-resume.js"]
+
+[functions."analyze-linkedin"]
+  node_bundler = "esbuild"
+  included_files = ["netlify/functions/analyze-linkedin.js"]
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
