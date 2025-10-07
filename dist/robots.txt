@@ -1,0 +1,33 @@
+# =========================
+# OPTYP Robots Configuration
+# Optimized for SEO, Performance & Crawl Efficiency
+# =========================
+
+User-agent: *
+Allow: /
+
+# Optional: Disallow system or non-public directories (adjust if any exist)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /drafts/
+Disallow: /node_modules/
+
+# Ensure assets and static files are crawlable
+Allow: /images/
+Allow: /styles/
+Allow: /scripts/
+Allow: /public/
+
+# Crawl-delay (to prevent server overload during reindexing)
+Crawl-delay: 10
+
+# Sitemap (main)
+Sitemap: https://optyp.com/sitemap.xml
+
+# =========================
+# Notes:
+# - Use Google Search Console to resubmit sitemap after every major update.
+# - Keep this file in your site root: public/robots.txt
+# =========================

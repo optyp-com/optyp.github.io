@@ -1,65 +1,60 @@
-# Dependencies
-node_modules/
-
-# Build outputs
-dist/
-.astro/
-
-# Environment files
-.env*
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Cache folders
-.npm
-.eslintcache
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-pnpm-debug.log*
-logs/
-*.log
-
-# Editor directories and files
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Temporary folders
-tmp/
-temp/
-
-# Coverage directories
-coverage/
-.nyc_output/
-
-# Yarn Integrity file
-.yarn-integrity
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Local Netlify folder
-.netlify
+{
+  "name": "optyp-website",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "OPTYP - Optimize Your Professionalism. Professional resume, LinkedIn, Naukri, Fiverr, Upwork, and Toptal profile optimization services to boost your career and build a powerful digital presence.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "astro preview",
+    "netlify:dev": "netlify dev",
+    "netlify:build": "netlify build"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "@google/generative-ai": "^0.15.0",
+    "aos": "^2.3.4",
+    "astro": "^4.5.12",
+    "swiper": "^12.0.2",
+    "tailwindcss": "^3.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^20.0.0"
+  },
+  "keywords": [
+    "astro",
+    "tailwind",
+    "career optimization",
+    "resume optimization",
+    "ATS resume",
+    "LinkedIn optimization",
+    "Naukri profile",
+    "Upwork profile",
+    "Fiverr profile",
+    "Toptal profile",
+    "freelancer profile optimization",
+    "portfolio website",
+    "personal branding",
+    "job search optimization",
+    "professional growth",
+    "career website",
+    "resume writing",
+    "profile enhancement",
+    "gig platform optimization",
+    "freelance marketplace optimization",
+    "OPTYP"
+  ],
+  "author": "OPTYP Team",
+  "license": "MIT",
+  "homepage": "https://optyp.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/optyp-com/optyp.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/optyp-com/optyp.github.io/issues"
+  }
+}
