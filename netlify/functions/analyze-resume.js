@@ -28,8 +28,8 @@ export async function handler(event) {
       };
     }
 
-    // Select model based on content length
-    const modelName = resumeText.length > 18000 ? "gemini-1.5-pro" : "gemini-1.5-flash";
+    // Use gemini-1.5-flash (free tier model)
+    const modelName = "gemini-1.5-flash";
     console.log(`🚀 Using model: ${modelName} | Resume size: ${resumeText.length} chars`);
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);

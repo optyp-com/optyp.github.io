@@ -29,7 +29,9 @@ export async function handler(event) {
       model: "gemini-1.5-flash",
       generationConfig: {
         temperature: 0.7,
-        maxOutputTokens: 2000,
+        topP: 0.95,
+        topK: 40,
+        maxOutputTokens: 8192,
       }
     });
 
