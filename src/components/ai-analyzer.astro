@@ -150,7 +150,7 @@ import "../styles/ai-analyzer.css";
     }
   }
 
-  // === 🧾 HANDLE RESUME ANALYSIS (No changes needed) ===
+  // === 🧾 HANDLE RESUME ANALYSIS ===
   async function handleResume(e) {
     e.preventDefault();
     const status = document.getElementById("resume-status");
@@ -159,7 +159,7 @@ import "../styles/ai-analyzer.css";
     const jobDesc = document.getElementById("job-description").value;
     try {
       if (!file) throw new Error("Please upload a resume file.");
-      if (file.size > 5000000) { // 5MB limit
+      if (file.size > 5000000) {
         throw new Error("File is too large. Please upload a file smaller than 5MB.");
       }
       status.textContent = "⏳ Uploading & analyzing resume...";
@@ -174,7 +174,6 @@ import "../styles/ai-analyzer.css";
       let truncatedText = text;
       if (text.length > MAX_CHARS) {
         truncatedText = text.slice(0, MAX_CHARS);
-        console.warn(`Resume text truncated to ${MAX_CHARS} characters.`);
         status.textContent = "⏳ Resume is large, analyzing the first part...";
       }
 
@@ -195,7 +194,7 @@ import "../styles/ai-analyzer.css";
 
       let finalResult = data.result;
       if (text.length > MAX_CHARS) {
-        finalResult = "⚠️ **Note: Your resume was too long for a quick analysis, so only the first part was reviewed.**\n\n" + finalResult;
+        finalResult = "⚠️ **Note: Your resume was too long...**\n\n" + finalResult;
       }
 
       renderResult("resume-result", finalResult);
@@ -209,15 +208,14 @@ import "../styles/ai-analyzer.css";
     }
   }
 
-  // === 🔗 HANDLE LINKEDIN ANALYSIS (Updated for URL) ===
+  // === 🔗 HANDLE LINKEDIN ANALYSIS ===
   async function handleLinkedIn(e) {
     e.preventDefault();
     const status = document.getElementById("linkedin-status");
     const result = document.getElementById("linkedin-result");
-    const profileUrl = document.getElementById("linkedin-url").value; // Get URL from input
+    const profileUrl = document.getElementById("linkedin-url").value;
 
     try {
-      // Updated validation for a URL
       if (!profileUrl || !profileUrl.includes("linkedin.com/in/")) {
         throw new Error("Please enter a valid LinkedIn profile URL.");
       }
@@ -229,7 +227,7 @@ import "../styles/ai-analyzer.css";
       const res = await fetch("/api/analyze-linkedin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ profileUrl: profileUrl }), // Send the URL
+        body: JSON.stringify({ profileUrl: profileUrl }),
       });
       const data = await res.json();
       

@@ -7,6 +7,9 @@ export async function POST({ request }) {
     const geminiApiKey = import.meta.env.GEMINI_API_KEY;
     const scraperApiKey = import.meta.env.SCRAPER_API_KEY;
 
+    // This line is for debugging. It will print the key to your terminal.
+    console.log("Using ScraperAPI Key:", scraperApiKey); 
+    
     if (!geminiApiKey || !scraperApiKey) {
       console.error("❌ Missing API keys in environment.");
       return new Response(JSON.stringify({ error: "API keys not configured." }), { status: 500 });
@@ -16,30 +19,23 @@ export async function POST({ request }) {
       return new Response(JSON.stringify({ error: "Please enter a valid LinkedIn profile URL." }), { status: 400 });
     }
 
-    // --- Use ScraperAPI to Get Profile Text ---
     const scrapeUrl = `http://api.scraperapi.com?api_key=${scraperApiKey}&url=${encodeURIComponent(profileUrl)}`;
-    
-    // We need to fetch the HTML content first, as ScraperAPI returns the raw page
     const scraperResponse = await fetch(scrapeUrl);
 
     if (!scraperResponse.ok) {
         throw new Error("Failed to scrape the LinkedIn profile. The profile might be private or the URL is incorrect.");
     }
 
-    // Since we get HTML back, we'll just use the text content. 
-    // A more advanced version might parse the HTML, but this is a great start.
     const profileHtml = await scraperResponse.text();
-    
-    // A simple way to get text from HTML is to strip tags
     const profileText = profileHtml.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 
-    if (profileText.length < 200) { // Increased minimum length for better analysis
+    if (profileText.length < 200) {
         throw new Error("Could not extract enough text from the profile. It may be private or incomplete.");
     }
 
-    // --- Analyze the Scraped Text with Gemini AI ---
     const genAI = new GoogleGenerativeAI(geminiApiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+    // ✅ CORRECTED MODEL NAME
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
     const prompt = `You are a LinkedIn optimization expert. Analyze the following text extracted from a LinkedIn profile and provide:
       1. Overall Score (0-100)

@@ -1,7 +1,6 @@
 // src/pages/api/analyze-resume.js
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// This is an Astro API route
 export async function POST({ request }) {
   try {
     const { resumeText, jobDescription } = await request.json();
@@ -17,7 +16,8 @@ export async function POST({ request }) {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+    // ✅ CORRECTED MODEL NAME
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
     const prompt = `You are an expert ATS (Applicant Tracking System) evaluator and career coach.
       Analyze this resume based on the following job description if provided:
