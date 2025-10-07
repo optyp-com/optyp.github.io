@@ -1,4 +1,4 @@
-# ✅ Final Netlify Config (Node functions only)
+# ✅ Final Netlify configuration for free plan (Node functions only)
 
 [functions]
   node_bundler = "esbuild"

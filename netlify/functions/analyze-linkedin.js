@@ -1,7 +1,12 @@
 // ✅ /netlify/functions/analyze-linkedin.js
-// Purpose: Evaluate a LinkedIn profile for optimization score and recommendations
+// Evaluate a LinkedIn profile for optimization using Gemini
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
+
+console.log(
+  "🔍 GEMINI_API_KEY status:",
+  process.env.GEMINI_API_KEY ? "FOUND ✅" : "MISSING ❌"
+);
 
 export async function handler(event) {
   try {
@@ -14,25 +19,20 @@ export async function handler(event) {
       };
     }
 
-    // ✅ Initialize Gemini API
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    // ✅ Prompt for LinkedIn analysis
     const prompt = `
-You are a LinkedIn optimization expert.
-Review and rate the public LinkedIn profile available at:
-${profileUrl}
-
-Your output should include:
+You are a LinkedIn optimization specialist.
+Analyze the public LinkedIn profile at ${profileUrl}.
+Provide:
 1. Optimization Score (0–100)
-2. Strengths and Weaknesses
+2. Strengths & weaknesses
 3. Missing or underdeveloped sections (About, Headline, Skills, Recommendations)
-4. SEO and Keyword Improvement Suggestions
-5. Final Summary and Recommended Actions
-    `;
+4. SEO / keyword tips
+5. 3 quick actionable improvements
+`;
 
-    // ✅ Generate AI response
     const result = await model.generateContent(prompt);
     const aiText = result.response.text();
 
@@ -41,10 +41,14 @@ Your output should include:
       body: JSON.stringify({ result: aiText }),
     };
   } catch (error) {
-    console.error("❌ Error in analyze-linkedin:", error);
+    console.error("❌ analyze-linkedin error:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Internal server error" }),
+      body: JSON.stringify({
+        error:
+          error?.message ||
+          "Internal server error while processing LinkedIn analysis",
+      }),
     };
   }
 }

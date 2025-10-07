@@ -1,7 +1,12 @@
 // ✅ /netlify/functions/analyze-resume.js
-// Purpose: Evaluate resume content with or without job description using Gemini AI
+// Evaluate a resume (with or without job description) using Gemini
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
+
+console.log(
+  "🔍 GEMINI_API_KEY status:",
+  process.env.GEMINI_API_KEY ? "FOUND ✅" : "MISSING ❌"
+);
 
 export async function handler(event) {
   try {
@@ -14,25 +19,22 @@ export async function handler(event) {
       };
     }
 
-    // ✅ Initialize Gemini API
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    // ✅ Prompt for analysis
     const prompt = `
-You are an advanced ATS (Applicant Tracking System) evaluator.
-Analyze the following resume${jobDescription ? ` for this job description: ${jobDescription}` : ""}.
+You are an ATS (Applicant Tracking System) evaluator.
+Analyze this resume${jobDescription ? ` for the following job description: ${jobDescription}` : ""}.
 Provide:
 1. ATS Score (0–100)
-2. Missing keywords or weak areas
-3. Key recommendations to improve shortlisting chances
-4. Professional tone improvements if needed
+2. Missing or weak keywords / skills
+3. Top 5 recommendations for improvement
+4. Tone or formatting suggestions
 
-Resume content:
+Resume:
 ${resumeText}
-    `;
+`;
 
-    // ✅ Generate AI response
     const result = await model.generateContent(prompt);
     const aiText = result.response.text();
 
@@ -41,10 +43,14 @@ ${resumeText}
       body: JSON.stringify({ result: aiText }),
     };
   } catch (error) {
-    console.error("❌ Error in analyze-resume:", error);
+    console.error("❌ analyze-resume error:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Internal server error" }),
+      body: JSON.stringify({
+        error:
+          error?.message ||
+          "Internal server error while processing resume analysis",
+      }),
     };
   }
 }
