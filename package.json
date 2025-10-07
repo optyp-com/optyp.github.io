@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
-    "@google/generative-ai": "^0.24.1",
+    "@google/generative-ai": "^0.15.0",
     "aos": "^2.3.4",
     "astro": "^4.15.0",
     "swiper": "^12.0.2",
