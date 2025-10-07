@@ -90,7 +90,7 @@ import "../styles/ai-analyzer.css";
       .split(/\n/)
       .map(line => line.replace(/^[\d\.\-\*•]+\s*/, '').trim())
       .filter(line => line.length > 10 && !line.match(/^(#{1,6}|\*{2})/));
-    return recommendationsText.slice(0, 8); // Limit to 8 recommendations
+    return recommendationsText.slice(0, 8);
   }
 
   // === 💎 RENDER RESULT ===
@@ -101,10 +101,8 @@ import "../styles/ai-analyzer.css";
     const score = extractScore(text);
     const recs = extractRecommendations(text);
     if (score !== null) {
-      const label = score >= 85 ?
-"Excellent ✅" : score >= 70 ? "Good 👍" : score >= 50 ? "Fair 💡" : "Needs Improvement ⚠️";
-      const color = score >= 85 ? "#00ffc6" : score >= 70 ? "#4ade80" : score >= 50 ?
-"#fbbf24" : "#f87171";
+      const label = score >= 85 ? "Excellent ✅" : score >= 70 ? "Good 👍" : score >= 50 ? "Fair 💡" : "Needs Improvement ⚠️";
+      const color = score >= 85 ? "#00ffc6" : score >= 70 ? "#4ade80" : score >= 50 ? "#fbbf24" : "#f87171";
 
       container.innerHTML = `
         <div class="score-section">
@@ -143,8 +141,7 @@ import "../styles/ai-analyzer.css";
     container.innerHTML = `
       <div class="error-box">
         <p>⚠️ ${message}</p>
-        ${retryCallback ?
-'<button class="retry-btn">🔄 Retry</button>' : ''}
+        ${retryCallback ? '<button class="retry-btn">🔄 Retry</button>' : ''}
       </div>
     `;
     if (retryCallback) {
@@ -173,8 +170,7 @@ import "../styles/ai-analyzer.css";
         throw new Error("Resume file seems too short. Please check the file.");
       }
 
-      // ✅ **THE FIX: Truncate the text before sending it**
-      const MAX_CHARS = 15000; // A safe limit for free Netlify functions (approx 15-20kb)
+      const MAX_CHARS = 15000;
       let truncatedText = text;
       if (text.length > MAX_CHARS) {
         truncatedText = text.slice(0, MAX_CHARS);
@@ -182,10 +178,11 @@ import "../styles/ai-analyzer.css";
         status.textContent = "⏳ Resume is large, analyzing the first part...";
       }
 
-      const res = await fetch("/.netlify/functions/analyze-resume", {
+      // ✅ **UPDATED URL**
+      const res = await fetch("/api/analyze-resume", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ resumeText: truncatedText, jobDescription: jobDesc }), // Send the truncated text
+        body: JSON.stringify({ resumeText: truncatedText, jobDescription: jobDesc }),
       });
       const data = await res.json();
       
@@ -227,7 +224,9 @@ import "../styles/ai-analyzer.css";
       status.textContent = "⏳ Analyzing LinkedIn profile...";
       status.style.color = "#00ffc6";
       showLoading("linkedin-result");
-      const res = await fetch("/.netlify/functions/analyze-linkedin", {
+      
+      // ✅ **UPDATED URL**
+      const res = await fetch("/api/analyze-linkedin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ profileText: profileText }),
@@ -270,93 +269,3 @@ import "../styles/ai-analyzer.css";
     }
   }
 </script>
-
-<style>
-.helper-text {
-  font-size: 0.85rem;
-  color: #888;
-  margin-top: 0.5rem;
-  font-style: italic;
-}
-
-.status-msg { 
-  color: #aaa;
-  margin-top: 0.5rem; 
-  font-size: 0.9rem; 
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.error-box { 
-  margin-top: 1rem; 
-  padding: 1rem; 
-  border-radius: 0.75rem;
-  background: rgba(255, 0, 0, 0.08); 
-  border: 1px solid rgba(255, 0, 0, 0.2); 
-  color: #ff6b6b; 
-}
-
-.retry-btn {
-  margin-top: 0.5rem;
-  background: linear-gradient(90deg, #00ffc6, #0091ff);
-  color: black;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  padding: 0.4rem 1rem;
-  cursor: pointer;
-  transition: 0.25s;
-  border: none;
-}
-
-.retry-btn:hover { 
-  opacity: 0.85; 
-  transform: scale(1.02); 
-}
-
-.rec-item {
-  margin: 0.5rem 0;
-  padding: 0.5rem;
-  background: rgba(0, 255, 198, 0.05);
-  border-radius: 0.5rem;
-  border-left: 3px solid #00ffc6;
-}
-
-.loading-spinner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-}
-
-.spinner-circle {
-  width: 50px;
-  height: 50px;
-  border: 4px solid rgba(0, 255, 198, 0.1);
-  border-top-color: #00ffc6;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.loading-text {
-  margin-top: 1rem;
-  color: #00ffc6;
-  font-weight: 500;
-}
-
-.dots::after {
-  content: '';
-  animation: dots 1.5s steps(4, end) infinite;
-}
-
-@keyframes dots {
-  0%, 20% { content: ''; }
-  40% { content: '.';
-}
-  60% { content: '..'; }
-  80%, 100% { content: '...'; }
-}
-</style>
