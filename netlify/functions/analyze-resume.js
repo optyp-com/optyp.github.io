@@ -28,8 +28,8 @@ export async function handler(event) {
       };
     }
 
-    // Use gemini-pro (free tier model)
-    const modelName = "gemini-pro";
+    // Use the latest free tier model
+    const modelName = "gemini-1.5-flash-latest";
     console.log(`🚀 Using model: ${modelName} | Resume size: ${resumeText.length} chars`);
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -40,9 +40,6 @@ export async function handler(event) {
         maxOutputTokens: 2000,
       }
     });
-
-    // Limit text to Gemini's input limit
-    const text = resumeText.slice(0, 180000);
 
     const prompt = `You are an expert ATS (Applicant Tracking System) evaluator and career coach.
 
@@ -58,7 +55,7 @@ Analyze this resume and provide:
 6. **Top 5 Recommendations**: Specific, actionable improvements prioritized by impact
 
 Resume Content:
-${text}
+${resumeText}
 
 Provide a clear, structured analysis with specific examples and actionable advice.`;
 
@@ -79,7 +76,6 @@ Provide a clear, structured analysis with specific examples and actionable advic
     let errorMessage = "An unexpected error occurred during analysis";
     let statusCode = 500;
 
-    // Handle specific error types
     if (err.message.includes("API key")) {
       errorMessage = "Invalid or missing API key. Please check your Gemini API configuration.";
       statusCode = 500;
