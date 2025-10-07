@@ -26,24 +26,22 @@ import "../styles/ai-analyzer.css";
         ></textarea>
         <button type="submit" class="btn-primary">Analyze Resume</button>
       </form>
-
       <div id="resume-status" class="status-msg"></div>
       <div id="resume-result" class="result-box"></div>
     </div>
 
     <div class="glass-card hover-card">
        <h3 class="card-title">💼 LinkedIn Profile Score</h3>
-      <form id="linkedin-form" class="form">
+       <form id="linkedin-form" class="form">
         <textarea
-          id="linkedin-text"
-          placeholder="Paste your LinkedIn profile text here (headline, about, experience, skills, etc.)"
+          id="linkedin-url"
+          placeholder="Paste your public LinkedIn profile URL here"
           class="input-area"
-          rows="8"
+          rows="2"
         ></textarea>
-        <p class="helper-text">💡 Tip: Copy all text from your LinkedIn profile and paste here</p>
+        <p class="helper-text">💡 Example: https://www.linkedin.com/in/your-name</p>
         <button type="submit" class="btn-secondary">Analyze Profile</button>
       </form>
-
       <div id="linkedin-status" class="status-msg"></div>
       <div id="linkedin-result" class="result-box"></div>
     </div>
@@ -101,8 +99,10 @@ import "../styles/ai-analyzer.css";
     const score = extractScore(text);
     const recs = extractRecommendations(text);
     if (score !== null) {
-      const label = score >= 85 ? "Excellent ✅" : score >= 70 ? "Good 👍" : score >= 50 ? "Fair 💡" : "Needs Improvement ⚠️";
-      const color = score >= 85 ? "#00ffc6" : score >= 70 ? "#4ade80" : score >= 50 ? "#fbbf24" : "#f87171";
+      const label = score >= 85 ?
+        "Excellent ✅" : score >= 70 ? "Good 👍" : score >= 50 ? "Fair 💡" : "Needs Improvement ⚠️";
+      const color = score >= 85 ? "#00ffc6" : score >= 70 ? "#4ade80" : score >= 50 ?
+        "#fbbf24" : "#f87171";
 
       container.innerHTML = `
         <div class="score-section">
@@ -141,7 +141,8 @@ import "../styles/ai-analyzer.css";
     container.innerHTML = `
       <div class="error-box">
         <p>⚠️ ${message}</p>
-        ${retryCallback ? '<button class="retry-btn">🔄 Retry</button>' : ''}
+        ${retryCallback ?
+        '<button class="retry-btn">🔄 Retry</button>' : ''}
       </div>
     `;
     if (retryCallback) {
@@ -149,7 +150,7 @@ import "../styles/ai-analyzer.css";
     }
   }
 
-  // === 🧾 HANDLE RESUME ANALYSIS ===
+  // === 🧾 HANDLE RESUME ANALYSIS (No changes needed) ===
   async function handleResume(e) {
     e.preventDefault();
     const status = document.getElementById("resume-status");
@@ -164,7 +165,6 @@ import "../styles/ai-analyzer.css";
       status.textContent = "⏳ Uploading & analyzing resume...";
       status.style.color = "#00ffc6";
       showLoading("resume-result");
-
       const text = await file.text();
       if (text.length < 50) {
         throw new Error("Resume file seems too short. Please check the file.");
@@ -178,7 +178,6 @@ import "../styles/ai-analyzer.css";
         status.textContent = "⏳ Resume is large, analyzing the first part...";
       }
 
-      // ✅ **UPDATED URL**
       const res = await fetch("/api/analyze-resume", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -210,26 +209,27 @@ import "../styles/ai-analyzer.css";
     }
   }
 
-  // === 🔗 HANDLE LINKEDIN ANALYSIS ===
+  // === 🔗 HANDLE LINKEDIN ANALYSIS (Updated for URL) ===
   async function handleLinkedIn(e) {
     e.preventDefault();
     const status = document.getElementById("linkedin-status");
     const result = document.getElementById("linkedin-result");
-    const profileText = document.getElementById("linkedin-text").value;
+    const profileUrl = document.getElementById("linkedin-url").value; // Get URL from input
+
     try {
-      if (!profileText || profileText.trim().length < 50) {
-        throw new Error("Please paste your LinkedIn profile text (minimum 50 characters).");
+      // Updated validation for a URL
+      if (!profileUrl || !profileUrl.includes("linkedin.com/in/")) {
+        throw new Error("Please enter a valid LinkedIn profile URL.");
       }
 
-      status.textContent = "⏳ Analyzing LinkedIn profile...";
+      status.textContent = "⏳ Scraping & analyzing LinkedIn profile...";
       status.style.color = "#00ffc6";
       showLoading("linkedin-result");
-      
-      // ✅ **UPDATED URL**
+
       const res = await fetch("/api/analyze-linkedin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ profileText: profileText }),
+        body: JSON.stringify({ profileUrl: profileUrl }), // Send the URL
       });
       const data = await res.json();
       
