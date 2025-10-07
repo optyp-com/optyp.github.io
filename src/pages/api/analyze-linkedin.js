@@ -6,9 +6,6 @@ export async function POST({ request }) {
     const { profileUrl } = await request.json();
     const geminiApiKey = import.meta.env.GEMINI_API_KEY;
     const scraperApiKey = import.meta.env.SCRAPER_API_KEY;
-
-    // This line is for debugging. It will print the key to your terminal.
-    console.log("Using ScraperAPI Key:", scraperApiKey); 
     
     if (!geminiApiKey || !scraperApiKey) {
       console.error("❌ Missing API keys in environment.");
@@ -34,8 +31,8 @@ export async function POST({ request }) {
     }
 
     const genAI = new GoogleGenerativeAI(geminiApiKey);
-    // ✅ CORRECTED MODEL NAME
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    // ✅ FINAL CORRECTED MODEL NAME
+    const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
 
     const prompt = `You are a LinkedIn optimization expert. Analyze the following text extracted from a LinkedIn profile and provide:
       1. Overall Score (0-100)
