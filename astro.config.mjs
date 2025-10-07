@@ -1,42 +1,27 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import vercel from '@astrojs/vercel';
 
-// ✅ Final Astro configuration for Netlify deployment
+// ✅ Final Astro configuration for Vercel deployment
 export default defineConfig({
-  // 🌐 Your live production domain (non-www root domain)
+  // 🌐 Your live production domain
   site: 'https://optyp.com',
 
-  // Root path for the site (custom domain root)
-  base: '/',
+  // ✅ Output set to 'server' for API routes (SSR)
+  output: 'server',
 
-  // ✅ Output as a static site (Astro default, perfect for Netlify)
-  output: 'static',
-
-  // ✅ Integrate TailwindCSS
+  // ✅ Integrate Vercel adapter and TailwindCSS
+  adapter: vercel(),
   integrations: [tailwind()],
 
   // ✅ Directory structure
   publicDir: 'public',
-  outDir: 'dist',
 
-  // ✅ Clean URLs like /about instead of /about.html
-  build: {
-    format: 'directory',
-  },
-
-  // ✅ Vite configuration for bundling, aliasing, and asset handling
+  // ✅ Vite configuration
   vite: {
     resolve: {
       alias: {
-        '@': '/src', // allows @/components, @/data, @/layouts, etc.
-      },
-    },
-    build: {
-      cssCodeSplit: false, // Ensures all CSS inlined properly
-      rollupOptions: {
-        output: {
-          assetFileNames: 'assets/[name].[hash][extname]',
-        },
+        '@': '/src',
       },
     },
   },

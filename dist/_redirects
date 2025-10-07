@@ -1,2 +1,0 @@
-# ✅ Redirect www to non-www to prevent redirect loops
-https://www.optyp.com/*  https://optyp.com/:splat 301!
