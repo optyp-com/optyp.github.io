@@ -1,7 +1,4 @@
-import { DiscussServiceClient } from "@google-ai/generativelanguage";
-import { GoogleAuth } from "google-auth-library";
-
-console.log("🔍 GEMINI_API_KEY:", process.env.GEMINI_API_KEY ? "FOUND ✅" : "MISSING ❌");
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export async function handler(event) {
   try {
@@ -9,9 +6,8 @@ export async function handler(event) {
     if (!profileUrl)
       return { statusCode: 400, body: JSON.stringify({ error: "Missing LinkedIn URL" }) };
 
-    const client = new DiscussServiceClient({
-      authClient: new GoogleAuth().fromAPIKey(process.env.GEMINI_API_KEY),
-    });
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const prompt = `
 You are a LinkedIn optimization expert.
@@ -21,21 +17,18 @@ Return:
 2. Strengths and weaknesses
 3. Missing or weak sections
 4. SEO / keyword advice
-5. Quick actionable tips`;
+5. Quick actionable tips
+`;
 
-    const [result] = await client.generateMessage({
-      model: "models/gemini-1.5-flash",
-      prompt: { messages: [{ content: prompt }] },
-    });
+    const result = await model.generateContent(prompt);
+    const aiText = result.response.text();
 
-    const responseText = result?.candidates?.[0]?.content || "No response";
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ result: responseText }),
-    };
+    return { statusCode: 200, body: JSON.stringify({ result: aiText }) };
   } catch (err) {
     console.error("❌ analyze-linkedin error:", err);
-    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: err.message }),
+    };
   }
 }

@@ -1,33 +1,24 @@
-import { DiscussServiceClient } from "@google-ai/generativelanguage";
-import { GoogleAuth } from "google-auth-library";
-
-console.log("🔍 GEMINI_API_KEY:", process.env.GEMINI_API_KEY ? "FOUND ✅" : "MISSING ❌");
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export async function handler(event) {
   try {
     let { resumeText, jobDescription } = JSON.parse(event.body || "{}");
-
-    if (!resumeText) {
+    if (!resumeText)
       return { statusCode: 400, body: JSON.stringify({ error: "Missing resume text" }) };
-    }
 
-    // === SMART MODEL SWITCH ===
-    let modelName = "models/gemini-1.5-flash";
-    if (resumeText.length > 18000) {
-      modelName = "models/gemini-1.5-pro";
-    }
+    // Pick model dynamically
+    const modelName =
+      resumeText.length > 18000 ? "gemini-1.5-pro" : "gemini-1.5-flash";
 
-    console.log(`🚀 Using Gemini model: ${modelName} (text length = ${resumeText.length})`);
-
-    // === HARD LIMIT (Gemini Pro limit ≈ 200k chars) ===
-    if (resumeText.length > 190000) {
+    // Trim to Pro’s 200 k-char limit
+    if (resumeText.length > 190000)
       resumeText =
         resumeText.slice(0, 190000) + "\n\n[Resume truncated to fit Gemini input limit]";
-    }
 
-    const client = new DiscussServiceClient({
-      authClient: new GoogleAuth().fromAPIKey(process.env.GEMINI_API_KEY),
-    });
+    console.log(`🚀 Using model: ${modelName}, chars: ${resumeText.length}`);
+
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({ model: modelName });
 
     const prompt = `
 You are an ATS evaluator.
@@ -39,21 +30,18 @@ Return:
 4. Formatting suggestions
 
 Resume:
-${resumeText}`;
+${resumeText}
+`;
 
-    const [result] = await client.generateMessage({
-      model: modelName,
-      prompt: { messages: [{ content: prompt }] },
-    });
+    const result = await model.generateContent(prompt);
+    const aiText = result.response.text();
 
-    const responseText = result?.candidates?.[0]?.content || "No response";
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ result: responseText }),
-    };
+    return { statusCode: 200, body: JSON.stringify({ result: aiText }) };
   } catch (err) {
     console.error("❌ analyze-resume error:", err);
-    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: err.message }),
+    };
   }
 }
