@@ -8,10 +8,10 @@ export async function handler(event) {
     // Check API key
     if (!process.env.GEMINI_API_KEY) {
       console.error("❌ Missing GEMINI_API_KEY in environment.");
-      return { 
-        statusCode: 500, 
-        body: JSON.stringify({ 
-          error: "API key not configured. Please add GEMINI_API_KEY to Netlify environment variables." 
+      return {
+        statusCode: 500,
+        body: JSON.stringify({
+          error: "API key not configured. Please add GEMINI_API_KEY to Netlify environment variables."
         }),
         headers: { 'Content-Type': 'application/json' }
       };
@@ -19,21 +19,21 @@ export async function handler(event) {
 
     // Validate input
     if (!resumeText || resumeText.trim().length < 50) {
-      return { 
-        statusCode: 400, 
-        body: JSON.stringify({ 
-          error: "Resume text is too short or missing. Please upload a valid resume file." 
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          error: "Resume text is too short or missing. Please upload a valid resume file."
         }),
         headers: { 'Content-Type': 'application/json' }
       };
     }
 
-    // Use gemini-1.5-flash (free tier model)
-    const modelName = "gemini-1.5-flash";
+    // Use gemini-pro (free tier model)
+    const modelName = "gemini-pro";
     console.log(`🚀 Using model: ${modelName} | Resume size: ${resumeText.length} chars`);
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ 
+    const model = genAI.getGenerativeModel({
       model: modelName,
       generationConfig: {
         temperature: 0.7,
@@ -43,7 +43,7 @@ export async function handler(event) {
 
     // Limit text to Gemini's input limit
     const text = resumeText.slice(0, 180000);
-    
+
     const prompt = `You are an expert ATS (Applicant Tracking System) evaluator and career coach.
 
 ${jobDescription ? `Job Description:\n${jobDescription.slice(0, 5000)}\n\n` : ''}
@@ -67,18 +67,18 @@ Provide a clear, structured analysis with specific examples and actionable advic
 
     console.log("✅ Resume analysis successful");
 
-    return { 
-      statusCode: 200, 
+    return {
+      statusCode: 200,
       body: JSON.stringify({ result: output }),
       headers: { 'Content-Type': 'application/json' }
     };
 
   } catch (err) {
     console.error("❌ analyze-resume error:", err);
-    
+
     let errorMessage = "An unexpected error occurred during analysis";
     let statusCode = 500;
-    
+
     // Handle specific error types
     if (err.message.includes("API key")) {
       errorMessage = "Invalid or missing API key. Please check your Gemini API configuration.";
@@ -101,7 +101,7 @@ Provide a clear, structured analysis with specific examples and actionable advic
 
     return {
       statusCode,
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         error: errorMessage,
         details: process.env.NODE_ENV === 'development' ? err.stack : undefined
       }),

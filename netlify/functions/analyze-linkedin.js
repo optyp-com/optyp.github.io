@@ -4,29 +4,29 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 export async function handler(event) {
   try {
     const { profileText } = JSON.parse(event.body || "{}");
-    
+
     if (!process.env.GEMINI_API_KEY) {
       console.error("❌ Missing GEMINI_API_KEY in environment.");
-      return { 
-        statusCode: 500, 
-        body: JSON.stringify({ error: "API key not configured. Please contact admin." }) 
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: "API key not configured. Please contact admin." })
       };
     }
 
     if (!profileText || profileText.trim().length < 50) {
-      return { 
-        statusCode: 400, 
-        body: JSON.stringify({ 
-          error: "Please paste your LinkedIn profile text (minimum 50 characters)" 
-        }) 
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          error: "Please paste your LinkedIn profile text (minimum 50 characters)"
+        })
       };
     }
 
     console.log(`🚀 Analyzing LinkedIn profile | Text length: ${profileText.length}`);
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ 
-      model: "gemini-1.5-flash",
+    const model = genAI.getGenerativeModel({
+      model: "gemini-pro",
       generationConfig: {
         temperature: 0.7,
         topP: 0.95,
@@ -56,8 +56,8 @@ Format your response clearly with sections and bullet points.`;
 
     console.log("✅ LinkedIn analysis successful");
 
-    return { 
-      statusCode: 200, 
+    return {
+      statusCode: 200,
       body: JSON.stringify({ result: aiText }),
       headers: {
         'Content-Type': 'application/json'
@@ -66,9 +66,9 @@ Format your response clearly with sections and bullet points.`;
 
   } catch (err) {
     console.error("❌ analyze-linkedin error:", err);
-    
+
     let errorMessage = "An unexpected error occurred";
-    
+
     if (err.message.includes("API key")) {
       errorMessage = "Invalid API key. Please check your Gemini API configuration.";
     } else if (err.message.includes("quota") || err.message.includes("429")) {
