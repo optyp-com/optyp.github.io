@@ -158,17 +158,22 @@ import "../styles/ai-analyzer.css";
     renderResult("linkedin-result", data.result);
   }
 
-    // === EVENT LISTENERS (Fixed for Astro hydration) ===
-  document.addEventListener("DOMContentLoaded", () => {
-    const resumeForm = document.getElementById("resume-form");
-    const linkedinForm = document.getElementById("linkedin-form");
+    // === EVENT LISTENERS ===
+document.addEventListener("astro:page-load", attachListeners);
+document.addEventListener("DOMContentLoaded", attachListeners);
 
-    if (resumeForm) {
-      resumeForm.addEventListener("submit", handleResume);
-    }
+function attachListeners() {
+  const resumeForm = document.getElementById("resume-form");
+  const linkedinForm = document.getElementById("linkedin-form");
 
-    if (linkedinForm) {
-      linkedinForm.addEventListener("submit", handleLinkedIn);
-    }
-  });
+  if (resumeForm && !resumeForm.dataset.bound) {
+    resumeForm.dataset.bound = "true";
+    resumeForm.addEventListener("submit", handleResume);
+  }
+
+  if (linkedinForm && !linkedinForm.dataset.bound) {
+    linkedinForm.dataset.bound = "true";
+    linkedinForm.addEventListener("submit", handleLinkedIn);
+  }
+}
 </script>
