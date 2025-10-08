@@ -2,61 +2,53 @@
   "name": "optyp-website",
   "version": "1.0.0",
   "type": "module",
-  "description": "OPTYP - Optimize Your Professionalism. AI-powered Resume Score Checker and LinkedIn Profile Score Checker to enhance your digital career presence and get hired faster globally.",
+  "description": "OPTYP - Optimize Your Professionalism. AI-powered Resume and LinkedIn Profile Score Analyzer using ChatGPT (OpenAI) for career growth and professional branding.",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "start": "astro preview"
+    "start": "astro preview",
+    "lint": "eslint . --ext .ts,.astro"
   },
   "dependencies": {
+    "@astrojs/preact": "^4.1.1",
     "@astrojs/tailwind": "^6.0.2",
     "@astrojs/vercel": "^8.2.8",
-    "@google/generative-ai": "^0.15.0",
     "aos": "^2.3.4",
     "astro": "^5.14.1",
+    "openai": "^6.2.0",
+    "pdfjs-dist": "^5.4.296",
+    "preact": "^10.27.2",
     "swiper": "^12.0.2",
     "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.19",
-    "@types/node": "^20.0.0"
+    "@types/node": "^20.19.19",
+    "eslint": "^9.9.0",
+    "eslint-plugin-astro": "^1.2.0",
+    "eslint-plugin-tailwindcss": "^3.14.0"
   },
   "keywords": [
     "astro",
     "tailwind",
-    "career optimization",
-    "resume optimization",
-    "ATS resume",
+    "resume analyzer",
     "resume score checker",
     "AI resume analysis",
-    "AI resume score tool",
-    "AI-powered resume analyzer",
-    "LinkedIn optimization",
+    "ChatGPT resume tool",
     "LinkedIn profile score",
-    "LinkedIn profile score checker",
-    "LinkedIn analysis tool",
-    "AI LinkedIn optimizer",
-    "Naukri profile",
-    "Upwork profile",
-    "Fiverr profile",
-    "Toptal profile",
-    "freelancer profile optimization",
-    "portfolio website",
-    "personal branding",
-    "job search optimization",
-    "career website",
-    "resume writing",
-    "profile enhancement",
-    "professional growth",
-    "gig platform optimization",
-    "freelance marketplace optimization",
-    "OPTYP",
+    "LinkedIn optimization",
     "AI tools for professionals",
-    "digital identity optimization",
-    "Gemini AI integration",
-    "Google AI resume analysis"
+    "career optimization",
+    "ATS resume",
+    "AI resume review",
+    "OpenAI resume checker",
+    "AI LinkedIn optimizer",
+    "profile enhancement",
+    "digital career growth",
+    "OPTYP",
+    "AI-powered career tools"
   ],
   "author": "OPTYP Team",
   "license": "MIT",
@@ -67,5 +59,8 @@
   },
   "bugs": {
     "url": "https://github.com/optyp-com/optyp.github.io/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

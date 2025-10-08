@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    /* === Core ESM Configuration === */
+    "target": "ESNext",
+    "module": "NodeNext",                 // ✅ use NodeNext for ESM + Astro
+    "moduleResolution": "NodeNext",       // ✅ fixes "module" error
+    "isolatedModules": true,
+    "noEmit": true,
+
+    /* === JSX / React === */
+    "jsx": "preserve",
+    "jsxImportSource": "preact",
+
+    /* === Type Safety === */
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* === Paths & Imports === */
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    },
+
+    /* === Module Compatibility === */
+    "resolveJsonModule": true,
+    "allowJs": true,
+
+    /* === Global Types === */
+    "types": ["node", "astro/client"]
+  },
+
+  "include": ["src", "astro.config.mjs", "src/types/**/*.d.ts"],
+  "exclude": ["node_modules", "dist", ".astro"]
+}

@@ -1,73 +1,85 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Services from '../components/Services.astro';
-import Plans from '../components/Plans.astro';
-import Testimonials from '../components/Testimonials.astro';
-import Contact from '../components/Contact.astro';
-import FAQHome from '../components/FAQHome.astro';
-import AiAnalyzer from '../components/ai-analyzer.astro';  // ✅ Added
-import { services } from '../data/services.js';
-import { plans } from '../data/plans.js';
-import { testimonials } from '../data/testimonials.js';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Services from "../components/Services.astro";
+import Plans from "../components/Plans.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Contact from "../components/Contact.astro";
+import FAQHome from "../components/FAQHome.astro";
+import AiAnalyzer from "../components/ai-analyzer.astro"; // ✅ Updated wrapper import
+import { services } from "../data/services.js";
+import { plans } from "../data/plans.js";
+import { testimonials } from "../data/testimonials.js";
 ---
 
 <Layout
   title="OPTYP – Optimize Your Professionalism"
-  description="Premium resume, LinkedIn, Naukri, and portfolio optimization services to help professionals get hired faster globally."
+  description="AI-powered resume and LinkedIn optimization. Get instant professional feedback, resume score, and LinkedIn analysis powered by ChatGPT."
 >
   <main class="bg-[linear-gradient(180deg,var(--bg-900),var(--bg-800))] text-gray-100">
-    <!-- Hero -->
+    
+    <!-- 🏠 Hero Section -->
     <section id="hero" class="scroll-mt-20" role="region" aria-labelledby="hero-heading">
       <Hero />
     </section>
 
-    <!-- About -->
-    <section id="about" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="about-heading">
+    <!-- ℹ️ About -->
+    <section id="about" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20">
       <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <About />
       </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="services-heading">
+    <!-- 💼 Services -->
+    <section id="services" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20">
       <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Services services={services} />
       </div>
     </section>
 
-    <!-- Plans -->
-    <section id="plans" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="plans-heading">
+    <!-- 💰 Plans -->
+    <section id="plans" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20">
       <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Plans plans={plans} />
       </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="testimonials-heading">
+    <!-- ⭐ Testimonials -->
+    <section id="testimonials" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20">
       <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Testimonials testimonials={testimonials} />
       </div>
     </section>
 
-    <!-- ✅ NEW SECTION: AI ANALYZER -->
-    <section id="ai-analyzer" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="ai-heading">
+    <!-- 🤖 AI Analyzer Section -->
+    <section id="ai-analyzer" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20">
       <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 id="ai-heading" class="sr-only">AI Resume & LinkedIn Analyzer</h2>
-        <AiAnalyzer />  <!-- ✅ New Component -->
+        <h2
+          id="ai-analyzer-heading"
+          class="text-3xl font-semibold text-center mb-6 text-teal-400"
+        >
+          🤖 AI Resume & LinkedIn Analyzer
+        </h2>
+        <p class="text-center text-gray-300 mb-10 max-w-2xl mx-auto">
+          Upload your resume or LinkedIn profile and get instant AI-powered feedback,
+          detailed scoring, and personalized recommendations — powered by OpenAI GPT-4o.
+        </p>
+
+        <!-- ✅ New Preact-based AI Analyzer component -->
+        <AiAnalyzer />
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="faq-heading">
+    <!-- ❓ FAQ -->
+    <section id="faq" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20">
       <div class="glass-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <FAQHome />
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20" role="region" aria-labelledby="contact-heading">
+    <!-- 📞 Contact -->
+    <section id="contact" class="relative py-12 sm:py-16 lg:py-20 scroll-mt-20">
       <div class="glass-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Contact />
       </div>
@@ -75,10 +87,10 @@ import { testimonials } from '../data/testimonials.js';
   </main>
 
   <style>
-    /* Reusable glass effect (uses CSS variables provided in Layout or global.css) */
+    /* ✅ Reusable Glass Effect */
     .glass-container {
-      background: var(--panel, rgba(255,255,255,0.06));
-      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--panel, rgba(255, 255, 255, 0.06));
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 1rem;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -93,40 +105,21 @@ import { testimonials } from '../data/testimonials.js';
       transform: translateY(-4px);
     }
 
-    /* Ensure comfortable spacing for mobile-first */
     @media (min-width: 640px) {
-      .glass-container { padding: 2rem; }
+      .glass-container {
+        padding: 2rem;
+      }
     }
   </style>
 
-  <!-- Contact link scroll/modal logic -->
+  <!-- ⚙️ Smooth scroll for Contact section -->
   <script is:inline>
-    document.addEventListener('click', function (ev) {
-      const a = ev.target.closest && ev.target.closest('a[href*="#contact"]');
+    document.addEventListener("click", (ev) => {
+      const a = ev.target.closest?.('a[href*="#contact"]');
       if (!a) return;
-      try {
-        const href = a.getAttribute('href') || '';
-        if (href.indexOf('http') === 0 && !href.includes(location.hostname)) return;
-      } catch (e) { /* ignore */ }
-
       ev.preventDefault();
-      if (typeof openContactForm === 'function') {
-        openContactForm();
-      } else {
-        const el = document.getElementById('contact');
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, { passive: false });
-
-    document.addEventListener('DOMContentLoaded', function () {
-      if (location.hash === '#contact') {
-        if (typeof openContactForm === 'function') {
-          openContactForm();
-        } else {
-          const el = document.getElementById('contact');
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
+      const el = document.getElementById("contact");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   </script>
 </Layout>

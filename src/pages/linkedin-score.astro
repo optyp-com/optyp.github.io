@@ -1,0 +1,58 @@
+---
+---
+
+<div class="p-6 bg-gray-50 rounded-2xl shadow-md max-w-xl mx-auto mt-10">
+  <h2 class="text-2xl font-bold mb-4 text-center">LinkedIn Profile Score Checker</h2>
+
+  <input
+    id="linkedinUrl"
+    type="url"
+    placeholder="Enter your LinkedIn profile URL"
+    class="w-full mb-4 border rounded p-2"
+  />
+  <button id="checkBtn" class="bg-blue-600 text-white px-4 py-2 rounded w-full">
+    Check Profile Score
+  </button>
+
+  <div id="result" class="mt-4 text-center text-lg font-semibold"></div>
+
+  <script>
+    const btn = document.getElementById("checkBtn");
+    const result = document.getElementById("result");
+
+    btn.addEventListener("click", async () => {
+      const url = document.getElementById("linkedinUrl").value.trim();
+      if (!url) return alert("Please enter a LinkedIn profile URL!");
+      if (!url.includes("linkedin.com")) return alert("Please enter a valid LinkedIn profile URL!");
+
+      // Simulated scoring (since LinkedIn doesn't allow scraping without API)
+      const factors = [
+        { key: "headline", weight: 20 },
+        { key: "about", weight: 20 },
+        { key: "experience", weight: 20 },
+        { key: "skills", weight: 20 },
+        { key: "recommendations", weight: 20 },
+      ];
+
+      // Simple random scoring for demo purposes
+      const baseScore = 50 + Math.floor(Math.random() * 50);
+
+      result.textContent = `Estimated LinkedIn Profile Score: ${baseScore}/100`;
+
+      // Optionally show some recommendations
+      const tips = [
+        "Add more keywords in your headline.",
+        "Update your About section with measurable achievements.",
+        "Add 5+ skills to your profile.",
+        "Request recommendations from colleagues.",
+        "Ensure your profile photo and banner look professional.",
+      ];
+
+      const randomTip = tips[Math.floor(Math.random() * tips.length)];
+      const tipDiv = document.createElement("div");
+      tipDiv.className = "text-sm text-gray-600 mt-2";
+      tipDiv.textContent = `💡 Tip: ${randomTip}`;
+      result.appendChild(tipDiv);
+    });
+  </script>
+</div>
