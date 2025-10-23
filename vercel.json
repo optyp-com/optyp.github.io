@@ -4,7 +4,7 @@
       "source": "/(.*\\.(woff|woff2|ttf|otf|eot))$",
       "headers": [
         {
-          "key": "Access-Control-Allow-Origin",
+          "key": "Access-control-allow-origin",
           "value": "*"
         }
       ]
