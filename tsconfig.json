@@ -1,37 +1,32 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    /* === Core ESM Configuration === */
-    "target": "ESNext",
-    "module": "NodeNext",                 // ✅ use NodeNext for ESM + Astro
-    "moduleResolution": "NodeNext",       // ✅ fixes "module" error
-    "isolatedModules": true,
-    "noEmit": true,
-
-    /* === JSX / React === */
-    "jsx": "preserve",
     "jsxImportSource": "preact",
-
-    /* === Type Safety === */
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-
-    /* === Paths & Imports === */
-    "baseUrl": "src",
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "outDir": "./dist",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["src/*"],
+      "@/servers/*": ["src/servers/*"],
+      "@/pages/*": ["src/pages/*"]
     },
-
-    /* === Module Compatibility === */
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowJs": true,
-
-    /* === Global Types === */
-    "types": ["node", "astro/client"]
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true
   },
-
-  "include": ["src", "astro.config.mjs", "src/types/**/*.d.ts"],
-  "exclude": ["node_modules", "dist", ".astro"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "build"]
 }

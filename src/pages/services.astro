@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Services from "../components/Services.astro";
-import { services } from "../data/services"; // ✅ new — centralized data import
+import { services } from "../data/services";
 
 const title = "Our Services | OPTYP";
 const description = "Explore OPTYP services – ATS Resume, LinkedIn Optimization, Job Portal Profile Enhancement, and more.";
@@ -9,15 +9,9 @@ const keywords = "optyp services, resume optimization, linkedin profile services
 ---
 
 <Layout title={title} description={description} keywords={keywords}>
-  <main class="min-h-screen bg-black text-white flex flex-col items-center justify-center py-20 px-4">
-    <section class="max-w-5xl w-full">
-      <h1 class="text-4xl md:text-5xl font-bold text-center mb-8">Our Services</h1>
-      <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
-        Discover how OPTYP helps you get noticed faster — from crafting powerful resumes to optimizing online profiles
-        across multiple platforms.
-      </p>
-
-      <!-- ✅ Pass services as prop -->
+  <main class="min-h-screen bg-black text-white py-20 px-4">
+    <section class="max-w-6xl mx-auto">
+      <!-- Just the Services Component -->
       <Services services={services} />
     </section>
   </main>

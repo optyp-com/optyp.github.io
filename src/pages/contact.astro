@@ -2,22 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import Contact from "../components/Contact.astro";
 
-// Meta details
 const title = "Contact Us | OPTYP";
-const description = "Get in touch with the OPTYP team. Have questions about resume or profile optimization? We’re here to help.";
+const description = "Get in touch with the OPTYP team. Have questions about resume or profile optimization? We're here to help.";
 const keywords = "contact optyp, resume optimization, linkedin optimization, naukri profile help, optyp contact form";
 ---
 
 <Layout title={title} description={description} keywords={keywords}>
-  <main class="min-h-screen bg-black text-white flex flex-col items-center justify-center py-20 px-4">
-    <section class="max-w-5xl w-full">
-      <h1 class="text-4xl md:text-5xl font-bold text-center mb-8">Get in Touch</h1>
-      <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
-        Have questions about our services or need help optimizing your professional profiles?  
-        Reach out and our team will respond quickly.
-      </p>
-
-      <!-- ✅ Reuse the same Contact component -->
+  <main class="min-h-screen bg-black text-white py-20 px-4">
+    <section class="max-w-5xl w-full mx-auto">
       <Contact />
     </section>
   </main>

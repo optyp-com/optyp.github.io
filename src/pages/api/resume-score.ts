@@ -1,87 +1,49 @@
 import type { APIRoute } from "astro";
-import { extractTextFromPdf } from "@/server/utils/fileParser";
-import { analyzeText } from "@/server/lib/openai";
+import { extractTextFromPdf } from "../../server/utils/fileParser.js";
+import { analyzeText } from "../../server/lib/openai.js";
 
-/**
- * 📄 Handles resume upload and analysis.
- * Works in two conditions:
- * 1️⃣ Resume only — gives resume score & feedback.
- * 2️⃣ Resume + Job Description — gives JD match score & detailed suggestions.
- */
 export const POST: APIRoute = async ({ request }) => {
   try {
     const formData = await request.formData();
-
     const file = formData.get("file") as File | null;
     const jobDescription = formData.get("jobDescription") as string | null;
 
+    console.log("📥 Received request - File:", file?.name, "JD:", jobDescription ? "Yes" : "No");
+
     if (!file) {
+      console.log("❌ No file provided");
       return new Response(
         JSON.stringify({ success: false, error: "No resume file uploaded." }),
-        { status: 400 }
+        { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
 
-    // ✅ Extract text from PDF
+    console.log("📄 Extracting text from PDF...");
     const resumeText = await extractTextFromPdf(file);
     console.log("✅ Resume text extracted, length:", resumeText.length);
 
-    // 🧠 Build prompt based on whether JD is provided
     const prompt = jobDescription
-      ? `
-You are an expert career coach and ATS (Applicant Tracking System) analyst.
-Analyze the following resume *against the given Job Description* and respond in JSON format.
+      ? `You are an expert career coach and ATS analyst. Analyze the resume against the Job Description.
+Resume: ${resumeText}
+Job Description: ${jobDescription}
+Respond in JSON: { "resume_score": number, "jd_match_score": number, "strengths": [], "weaknesses": [], "recommendations": [] }`
+      : `You are a resume expert. Analyze this resume.
+Resume: ${resumeText}
+Respond in JSON: { "resume_score": number, "strengths": [], "weaknesses": [], "recommendations": [] }`;
 
-Resume:
-${resumeText}
-
-Job Description:
-${jobDescription}
-
-Respond ONLY in this JSON format:
-{
-  "resume_score": number (0-100),
-  "jd_match_score": number (0-100),
-  "strengths": [string],
-  "weaknesses": [string],
-  "recommendations": [string]
-}
-`
-      : `
-You are a professional career coach and resume expert.
-Analyze the following resume for structure, clarity, keyword optimization, and professionalism.
-Respond ONLY in this JSON format:
-
-{
-  "resume_score": number (0-100),
-  "strengths": [string],
-  "weaknesses": [string],
-  "recommendations": [string]
-}
-
-Resume:
-${resumeText}
-`;
-
-    // 🔍 Send text to OpenAI for analysis
+    console.log("🤖 Analyzing with AI...");
     const result = await analyzeText(prompt);
-    console.log("✅ OpenAI analysis completed.");
+    console.log("✅ Analysis completed:", result);
 
     return new Response(
-      JSON.stringify({
-        success: true,
-        data: result,
-      }),
-      { status: 200 }
+      JSON.stringify({ success: true, data: result }),
+      { status: 200, headers: { "Content-Type": "application/json" } }
     );
   } catch (err: any) {
     console.error("❌ Resume Score Error:", err);
     return new Response(
-      JSON.stringify({
-        success: false,
-        error: err.message || "Something went wrong while analyzing the resume.",
-      }),
-      { status: 500 }
+      JSON.stringify({ success: false, error: err.message || "Analysis failed." }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
 };

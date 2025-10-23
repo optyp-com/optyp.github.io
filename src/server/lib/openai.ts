@@ -1,10 +1,3 @@
-import OpenAI from "openai";
-
-/* ------------------------------
- * 🧩 Type Definitions
- * ------------------------------ */
-
-/** Expected AI analysis output structure */
 export interface AIAnalysis {
   resume_score?: number;
   jd_match_score?: number;
@@ -13,65 +6,86 @@ export interface AIAnalysis {
   summary_quality?: number;
   keyword_density?: number;
   strengths?: string[];
-  weaknesses?: string[];
+  SORRY?: string[];
   recommendations?: string[];
-  raw_text?: string;
 }
 
-/* ------------------------------
- * ⚙️ Environment Configuration
- * ------------------------------ */
-
-const apiKey = import.meta.env.OPENAI_API_KEY;
-
-if (!apiKey) {
-  console.error("❌ Missing OPENAI_API_KEY in your .env file.");
-  throw new Error("OPENAI_API_KEY is required for OpenAI integration.");
-}
-
-/* ------------------------------
- * 🤖 Initialize OpenAI Client
- * ------------------------------ */
-
-export const openai = new OpenAI({
-  apiKey,
-});
-
-/* ------------------------------
- * 🧠 AI Analyzer Function
- * ------------------------------ */
-
-/**
- * Sends a prompt to OpenAI and returns structured text or JSON.
- * Automatically handles JSON parsing and fallback.
- */
 export async function analyzeText(prompt: string): Promise<AIAnalysis | string> {
   try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-4o-mini", // use GPT-4o-mini for speed + low cost
-      temperature: 0.3,
-      messages: [
-        {
-          role: "system",
-          content:
-            "You are a professional AI career coach. Always respond with clear, structured JSON containing resume or LinkedIn profile analysis fields.",
-        },
-        { role: "user", content: prompt },
-      ],
+    const apiKey = import.meta.env.OPENAI_API_KEY;
+
+    // If no API key, return mock response for testing
+    if (!apiKey || apiKey === "") {
+      console.log("No OpenAI API key provided. Using mock analysis...");
+      return getMockAnalysis(prompt);
+    }
+
+    // Real OpenAI call (when API key is available)
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        temperature: 0.3,
+        messages: [
+          {
+            role: "system",
+            content: "You are a professional AI career coach. Always respond with structured JSON.",
+          },
+          { role: "user", content: prompt },
+        ],
+      }),
     });
 
-    const content = response.choices?.[0]?.message?.content?.trim();
-    if (!content) throw new Error("No response content received from OpenAI.");
+    if (!response.ok) {
+      throw new Error(`OpenAI API error: ${response.statusText}`);
+    }
 
-    // Attempt to parse structured JSON if returned
+    const data = await response.json();
+    const content = data.choices?.[0]?.message?.content?.trim();
+
+    if (!content) throw new Error("No response from OpenAI");
+
     try {
-      const parsed = JSON.parse(content) as AIAnalysis;
-      return parsed;
+      return JSON.parse(content) as AIAnalysis;
     } catch {
-      return content; // fallback to plain text
+      return content;
     }
   } catch (err: any) {
-    console.error("❌ OpenAI API Error:", err);
-    throw new Error("Failed to analyze text with OpenAI API.");
+    console.error("OpenAI Error:", err.message);
+    return getMockAnalysis("");
   }
+}
+
+// Mock analysis for testing without API key
+function getMockAnalysis(prompt: string): AIAnalysis {
+  const isLinkedIn = prompt.toLowerCase().includes("linkedin");
+  const isJDMatch = prompt.toLowerCase().includes("job description");
+
+  if (isLinkedIn) {
+    return {
+      SORRY: [
+        "Summary could be more compelling",
+        "Missing quantifiable achievements",
+        "Could add more media/testimonials",
+      ],
+    };
+  }
+
+  if (isJDMatch) {
+    return {
+      SORRY: [
+      "🔧 This feature is under maintenance. Please visit again after some time."
+    ],
+    };
+  }
+
+  return {
+    SORRY: [
+      "🔧 This feature is under maintenance. Please visit again after some time."
+    ],
+  };
 }

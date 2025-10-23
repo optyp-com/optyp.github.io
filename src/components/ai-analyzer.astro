@@ -1,15 +1,282 @@
 ---
-import AiAnalyzer from "./react/AiAnalyzer.jsx";
+// AI Analyzer component - handles both Resume and LinkedIn analysis
 ---
 
-<!-- ✅ AI Analyzer Wrapper -->
-<section id="ai-analyzer-wrapper" class="py-10">
-  <AiAnalyzer client:load />
-</section>
+<div id="ai-analyzer-wrapper" class="w-full">
+  <div class="flex flex-col md:flex-row gap-8">
+    <!-- Resume Analyzer Tab -->
+    <div class="flex-1">
+      <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 border border-blue-500/30 rounded-lg p-6">
+        <h3 class="text-xl font-semibold text-teal-400 mb-4 flex items-center gap-2">
+          <span>📄</span> ATS Resume Score
+        </h3>
+        <form id="resumeForm" class="space-y-4">
+          <div>
+            <label for="resumeFile" class="block text-sm font-medium text-gray-300 mb-2">
+              Upload Your Resume (PDF)
+            </label>
+            <input
+              type="file"
+              id="resumeFile"
+              name="file"
+              accept=".pdf"
+              required
+              class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-gray-200 file:bg-teal-600 file:text-white file:border-0 file:rounded file:px-3 file:py-1 file:cursor-pointer hover:border-teal-500 transition"
+            />
+          </div>
+          <div>
+            <label for="jobDesc" class="block text-sm font-medium text-gray-300 mb-2">
+              Job Description (Optional)
+            </label>
+            <textarea
+              id="jobDesc"
+              name="jobDescription"
+              placeholder="Paste the job description to get JD match score..."
+              class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-gray-200 placeholder-gray-500 focus:border-teal-500 focus:outline-none transition"
+              rows="4"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            id="resumeSubmitBtn"
+            class="w-full px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white font-semibold rounded-lg hover:from-teal-700 hover:to-teal-600 disabled:from-gray-600 disabled:to-gray-600 disabled:cursor-not-allowed transition transform hover:scale-105"
+          >
+            Analyze Resume
+          </button>
+        </form>
+        <div id="resumeResult" class="mt-6 hidden"></div>
+      </div>
+    </div>
+
+    <!-- LinkedIn Analyzer Tab -->
+    <div class="flex-1">
+      <div class="bg-gradient-to-br from-blue-900/20 to-blue-800/20 border border-blue-500/30 rounded-lg p-6">
+        <h3 class="text-xl font-semibold text-teal-400 mb-4 flex items-center gap-2">
+          <span>💼</span> LinkedIn Profile Score
+        </h3>
+        <form id="linkedinForm" class="space-y-4">
+          <div>
+            <label for="linkedinUrl" class="block text-sm font-medium text-gray-300 mb-2">
+              LinkedIn URL or Profile Text
+            </label>
+            <textarea
+              id="linkedinUrl"
+              name="linkedInContent"
+              placeholder="Paste your LinkedIn profile URL or profile text here..."
+              class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-gray-200 placeholder-gray-500 focus:border-teal-500 focus:outline-none transition"
+              rows="5"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            id="linkedinSubmitBtn"
+            class="w-full px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white font-semibold rounded-lg hover:from-teal-700 hover:to-teal-600 disabled:from-gray-600 disabled:to-gray-600 disabled:cursor-not-allowed transition transform hover:scale-105"
+          >
+            Analyze LinkedIn Profile
+          </button>
+        </form>
+        <div id="linkedinResult" class="mt-6 hidden"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <style>
-  #ai-analyzer-wrapper {
-    padding: 2rem 1rem;
-    border-radius: 1rem;
+  .result-container {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+
+  .score-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+
+  .strength-item,
+  .weakness-item,
+  .recommendation-item {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .strength-item::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+  }
+
+  .weakness-item::before {
+    content: "✗";
+    position: absolute;
+    left: 0;
+    color: #ef4444;
+    font-weight: bold;
+  }
+
+  .recommendation-item::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #f59e0b;
+    font-weight: bold;
+  }
+
+  .loading-spinner {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 </style>
+
+<script>
+  // Resume Analyzer
+  const resumeForm = document.getElementById("resumeForm");
+  const resumeSubmitBtn = document.getElementById("resumeSubmitBtn");
+  const resumeResult = document.getElementById("resumeResult");
+
+  if (resumeForm) {
+    resumeForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const fileInput = document.getElementById("resumeFile");
+      if (!fileInput.files?.length) {
+        showError(resumeResult, "Please select a PDF file");
+        return;
+      }
+
+      resumeSubmitBtn.disabled = true;
+      resumeSubmitBtn.textContent = "🔄 Analyzing...";
+      resumeResult.textContent = "";
+      resumeResult.classList.remove("hidden");
+
+      try {
+        const formData = new FormData(resumeForm);
+        const response = await fetch("/api/resume-score", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.data) {
+          displayResults(resumeResult, data.data);
+        } else {
+          showError(resumeResult, data.error || "Analysis failed");
+        }
+      } catch (error) {
+        showError(resumeResult, error.message);
+      } finally {
+        resumeSubmitBtn.disabled = false;
+        resumeSubmitBtn.textContent = "Analyze Resume";
+      }
+    });
+  }
+
+  // LinkedIn Analyzer
+  const linkedinForm = document.getElementById("linkedinForm");
+  const linkedinSubmitBtn = document.getElementById("linkedinSubmitBtn");
+  const linkedinResult = document.getElementById("linkedinResult");
+
+  if (linkedinForm) {
+    linkedinForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const input = document.getElementById("linkedinUrl");
+      if (!input.value.trim()) {
+        showError(linkedinResult, "Please enter LinkedIn URL or profile text");
+        return;
+      }
+
+      linkedinSubmitBtn.disabled = true;
+      linkedinSubmitBtn.textContent = "🔄 Analyzing...";
+      linkedinResult.textContent = "";
+      linkedinResult.classList.remove("hidden");
+
+      try {
+        const formData = new FormData();
+        formData.append("linkedInContent", input.value);
+
+        const response = await fetch("/api/linkedin-score", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.data) {
+          displayResults(linkedinResult, data.data);
+        } else {
+          showError(linkedinResult, data.error || "Analysis failed");
+        }
+      } catch (error) {
+        showError(linkedinResult, error.message);
+      } finally {
+        linkedinSubmitBtn.disabled = false;
+        linkedinSubmitBtn.textContent = "Analyze LinkedIn Profile";
+      }
+    });
+  }
+
+  function displayResults(container, data) {
+    container.className = "result-container";
+    let html = "";
+
+    // Scores
+    if (data.resume_score !== undefined) {
+      html += `<div class="score-badge">📊 Resume Score: ${data.resume_score}/100</div>`;
+    }
+    if (data.jd_match_score !== undefined) {
+      html += `<div class="score-badge">🎯 JD Match: ${data.jd_match_score}/100</div>`;
+    }
+    if (data.profile_score !== undefined) {
+      html += `<div class="score-badge">💼 Profile Score: ${data.profile_score}/100</div>`;
+    }
+
+    // Strengths
+    if (data.strengths?.length) {
+      html += "<div class='mt-4'><h4 class='text-green-400 font-semibold mb-2'>✓ Strengths</h4>";
+      html += data.strengths.map((s) => `<div class="strength-item text-gray-200">${s}</div>`).join("");
+      html += "</div>";
+    }
+
+    // SORRY
+    if (data.SORRY?.length) {
+      html += "<div class='mt-4'><h4 class='text-red-400 font-semibold mb-2'>✗ SORRY</h4>";
+      html += data.SORRY.map((w) => `<div class="weakness-item text-gray-200">${w}</div>`).join("");
+      html += "</div>";
+    }
+
+    // Recommendations
+    if (data.recommendations?.length) {
+      html += "<div class='mt-4'><h4 class='text-yellow-400 font-semibold mb-2'>💡 Recommendations</h4>";
+      html += data.recommendations.map((r) => `<div class="recommendation-item text-gray-200">${r}</div>`).join("");
+      html += "</div>";
+    }
+
+    container.innerHTML = html;
+  }
+
+  function showError(container, message) {
+    container.className = "result-container bg-red-900/20 border-red-500/30";
+    container.innerHTML = `<p class="text-red-400">❌ Error: ${message}</p>`;
+  }
+</script>

@@ -28,11 +28,9 @@ const siteName = 'OPTYP';
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <!-- =================== SEO Essentials =================== -->
+    
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
@@ -40,12 +38,9 @@ const siteName = 'OPTYP';
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="google-site-verification" content="AbCdEfGHIJKlmno12345xyz" />
 
-
-    <!-- =================== Canonical & Locale =================== -->
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:locale" content="en_IN" />
 
-    <!-- =================== Open Graph =================== -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={title} />
@@ -56,51 +51,38 @@ const siteName = 'OPTYP';
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:updated_time" content={new Date().toISOString()} />
 
-    <!-- =================== Twitter =================== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@optyp" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- =================== Mobile & PWA =================== -->
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="MobileOptimized" content="320" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <!-- =================== Colors & Theme =================== -->
-    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
     <meta name="theme-color" content="#47C6A2" />
     <meta name="msapplication-TileColor" content="#47C6A2" />
-    <meta name="msapplication-config" content="/browserconfig.xml" />
-
-    <!-- =================== Preconnect / Prefetch =================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="color-scheme" content="dark light" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="preload" as="image" href="/images/logo.svg" />
 
-    <!-- =================== Fonts =================== -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
     />
 
-     <!-- =================== Favicons / Manifest (Custom Domain version) =================== -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
-<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
-<link rel="manifest" href="/site.webmanifest" />
-<meta name="msapplication-config" content="/browserconfig.xml" />
-<meta name="theme-color" content="#47C6A2" />
-<meta name="msapplication-TileColor" content="#47C6A2" />
-
-
-    <!-- =================== Global Design Tokens =================== -->
+    <link rel="stylesheet" href="/styles/global.css" />
     <style>
       :root {
         --bg-900: #050406;
@@ -108,7 +90,7 @@ const siteName = 'OPTYP';
         --panel: rgba(255, 255, 255, 0.03);
         --accent-1: #47C6A2;
         --accent-2: #ff7a6b;
-        --accent-3: #6ed0ff;
+        --accent-3: #47C6A2;
         --text-1: #f4f7f7;
         --muted: #9ca3af;
       }
@@ -116,12 +98,21 @@ const siteName = 'OPTYP';
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
       }
+
+      /* Text rendering enhancements */
+      html {
+        font-feature-settings: "kern" 1;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
     </style>
 
-    <!-- =================== Global CSS =================== -->
-    <link rel="stylesheet" href="/styles/global.css" />
-
-    <!-- =================== Structured Data =================== -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -202,11 +193,8 @@ const siteName = 'OPTYP';
       }
     </script>
 
-    <!-- =================== Page-Specific JSON-LD =================== -->
     {jsonLd && (
-      <script type="application/ld+json">
-        {JSON.stringify(jsonLd)}
-      </script>
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     )}
   </head>
 
@@ -215,22 +203,16 @@ const siteName = 'OPTYP';
       Skip to main content
     </a>
 
-    <!-- =================== Header =================== -->
     <Header />
 
-    <!-- =================== Main Content =================== -->
     <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="main">
       <slot />
     </main>
-
-    <!-- =================== Cookie Banner =================== -->
+    
     <CookieBanner />
-
-    <!-- =================== Footer & Floating Contact =================== -->
     <Footer />
     <FloatingContactIcon />
 
-    <!-- =================== Animations =================== -->
     <style>
       @keyframes fadeInUp {
         from { opacity: 0; transform: translateY(20px); }
@@ -240,7 +222,6 @@ const siteName = 'OPTYP';
       .animate-fadeInUp.visible { opacity: 1; animation: fadeInUp 0.8s ease-out both; }
     </style>
 
-    <!-- =================== Scroll Reveal =================== -->
     <script is:inline>
       (function () {
         const revealEls = document.querySelectorAll(".animate-fadeInUp");
@@ -263,11 +244,11 @@ const siteName = 'OPTYP';
       }());
     </script>
 
-    <!-- =================== Cookie Consent (Analytics) =================== -->
     <script is:inline>
       window.addEventListener('cookiePreferencesSaved', (e) => {
         if (e.detail.analytics) {
           const s = document.createElement('script');
+          // TODO: Replace with your actual Google Analytics ID
           s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
           s.async = true;
           document.head.appendChild(s);
@@ -280,4 +261,3 @@ const siteName = 'OPTYP';
     </script>
   </body>
 </html>
-f
